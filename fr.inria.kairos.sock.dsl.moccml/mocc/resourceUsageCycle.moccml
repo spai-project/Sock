@@ -1,0 +1,57 @@
+AutomataConstraintLibrary resourceUsageCycle {
+	
+	import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel;
+	import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSLLib;
+
+	RelationLibrary ResourceUsageCycleLibrary {
+		
+		AutomataRelationDefinition ResourceUsageCycleRelationDefinition [ResourceUsageCycleRelation] {
+			
+			/* 
+			 * TRANSITIONS DEFINITION
+			 */ 
+			
+			init: Start
+			
+			from Start to Free : starting
+			-> ()
+			
+			from Free to Busy : enter
+			-> (when ResourceUsageCycleEnterEvent)
+			
+			from Free to Free : somethingElseFree
+			-> (when ResourceUsageCycleSomethingElseEvent)
+			
+			from Busy to Free : exit
+			-> (when ResourceUsageCycleExitEvent)
+			
+			from Busy to Busy : somethingElseBusy
+			-> (when ResourceUsageCycleSomethingElseEvent)
+			
+			/* 
+			 * STATES DEFINITION
+			 */ 
+			
+			State Start (
+				out: starting
+			)
+			
+			State Free (
+				in: exit, somethingElseFree
+				out: enter, somethingElseFree
+			)
+			
+			State Busy (
+				in: enter, somethingElseBusy
+				out: exit, somethingElseBusy
+			)
+		
+		}
+		RelationDeclaration ResourceUsageCycleRelation(
+			ResourceUsageCycleEnterEvent: clock,
+			ResourceUsageCycleExitEvent: clock,
+			ResourceUsageCycleSomethingElseEvent: clock
+		)
+	}
+
+}	

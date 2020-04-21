@@ -1,0 +1,92 @@
+AutomataConstraintLibrary actorProcessingCycle {
+	
+	import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel;
+	import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSLLib;
+
+	RelationLibrary ActorProcessingCycleLibrary {
+		
+		AutomataRelationDefinition ActorProcessingCycleRelationDefinition [ActorProcessingCycle] {
+			
+			variables {
+				Integer currentProcessTimeValue = 0
+			}
+			
+			/* 
+			 * TRANSITIONS DEFINITION
+			 */ 
+			
+			init: Start
+			
+			from Start to Exited : starting
+			-> ()
+			
+			from Exited to Requested : request
+			-> (when ActorProcessingCycleRequestEvent)
+			
+			from Exited to Exited : doesNothingExited
+			-> (when ActorProcessingCycleDoesNothingEvent)
+			
+			from Requested to Entered : enter
+			-> (when ActorProcessingCycleEnterEvent)
+
+			from Requested to Requested : doesNothingRequested
+			-> (when ActorProcessingCycleDoesNothingEvent)
+			
+			from Entered to Entered : process
+			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue < ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = (currentProcessTimeValue + one))
+			
+			from Entered to Exited : exit
+			-> (when ActorProcessingCycleExitEvent if (currentProcessTimeValue == ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = zero)
+			
+			from Entered to Stopped : exitStopped
+			-> (when ActorProcessingCycleResourceIsEnteredEvent if (ActorProcessingCyclePriorityValue.value == zero))
+			
+			from Stopped to Stopped : doesNothingStopped
+			-> (when ActorProcessingCycleDoesNothingEvent)
+			
+			from Stopped to Entered : enterStopped
+			-> (when ActorProcessingCycleEnterEvent)
+			
+			/* 
+			 * STATES DEFINITION
+			 */ 
+			
+			State Stopped(
+				in: exitStopped, doesNothingStopped
+				out: doesNothingStopped, enterStopped
+			)
+			
+			State Start (
+				out: starting
+			)
+			
+			State Requested (
+				in: request, doesNothingRequested
+				out: enter, doesNothingRequested
+			)
+			
+			State Entered (
+				in: enter, process, enterStopped
+				out: process, exit, exitStopped
+			)
+			
+			State Exited (
+				in: starting, exit, doesNothingExited
+				out: request, doesNothingExited
+			)
+		
+		}
+		
+		RelationDeclaration ActorProcessingCycle(
+			ActorProcessingCycleRequestEvent: clock,
+			ActorProcessingCycleEnterEvent: clock,
+			ActorProcessingCycleProcessEvent: clock,
+			ActorProcessingCycleProcessTime: int,
+			ActorProcessingCycleExitEvent: clock,
+			ActorProcessingCycleDoesNothingEvent: clock,
+			ActorProcessingCycleResourceIsEnteredEvent: clock,
+			ActorProcessingCyclePriorityValue: int
+		)
+	}
+
+}	

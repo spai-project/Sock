@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:fr.inria.aoste.timemodel.basicTypes="http://fr.inria.aoste.timemodel.basicTypes" xmlns:fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation="http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation" xmlns:moccml="http://org.eclipse.gemoc.moccml/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:org.eclipse.gemoc.moccml.fsmmodel="http://org.eclipse.gemoc.moccml.fsmmodel/1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://fr.inria.aoste.timemodel.basicTypes http://fr.inria.aoste.timemodel#//BasicType http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation http://fr.inria.aoste.timemodel#//CCSLModel/ClockExpressionAndRelation http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_hwB98II3EeqBZNX9rX6F2g" selectedViews="_kPoM4II3EeqBZNX9rX6F2g" version="14.1.0.201810161215">
+    <semanticResources>mocc/actorProcessingCycle.moccml</semanticResources>
+    <semanticResources>platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib</semanticResources>
+    <semanticResources>platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib</semanticResources>
+    <semanticResources>mocc/resourceUsageCycle.moccml</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_kPoM4II3EeqBZNX9rX6F2g">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_m-gN8II3EeqBZNX9rX6F2g" name="Actor Processing Cycle State Machine Diagram" repPath="#_m0hLgII3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']"/>
+        <target xmi:type="moccml:StateMachineRelationDefinition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_m-4qUIOpEeqtrvMPLmGfOA" name="Resource Usage Cycle State Machine Relation Diagram" repPath="#_m9bRwIOpEeqtrvMPLmGfOA">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']"/>
+        <target xmi:type="moccml:StateMachineRelationDefinition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_m0hLgII3EeqBZNX9rX6F2g" name="Actor Processing Cycle State Machine Diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_m-VO0II3EeqBZNX9rX6F2g" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_m-VO0YI3EeqBZNX9rX6F2g"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_m_Qb4II3EeqBZNX9rX6F2g" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_m_Qb4YI3EeqBZNX9rX6F2g" type="Sirius" element="_m0hLgII3EeqBZNX9rX6F2g" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_m_xZQII3EeqBZNX9rX6F2g" type="2001" element="_m5z7MII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_m_9mgII3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_m_9mgYI3EeqBZNX9rX6F2g" x="-23" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAyF4II3EeqBZNX9rX6F2g" type="3004" element="_m6R1QII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_nAyF4YI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAyF4oI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_m_xZQYI3EeqBZNX9rX6F2g" fontColor="7490599" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_xZQoI3EeqBZNX9rX6F2g" x="132" y="296" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nAo78II3EeqBZNX9rX6F2g" type="2001" element="_m6aYIII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nAo784I3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_nAo79II3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAys8II3EeqBZNX9rX6F2g" type="3016" element="_m6pBoII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_nAys8YI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAys8oI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nAo78YI3EeqBZNX9rX6F2g" fontColor="7490599" fontName=".AppleSystemUIFont" fontHeight="10" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAo78oI3EeqBZNX9rX6F2g" x="380" y="368" width="140" height="140"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nAo79YI3EeqBZNX9rX6F2g" type="2001" element="_m63rIYI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nApjAII3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_nApjAYI3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAys84I3EeqBZNX9rX6F2g" type="3016" element="_m645QII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_nAys9II3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAys9YI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nAo79oI3EeqBZNX9rX6F2g" fontColor="7490599" fontName=".AppleSystemUIFont" fontHeight="10" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAo794I3EeqBZNX9rX6F2g" x="676" y="200" width="120" height="120"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nAqKEII3EeqBZNX9rX6F2g" type="2001" element="_m65gUII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nAqKE4I3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_nAqKFII3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAzUAII3EeqBZNX9rX6F2g" type="3016" element="_m66HYII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_nAzUAYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAzUAoI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nAqKEYI3EeqBZNX9rX6F2g" fontColor="7490599" fontName=".AppleSystemUIFont" fontHeight="10" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAqKEoI3EeqBZNX9rX6F2g" x="676" width="120" height="120"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nAqxIII3EeqBZNX9rX6F2g" type="2001" element="_m7XaYII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nAtNYII3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_nAtNYYI3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAzUA4I3EeqBZNX9rX6F2g" type="3016" element="_m7Z2oII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_nAzUBII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAzUBYI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nAqxIYI3EeqBZNX9rX6F2g" fontColor="7490599" fontName=".AppleSystemUIFont" fontHeight="10" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAqxIoI3EeqBZNX9rX6F2g" x="244" y="256" width="110" height="110"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nAubgII3EeqBZNX9rX6F2g" type="2003" element="_m7cS4II3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nAvpoII3EeqBZNX9rX6F2g" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_nAvpoYI3EeqBZNX9rX6F2g" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_nAz7EII3EeqBZNX9rX6F2g" type="3010" element="_m7pHMII3EeqBZNX9rX6F2g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nAz7EYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nAz7EoI3EeqBZNX9rX6F2g"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_nAvpooI3EeqBZNX9rX6F2g"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_nAvpo4I3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nAubgYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAubgoI3EeqBZNX9rX6F2g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nAwQsII3EeqBZNX9rX6F2g" type="2003" element="_m8HBQII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nAwQs4I3EeqBZNX9rX6F2g" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_nAwQtII3EeqBZNX9rX6F2g" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_nA1JMII3EeqBZNX9rX6F2g" type="3010" element="_m8QyQII3EeqBZNX9rX6F2g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nA1JMYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nA1JMoI3EeqBZNX9rX6F2g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_nA1JM4I3EeqBZNX9rX6F2g" type="3010" element="_m8QyQoI3EeqBZNX9rX6F2g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nA1JNII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nA1JNYI3EeqBZNX9rX6F2g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_nA1wQII3EeqBZNX9rX6F2g" type="3010" element="_m8RZUII3EeqBZNX9rX6F2g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nA1wQYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nA1wQoI3EeqBZNX9rX6F2g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_nA1wQ4I3EeqBZNX9rX6F2g" type="3010" element="_m8RZUoI3EeqBZNX9rX6F2g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nA1wRII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nA1wRYI3EeqBZNX9rX6F2g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_nA1wRoI3EeqBZNX9rX6F2g" type="3010" element="_m8RZVII3EeqBZNX9rX6F2g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nA1wR4I3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nA1wSII3EeqBZNX9rX6F2g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_nA2XUII3EeqBZNX9rX6F2g" type="3010" element="_m8SAYYI3EeqBZNX9rX6F2g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nA2XUYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nA2XUoI3EeqBZNX9rX6F2g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_nA2XU4I3EeqBZNX9rX6F2g" type="3010" element="_m8SncII3EeqBZNX9rX6F2g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nA2XVII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nA2XVYI3EeqBZNX9rX6F2g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_M-qCoIOpEeqtrvMPLmGfOA" type="3010" element="_M8nbQoOpEeqtrvMPLmGfOA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_M-qCoYOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_M-qCooOpEeqtrvMPLmGfOA"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_nAwQtYI3EeqBZNX9rX6F2g"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_nAwQtoI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nAwQsYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAwQsoI3EeqBZNX9rX6F2g" x="200" y="-72"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xWXMII3EeqBZNX9rX6F2g" type="2001" element="_1d4ooII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xWXM4I3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xWXNII3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xaooII3EeqBZNX9rX6F2g" type="3003" element="_1hXacII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xaooYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xaoooI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xWXMYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xWXMoI3EeqBZNX9rX6F2g" x="184" y="520" width="209" height="38"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xW-QII3EeqBZNX9rX6F2g" type="2001" element="_1hYBgYI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xW-Q4I3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xW-RII3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xaoo4I3EeqBZNX9rX6F2g" type="3003" element="_1jFRsII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xaopII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xaopYI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xW-QYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xW-QoI3EeqBZNX9rX6F2g" x="96" y="464" width="217" height="37"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xXlUII3EeqBZNX9rX6F2g" type="2001" element="_1jF4wYI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xXlU4I3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xXlVII3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xaopoI3EeqBZNX9rX6F2g" type="3003" element="_1lCZgII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xaop4I3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xaoqII3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xXlUYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xXlUoI3EeqBZNX9rX6F2g" x="496" y="325" width="185" height="37"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xXlVYI3EeqBZNX9rX6F2g" type="2001" element="_1lDAkYI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xYMYII3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xYMYYI3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xbPsII3EeqBZNX9rX6F2g" type="3003" element="_1mzUEII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xbPsYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xbPsoI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xXlVoI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xXlV4I3EeqBZNX9rX6F2g" x="612" y="456" width="233" height="28"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xYzcII3EeqBZNX9rX6F2g" type="2001" element="_1mz7III3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xYzc4I3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xYzdII3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xb2wII3EeqBZNX9rX6F2g" type="3003" element="_1pLSoII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xb2wYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xb2woI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xYzcYI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xYzcoI3EeqBZNX9rX6F2g" x="900" y="296" width="213" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xYzdYI3EeqBZNX9rX6F2g" type="2001" element="_1pL5sYI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xYzeII3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xYzeYI3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xb2w4I3EeqBZNX9rX6F2g" type="3003" element="_1q80QII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xb2xII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xb2xYI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xYzdoI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xYzd4I3EeqBZNX9rX6F2g" x="272" y="149" width="323" height="52"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xYzeoI3EeqBZNX9rX6F2g" type="2001" element="_1q9bUII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xZagII3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xZagYI3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xb2xoI3EeqBZNX9rX6F2g" type="3003" element="_1scpEII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xb2x4I3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xb2yII3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xYze4I3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xYzfII3EeqBZNX9rX6F2g" x="808" y="174" width="281" height="38"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xZagoI3EeqBZNX9rX6F2g" type="2001" element="_1sd3MII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xZahYI3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xZahoI3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xb2yYI3EeqBZNX9rX6F2g" type="3003" element="_1txewII3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xb2yoI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xb2y4I3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xZag4I3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xZahII3EeqBZNX9rX6F2g" x="880" y="45" width="209" height="29"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xZah4I3EeqBZNX9rX6F2g" type="2001" element="_1tyF0II3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xZaioI3EeqBZNX9rX6F2g" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1xZai4I3EeqBZNX9rX6F2g" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xcd0II3EeqBZNX9rX6F2g" type="3003" element="_1vAN0II3EeqBZNX9rX6F2g">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1xcd0YI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xcd0oI3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1xZaiII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xZaiYI3EeqBZNX9rX6F2g" x="408" y="96" width="261" height="31"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_m_Qb4oI3EeqBZNX9rX6F2g"/>
+        <edges xmi:type="notation:Edge" xmi:id="_nBJ5UII3EeqBZNX9rX6F2g" type="4001" element="_m8ajQII3EeqBZNX9rX6F2g" source="_m_xZQII3EeqBZNX9rX6F2g" target="_nAqxIII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBLHcII3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBLHcYI3EeqBZNX9rX6F2g" x="4" y="-11"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBLugII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBLugYI3EeqBZNX9rX6F2g" x="-7" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBLugoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBLug4I3EeqBZNX9rX6F2g" x="-13" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBJ5UYI3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBJ5UoI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBJ5U4I3EeqBZNX9rX6F2g" points="[14, 16, -138, -54]$[97, 16, -55, -54]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBZw8II3EeqBZNX9rX6F2g" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBZw8YI3EeqBZNX9rX6F2g" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBaYAII3EeqBZNX9rX6F2g" type="4001" element="_m-Mr8II3EeqBZNX9rX6F2g" source="_nAqxIII3EeqBZNX9rX6F2g" target="_nAo78II3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBaYBII3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBaYBYI3EeqBZNX9rX6F2g" x="35" y="-19"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBaYBoI3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBaYB4I3EeqBZNX9rX6F2g" x="46" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBaYCII3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBaYCYI3EeqBZNX9rX6F2g" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBaYAYI3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBaYAoI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBaYA4I3EeqBZNX9rX6F2g" points="[0, 110, -151, -142]$[0, 184, -151, -68]$[81, 184, -70, -68]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBa_EII3EeqBZNX9rX6F2g" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBa_EYI3EeqBZNX9rX6F2g" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBa_EoI3EeqBZNX9rX6F2g" type="4001" element="_m-PIMYI3EeqBZNX9rX6F2g" source="_nAqxIII3EeqBZNX9rX6F2g" target="_nAqxIII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBa_FoI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBa_F4I3EeqBZNX9rX6F2g" x="-58" y="-47"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBa_GII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBa_GYI3EeqBZNX9rX6F2g" x="-3" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBa_GoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBa_G4I3EeqBZNX9rX6F2g" x="-4" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBa_E4I3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBa_FII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBa_FYI3EeqBZNX9rX6F2g" points="[-55, 27, -55, 27]$[-99, 27, -99, 27]$[-99, 117, -99, 117]$[-19, 117, -19, 117]$[-19, 55, -19, 55]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBbmIII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBbmIYI3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBbmIoI3EeqBZNX9rX6F2g" type="4001" element="_m-QWUYI3EeqBZNX9rX6F2g" source="_nAo78II3EeqBZNX9rX6F2g" target="_nAo79YI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBbmJoI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBbmJ4I3EeqBZNX9rX6F2g" x="133" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBbmKII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBbmKYI3EeqBZNX9rX6F2g" x="-17" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBbmKoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBbmK4I3EeqBZNX9rX6F2g" x="43" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBbmI4I3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBbmJII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBbmJYI3EeqBZNX9rX6F2g" points="[0, 0, -286, 48]$[0, -74, -286, -26]$[226, -74, -60, -26]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBbmLII3EeqBZNX9rX6F2g" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBbmLYI3EeqBZNX9rX6F2g" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBdbUII3EeqBZNX9rX6F2g" type="4001" element="_m-Q9YYI3EeqBZNX9rX6F2g" source="_nAo78II3EeqBZNX9rX6F2g" target="_nAo78II3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBeCYII3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBeCYYI3EeqBZNX9rX6F2g" x="-25" y="72"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBeCYoI3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBeCY4I3EeqBZNX9rX6F2g" x="-13" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBeCZII3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBeCZYI3EeqBZNX9rX6F2g" x="13" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBdbUYI3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBdbUoI3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBdbU4I3EeqBZNX9rX6F2g" points="[70, -14, 70, -14]$[132, -14, 132, -14]$[132, 132, 132, 132]$[-6, 132, -6, 132]$[-6, 70, -6, 70]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBepcII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBepcYI3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBepcoI3EeqBZNX9rX6F2g" type="4001" element="_m-RkcII3EeqBZNX9rX6F2g" source="_nAo79YI3EeqBZNX9rX6F2g" target="_nAo79YI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBepdoI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBepd4I3EeqBZNX9rX6F2g" x="-33" y="58"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBfQgII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBfQgYI3EeqBZNX9rX6F2g" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBfQgoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBfQg4I3EeqBZNX9rX6F2g" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBepc4I3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBepdII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBepdYI3EeqBZNX9rX6F2g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBfQhII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBfQhYI3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBfQhoI3EeqBZNX9rX6F2g" type="4001" element="_m-RkdoI3EeqBZNX9rX6F2g" source="_nAo79YI3EeqBZNX9rX6F2g" target="_nAqxIII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBfQioI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBfQi4I3EeqBZNX9rX6F2g" x="-86" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBf3kII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBf3kYI3EeqBZNX9rX6F2g" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBf3koI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBf3k4I3EeqBZNX9rX6F2g" x="-145" y="-10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBfQh4I3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBfQiII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBfQiYI3EeqBZNX9rX6F2g" points="[-60, -24, 377, -75]$[-437, -24, 0, -75]$[-437, -4, 0, -55]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBf3lII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBf3lYI3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBf3loI3EeqBZNX9rX6F2g" type="4001" element="_m-SLg4I3EeqBZNX9rX6F2g" source="_nAo79YI3EeqBZNX9rX6F2g" target="_nAqKEII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBf3moI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBf3m4I3EeqBZNX9rX6F2g" x="15" y="56"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBgeoII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBgeoYI3EeqBZNX9rX6F2g" x="17" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBgeooI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBgeo4I3EeqBZNX9rX6F2g" x="3" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBf3l4I3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBf3mII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBf3mYI3EeqBZNX9rX6F2g" points="[44, 0, 44, 80]$[44, -80, 44, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBgepII3EeqBZNX9rX6F2g" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBgepYI3EeqBZNX9rX6F2g" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBgepoI3EeqBZNX9rX6F2g" type="4001" element="_m-SykYI3EeqBZNX9rX6F2g" source="_nAqKEII3EeqBZNX9rX6F2g" target="_nAqKEII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBgeqoI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBgeq4I3EeqBZNX9rX6F2g" x="-53" y="36"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBhFsII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBhFsYI3EeqBZNX9rX6F2g" x="17" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBhFsoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBhFs4I3EeqBZNX9rX6F2g" y="-10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBgep4I3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBgeqII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBgeqYI3EeqBZNX9rX6F2g" points="[60, -44, 60, -44]$[122, -44, 122, -44]$[122, 28, 122, 28]$[60, 28, 60, 28]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBhFtII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBhFtYI3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nBhFtoI3EeqBZNX9rX6F2g" type="4001" element="_m-TZo4I3EeqBZNX9rX6F2g" source="_nAqKEII3EeqBZNX9rX6F2g" target="_nAo79YI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_nBhswII3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBhswYI3EeqBZNX9rX6F2g" x="18" y="37"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBhswoI3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBhsw4I3EeqBZNX9rX6F2g" x="-3" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nBhsxII3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nBhsxYI3EeqBZNX9rX6F2g" x="-17" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nBhFt4I3EeqBZNX9rX6F2g" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nBhFuII3EeqBZNX9rX6F2g" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBhFuYI3EeqBZNX9rX6F2g" points="[-40, 0, -40, -80]$[-40, 80, -40, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBhsxoI3EeqBZNX9rX6F2g" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nBhsx4I3EeqBZNX9rX6F2g" id="(0.5,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xdr8II3EeqBZNX9rX6F2g" type="4001" element="_1wn-cII3EeqBZNX9rX6F2g" source="_nBaYAII3EeqBZNX9rX6F2g" target="_1xWXMII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xdr9II3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xdr9YI3EeqBZNX9rX6F2g" x="-21" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xdr9oI3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xdr94I3EeqBZNX9rX6F2g" x="6" y="-2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xdr-II3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xdr-YI3EeqBZNX9rX6F2g" x="6" y="-1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xdr8YI3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xdr8oI3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xdr84I3EeqBZNX9rX6F2g" points="[1, 66, -2, -101]$[2, 155, -1, -12]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xfhIII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xfhIYI3EeqBZNX9rX6F2g" id="(0.7607655502392344,1.3157894736842106)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xfhIoI3EeqBZNX9rX6F2g" type="4001" element="_1wpMkII3EeqBZNX9rX6F2g" source="_nBa_EoI3EeqBZNX9rX6F2g" target="_1xW-QII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xfhJoI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xfhJ4I3EeqBZNX9rX6F2g" x="2" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xgIMII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xgIMYI3EeqBZNX9rX6F2g" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xgIMoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xgIM4I3EeqBZNX9rX6F2g" x="-7"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xfhI4I3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xfhJII3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xfhJYI3EeqBZNX9rX6F2g" points="[-1, 45, 1, -38]$[-1, 81, 1, -2]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xgINII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xgINYI3EeqBZNX9rX6F2g" id="(0.6543778801843319,0.05405405405405406)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xgINoI3EeqBZNX9rX6F2g" type="4001" element="_1wuFEII3EeqBZNX9rX6F2g" source="_nBbmIoI3EeqBZNX9rX6F2g" target="_1xXlUII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xgIOoI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xgIO4I3EeqBZNX9rX6F2g" x="11" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xgIPII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xgIPYI3EeqBZNX9rX6F2g" x="10" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xgIPoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xgIP4I3EeqBZNX9rX6F2g" x="-21" y="-9"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xgIN4I3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xgIOII3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xgIOYI3EeqBZNX9rX6F2g" points="[-13, -37, -20, -81]$[4, 31, -3, -13]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xgvQII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xgvQYI3EeqBZNX9rX6F2g" id="(0.4,1.3513513513513513)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xgvQoI3EeqBZNX9rX6F2g" type="4001" element="_1wwhUII3EeqBZNX9rX6F2g" source="_nBdbUII3EeqBZNX9rX6F2g" target="_1xXlVYI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xgvRoI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xgvR4I3EeqBZNX9rX6F2g" x="-2" y="-2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xgvSII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xgvSYI3EeqBZNX9rX6F2g" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xgvSoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xgvS4I3EeqBZNX9rX6F2g"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xgvQ4I3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xgvRII3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xgvRYI3EeqBZNX9rX6F2g" points="[85, -36, -64, 27]$[99, -40, -50, 23]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xgvTII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xhWUII3EeqBZNX9rX6F2g" id="(0.2145922746781116,-0.7857142857142857)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xhWUYI3EeqBZNX9rX6F2g" type="4001" element="_1wxIZII3EeqBZNX9rX6F2g" source="_nBepcoI3EeqBZNX9rX6F2g" target="_1xYzcII3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xhWVYI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xhWVoI3EeqBZNX9rX6F2g" x="-4" y="-3"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xh9YII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xh9YYI3EeqBZNX9rX6F2g" x="4" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xh9YoI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xh9Y4I3EeqBZNX9rX6F2g" x="3"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xhWUoI3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xhWU4I3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xhWVII3EeqBZNX9rX6F2g" points="[62, 4, -76, -6]$[88, 6, -50, -4]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xikcII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xikcYI3EeqBZNX9rX6F2g" id="(0.2347417840375587,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xjLgII3EeqBZNX9rX6F2g" type="4001" element="_1wzkoII3EeqBZNX9rX6F2g" source="_nBfQhoI3EeqBZNX9rX6F2g" target="_1xYzdYI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xkZoII3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xkZoYI3EeqBZNX9rX6F2g" y="-2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xlAsII3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xlAsYI3EeqBZNX9rX6F2g" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xlnwII3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xlnwYI3EeqBZNX9rX6F2g" x="1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xjLgYI3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xjLgoI3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xjLg4I3EeqBZNX9rX6F2g" points="[1, -10, -16, 85]$[8, -45, -9, 50]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xlnwoI3EeqBZNX9rX6F2g" id="(0.6058394160583942,0.47692307692307695)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xlnw4I3EeqBZNX9rX6F2g" id="(0.8452012383900929,0.038461538461538464)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xlnxII3EeqBZNX9rX6F2g" type="4001" element="_1w2n8II3EeqBZNX9rX6F2g" source="_nBf3loI3EeqBZNX9rX6F2g" target="_1xYzeoI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xmO0II3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xmO0YI3EeqBZNX9rX6F2g" x="1" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xmO0oI3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xmO04I3EeqBZNX9rX6F2g" x="1" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xmO1II3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xmO1YI3EeqBZNX9rX6F2g" y="9"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xlnxYI3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xlnxoI3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xlnx4I3EeqBZNX9rX6F2g" points="[68, 56, -10, -8]$[63, 52, -15, -12]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xm14II3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xm14YI3EeqBZNX9rX6F2g" id="(0.17793594306049823,1.3157894736842106)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xm14oI3EeqBZNX9rX6F2g" type="4001" element="_1w3PAoI3EeqBZNX9rX6F2g" source="_nBgepoI3EeqBZNX9rX6F2g" target="_1xZagoI3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xm15oI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xm154I3EeqBZNX9rX6F2g" x="5" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xnc8II3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xnc8YI3EeqBZNX9rX6F2g" x="-10" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xnc8oI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xnc84I3EeqBZNX9rX6F2g" x="-12"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xm144I3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xm15II3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xm15YI3EeqBZNX9rX6F2g" points="[51, -14, -52, 14]$[53, 2, -50, 30]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xnc9II3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xnc9YI3EeqBZNX9rX6F2g" id="(0.23923444976076552,-0.7241379310344828)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1xnc9oI3EeqBZNX9rX6F2g" type="4001" element="_1w8HgII3EeqBZNX9rX6F2g" source="_nBhFtoI3EeqBZNX9rX6F2g" target="_1xZah4I3EeqBZNX9rX6F2g">
+          <children xmi:type="notation:Node" xmi:id="_1xnc-oI3EeqBZNX9rX6F2g" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xnc-4I3EeqBZNX9rX6F2g" y="-6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xnc_II3EeqBZNX9rX6F2g" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xnc_YI3EeqBZNX9rX6F2g" x="2" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1xnc_oI3EeqBZNX9rX6F2g" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xnc_4I3EeqBZNX9rX6F2g" x="1" y="5"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1xnc94I3EeqBZNX9rX6F2g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xnc-II3EeqBZNX9rX6F2g" fontColor="13606770" fontName=".AppleSystemUIFont" fontHeight="8" italic="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xnc-YI3EeqBZNX9rX6F2g" points="[-52, -55, 25, 28]$[-60, -64, 17, 19]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xoEAII3EeqBZNX9rX6F2g" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xoEAYI3EeqBZNX9rX6F2g" id="(0.8084291187739464,-0.6129032258064516)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m65gUII3EeqBZNX9rX6F2g" name="Stopped" outgoingEdges="_m-SykYI3EeqBZNX9rX6F2g _m-TZo4I3EeqBZNX9rX6F2g" incomingEdges="_m-SLg4I3EeqBZNX9rX6F2g _m-SykYI3EeqBZNX9rX6F2g" width="12" height="12" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Stopped']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Stopped']"/>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_m66HYII3EeqBZNX9rX6F2g" labelSize="10" showIcon="false" labelColor="39,76,114" borderSize="2" borderSizeComputationExpression="2" borderColor="39,76,114" labelPosition="node" color="255,255,255">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m5z7MII3EeqBZNX9rX6F2g" name="Start" outgoingEdges="_m8ajQII3EeqBZNX9rX6F2g" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Start']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Start']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:BundledImage" uid="_m6R1QII3EeqBZNX9rX6F2g" showIcon="false" labelColor="39,76,114" borderColor="39,76,114" shape="dot" color="209,209,209">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']/@conditionnalStyles.0/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m6aYIII3EeqBZNX9rX6F2g" name="Requested" outgoingEdges="_m-QWUYI3EeqBZNX9rX6F2g _m-Q9YYI3EeqBZNX9rX6F2g" incomingEdges="_m-Mr8II3EeqBZNX9rX6F2g _m-Q9YYI3EeqBZNX9rX6F2g" width="14" height="14" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Requested']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Requested']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_m6pBoII3EeqBZNX9rX6F2g" labelSize="10" showIcon="false" labelColor="39,76,114" borderSize="2" borderSizeComputationExpression="2" borderColor="39,76,114" labelPosition="node" color="255,255,255">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m63rIYI3EeqBZNX9rX6F2g" name="Entered" outgoingEdges="_m-RkcII3EeqBZNX9rX6F2g _m-RkdoI3EeqBZNX9rX6F2g _m-SLg4I3EeqBZNX9rX6F2g" incomingEdges="_m-QWUYI3EeqBZNX9rX6F2g _m-RkcII3EeqBZNX9rX6F2g _m-TZo4I3EeqBZNX9rX6F2g" width="12" height="12" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Entered']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Entered']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_m645QII3EeqBZNX9rX6F2g" labelSize="10" showIcon="false" labelColor="39,76,114" borderSize="2" borderSizeComputationExpression="2" borderColor="39,76,114" labelPosition="node" color="255,255,255">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m7XaYII3EeqBZNX9rX6F2g" name="Exited" outgoingEdges="_m-Mr8II3EeqBZNX9rX6F2g _m-PIMYI3EeqBZNX9rX6F2g" incomingEdges="_m8ajQII3EeqBZNX9rX6F2g _m-PIMYI3EeqBZNX9rX6F2g _m-RkdoI3EeqBZNX9rX6F2g" width="11" height="11" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Exited']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Exited']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_m7Z2oII3EeqBZNX9rX6F2g" labelSize="10" showIcon="false" labelColor="39,76,114" borderSize="2" borderSizeComputationExpression="2" borderColor="39,76,114" labelPosition="node" color="255,255,255">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_m7cS4II3EeqBZNX9rX6F2g" name="Local Variables Block">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:DeclarationBlock" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@declarationBlock"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:DeclarationBlock" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@declarationBlock"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_m7c58II3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/DeclarationBloc.gif" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid">
+        <labelFormat>italic</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m7pHMII3EeqBZNX9rX6F2g" name="Integer : currentProcessTimeValue = 0">
+        <target xmi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@declarationBlock/@concreteEntities[name='currentProcessTimeValue']"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@declarationBlock/@concreteEntities[name='currentProcessTimeValue']"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m79QQII3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/QualifierValue.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@subNodeMappings[name='ConcreteEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@subNodeMappings[name='ConcreteEntityID']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_m8HBQII3EeqBZNX9rX6F2g" name="ActorProcessingCycle">
+      <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:RelationDeclaration" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0"/>
+      <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:RelationDeclaration" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:ShapeContainerStyle" uid="_m8HoUII3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Variable.gif" borderSize="1" borderSizeComputationExpression="1" backgroundColor="204,242,166">
+        <description xmi:type="style:ShapeContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m8QyQII3EeqBZNX9rX6F2g" name="ActorProcessingCycleRequestEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.0"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.0"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m8QyQYI3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m8QyQoI3EeqBZNX9rX6F2g" name="ActorProcessingCycleEnterEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.1"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.1"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m8QyQ4I3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m8RZUII3EeqBZNX9rX6F2g" name="ActorProcessingCycleProcessEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.2"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.2"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m8RZUYI3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m8RZUoI3EeqBZNX9rX6F2g" name="ActorProcessingCycleProcessTime: int">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.3"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.3"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m8RZU4I3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m8RZVII3EeqBZNX9rX6F2g" name="ActorProcessingCycleExitEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.4"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.4"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m8SAYII3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m8SAYYI3EeqBZNX9rX6F2g" name="ActorProcessingCycleDoesNothingEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.5"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.5"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m8SAYoI3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m8SncII3EeqBZNX9rX6F2g" name="ActorProcessingCycleResourceIsEnteredEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.6"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.6"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m8SncYI3EeqBZNX9rX6F2g" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_M8nbQoOpEeqtrvMPLmGfOA" name="ActorProcessingCyclePriorityValue: int">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.7"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.7"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_M8pQcIOpEeqtrvMPLmGfOA" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m8ajQII3EeqBZNX9rX6F2g" name="starting" sourceNode="_m5z7MII3EeqBZNX9rX6F2g" targetNode="_m7XaYII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='starting']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='starting']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m8bKUII3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m8bKUYI3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-Mr8II3EeqBZNX9rX6F2g" name="request" outgoingEdges="_1wn-cII3EeqBZNX9rX6F2g" sourceNode="_m7XaYII3EeqBZNX9rX6F2g" targetNode="_m6aYIII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='request']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='request']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-PIMII3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-Mr8YI3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-Mr8oI3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-PIMYI3EeqBZNX9rX6F2g" name="doesNothingExited" outgoingEdges="_1wpMkII3EeqBZNX9rX6F2g" sourceNode="_m7XaYII3EeqBZNX9rX6F2g" targetNode="_m7XaYII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingExited']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingExited']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-QWUII3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-PvQII3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-PvQYI3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-QWUYI3EeqBZNX9rX6F2g" name="enter" outgoingEdges="_1wuFEII3EeqBZNX9rX6F2g" sourceNode="_m6aYIII3EeqBZNX9rX6F2g" targetNode="_m63rIYI3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enter']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enter']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-Q9YII3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-QWUoI3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-QWU4I3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-Q9YYI3EeqBZNX9rX6F2g" name="doesNothingRequested" outgoingEdges="_1wwhUII3EeqBZNX9rX6F2g" sourceNode="_m6aYIII3EeqBZNX9rX6F2g" targetNode="_m6aYIII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingRequested']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingRequested']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-Q9ZoI3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-Q9YoI3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-Q9Y4I3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-RkcII3EeqBZNX9rX6F2g" name="process" outgoingEdges="_1wxIZII3EeqBZNX9rX6F2g" sourceNode="_m63rIYI3EeqBZNX9rX6F2g" targetNode="_m63rIYI3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='process']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='process']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-RkdYI3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-RkcYI3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-RkcoI3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-RkdoI3EeqBZNX9rX6F2g" name="exit" outgoingEdges="_1wzkoII3EeqBZNX9rX6F2g" sourceNode="_m63rIYI3EeqBZNX9rX6F2g" targetNode="_m7XaYII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exit']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exit']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-SLgoI3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-Rkd4I3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-RkeII3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-SLg4I3EeqBZNX9rX6F2g" name="exitStopped" outgoingEdges="_1w2n8II3EeqBZNX9rX6F2g" sourceNode="_m63rIYI3EeqBZNX9rX6F2g" targetNode="_m65gUII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exitStopped']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exitStopped']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-SykII3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-SLhII3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-SLhYI3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-SykYI3EeqBZNX9rX6F2g" name="doesNothingStopped" outgoingEdges="_1w3PAoI3EeqBZNX9rX6F2g" sourceNode="_m65gUII3EeqBZNX9rX6F2g" targetNode="_m65gUII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingStopped']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingStopped']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-TZooI3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-SykoI3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-Syk4I3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-TZo4I3EeqBZNX9rX6F2g" name="enterStopped" outgoingEdges="_1w8HgII3EeqBZNX9rX6F2g" sourceNode="_m65gUII3EeqBZNX9rX6F2g" targetNode="_m63rIYI3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enterStopped']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enterStopped']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-UAsII3EeqBZNX9rX6F2g">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-TZpII3EeqBZNX9rX6F2g" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-TZpYI3EeqBZNX9rX6F2g" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1d4ooII3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleRequestEvent}&#xA;" incomingEdges="_1wn-cII3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='request']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='request']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1hXacII3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1hYBgYI3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleDoesNothingEvent}&#xA;" incomingEdges="_1wpMkII3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingExited']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingExited']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1jFRsII3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1jF4wYI3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleEnterEvent}&#xA;" incomingEdges="_1wuFEII3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enter']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enter']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1lCZgII3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1lDAkYI3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleDoesNothingEvent}&#xA;" incomingEdges="_1wwhUII3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingRequested']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingRequested']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1mzUEII3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1mz7III3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleProcessEvent}&#xA;if ( currentProcessTimeValue &lt; ActorProcessingCycleProcessTime .value )&#xA; / &#xA; currentProcessTimeValue = ( currentProcessTimeValue + one )" incomingEdges="_1wxIZII3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='process']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='process']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1pLSoII3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1pL5sYI3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleExitEvent}&#xA;if ( currentProcessTimeValue == ActorProcessingCycleProcessTime .value )&#xA; / &#xA; currentProcessTimeValue = zero" incomingEdges="_1wzkoII3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exit']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exit']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1q80QII3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1q9bUII3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleResourceIsEnteredEvent}&#xA;if ( ActorProcessingCyclePriorityValue .value == zero )" incomingEdges="_1w2n8II3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exitStopped']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exitStopped']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1scpEII3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1sd3MII3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleDoesNothingEvent}&#xA;" incomingEdges="_1w3PAoI3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingStopped']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingStopped']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1txewII3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1tyF0II3EeqBZNX9rX6F2g" name="when { ActorProcessingCycleEnterEvent}&#xA;" incomingEdges="_1w8HgII3EeqBZNX9rX6F2g" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enterStopped']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enterStopped']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_1vAN0II3EeqBZNX9rX6F2g" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="252,233,79" borderLineStyle="dash" labelPosition="node" color="255,255,240">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1wn-cII3EeqBZNX9rX6F2g" sourceNode="_m-Mr8II3EeqBZNX9rX6F2g" targetNode="_1d4ooII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='request']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1wolgII3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1wolgYI3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1wpMkII3EeqBZNX9rX6F2g" sourceNode="_m-PIMYI3EeqBZNX9rX6F2g" targetNode="_1hYBgYI3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingExited']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1wpzoII3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1wpzoYI3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1wuFEII3EeqBZNX9rX6F2g" sourceNode="_m-QWUYI3EeqBZNX9rX6F2g" targetNode="_1jF4wYI3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enter']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1wuFEYI3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1wuFEoI3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1wwhUII3EeqBZNX9rX6F2g" sourceNode="_m-Q9YYI3EeqBZNX9rX6F2g" targetNode="_1lDAkYI3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingRequested']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1wxIYII3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1wxIYYI3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1wxIZII3EeqBZNX9rX6F2g" sourceNode="_m-RkcII3EeqBZNX9rX6F2g" targetNode="_1mz7III3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='process']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1wxvcII3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1wxvcYI3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1wzkoII3EeqBZNX9rX6F2g" sourceNode="_m-RkdoI3EeqBZNX9rX6F2g" targetNode="_1pL5sYI3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exit']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1w0LsII3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1w0LsYI3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1w2n8II3EeqBZNX9rX6F2g" sourceNode="_m-SLg4I3EeqBZNX9rX6F2g" targetNode="_1q9bUII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exitStopped']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1w2n8YI3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1w2n8oI3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1w3PAoI3EeqBZNX9rX6F2g" sourceNode="_m-SykYI3EeqBZNX9rX6F2g" targetNode="_1sd3MII3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='doesNothingStopped']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1w3PA4I3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1w3PBII3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1w8HgII3EeqBZNX9rX6F2g" sourceNode="_m-TZo4I3EeqBZNX9rX6F2g" targetNode="_1tyF0II3EeqBZNX9rX6F2g">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enterStopped']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1w8HgYI3EeqBZNX9rX6F2g" lineStyle="dash" targetArrow="NoDecoration" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1w8HgoI3EeqBZNX9rX6F2g" showIcon="false" labelColor="114,159,207">
+          <labelFormat>italic</labelFormat>
+        </centerLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@edgeMappings[name='TransitionContentLink']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_m0um4II3EeqBZNX9rX6F2g"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']"/>
+    <target xmi:type="moccml:StateMachineRelationDefinition" href="mocc/actorProcessingCycle.moccml#//@relationLibraries.0/@relationDefinitions.0"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_m9bRwIOpEeqtrvMPLmGfOA" name="Resource Usage Cycle State Machine Relation Diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_m-xVk4OpEeqtrvMPLmGfOA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_m-xVlIOpEeqtrvMPLmGfOA"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_m_a10IOpEeqtrvMPLmGfOA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_m_a10YOpEeqtrvMPLmGfOA" type="Sirius" element="_m9bRwIOpEeqtrvMPLmGfOA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_m_dSEIOpEeqtrvMPLmGfOA" type="2001" element="_m939sIOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_m_fHQIOpEeqtrvMPLmGfOA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_m_fHQYOpEeqtrvMPLmGfOA" x="31" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_m_yCMIOpEeqtrvMPLmGfOA" type="3004" element="_m-AgkIOpEeqtrvMPLmGfOA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_m_yCMYOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_yCMoOpEeqtrvMPLmGfOA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_m_dSEYOpEeqtrvMPLmGfOA" fontColor="7490599" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_dSEoOpEeqtrvMPLmGfOA" x="160" y="188" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m_qtcIOpEeqtrvMPLmGfOA" type="2001" element="_m-AgkoOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_m_rUgoOpEeqtrvMPLmGfOA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_m_rUg4OpEeqtrvMPLmGfOA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_m_ypQIOpEeqtrvMPLmGfOA" type="3016" element="_m-PKEIOpEeqtrvMPLmGfOA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_m_ypQYOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_ypQoOpEeqtrvMPLmGfOA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_m_rUgIOpEeqtrvMPLmGfOA" fontColor="7490599" fontName=".AppleSystemUIFont" fontHeight="10" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_rUgYOpEeqtrvMPLmGfOA" x="254" y="88" width="90" height="90"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m_tJsIOpEeqtrvMPLmGfOA" type="2001" element="_m-Y7EIOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_m_tJs4OpEeqtrvMPLmGfOA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_m_tJtIOpEeqtrvMPLmGfOA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_m_ypQ4OpEeqtrvMPLmGfOA" type="3016" element="_m-Y7EYOpEeqtrvMPLmGfOA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_m_ypRIOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_ypRYOpEeqtrvMPLmGfOA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_m_tJsYOpEeqtrvMPLmGfOA" fontColor="7490599" fontName=".AppleSystemUIFont" fontHeight="10" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_tJsoOpEeqtrvMPLmGfOA" x="444" y="92" width="90" height="90"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m_uX0IOpEeqtrvMPLmGfOA" type="2003" element="_m-aJMIOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_m_u-4IOpEeqtrvMPLmGfOA" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_m_vl8IOpEeqtrvMPLmGfOA" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_m_zQUIOpEeqtrvMPLmGfOA" type="3010" element="_m-g24IOpEeqtrvMPLmGfOA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_m_zQUYOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_m_zQUoOpEeqtrvMPLmGfOA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_m_zQU4OpEeqtrvMPLmGfOA" type="3010" element="_m-jTIIOpEeqtrvMPLmGfOA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_m_zQVIOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_m_zQVYOpEeqtrvMPLmGfOA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_m_zQVoOpEeqtrvMPLmGfOA" type="3010" element="_m-jTIoOpEeqtrvMPLmGfOA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_m_zQV4OpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_m_zQWIOpEeqtrvMPLmGfOA"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_m_vl8YOpEeqtrvMPLmGfOA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_m_vl8oOpEeqtrvMPLmGfOA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_m_uX0YOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_uX0oOpEeqtrvMPLmGfOA"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_m_a10oOpEeqtrvMPLmGfOA"/>
+        <edges xmi:type="notation:Edge" xmi:id="_m_1FgIOpEeqtrvMPLmGfOA" type="4001" element="_m-khQIOpEeqtrvMPLmGfOA" source="_m_dSEIOpEeqtrvMPLmGfOA" target="_m_qtcIOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_m_3hwIOpEeqtrvMPLmGfOA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_3hwYOpEeqtrvMPLmGfOA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_m_3hwoOpEeqtrvMPLmGfOA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_3hw4OpEeqtrvMPLmGfOA" x="18" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_m_4I0IOpEeqtrvMPLmGfOA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m_4v4IOpEeqtrvMPLmGfOA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_m_1FgYOpEeqtrvMPLmGfOA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_m_1FgoOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_m_1Fg4OpEeqtrvMPLmGfOA" points="[0, 1, -124, 11]$[0, -60, -124, -50]$[79, -60, -45, -50]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nAArsIOpEeqtrvMPLmGfOA" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nABSwIOpEeqtrvMPLmGfOA" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nABSwYOpEeqtrvMPLmGfOA" type="4001" element="_m-u5UIOpEeqtrvMPLmGfOA" source="_m_qtcIOpEeqtrvMPLmGfOA" target="_m_tJsIOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_nAB50IOpEeqtrvMPLmGfOA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAB50YOpEeqtrvMPLmGfOA" x="-1" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAB50oOpEeqtrvMPLmGfOA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAB504OpEeqtrvMPLmGfOA" x="-3" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAB51IOpEeqtrvMPLmGfOA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAB51YOpEeqtrvMPLmGfOA" x="-1" y="-10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nABSwoOpEeqtrvMPLmGfOA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nABSw4OpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nABSxIOpEeqtrvMPLmGfOA" points="[45, 15, -145, -79]$[145, 15, -45, -79]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nAB51oOpEeqtrvMPLmGfOA" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nAB514OpEeqtrvMPLmGfOA" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nAB52IOpEeqtrvMPLmGfOA" type="4001" element="_m-wHcYOpEeqtrvMPLmGfOA" source="_m_qtcIOpEeqtrvMPLmGfOA" target="_m_qtcIOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_nACg4IOpEeqtrvMPLmGfOA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nACg4YOpEeqtrvMPLmGfOA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nACg4oOpEeqtrvMPLmGfOA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nACg44OpEeqtrvMPLmGfOA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nACg5IOpEeqtrvMPLmGfOA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nACg5YOpEeqtrvMPLmGfOA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nAB52YOpEeqtrvMPLmGfOA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nAB52oOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nAB524OpEeqtrvMPLmGfOA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nACg5oOpEeqtrvMPLmGfOA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nACg54OpEeqtrvMPLmGfOA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nACg6IOpEeqtrvMPLmGfOA" type="4001" element="_m-wugIOpEeqtrvMPLmGfOA" source="_m_tJsIOpEeqtrvMPLmGfOA" target="_m_qtcIOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_nADH8IOpEeqtrvMPLmGfOA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nADH8YOpEeqtrvMPLmGfOA" x="1" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nADH8oOpEeqtrvMPLmGfOA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nADH84OpEeqtrvMPLmGfOA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nADH9IOpEeqtrvMPLmGfOA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nADH9YOpEeqtrvMPLmGfOA" x="2" y="-10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nACg6YOpEeqtrvMPLmGfOA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nACg6oOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nACg64OpEeqtrvMPLmGfOA" points="[-45, -79, 145, 15]$[-145, -79, 45, 15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nADvAIOpEeqtrvMPLmGfOA" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nADvAYOpEeqtrvMPLmGfOA" id="(0.5,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nADvAoOpEeqtrvMPLmGfOA" type="4001" element="_m-wuhoOpEeqtrvMPLmGfOA" source="_m_tJsIOpEeqtrvMPLmGfOA" target="_m_tJsIOpEeqtrvMPLmGfOA">
+          <children xmi:type="notation:Node" xmi:id="_nAEWEIOpEeqtrvMPLmGfOA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAEWEYOpEeqtrvMPLmGfOA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAE9IIOpEeqtrvMPLmGfOA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAE9IYOpEeqtrvMPLmGfOA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nAE9IoOpEeqtrvMPLmGfOA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nAE9I4OpEeqtrvMPLmGfOA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nADvA4OpEeqtrvMPLmGfOA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nADvBIOpEeqtrvMPLmGfOA" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nADvBYOpEeqtrvMPLmGfOA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nAE9JIOpEeqtrvMPLmGfOA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nAE9JYOpEeqtrvMPLmGfOA" id="(0.5,0.5)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m939sIOpEeqtrvMPLmGfOA" name="Start" outgoingEdges="_m-khQIOpEeqtrvMPLmGfOA" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Start']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Start']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:BundledImage" uid="_m-AgkIOpEeqtrvMPLmGfOA" showIcon="false" labelColor="39,76,114" borderColor="39,76,114" shape="dot" color="209,209,209">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']/@conditionnalStyles.0/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m-AgkoOpEeqtrvMPLmGfOA" name="Free" outgoingEdges="_m-u5UIOpEeqtrvMPLmGfOA _m-wHcYOpEeqtrvMPLmGfOA" incomingEdges="_m-khQIOpEeqtrvMPLmGfOA _m-wHcYOpEeqtrvMPLmGfOA _m-wugIOpEeqtrvMPLmGfOA" width="9" height="9" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Free']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Free']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_m-PKEIOpEeqtrvMPLmGfOA" labelSize="10" showIcon="false" labelColor="39,76,114" borderSize="2" borderSizeComputationExpression="2" borderColor="39,76,114" labelPosition="node" color="255,255,255">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_m-Y7EIOpEeqtrvMPLmGfOA" name="Busy" outgoingEdges="_m-wugIOpEeqtrvMPLmGfOA _m-wuhoOpEeqtrvMPLmGfOA" incomingEdges="_m-u5UIOpEeqtrvMPLmGfOA _m-wuhoOpEeqtrvMPLmGfOA" width="9" height="9" resizeKind="NSEW">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Busy']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:State" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@states[name='Busy']"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_m-Y7EYOpEeqtrvMPLmGfOA" labelSize="10" showIcon="false" labelColor="39,76,114" borderSize="2" borderSizeComputationExpression="2" borderColor="39,76,114" labelPosition="node" color="255,255,255">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_m-aJMIOpEeqtrvMPLmGfOA" name="ResourceUsageCycleRelation">
+      <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:RelationDeclaration" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDeclarations.0"/>
+      <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:RelationDeclaration" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDeclarations.0"/>
+      <ownedStyle xmi:type="diagram:ShapeContainerStyle" uid="_m-aJMYOpEeqtrvMPLmGfOA" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Variable.gif" borderSize="1" borderSizeComputationExpression="1" backgroundColor="204,242,166">
+        <description xmi:type="style:ShapeContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m-g24IOpEeqtrvMPLmGfOA" name="ResourceUsageCycleEnterEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.0"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.0"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m-isEIOpEeqtrvMPLmGfOA" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m-jTIIOpEeqtrvMPLmGfOA" name="ResourceUsageCycleExitEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.1"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.1"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m-jTIYOpEeqtrvMPLmGfOA" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_m-jTIoOpEeqtrvMPLmGfOA" name="ResourceUsageCycleSomethingElseEvent: clock">
+        <target xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.2"/>
+        <semanticElements xmi:type="fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation:AbstractEntity" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDeclarations.0/@parameters.2"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_m-j6MIOpEeqtrvMPLmGfOA" iconPath="/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-khQIOpEeqtrvMPLmGfOA" name="starting" sourceNode="_m939sIOpEeqtrvMPLmGfOA" targetNode="_m-AgkoOpEeqtrvMPLmGfOA">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='starting']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='starting']"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-lIUIOpEeqtrvMPLmGfOA" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-lIUYOpEeqtrvMPLmGfOA" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-u5UIOpEeqtrvMPLmGfOA" name="enter" sourceNode="_m-AgkoOpEeqtrvMPLmGfOA" targetNode="_m-Y7EIOpEeqtrvMPLmGfOA">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enter']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='enter']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-wHcIOpEeqtrvMPLmGfOA">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-u5UYOpEeqtrvMPLmGfOA" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-u5UoOpEeqtrvMPLmGfOA" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-wHcYOpEeqtrvMPLmGfOA" name="somethingElseFree" sourceNode="_m-AgkoOpEeqtrvMPLmGfOA" targetNode="_m-AgkoOpEeqtrvMPLmGfOA">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='somethingElseFree']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='somethingElseFree']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-wHdoOpEeqtrvMPLmGfOA">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-wHcoOpEeqtrvMPLmGfOA" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-wHc4OpEeqtrvMPLmGfOA" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-wugIOpEeqtrvMPLmGfOA" name="exit" sourceNode="_m-Y7EIOpEeqtrvMPLmGfOA" targetNode="_m-AgkoOpEeqtrvMPLmGfOA">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exit']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='exit']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-wuhYOpEeqtrvMPLmGfOA">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-wugYOpEeqtrvMPLmGfOA" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-wugoOpEeqtrvMPLmGfOA" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m-wuhoOpEeqtrvMPLmGfOA" name="somethingElseBusy" sourceNode="_m-Y7EIOpEeqtrvMPLmGfOA" targetNode="_m-Y7EIOpEeqtrvMPLmGfOA">
+      <target xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='somethingElseBusy']"/>
+      <semanticElements xmi:type="org.eclipse.gemoc.moccml.fsmmodel:Transition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0/@transitions[name='somethingElseBusy']"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_m-xVkoOpEeqtrvMPLmGfOA">
+        <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='HasSomethingInTransition']"/>
+      </decorations>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m-wuh4OpEeqtrvMPLmGfOA" size="2" routingStyle="manhattan" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_m-wuiIOpEeqtrvMPLmGfOA" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_m9bRwYOpEeqtrvMPLmGfOA"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design/description/CCSLMoCC.odesign#//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']"/>
+    <target xmi:type="moccml:StateMachineRelationDefinition" href="mocc/resourceUsageCycle.moccml#//@relationLibraries.0/@relationDefinitions.0"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
