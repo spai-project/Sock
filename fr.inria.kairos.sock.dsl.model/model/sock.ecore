@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sock" nsURI="http://kairos.inria.fr/sock" nsPrefix="sock">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sock" nsURI="http://kairos.inria.fr/sock" nsPrefix="sock">
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IotSystem" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="IotSystem" eSuperTypes="//NamedElement">
     <eOperations name="time"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedActor" upperBound="-1"
-        eType="#//Actor" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedResource" upperBound="-1"
-        eType="#//Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedActor" upperBound="-1" eType="//Actor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedResource" upperBound="-1" eType="//Resource" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" upperBound="-1"
-        eType="#//Actor" eOpposite="#//Actor/resource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="//NamedElement">
+    <eOperations name="clean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" upperBound="-1" eType="//Actor" eOpposite="//Actor/resource"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"
-        eOpposite="#//Resource/actor"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPriority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="3"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="10"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="//NamedElement">
+    <eOperations name="enterIn"/>
+    <eOperations name="exitOf"/>
+    <eOperations name="idle"/>
+    <eOperations name="process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="//Resource" eOpposite="//Resource/actor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPriority" defaultValueLiteral="0">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processTime" defaultValueLiteral="3">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodTime" defaultValueLiteral="10">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

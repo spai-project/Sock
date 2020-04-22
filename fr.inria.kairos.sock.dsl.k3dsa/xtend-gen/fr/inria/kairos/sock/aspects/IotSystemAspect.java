@@ -1,14 +1,9 @@
 package fr.inria.kairos.sock.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
-import fr.inria.kairos.sock.aspects.ResourceAspect;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
-import fr.inria.kairos.sock.dsl.model.sock.Resource;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = IotSystem.class)
 @SuppressWarnings("all")
@@ -18,15 +13,6 @@ public class IotSystemAspect extends NamedElementAspect {
     // #DispatchPointCut_before# void time()
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
     	fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_time(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
-    };
-  }
-  
-  @Main
-  public static void main(final IotSystem _self) {
-    final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void main()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
-    	fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_main(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
     };
   }
   
@@ -49,19 +35,9 @@ public class IotSystemAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_time(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
-    InputOutput.<Integer>println(IotSystemAspect.timeIndex(_self));
     Integer _timeIndex = IotSystemAspect.timeIndex(_self);
     int _plus = ((_timeIndex).intValue() + 1);
     IotSystemAspect.timeIndex(_self, Integer.valueOf(_plus));
-  }
-  
-  protected static void _privk3_main(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
-    InputOutput.<String>println("Launching Sock for IoTSystem...");
-    InputOutput.<String>println("The system is as follow: ");
-    EList<Resource> _ownedResource = _self.getOwnedResource();
-    for (final Resource r : _ownedResource) {
-      ResourceAspect.printInfo(r);
-    }
   }
   
   protected static Integer _privk3_timeIndex(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {

@@ -193,6 +193,15 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getResource__Clean() {
+		return resourceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getActor() {
 		return actorEClass;
 	}
@@ -213,6 +222,42 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 */
 	public EAttribute getActor_PeriodTime() {
 		return (EAttribute) actorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActor__EnterIn() {
+		return actorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActor__ExitOf() {
+		return actorEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActor__Idle() {
+		return actorEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActor__Process() {
+		return actorEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -272,12 +317,17 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 
 		resourceEClass = createEClass(RESOURCE);
 		createEReference(resourceEClass, RESOURCE__ACTOR);
+		createEOperation(resourceEClass, RESOURCE___CLEAN);
 
 		actorEClass = createEClass(ACTOR);
 		createEReference(actorEClass, ACTOR__RESOURCE);
 		createEAttribute(actorEClass, ACTOR__IS_PRIORITY);
 		createEAttribute(actorEClass, ACTOR__PROCESS_TIME);
 		createEAttribute(actorEClass, ACTOR__PERIOD_TIME);
+		createEOperation(actorEClass, ACTOR___ENTER_IN);
+		createEOperation(actorEClass, ACTOR___EXIT_OF);
+		createEOperation(actorEClass, ACTOR___IDLE);
+		createEOperation(actorEClass, ACTOR___PROCESS);
 	}
 
 	/**
@@ -336,6 +386,8 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 				Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getResource__Clean(), null, "clean", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActor_Resource(), this.getResource(), this.getResource_Actor(), "resource", null, 0, 1,
 				Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
@@ -346,6 +398,14 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_PeriodTime(), ecorePackage.getEInt(), "periodTime", "10", 0, 1, Actor.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getActor__EnterIn(), null, "enterIn", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getActor__ExitOf(), null, "exitOf", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getActor__Idle(), null, "idle", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getActor__Process(), null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

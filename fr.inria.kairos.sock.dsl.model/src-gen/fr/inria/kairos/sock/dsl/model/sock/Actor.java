@@ -78,6 +78,38 @@ public interface Actor extends NamedElement {
 	void setPeriodTime(int value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void enterIn();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void exitOf();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void idle();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void process();
+
+	/**
 	 * Returns the value of the '<em><b>Process Time</b></em>' attribute.
 	 * The default value is <code>"3"</code>.
 	 * <!-- begin-user-doc -->

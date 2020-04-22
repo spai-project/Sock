@@ -28,6 +28,15 @@ AutomataConstraintLibrary resourceUsageCycle {
 			from Busy to Busy : somethingElseBusy
 			-> (when ResourceUsageCycleSomethingElseEvent)
 			
+			from Busy to Busy : exitAndEnter
+			-> (when ResourceusageCycleEnterAndExitEvent)
+			
+			from Busy to Cleaning : aPriorityActorExit
+			-> (when ResourceusageCycleExitPriorityEvent)
+			
+			from Cleaning to Free : clean
+			-> (when ResourceusageCycleCleanEvent)
+			
 			/* 
 			 * STATES DEFINITION
 			 */ 
@@ -42,15 +51,23 @@ AutomataConstraintLibrary resourceUsageCycle {
 			)
 			
 			State Busy (
-				in: enter, somethingElseBusy
-				out: exit, somethingElseBusy
+				in: enter, somethingElseBusy, exitAndEnter
+				out: exit, somethingElseBusy, exitAndEnter
+			)
+			
+			State Cleaning(
+				in: aPriorityActorExit
+				out: clean
 			)
 		
 		}
 		RelationDeclaration ResourceUsageCycleRelation(
 			ResourceUsageCycleEnterEvent: clock,
 			ResourceUsageCycleExitEvent: clock,
-			ResourceUsageCycleSomethingElseEvent: clock
+			ResourceUsageCycleSomethingElseEvent: clock,
+			ResourceusageCycleEnterAndExitEvent: clock,
+			ResourceusageCycleExitPriorityEvent: clock,
+			ResourceusageCycleCleanEvent: clock
 		)
 	}
 

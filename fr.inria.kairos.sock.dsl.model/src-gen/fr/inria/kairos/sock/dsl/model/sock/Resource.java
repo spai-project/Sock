@@ -39,4 +39,12 @@ public interface Resource extends NamedElement {
 	 */
 	EList<Actor> getActor();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clean();
+
 } // Resource

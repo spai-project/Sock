@@ -196,13 +196,22 @@ public interface SockPackage extends EPackage {
 	int RESOURCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Clean</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE___CLEAN = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int RESOURCE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl <em>Actor</em>}' class.
@@ -269,13 +278,49 @@ public interface SockPackage extends EPackage {
 	int ACTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Enter In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___ENTER_IN = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Exit Of</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___EXIT_OF = NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Idle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___IDLE = NAMED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Process</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___PROCESS = NAMED_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ACTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * Returns the meta object for class '{@link fr.inria.kairos.sock.dsl.model.sock.NamedElement <em>Named Element</em>}'.
@@ -362,6 +407,16 @@ public interface SockPackage extends EPackage {
 	EReference getResource_Actor();
 
 	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Resource#clean() <em>Clean</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clean</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Resource#clean()
+	 * @generated
+	 */
+	EOperation getResource__Clean();
+
+	/**
 	 * Returns the meta object for class '{@link fr.inria.kairos.sock.dsl.model.sock.Actor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +447,46 @@ public interface SockPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getActor_PeriodTime();
+
+	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#enterIn() <em>Enter In</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Enter In</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#enterIn()
+	 * @generated
+	 */
+	EOperation getActor__EnterIn();
+
+	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#exitOf() <em>Exit Of</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Exit Of</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#exitOf()
+	 * @generated
+	 */
+	EOperation getActor__ExitOf();
+
+	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#idle() <em>Idle</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Idle</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#idle()
+	 * @generated
+	 */
+	EOperation getActor__Idle();
+
+	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#process() <em>Process</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Process</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#process()
+	 * @generated
+	 */
+	EOperation getActor__Process();
 
 	/**
 	 * Returns the meta object for the attribute '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getProcessTime <em>Process Time</em>}'.
@@ -509,6 +604,14 @@ public interface SockPackage extends EPackage {
 		EReference RESOURCE__ACTOR = eINSTANCE.getResource_Actor();
 
 		/**
+		 * The meta object literal for the '<em><b>Clean</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESOURCE___CLEAN = eINSTANCE.getResource__Clean();
+
+		/**
 		 * The meta object literal for the '{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl <em>Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -533,6 +636,38 @@ public interface SockPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTOR__PERIOD_TIME = eINSTANCE.getActor_PeriodTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Enter In</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___ENTER_IN = eINSTANCE.getActor__EnterIn();
+
+		/**
+		 * The meta object literal for the '<em><b>Exit Of</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___EXIT_OF = eINSTANCE.getActor__ExitOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Idle</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___IDLE = eINSTANCE.getActor__Idle();
+
+		/**
+		 * The meta object literal for the '<em><b>Process</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___PROCESS = eINSTANCE.getActor__Process();
 
 		/**
 		 * The meta object literal for the '<em><b>Process Time</b></em>' attribute feature.

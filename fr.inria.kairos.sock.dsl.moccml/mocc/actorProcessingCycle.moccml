@@ -20,18 +20,12 @@ AutomataConstraintLibrary actorProcessingCycle {
 			from Start to Exited : starting
 			-> ()
 			
-			from Exited to Requested : request
-			-> (when ActorProcessingCycleRequestEvent)
-			
 			from Exited to Exited : doesNothingExited
 			-> (when ActorProcessingCycleDoesNothingEvent)
 			
-			from Requested to Entered : enter
+			from Exited to Entered : enter
 			-> (when ActorProcessingCycleEnterEvent)
 
-			from Requested to Requested : doesNothingRequested
-			-> (when ActorProcessingCycleDoesNothingEvent)
-			
 			from Entered to Entered : process
 			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue < ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = (currentProcessTimeValue + one))
 			
@@ -51,18 +45,8 @@ AutomataConstraintLibrary actorProcessingCycle {
 			 * STATES DEFINITION
 			 */ 
 			
-			State Stopped(
-				in: exitStopped, doesNothingStopped
-				out: doesNothingStopped, enterStopped
-			)
-			
 			State Start (
 				out: starting
-			)
-			
-			State Requested (
-				in: request, doesNothingRequested
-				out: enter, doesNothingRequested
 			)
 			
 			State Entered (
@@ -72,13 +56,17 @@ AutomataConstraintLibrary actorProcessingCycle {
 			
 			State Exited (
 				in: starting, exit, doesNothingExited
-				out: request, doesNothingExited
+				out: doesNothingExited, enter
+			)
+			
+			State Stopped(
+				in: exitStopped, doesNothingStopped
+				out: doesNothingStopped, enterStopped
 			)
 		
 		}
 		
 		RelationDeclaration ActorProcessingCycle(
-			ActorProcessingCycleRequestEvent: clock,
 			ActorProcessingCycleEnterEvent: clock,
 			ActorProcessingCycleProcessEvent: clock,
 			ActorProcessingCycleProcessTime: int,

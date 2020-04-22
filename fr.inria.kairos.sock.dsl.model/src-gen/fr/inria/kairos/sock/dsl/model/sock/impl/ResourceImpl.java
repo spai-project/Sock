@@ -6,6 +6,7 @@ import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
 import fr.inria.kairos.sock.dsl.model.sock.SockPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -72,6 +73,17 @@ public class ResourceImpl extends NamedElementImpl implements Resource {
 					SockPackage.ACTOR__RESOURCE);
 		}
 		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void clean() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -161,6 +173,21 @@ public class ResourceImpl extends NamedElementImpl implements Resource {
 			return actor != null && !actor.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case SockPackage.RESOURCE___CLEAN:
+			clean();
+			return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ResourceImpl
