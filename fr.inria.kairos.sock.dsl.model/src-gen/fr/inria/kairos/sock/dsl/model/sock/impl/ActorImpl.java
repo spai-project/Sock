@@ -259,6 +259,17 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void request() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getProcessTime() {
 		return processTime;
 	}
@@ -440,6 +451,9 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 			return null;
 		case SockPackage.ACTOR___PROCESS:
 			process();
+			return null;
+		case SockPackage.ACTOR___REQUEST:
+			request();
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);

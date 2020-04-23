@@ -28,6 +28,14 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
+  public static void request(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void request()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_request(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+  }
+  
   public static void idle(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void idle()
@@ -189,6 +197,14 @@ public class ActorAspect extends NamedElementAspect {
     ActorAspect.timeIndex(_self, Integer.valueOf(_plus));
   }
   
+  protected static void _privk3_request(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    String _name = _self.getName();
+    String _plus = (_name + " requests ");
+    String _name_1 = _self.getResource().getName();
+    String _plus_1 = (_plus + _name_1);
+    ActorAspect.run(_self, _plus_1);
+  }
+  
   protected static void _privk3_idle(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     ActorAspect.time(_self);
   }
@@ -216,7 +232,7 @@ public class ActorAspect extends NamedElementAspect {
   
   protected static void _privk3_exitOf(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     String _name = _self.getName();
-    String _plus = (_name + " exit of ");
+    String _plus = (_name + " exits of ");
     String _name_1 = _self.getResource().getName();
     String _plus_1 = (_plus + _name_1);
     ActorAspect.run(_self, _plus_1);
@@ -227,7 +243,7 @@ public class ActorAspect extends NamedElementAspect {
     int _plus = ((_currentProcessTime).intValue() + 1);
     ActorAspect.currentProcessTime(_self, Integer.valueOf(_plus));
     String _name = _self.getName();
-    String _plus_1 = (_name + " process (");
+    String _plus_1 = (_name + " processes (");
     Integer _currentProcessTime_1 = ActorAspect.currentProcessTime(_self);
     String _plus_2 = (_plus_1 + _currentProcessTime_1);
     String _plus_3 = (_plus_2 + "/");

@@ -14,5 +14,5 @@ public class ActorAspectActorAspectProperties {
   
   public Integer processTime = Integer.valueOf(3);
   
-  public Integer periodTime = Integer.valueOf(10);
+  public Integer periodTime = Integer.valueOf(25);
 }

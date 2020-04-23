@@ -17,9 +17,9 @@ package sock
 	-- Mapping event and methods
 	
 	context IotSystem
-		def : timeEvent : Event = self.time()
+		def : timeEvent : Event = self
 		def : zeroValue : Integer = 0
-			
+
 	-- ========================================================================================================
 	--						BEGIN RESOURCE USAGE CYCLE 
 	-- ========================================================================================================
@@ -31,47 +31,66 @@ package sock
 		def : isProcessedResourceEvent : Event = self
 		def : isExitedResourceEvent : Event = self
 		def : doesNothingResourceEvent : Event = self
+		def : anActorIsTakenOverByAnotherOneResourceEvent : Event = self
 	
 	context  Actor
+		def : requestActorEvent : Event = self.request()
 		def : enterActorEvent : Event = self.enterIn()
 		def : processActorEvent : Event = self.process()
 		def : exitActorEvent : Event = self.exitOf()
 		def : doesNothingActorEvent : Event = self.idle()
 		def : processTimeActorValue : Integer = self.processTime
 		def : isPriorityActorValue : Integer = self.isPriority
-		def : resourceOfActorIsEnteredActorEvent : Event = self -- this one means that the actor is exiting the resource
+		def : isTakenOverActorEvent : Event = self.exitOf()
+		def : takeOverActorEvent : Event = self.enterIn()
+		
+--		def : enterIsPriorityActorEvent : Event = self
+--		def : enterIsNotPriorityActorEvent : Event = self
+--		def : exitIsPriorityActorEvent : Event = self
+--		def : exitIsNotPriorityActorEvent : Event = self
 	
 	-- Constraints
 	
-	context IotSystem
-		inv unionOfEnterActorCoincidesWithUnionOfIsEnteredResource:
-			let unionIsEnteredResource : Event = Expression Union(self.ownedResource.isEnteredResourceEvent) in
-			let unionEnterActor : Event = Expression Union(self.ownedActor.enterActorEvent) in
-				Relation Coincides(unionIsEnteredResource, unionEnterActor)
-		inv unionOfProcessActorCoincidesWithUnionOfIsProcessedResource:
-			let unionisProcessedResource : Event = Expression Union(self.ownedResource.isProcessedResourceEvent) in
-			let unionProcessActor : Event = Expression Union(self.ownedActor.processActorEvent) in
-				Relation Coincides(unionisProcessedResource, unionProcessActor)
-		inv unionOfExitActorCoincidesWithUnionOfIsExitedResource:
-			let unionisExitedResource : Event = Expression Union(self.ownedResource.isExitedResourceEvent) in
-			let unionExitActor : Event = Expression Union(self.ownedActor.exitActorEvent) in
-			let unionResourceOfActorIsEnteredActor : Event = Expression Union(self.ownedActor.resourceOfActorIsEnteredActorEvent) in
-			let unionExitActorAndResourceOfActorIsEntered : Event = Expression Union(
-				unionExitActor, unionResourceOfActorIsEnteredActor
+	context Resource
+		inv isEnteredCoincidesWithOneActorEnter:
+			let unionEnterForCoincides : Event = Expression Union(
+				self.actor.enterActorEvent
 			) in
-				Relation Coincides(unionisExitedResource, unionExitActorAndResourceOfActorIsEntered)
-			
+			Relation Coincides(self.isEnteredResourceEvent, unionEnterForCoincides)
+		inv isExitedCoincidesWithOneActorExit:
+			let unionExitForCoincides : Event = Expression Union(
+				self.actor.exitActorEvent
+			) in
+			Relation Coincides(self.isExitedResourceEvent, unionExitForCoincides)
+		inv isProcessedCoincidesWithOneActorProcess:
+			let unionProcessForCoincides : Event = Expression Union(
+				self.actor.processActorEvent
+			) in
+			Relation Coincides(self.isProcessedResourceEvent, unionProcessForCoincides)
+		inv AnActorIsTakenOverCoincidesWithOneActorIsTakenOver:
+			let unionIsTakenOverForCoincides : Event = Expression Union(
+				self.actor.isTakenOverActorEvent
+			) in
+			let unionTakeOverForCoincides : Event = Expression Union(
+				self.actor.takeOverActorEvent
+			) in
+			let intersectionTakeOverIsTakenOverActorForCoincides : Event = Expression Intersection(
+				unionIsTakenOverForCoincides,
+				unionTakeOverForCoincides
+			) in
+			Relation Coincides(self.anActorIsTakenOverByAnotherOneResourceEvent, intersectionTakeOverIsTakenOverActorForCoincides)
+	
 	context Actor
-		inv resourceIsEnteredActorBehavior:
-			Relation SubClock(self.resourceOfActorIsEnteredActorEvent, self.resource.isEnteredResourceEvent)
 		inv processTimeBehavior:
 			Relation ActorProcessingCycle(
+				self.requestActorEvent,
 				self.enterActorEvent,
 				self.processActorEvent,
 				self.processTimeActorValue,
 				self.exitActorEvent,
 				self.doesNothingActorEvent,
-				self.resourceOfActorIsEnteredActorEvent,
+				self.isTakenOverActorEvent,
+				self.takeOverActorEvent,
 				self.isPriorityActorValue
 			)
 	
@@ -83,60 +102,49 @@ package sock
 	--						BEGIN RESOURCE CLEANING AFTER HIGH PRIORITY
 	-- ========================================================================================================
 	
-	-- Mapping event and methods	
-	
-	context Actor
-		def : enterIsPriorityActorEvent : Event = self
-		def : enterIsNotPriorityActorEvent : Event = self
-		def : exitIsPriorityActorEvent : Event = self
-		def : exitIsNotPriorityActorEvent : Event = self
-		
-	context Resource
-		def : cleanResourceEvent : Event = self.clean()
-		
-	-- Constraints
-	
-	context Actor
-		inv enterSublockEnterBehavior:
-			let unionOfEnterWithPriority : Event = Expression Union(
-				self.enterIsPriorityActorEvent,
-			 	self.enterIsNotPriorityActorEvent
-			) in
-			Relation SubClock(unionOfEnterWithPriority, self.enterActorEvent)
-		inv enterIsNotPrioritySublockEnter:
-			Relation SubClock(, self.enterActorEvent)
-		inv exitIsPrioritySublockEnter:
-			Relation SubClock(self.exitIsPriorityActorEvent, self.exitActorEvent)
-		inv exitIsNotPrioritySublockEnter:
-			Relation SubClock(self.exitIsNotPriorityActorEvent, self.exitActorEvent)
-		inv priorityOnExitBehavior:
-			Relation IsPriorityActorRelation(
-				self.exitIsPriorityActorEvent, 
-				self.exitIsNotPriorityActorEvent,
-				self.isPriorityActorValue
-			)
-		inv priorityOnEnterBehavior:
-			Relation IsPriorityActorRelation(
-				self.enterIsPriorityActorEvent, 
-				self.enterIsNotPriorityActorEvent,
-				self.isPriorityActorValue
-			)
 	
 	context Resource
 		inv resourceUsageCycleBehavior:
-			let intersectionOfIsEnteredAndIsExited : Event = Expression Intersection(
-				self.isEnteredResourceEvent,
-				self.isExitedResourceEvent
-			) in
-			let unionOfExitIsPriorityEventActor : Event = Expression Union(self.actor.exitIsPriorityActorEvent) in
 			Relation ResourceUsageCycleRelation(
 				self.isEnteredResourceEvent,
 				self.isExitedResourceEvent,
+				self.isProcessedResourceEvent,
 				self.doesNothingResourceEvent,
-				intersectionOfIsEnteredAndIsExited,
-				unionOfExitIsPriorityEventActor,
-				self.cleanResourceEvent
+				self.anActorIsTakenOverByAnotherOneResourceEvent
 			)
+	
+	-- Mapping event and methods	
+	
+--	context Resource
+--		def : cleanResourceEvent : Event = self.clean()
+		
+	-- Constraints
+	
+--	context Actor
+--		inv enterSubclockEnterBehavior:
+--			let unionOfEnterWithPriority : Event = Expression Union(
+--				self.enterIsPriorityActorEvent,
+--			 	self.enterIsNotPriorityActorEvent
+--			) in
+--			Relation Coincides(unionOfEnterWithPriority, self.enterActorEvent)
+--		inv exitIsPrioritySublockEnter:
+--			let unionOfExitWithPriority : Event = Expression Union(
+--				self.exitIsPriorityActorEvent,
+--				self.exitIsNotPriorityActorEvent
+--			) in
+--			Relation Coincides(unionOfExitWithPriority, self.exitActorEvent)
+--		inv priorityOnExitBehavior:
+--			Relation IsPriorityActorRelation(
+--				self.exitIsPriorityActorEvent, 
+--				self.exitIsNotPriorityActorEvent,
+--				self.isPriorityActorValue
+--			)
+--		inv priorityOnEnterBehavior:
+--			Relation IsPriorityActorRelation(
+--				self.enterIsPriorityActorEvent, 
+--				self.enterIsNotPriorityActorEvent,
+--				self.isPriorityActorValue
+--			)
 			
 	-- ========================================================================================================
 	--						BEGIN PERIODICITY 
@@ -163,7 +171,7 @@ package sock
 				periodStartSecondAndMoreEvent,
 				periodStartFirstTickEvent
 			) in
-			Relation Alternates(self.enterActorEvent, periodStartEvent)
+			Relation Alternates(self.requestActorEvent, periodStartEvent)
 			
 	-- ========================================================================================================
 	--						BEGIN TIME MANAGEMENT
@@ -179,31 +187,35 @@ package sock
 		
 	context Actor
 		inv unionEventsOfActorCoincidesWithTimeEvent:
-			let unionEnterAndProcessActorEvent : Event = Expression Union(
+			let unionEnterProcess : Event = Expression Union(
 				self.enterActorEvent,
 				self.processActorEvent
 			) in
-			let unionEnterAndProcessAndExitActorEvent : Event = Expression Union(
-				unionEnterAndProcessActorEvent,
+			let unionEnterProcessExit : Event = Expression Union(
+				unionEnterProcess,
 				self.exitActorEvent
 			) in
-			let unionEnterAndProcessAndExitAndDoesNothingActorEvent : Event = Expression Union(
-				unionEnterAndProcessAndExitActorEvent,
+			let unionEnterProcessExitDoesNothing : Event = Expression Union(
+				unionEnterProcessExit,
 				self.doesNothingActorEvent
 			) in
-			let unionvEPEDoesNothingAndNewClockActorEvent : Event = Expression Union(
-				unionEnterAndProcessAndExitAndDoesNothingActorEvent,
-				self.resourceOfActorIsEnteredActorEvent
+			let unionEnterProcessExitDoesNothingResourceIsEntered : Event = Expression Union(
+				unionEnterProcessExitDoesNothing,
+				self.isTakenOverActorEvent
 			) in
+			let unionEnterProcessExitDoesNothingResourceIsEnteredRequest : Event = Expression Union(
+				unionEnterProcessExitDoesNothing,
+				self.requestActorEvent
+			) in			
 			Relation Coincides(
-				unionvEPEDoesNothingAndNewClockActorEvent,
+				unionEnterProcessExitDoesNothingResourceIsEnteredRequest,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 
 	context Resource
 		inv unionEventsOfResourceCoincidesWithTimeEvent:
 			let unionIsEnteredAndIsProcessedResourceEvent : Event = Expression Union(
-				isEnteredResourceEvent,
+				self.isEnteredResourceEvent,
 				self.isProcessedResourceEvent
 			) in
 			let unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent : Event = Expression Union(
@@ -214,30 +226,13 @@ package sock
 				unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent,
 				self.doesNothingResourceEvent
 			) in
+			let unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEventTakenOver : Event = Expression Union(
+				unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent,
+				self.anActorIsTakenOverByAnotherOneResourceEvent
+			) in
 			Relation Coincides(
 				unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
-		inv isEnteredExcludesDoesNothing:
-			Relation Exclusion(
-				self.isEnteredResourceEvent,
-				self.doesNothingResourceEvent
-			)
-		inv isExitedExcludesDoesNothing:
-			Relation Exclusion(
-				self.isExitedResourceEvent,
-				self.doesNothingResourceEvent
-			)
-		inv isProcessedExcludesDoesNothing:
-			Relation Exclusion(
-				self.isProcessedResourceEvent,
-				self.doesNothingResourceEvent
-			)
-		inv isProcessedExcludesIsEntered:
-			Relation Exclusion(
-				self.isProcessedResourceEvent,
-				self.isEnteredResourceEvent
-			)
-			
 			
 endpackage

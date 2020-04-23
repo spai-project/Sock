@@ -23,8 +23,17 @@ AutomataConstraintLibrary actorProcessingCycle {
 			from Exited to Exited : doesNothingExited
 			-> (when ActorProcessingCycleDoesNothingEvent)
 			
-			from Exited to Entered : enter
+			from Exited to Requested : request
+			-> (when ActorProcessingCycleRequestEvent)
+
+			from Requested to Entered : enter
 			-> (when ActorProcessingCycleEnterEvent)
+			
+			from Request to Entered : takeOut
+			-> (when ActorProcessingCyclesTakeOut if (ActorProcessingCyclePriorityValue.value == one))
+			
+			from Requested to Requested : doesNothingRequested
+			-> (when ActorProcessingCycleDoesNothingEvent)
 
 			from Entered to Entered : process
 			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue < ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = (currentProcessTimeValue + one))
@@ -33,7 +42,7 @@ AutomataConstraintLibrary actorProcessingCycle {
 			-> (when ActorProcessingCycleExitEvent if (currentProcessTimeValue == ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = zero)
 			
 			from Entered to Stopped : exitStopped
-			-> (when ActorProcessingCycleResourceIsEnteredEvent if (ActorProcessingCyclePriorityValue.value == zero))
+			-> (when ActorProcessingCycleIsTakenOut if (ActorProcessingCyclePriorityValue.value == zero))
 			
 			from Stopped to Stopped : doesNothingStopped
 			-> (when ActorProcessingCycleDoesNothingEvent)
@@ -49,14 +58,19 @@ AutomataConstraintLibrary actorProcessingCycle {
 				out: starting
 			)
 			
+			State Exited (
+				in: starting, exit, doesNothingExited
+				out: doesNothingExited, request
+			)
+			
+			State Requested (
+				in: request, doesNothingRequested
+				out: enter, doesNothingRequested
+			)
+			
 			State Entered (
 				in: enter, process, enterStopped
 				out: process, exit, exitStopped
-			)
-			
-			State Exited (
-				in: starting, exit, doesNothingExited
-				out: doesNothingExited, enter
 			)
 			
 			State Stopped(
@@ -67,12 +81,14 @@ AutomataConstraintLibrary actorProcessingCycle {
 		}
 		
 		RelationDeclaration ActorProcessingCycle(
+			ActorProcessingCycleRequestEvent: clock,
 			ActorProcessingCycleEnterEvent: clock,
 			ActorProcessingCycleProcessEvent: clock,
 			ActorProcessingCycleProcessTime: int,
 			ActorProcessingCycleExitEvent: clock,
 			ActorProcessingCycleDoesNothingEvent: clock,
-			ActorProcessingCycleResourceIsEnteredEvent: clock,
+			ActorProcessingCycleIsTakenOut: clock,
+			ActorProcessingCyclesTakeOut: clock,
 			ActorProcessingCyclePriorityValue: int
 		)
 	}

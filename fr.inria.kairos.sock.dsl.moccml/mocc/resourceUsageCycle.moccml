@@ -17,25 +17,19 @@ AutomataConstraintLibrary resourceUsageCycle {
 			-> ()
 			
 			from Free to Busy : enter
-			-> (when ResourceUsageCycleEnterEvent)
+			-> (when ResourceUsageCycleIsEnteredEvent)
 			
-			from Free to Free : somethingElseFree
-			-> (when ResourceUsageCycleSomethingElseEvent)
+			from Free to Free : doesNothing
+			-> (when ResourceUsageCycleDoesNothingEvent)
 			
 			from Busy to Free : exit
-			-> (when ResourceUsageCycleExitEvent)
+			-> (when ResourceUsageCycleIsExitedEvent)
 			
-			from Busy to Busy : somethingElseBusy
-			-> (when ResourceUsageCycleSomethingElseEvent)
+			from Busy to Busy : isProcessed
+			-> (when ResourceUsageCycleIsProcessedEvent)
 			
-			from Busy to Busy : exitAndEnter
-			-> (when ResourceusageCycleEnterAndExitEvent)
-			
-			from Busy to Cleaning : aPriorityActorExit
-			-> (when ResourceusageCycleExitPriorityEvent)
-			
-			from Cleaning to Free : clean
-			-> (when ResourceusageCycleCleanEvent)
+			from Busy to Busy : takeOutAndEnterIn
+			-> (when ResourceusageCycleAnActorIsTakenOut)
 			
 			/* 
 			 * STATES DEFINITION
@@ -46,28 +40,22 @@ AutomataConstraintLibrary resourceUsageCycle {
 			)
 			
 			State Free (
-				in: exit, somethingElseFree
-				out: enter, somethingElseFree
+				in: starting, doesNothing, exit
+				out: enter, doesNothing
 			)
 			
 			State Busy (
-				in: enter, somethingElseBusy, exitAndEnter
-				out: exit, somethingElseBusy, exitAndEnter
+				in: enter, isProcessed, takeOutAndEnterIn
+				out: exit, isProcessed, takeOutAndEnterIn
 			)
 			
-			State Cleaning(
-				in: aPriorityActorExit
-				out: clean
-			)
-		
 		}
 		RelationDeclaration ResourceUsageCycleRelation(
-			ResourceUsageCycleEnterEvent: clock,
-			ResourceUsageCycleExitEvent: clock,
-			ResourceUsageCycleSomethingElseEvent: clock,
-			ResourceusageCycleEnterAndExitEvent: clock,
-			ResourceusageCycleExitPriorityEvent: clock,
-			ResourceusageCycleCleanEvent: clock
+			ResourceUsageCycleIsEnteredEvent: clock,
+			ResourceUsageCycleIsExitedEvent: clock,
+			ResourceUsageCycleIsProcessedEvent: clock,
+			ResourceUsageCycleDoesNothingEvent: clock,
+			ResourceusageCycleAnActorIsTakenOut: clock
 		)
 	}
 

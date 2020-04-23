@@ -22,14 +22,13 @@ abstract class NamedElementAspect {
 @Aspect(className=IotSystem)
 class IotSystemAspect extends NamedElementAspect {
 
-	public var Integer timeIndex = 0
+//	public var Integer timeIndex = 0
 	
-	def public void time() {
-		_self.timeIndex = _self.timeIndex + 1
-	}
+//	def public void time() {
+//		_self.timeIndex = _self.timeIndex + 1
+//	}
 
 }
-
 
 @Aspect(className=Resource)
 class ResourceAspect extends NamedElementAspect {
@@ -85,6 +84,10 @@ class ActorAspect extends NamedElementAspect {
 		_self.timeIndex = _self.timeIndex + 1
 	}
 	
+	def public void request() {
+		run(_self, _self.name + " requests " + _self.resource.name)
+	}
+	
 	def public void idle() {
 		time(_self)
 	}
@@ -99,12 +102,12 @@ class ActorAspect extends NamedElementAspect {
 	}
 	
 	def public void exitOf() {
-		run(_self, _self.name + " exit of " + _self.resource.name)
+		run(_self, _self.name + " exits of " + _self.resource.name)
 	}
 	
 	def public void process() {
 		_self.currentProcessTime = _self.currentProcessTime + 1
-		run(_self, _self.name + " process ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
+		run(_self, _self.name + " processes ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
 	}
 	
 	@SynchroField
@@ -114,7 +117,7 @@ class ActorAspect extends NamedElementAspect {
 	public var Integer processTime = 3
 	
 	@SynchroField
-	public var Integer periodTime = 10
+	public var Integer periodTime = 25
 
 }
 

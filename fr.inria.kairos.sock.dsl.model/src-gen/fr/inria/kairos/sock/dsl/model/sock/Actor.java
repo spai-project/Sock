@@ -110,6 +110,14 @@ public interface Actor extends NamedElement {
 	void process();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void request();
+
+	/**
 	 * Returns the value of the '<em><b>Process Time</b></em>' attribute.
 	 * The default value is <code>"3"</code>.
 	 * <!-- begin-user-doc -->
