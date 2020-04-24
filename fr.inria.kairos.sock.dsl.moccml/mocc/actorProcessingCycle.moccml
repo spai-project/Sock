@@ -29,8 +29,8 @@ AutomataConstraintLibrary actorProcessingCycle {
 			from Requested to Entered : enter
 			-> (when ActorProcessingCycleEnterEvent)
 			
-			from Request to Entered : takeOut
-			-> (when ActorProcessingCyclesTakeOut if (ActorProcessingCyclePriorityValue.value == one))
+			from Requested to Entered : takesOut
+			-> (when ActorProcessingCycleTakesOver)// if (ActorProcessingCyclePriorityValue.value == one))
 			
 			from Requested to Requested : doesNothingRequested
 			-> (when ActorProcessingCycleDoesNothingEvent)
@@ -42,7 +42,7 @@ AutomataConstraintLibrary actorProcessingCycle {
 			-> (when ActorProcessingCycleExitEvent if (currentProcessTimeValue == ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = zero)
 			
 			from Entered to Stopped : exitStopped
-			-> (when ActorProcessingCycleIsTakenOut if (ActorProcessingCyclePriorityValue.value == zero))
+			-> (when ActorProcessingCycleIsTakenOver)// if (ActorProcessingCyclePriorityValue.value == zero))
 			
 			from Stopped to Stopped : doesNothingStopped
 			-> (when ActorProcessingCycleDoesNothingEvent)
@@ -65,11 +65,11 @@ AutomataConstraintLibrary actorProcessingCycle {
 			
 			State Requested (
 				in: request, doesNothingRequested
-				out: enter, doesNothingRequested
+				out: enter, doesNothingRequested, takesOut
 			)
 			
 			State Entered (
-				in: enter, process, enterStopped
+				in: enter, process, enterStopped, takesOut
 				out: process, exit, exitStopped
 			)
 			
@@ -87,8 +87,8 @@ AutomataConstraintLibrary actorProcessingCycle {
 			ActorProcessingCycleProcessTime: int,
 			ActorProcessingCycleExitEvent: clock,
 			ActorProcessingCycleDoesNothingEvent: clock,
-			ActorProcessingCycleIsTakenOut: clock,
-			ActorProcessingCyclesTakeOut: clock,
+			ActorProcessingCycleIsTakenOver: clock,
+			ActorProcessingCycleTakesOver: clock,
 			ActorProcessingCyclePriorityValue: int
 		)
 	}

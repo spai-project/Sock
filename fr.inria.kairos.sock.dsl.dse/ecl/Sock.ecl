@@ -42,7 +42,7 @@ package sock
 		def : processTimeActorValue : Integer = self.processTime
 		def : isPriorityActorValue : Integer = self.isPriority
 		def : isTakenOverActorEvent : Event = self.exitOf()
-		def : takeOverActorEvent : Event = self.enterIn()
+		def : takesOverActorEvent : Event = self.enterIn()
 		
 --		def : enterIsPriorityActorEvent : Event = self
 --		def : enterIsNotPriorityActorEvent : Event = self
@@ -50,6 +50,19 @@ package sock
 --		def : exitIsNotPriorityActorEvent : Event = self
 	
 	-- Constraints
+	
+	context IotSystem
+		inv oneTakeOverCoincidesWithOneIsTakenOverActor:
+			let unionIsTakenOverForCoincidesWithTakesOver : Event = Expression Union(
+				self.ownedActor.isTakenOverActorEvent
+			) in
+			let unionTakeOverForCoincidesWithIsTakenOver : Event = Expression Union(
+				self.ownedActor.takesOverActorEvent
+			) in
+			Relation Coincides(
+				unionTakeOverForCoincidesWithIsTakenOver,
+				unionIsTakenOverForCoincidesWithTakesOver
+			)
 	
 	context Resource
 		inv isEnteredCoincidesWithOneActorEnter:
@@ -72,14 +85,17 @@ package sock
 				self.actor.isTakenOverActorEvent
 			) in
 			let unionTakeOverForCoincides : Event = Expression Union(
-				self.actor.takeOverActorEvent
+				self.actor.takesOverActorEvent
 			) in
 			let intersectionTakeOverIsTakenOverActorForCoincides : Event = Expression Intersection(
 				unionIsTakenOverForCoincides,
 				unionTakeOverForCoincides
 			) in
 			Relation Coincides(self.anActorIsTakenOverByAnotherOneResourceEvent, intersectionTakeOverIsTakenOverActorForCoincides)
-	
+		inv oneActorCanEnterInTheResourceInTheSameTimeBehavior:
+			Relation Exclusion(self.actor.enterActorEvent)
+		
+		
 	context Actor
 		inv processTimeBehavior:
 			Relation ActorProcessingCycle(
@@ -90,13 +106,14 @@ package sock
 				self.exitActorEvent,
 				self.doesNothingActorEvent,
 				self.isTakenOverActorEvent,
-				self.takeOverActorEvent,
+				self.takesOverActorEvent,
 				self.isPriorityActorValue
 			)
-	
-	context Resource
-		inv oneActorCanEnterInTheResourceInTheSameTimeBehavior:
-			Relation Exclusion(self.actor.enterActorEvent)
+		inv ActorCannotBeTakenOverAndTakesOverInTheSameTime:
+			Relation Exclusion(
+				self.takesOverActorEvent,
+				self.isTakenOverActorEvent
+			)
 	
 	-- ========================================================================================================
 	--						BEGIN RESOURCE CLEANING AFTER HIGH PRIORITY
