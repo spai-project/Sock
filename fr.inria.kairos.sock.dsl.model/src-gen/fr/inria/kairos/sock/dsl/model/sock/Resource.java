@@ -47,4 +47,12 @@ public interface Resource extends NamedElement {
 	 */
 	void clean();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void idle();
+
 } // Resource

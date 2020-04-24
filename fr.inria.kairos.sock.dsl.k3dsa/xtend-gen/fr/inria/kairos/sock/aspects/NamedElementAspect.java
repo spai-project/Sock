@@ -24,6 +24,14 @@ public abstract class NamedElementAspect {
     };
   }
   
+  public static void idle(final NamedElement _self) {
+    final fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectProperties _self_ = fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void idle()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.NamedElement){
+    	fr.inria.kairos.sock.aspects.NamedElementAspect._privk3_idle(_self_, (fr.inria.kairos.sock.dsl.model.sock.NamedElement)_self);
+    };
+  }
+  
   protected static Integer timeIndex(final NamedElement _self) {
     final fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectProperties _self_ = fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectContext.getSelf(_self);
     Object result = null;
@@ -55,6 +63,10 @@ public abstract class NamedElementAspect {
     Integer _timeIndex = NamedElementAspect.timeIndex(_self);
     int _plus = ((_timeIndex).intValue() + 1);
     NamedElementAspect.timeIndex(_self, Integer.valueOf(_plus));
+  }
+  
+  protected static void _privk3_idle(final NamedElementAspectNamedElementAspectProperties _self_, final NamedElement _self) {
+    NamedElementAspect.time(_self);
   }
   
   protected static Integer _privk3_timeIndex(final NamedElementAspectNamedElementAspectProperties _self_, final NamedElement _self) {

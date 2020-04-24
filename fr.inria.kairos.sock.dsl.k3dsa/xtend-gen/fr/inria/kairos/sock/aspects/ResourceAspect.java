@@ -37,6 +37,22 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
+  public static void isProcessed(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void isProcessed()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_isProcessed(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+  }
+  
+  public static void isExited(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void isExited()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_isExited(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+  }
+  
   public static String currentData(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     Object result = null;
@@ -88,6 +104,7 @@ public class ResourceAspect extends NamedElementAspect {
   
   protected static void _privk3_clean(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
     ResourceAspect.currentData(_self, "");
+    NamedElementAspect.run(_self, "clean data");
   }
   
   protected static void _privk3_isEntered(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Actor actor) {
@@ -105,11 +122,15 @@ public class ResourceAspect extends NamedElementAspect {
       }
     }
     ResourceAspect.lastActorPriority(_self, ActorAspect.isPriority(actor));
-    String _name_1 = _self.getName();
-    String _plus_2 = (_name_1 + " is entered by ");
-    String _name_2 = actor.getName();
-    String _plus_3 = (_plus_2 + _name_2);
-    NamedElementAspect.run(_self, _plus_3);
+    NamedElementAspect.time(_self);
+  }
+  
+  protected static void _privk3_isProcessed(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    NamedElementAspect.time(_self);
+  }
+  
+  protected static void _privk3_isExited(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    NamedElementAspect.time(_self);
   }
   
   protected static String _privk3_currentData(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {

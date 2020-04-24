@@ -1475,6 +1475,8 @@ main() {
 			name:= getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "idle")->first().oclAsType(EObject);
 			
 				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent';
 			kind :=TimeModel::EventKind::undefined;
@@ -1880,8 +1882,6 @@ main() {
 			name:= getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
-				//referencedObjectRefs += self.oclAsType(EObject);
-				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "exitOf")->first().oclAsType(EObject);
 			
 				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent';
 			kind :=TimeModel::EventKind::undefined;
@@ -1898,8 +1898,6 @@ main() {
 			name:= getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
-				//referencedObjectRefs += self.oclAsType(EObject);
-				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "exitOf")->first().oclAsType(EObject);
 			
 				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent';
 			kind :=TimeModel::EventKind::undefined;
@@ -2178,6 +2176,8 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 		{
 			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent';
 
+				caller := self.oclAsType(EObject);
+				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "idle")->first();
 				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent')->first().oclAsType(EObject);
 				
 			end{
@@ -2304,8 +2304,6 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 		{
 			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent';
 
-				caller := self.oclAsType(EObject);
-				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "exitOf")->first();
 				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent')->first().oclAsType(EObject);
 				
 			end{
@@ -2317,8 +2315,6 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 		{
 			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent';
 
-				caller := self.oclAsType(EObject);
-				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "exitOf")->first();
 				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent')->first().oclAsType(EObject);
 				
 			end{

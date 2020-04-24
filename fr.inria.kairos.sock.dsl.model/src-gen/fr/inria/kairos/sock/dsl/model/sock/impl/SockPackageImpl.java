@@ -202,6 +202,15 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getResource__Idle() {
+		return resourceEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getActor() {
 		return actorEClass;
 	}
@@ -327,6 +336,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		resourceEClass = createEClass(RESOURCE);
 		createEReference(resourceEClass, RESOURCE__ACTOR);
 		createEOperation(resourceEClass, RESOURCE___CLEAN);
+		createEOperation(resourceEClass, RESOURCE___IDLE);
 
 		actorEClass = createEClass(ACTOR);
 		createEReference(actorEClass, ACTOR__RESOURCE);
@@ -397,6 +407,8 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getResource__Clean(), null, "clean", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getResource__Idle(), null, "idle", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActor_Resource(), this.getResource(), this.getResource_Actor(), "resource", null, 0, 1,

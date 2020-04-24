@@ -21,6 +21,7 @@
     <genClasses ecoreClass="sock.ecore#//Resource">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sock.ecore#//Resource/actor"/>
       <genOperations ecoreOperation="sock.ecore#//Resource/clean"/>
+      <genOperations ecoreOperation="sock.ecore#//Resource/idle"/>
     </genClasses>
     <genClasses ecoreClass="sock.ecore#//Actor">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sock.ecore#//Actor/resource"/>

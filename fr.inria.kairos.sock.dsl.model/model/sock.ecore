@@ -13,6 +13,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//NamedElement">
     <eOperations name="clean"/>
+    <eOperations name="idle"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" upperBound="-1"
         eType="#//Actor" eOpposite="#//Actor/resource"/>
   </eClassifiers>

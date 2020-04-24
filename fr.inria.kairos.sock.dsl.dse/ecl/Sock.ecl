@@ -19,7 +19,7 @@ package sock
 	context IotSystem
 		def : timeEvent : Event = self
 		def : zeroValue : Integer = 0
-
+	
 	-- ========================================================================================================
 	--						BEGIN RESOURCE USAGE CYCLE 
 	-- 				This resource usage includes : 
@@ -35,7 +35,7 @@ package sock
 		def : isEnteredResourceEvent : Event = self
 		def : isProcessedResourceEvent : Event = self
 		def : isExitedResourceEvent : Event = self
-		def : doesNothingResourceEvent : Event = self
+		def : doesNothingResourceEvent : Event = self.idle()
 		def : anActorIsTakenOverByAnotherOneResourceEvent : Event = self
 	
 	context  Actor
@@ -125,8 +125,8 @@ package sock
 		def : cleanResourceEvent : Event = self.clean()
 	
 	context Actor
-		def : exitPriorityActorEvent : Event = self.exitOf()
-		def : exitNotPriorityActorEvent : Event = self.exitOf()
+		def : exitPriorityActorEvent : Event = self
+		def : exitNotPriorityActorEvent : Event = self
 		
 	-- Constraints
 	
@@ -201,7 +201,7 @@ package sock
 	-- Mapping event and methods
 	
 	-- Constraints
-		
+	
 	context Actor
 		inv unionEventsOfActorCoincidesWithTimeEvent:
 			let unionEnterProcess : Event = Expression Union(

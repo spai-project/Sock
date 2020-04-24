@@ -91,6 +91,17 @@ public class ResourceImpl extends NamedElementImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void idle() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -185,6 +196,9 @@ public class ResourceImpl extends NamedElementImpl implements Resource {
 		switch (operationID) {
 		case SockPackage.RESOURCE___CLEAN:
 			clean();
+			return null;
+		case SockPackage.RESOURCE___IDLE:
+			idle();
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);

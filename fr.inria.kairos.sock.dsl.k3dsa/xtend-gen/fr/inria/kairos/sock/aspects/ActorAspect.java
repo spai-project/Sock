@@ -19,14 +19,6 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
-  public static void idle(final Actor _self) {
-    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void idle()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
-    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_idle(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
-    };
-  }
-  
   public static void enterIn(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void enterIn()
@@ -155,10 +147,6 @@ public class ActorAspect extends NamedElementAspect {
     NamedElementAspect.run(_self, _plus_1);
   }
   
-  protected static void _privk3_idle(final ActorAspectActorAspectProperties _self_, final Actor _self) {
-    NamedElementAspect.time(_self);
-  }
-  
   protected static void _privk3_enterIn(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     String _name = _self.getName();
     String _plus = (_name + " enters in ");
@@ -186,6 +174,7 @@ public class ActorAspect extends NamedElementAspect {
     String _name_1 = _self.getResource().getName();
     String _plus_1 = (_plus + _name_1);
     NamedElementAspect.run(_self, _plus_1);
+    ResourceAspect.isExited(_self.getResource());
   }
   
   protected static void _privk3_process(final ActorAspectActorAspectProperties _self_, final Actor _self) {
@@ -204,6 +193,7 @@ public class ActorAspect extends NamedElementAspect {
     String _plus_6 = (_plus_5 + _name_1);
     String _plus_7 = (_plus_6 + "}");
     NamedElementAspect.run(_self, _plus_7);
+    ResourceAspect.isProcessed(_self.getResource());
   }
   
   protected static String _privk3_secret(final ActorAspectActorAspectProperties _self_, final Actor _self) {

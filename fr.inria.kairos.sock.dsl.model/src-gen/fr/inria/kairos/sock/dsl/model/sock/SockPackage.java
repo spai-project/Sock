@@ -205,13 +205,22 @@ public interface SockPackage extends EPackage {
 	int RESOURCE___CLEAN = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Idle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE___IDLE = NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int RESOURCE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl <em>Actor</em>}' class.
@@ -426,6 +435,16 @@ public interface SockPackage extends EPackage {
 	EOperation getResource__Clean();
 
 	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Resource#idle() <em>Idle</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Idle</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Resource#idle()
+	 * @generated
+	 */
+	EOperation getResource__Idle();
+
+	/**
 	 * Returns the meta object for class '{@link fr.inria.kairos.sock.dsl.model.sock.Actor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -629,6 +648,14 @@ public interface SockPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RESOURCE___CLEAN = eINSTANCE.getResource__Clean();
+
+		/**
+		 * The meta object literal for the '<em><b>Idle</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESOURCE___IDLE = eINSTANCE.getResource__Idle();
 
 		/**
 		 * The meta object literal for the '{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl <em>Actor</em>}' class.

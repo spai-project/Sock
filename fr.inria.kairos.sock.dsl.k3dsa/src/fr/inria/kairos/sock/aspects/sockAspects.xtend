@@ -28,6 +28,10 @@ abstract class NamedElementAspect {
 		_self.timeIndex = _self.timeIndex + 1
 	}
 	
+	def public void idle() {
+		time(_self)
+	}
+	
 }
 
 @Aspect(className=IotSystem)
@@ -50,11 +54,9 @@ class ResourceAspect extends NamedElementAspect {
 		println("")
 	}
 	
-	// TODO implement methods of the model
-	// TODO implement the time inside the resource
-	
 	def public void clean() {
 		_self.currentData = ""
+		run(_self, "clean data")
 	}
 	
 	def public void isEntered(Actor actor) {
@@ -66,7 +68,15 @@ class ResourceAspect extends NamedElementAspect {
 			}
 		}
 		_self.lastActorPriority = actor.priority
-		run(_self, _self.name + " is entered by " + actor.name)
+		_self.time()
+	}
+	
+	def public void isProcessed() {
+		_self.time()
+	}
+	
+	def public void isExited() {
+		_self.time()
 	}
 	
 }
@@ -82,10 +92,6 @@ class ActorAspect extends NamedElementAspect {
 		run(_self, _self.name + " requests " + _self.resource.name)
 	}
 	
-	def public void idle() {
-		time(_self)
-	}
-	
 	def public void enterIn() {
 		run(_self, _self.name + " enters in " + _self.resource.name)
 		if (_self.currentProcessTime  == _self.processTime) {
@@ -97,11 +103,13 @@ class ActorAspect extends NamedElementAspect {
 	
 	def public void exitOf() {
 		run(_self, _self.name + " exits of " + _self.resource.name)
+		_self.resource.isExited()
 	}
 	
 	def public void process() {
 		_self.currentProcessTime = _self.currentProcessTime + 1
 		run(_self, _self.name + " processes ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
+		_self.resource.isProcessed()
 	}
 	
 	@SynchroField
