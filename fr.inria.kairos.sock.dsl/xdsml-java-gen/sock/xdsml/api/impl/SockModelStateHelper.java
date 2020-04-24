@@ -59,23 +59,29 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 				AttributeNameToValue n2v1 = new AttributeNameToValue("lastActorPriority", SockRTDAccessor.getlastActorPriority(elem));
 				elemState.getSavedRTDs().add(n2v1);
 			}
-			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.ActorAspect.class);
+			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.NamedElementAspect.class);
 			if (clazz.isInstance(elem)) {
 				ElementState elemState = theFactory.createElementState();
 				elemState.setModelElement(elem);
 				res.getOwnedElementstates().add(elemState);
 				AttributeNameToValue n2v0 = new AttributeNameToValue("timeIndex", SockRTDAccessor.gettimeIndex(elem));
 				elemState.getSavedRTDs().add(n2v0);
-				AttributeNameToValue n2v1 = new AttributeNameToValue("secret", SockRTDAccessor.getsecret(elem));
+			}
+			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.ActorAspect.class);
+			if (clazz.isInstance(elem)) {
+				ElementState elemState = theFactory.createElementState();
+				elemState.setModelElement(elem);
+				res.getOwnedElementstates().add(elemState);
+				AttributeNameToValue n2v0 = new AttributeNameToValue("secret", SockRTDAccessor.getsecret(elem));
+				elemState.getSavedRTDs().add(n2v0);
+				AttributeNameToValue n2v1 = new AttributeNameToValue("currentProcessTime", SockRTDAccessor.getcurrentProcessTime(elem));
 				elemState.getSavedRTDs().add(n2v1);
-				AttributeNameToValue n2v2 = new AttributeNameToValue("currentProcessTime", SockRTDAccessor.getcurrentProcessTime(elem));
+				AttributeNameToValue n2v2 = new AttributeNameToValue("isPriority", SockRTDAccessor.getisPriority(elem));
 				elemState.getSavedRTDs().add(n2v2);
-				AttributeNameToValue n2v3 = new AttributeNameToValue("isPriority", SockRTDAccessor.getisPriority(elem));
+				AttributeNameToValue n2v3 = new AttributeNameToValue("processTime", SockRTDAccessor.getprocessTime(elem));
 				elemState.getSavedRTDs().add(n2v3);
-				AttributeNameToValue n2v4 = new AttributeNameToValue("processTime", SockRTDAccessor.getprocessTime(elem));
+				AttributeNameToValue n2v4 = new AttributeNameToValue("periodTime", SockRTDAccessor.getperiodTime(elem));
 				elemState.getSavedRTDs().add(n2v4);
-				AttributeNameToValue n2v5 = new AttributeNameToValue("periodTime", SockRTDAccessor.getperiodTime(elem));
-				elemState.getSavedRTDs().add(n2v5);
 			}
 		}
 		return res;

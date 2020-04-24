@@ -16,17 +16,22 @@ import fr.inria.diverse.k3.al.annotationprocessor.Step
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
-
+	
+	protected var Integer timeIndex = 0
+	
+	def protected void run(String message) {
+		println("[" + _self.timeIndex + "] " + message)
+		time(_self)
+	}
+	
+	def protected void time() {
+		_self.timeIndex = _self.timeIndex + 1
+	}
+	
 }
 
 @Aspect(className=IotSystem)
 class IotSystemAspect extends NamedElementAspect {
-
-//	public var Integer timeIndex = 0
-	
-//	def public void time() {
-//		_self.timeIndex = _self.timeIndex + 1
-//	}
 
 }
 
@@ -49,7 +54,6 @@ class ResourceAspect extends NamedElementAspect {
 	// TODO implement the time inside the resource
 	
 	def public void clean() {
-		// must be link to the ECL file
 		_self.currentData = ""
 	}
 	
@@ -62,27 +66,17 @@ class ResourceAspect extends NamedElementAspect {
 			}
 		}
 		_self.lastActorPriority = actor.priority
+		run(_self, _self.name + " is entered by " + actor.name)
 	}
 	
 }
 
 @Aspect(className=Actor)
 class ActorAspect extends NamedElementAspect {
-	
-	private var Integer timeIndex = 0
 
 	private var String secret = new java.util.Random().nextInt().toString()
 	
 	private var Integer currentProcessTime = 0
-	
-	def private void run(String message) {
-		println("[" + _self.timeIndex + "] " + message)
-		time(_self)
-	}
-	
-	def private void time() {
-		_self.timeIndex = _self.timeIndex + 1
-	}
 	
 	def public void request() {
 		run(_self, _self.name + " requests " + _self.resource.name)
@@ -97,8 +91,8 @@ class ActorAspect extends NamedElementAspect {
 		if (_self.currentProcessTime  == _self.processTime) {
 			_self.currentProcessTime = 0
 		}
-		_self.resource.currentData = _self.name + " " + _self.secret
 		_self.resource.isEntered(_self)
+		_self.resource.currentData = _self.name + " " + _self.secret
 	}
 	
 	def public void exitOf() {

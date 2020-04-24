@@ -105,6 +105,11 @@ public class ResourceAspect extends NamedElementAspect {
       }
     }
     ResourceAspect.lastActorPriority(_self, ActorAspect.isPriority(actor));
+    String _name_1 = _self.getName();
+    String _plus_2 = (_name_1 + " is entered by ");
+    String _name_2 = actor.getName();
+    String _plus_3 = (_plus_2 + _name_2);
+    NamedElementAspect.run(_self, _plus_3);
   }
   
   protected static String _privk3_currentData(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {

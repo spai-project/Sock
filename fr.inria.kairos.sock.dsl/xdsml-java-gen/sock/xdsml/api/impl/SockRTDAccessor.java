@@ -22,10 +22,10 @@ public class SockRTDAccessor {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorPriority", newValue);
 	}
   public static java.lang.Integer gettimeIndex(EObject eObject) {
-		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "timeIndex");
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.NamedElementAspect", "timeIndex");
 	}
 	public static boolean settimeIndex(EObject eObject, java.lang.Integer newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "timeIndex", newValue);
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.NamedElementAspect", "timeIndex", newValue);
 	}
   public static java.lang.String getsecret(EObject eObject) {
 		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "secret");

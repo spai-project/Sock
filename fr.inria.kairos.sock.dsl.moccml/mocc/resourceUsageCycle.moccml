@@ -22,14 +22,20 @@ AutomataConstraintLibrary resourceUsageCycle {
 			from Free to Free : doesNothing
 			-> (when ResourceUsageCycleDoesNothingEvent)
 			
-			from Busy to Free : exit
-			-> (when ResourceUsageCycleIsExitedEvent)
+			from Busy to Free : exitNotPriority
+			-> (when ResourceUsageCycleIsExitedByNotPriorityActorEvent)
+			
+			from Busy to Cleaning : exitPriority
+			-> (when ResourceUsageCycleIsExitedByPriorityActorEvent)
 			
 			from Busy to Busy : isProcessed
 			-> (when ResourceUsageCycleIsProcessedEvent)
 			
 			from Busy to Busy : takeOutAndEnterIn
-			-> (when ResourceusageCycleAnActorIsTakenOut)
+			-> (when ResourceusageCycleAnActorIsTakenOutEvent)
+			
+			from Cleaning to Free : clean
+			-> (when ResourceusageCycleCleanEvent)
 			
 			/* 
 			 * STATES DEFINITION
@@ -40,22 +46,29 @@ AutomataConstraintLibrary resourceUsageCycle {
 			)
 			
 			State Free (
-				in: starting, doesNothing, exit
+				in: starting, doesNothing, exitNotPriority, clean
 				out: enter, doesNothing
 			)
 			
 			State Busy (
 				in: enter, isProcessed, takeOutAndEnterIn
-				out: exit, isProcessed, takeOutAndEnterIn
+				out: exitNotPriority, isProcessed, takeOutAndEnterIn, exitPriority
+			)
+			
+			State Cleaning (
+				in: exitPriority
+				out: clean
 			)
 			
 		}
 		RelationDeclaration ResourceUsageCycleRelation(
 			ResourceUsageCycleIsEnteredEvent: clock,
-			ResourceUsageCycleIsExitedEvent: clock,
+			ResourceUsageCycleIsExitedByNotPriorityActorEvent: clock,
+			ResourceUsageCycleIsExitedByPriorityActorEvent: clock,
 			ResourceUsageCycleIsProcessedEvent: clock,
 			ResourceUsageCycleDoesNothingEvent: clock,
-			ResourceusageCycleAnActorIsTakenOut: clock
+			ResourceusageCycleAnActorIsTakenOutEvent: clock,
+			ResourceusageCycleCleanEvent: clock
 		)
 	}
 

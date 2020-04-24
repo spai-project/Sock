@@ -22,6 +22,11 @@ package sock
 
 	-- ========================================================================================================
 	--						BEGIN RESOURCE USAGE CYCLE 
+	-- 				This resource usage includes : 
+	--					- the basic cycle request enter process exit
+	--					- the management of the time that the actor must process
+	--					- the takes over by a high-priority actor from a resource of 
+	--					a low-priority actor
 	-- ========================================================================================================
 
 	-- Mapping event and methods
@@ -44,11 +49,6 @@ package sock
 		def : isTakenOverActorEvent : Event = self.exitOf()
 		def : takesOverActorEvent : Event = self.enterIn()
 		
---		def : enterIsPriorityActorEvent : Event = self
---		def : enterIsNotPriorityActorEvent : Event = self
---		def : exitIsPriorityActorEvent : Event = self
---		def : exitIsNotPriorityActorEvent : Event = self
-	
 	-- Constraints
 	
 	context IotSystem
@@ -119,50 +119,51 @@ package sock
 	--						BEGIN RESOURCE CLEANING AFTER HIGH PRIORITY
 	-- ========================================================================================================
 	
-	
-	context Resource
-		inv resourceUsageCycleBehavior:
-			Relation ResourceUsageCycleRelation(
-				self.isEnteredResourceEvent,
-				self.isExitedResourceEvent,
-				self.isProcessedResourceEvent,
-				self.doesNothingResourceEvent,
-				self.anActorIsTakenOverByAnotherOneResourceEvent
-			)
-	
 	-- Mapping event and methods	
 	
---	context Resource
---		def : cleanResourceEvent : Event = self.clean()
+	context Resource
+		def : cleanResourceEvent : Event = self.clean()
+	
+	context Actor
+		def : exitPriorityActorEvent : Event = self.exitOf()
+		def : exitNotPriorityActorEvent : Event = self.exitOf()
 		
 	-- Constraints
 	
---	context Actor
---		inv enterSubclockEnterBehavior:
---			let unionOfEnterWithPriority : Event = Expression Union(
---				self.enterIsPriorityActorEvent,
---			 	self.enterIsNotPriorityActorEvent
---			) in
---			Relation Coincides(unionOfEnterWithPriority, self.enterActorEvent)
---		inv exitIsPrioritySublockEnter:
---			let unionOfExitWithPriority : Event = Expression Union(
---				self.exitIsPriorityActorEvent,
---				self.exitIsNotPriorityActorEvent
---			) in
---			Relation Coincides(unionOfExitWithPriority, self.exitActorEvent)
---		inv priorityOnExitBehavior:
---			Relation IsPriorityActorRelation(
---				self.exitIsPriorityActorEvent, 
---				self.exitIsNotPriorityActorEvent,
---				self.isPriorityActorValue
---			)
---		inv priorityOnEnterBehavior:
---			Relation IsPriorityActorRelation(
---				self.enterIsPriorityActorEvent, 
---				self.enterIsNotPriorityActorEvent,
---				self.isPriorityActorValue
---			)
-			
+	context Actor
+		inv unionExitWithOrWithoutPriorityCoincidesExitActor:
+			let unionExitWithOrWithoutPriorityForCoincides :  Event = Expression Union(
+				self.exitPriorityActorEvent,
+				self.exitNotPriorityActorEvent			
+			) in
+			Relation Coincides(self.exitActorEvent, unionExitWithOrWithoutPriorityForCoincides)
+		inv excludeExitWithAndWithoutPriorityActor:
+			Relation Exclusion(self.exitPriorityActorEvent, self.exitNotPriorityActorEvent)
+		inv priorityOnExitBehavior:
+			Relation IsPriorityActorRelation(
+				self.exitPriorityActorEvent, 
+				self.exitNotPriorityActorEvent,
+				self.isPriorityActorValue
+			)
+	
+	context Resource
+		inv resourceUsageCycleBehavior:
+			let unionPriorityActorExitForResourceUsageCycle : Event = Expression Union(
+				self.actor.exitPriorityActorEvent
+			) in
+			let unionNotPriorityActorExitForResourceUsageCycle : Event = Expression Union(
+				self.actor.exitNotPriorityActorEvent
+			) in
+			Relation ResourceUsageCycleRelation(
+				self.isEnteredResourceEvent,
+				unionNotPriorityActorExitForResourceUsageCycle,
+				unionPriorityActorExitForResourceUsageCycle,
+				self.isProcessedResourceEvent,
+				self.doesNothingResourceEvent,
+				self.anActorIsTakenOverByAnotherOneResourceEvent,
+				self.cleanResourceEvent
+			)
+	
 	-- ========================================================================================================
 	--						BEGIN PERIODICITY 
 	-- ========================================================================================================
@@ -198,7 +199,6 @@ package sock
 	-- ========================================================================================================
 			
 	-- Mapping event and methods
-	
 	
 	-- Constraints
 		
