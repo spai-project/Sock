@@ -270,7 +270,7 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map unionEventsOfResourceCoincidesWithTimeEvent52unionEventsOfResourceCoincidesWithTimeEvent();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map unionEventsOfResourceCoincidesWithTimeEvent62unionEventsOfResourceCoincidesWithTimeEvent();
 		
 	}
 
@@ -1292,14 +1292,39 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEventTakenOver2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOverClean2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEventTakenOver';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOverClean';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent2Expression()->asSequence()->first();
+					bindable := self -> map unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOver2Expression()->asSequence()->first();
+				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_cleanResourceEvent']->first();
+				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+
+	mapping inMM1::Resource::unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOver2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOver';
+		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
+		
+
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := self -> map unionIsEnteredIsProcessedIsExitedDoesNothingResource2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1317,14 +1342,14 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionIsEnteredIsProcessedIsExitedDoesNothingResource2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredIsProcessedIsExitedDoesNothingResource';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent2Expression()->asSequence()->first();
+					bindable := self -> map unionIsEnteredIsProcessedIsExited2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1342,14 +1367,14 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionIsEnteredIsProcessedIsExited2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredIsProcessedIsExited';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionIsEnteredAndIsProcessedResourceEvent2Expression()->asSequence()->first();
+					bindable := self -> map unionIsEnteredIsProcessed2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1367,9 +1392,9 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::unionIsEnteredAndIsProcessedResourceEvent2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionIsEnteredIsProcessed2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedResourceEvent';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredIsProcessed';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
@@ -2066,13 +2091,13 @@ main() {
 
 //relation stuff		
 	
-		mapping inMM1::Resource::unionEventsOfResourceCoincidesWithTimeEvent52unionEventsOfResourceCoincidesWithTimeEvent(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::Resource::unionEventsOfResourceCoincidesWithTimeEvent62unionEventsOfResourceCoincidesWithTimeEvent(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
 		 	name := getNameOrUID(self.oclAsType(EObject))+"Coincides_unionEventsOfResourceCoincidesWithTimeEvent";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
 			
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-							bindable := self -> map unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent2Expression()->asSequence()->first();
+							bindable := self -> map unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOverClean2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{

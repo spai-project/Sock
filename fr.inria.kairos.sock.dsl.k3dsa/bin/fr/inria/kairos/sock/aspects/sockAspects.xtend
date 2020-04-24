@@ -13,6 +13,10 @@ import static extension fr.inria.kairos.sock.aspects.ActorAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.SynchroField
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.Step
+import java.util.List
+import java.util.Collections
+import java.util.Comparator
+import java.util.ArrayList
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
@@ -37,12 +41,40 @@ abstract class NamedElementAspect {
 @Aspect(className=IotSystem)
 class IotSystemAspect extends NamedElementAspect {
 
+	@Main
+	def public void checkSchedulability() {
+		for (Resource resource : _self.ownedResource) {
+			_self.checkSchedulability(resource)
+		}
+	}
+
+	def private void checkSchedulability(Resource resource){
+		var List<Actor> actors = new ArrayList<Actor>(resource.actor)
+		Collections.sort(actors, new Comparator<Actor>() {
+			override compare(Actor o1, Actor o2) {
+				return o2.priority - o1.priority
+			}
+		});
+		var float acc = 0.0f
+		for (Actor actor : actors) {
+			var Integer realProcessTime = _self.computeProcessTime(actor)
+			acc = acc + ((realProcessTime as float / actor.periodTime as float) as float)
+		}
+	}
+	
+	def private Integer computeProcessTime(Actor actor) {
+		if (checkPriority(actor)) {
+			return actor.isPriority + 2
+		} else {
+			return actor.processTime	
+		}
+	}
 }
 
 @Aspect(className=Resource)
 class ResourceAspect extends NamedElementAspect {
 
-	public var String currentData = ""
+	private var String currentData = ""
 	
 	private var Integer lastActorPriority = 0
 	
@@ -59,7 +91,7 @@ class ResourceAspect extends NamedElementAspect {
 		run(_self, "clean data")
 	}
 	
-	def public void isEntered(Actor actor) {
+	def public void isEntered(Actor actor, String secret) {
 		if (_self.lastActorPriority == 1) {
 			// here we check that the resource did not leak any sensible information
 			if (_self.currentData != "") {
@@ -67,6 +99,7 @@ class ResourceAspect extends NamedElementAspect {
 				println(_self.currentData)
 			}
 		}
+		_self.currentData = secret
 		_self.lastActorPriority = actor.priority
 		_self.time()
 	}
@@ -97,8 +130,7 @@ class ActorAspect extends NamedElementAspect {
 		if (_self.currentProcessTime  == _self.processTime) {
 			_self.currentProcessTime = 0
 		}
-		_self.resource.isEntered(_self)
-		_self.resource.currentData = _self.name + " " + _self.secret
+		_self.resource.isEntered(_self,  _self.name + " " + _self.secret)
 	}
 	
 	def public void exitOf() {
@@ -110,6 +142,10 @@ class ActorAspect extends NamedElementAspect {
 		_self.currentProcessTime = _self.currentProcessTime + 1
 		run(_self, _self.name + " processes ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
 		_self.resource.isProcessed()
+	}
+	
+	def public boolean checkPriority() {
+		return _self.isPriority == 1
 	}
 	
 	@SynchroField

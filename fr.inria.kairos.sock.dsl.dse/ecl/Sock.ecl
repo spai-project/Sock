@@ -231,24 +231,28 @@ package sock
 
 	context Resource
 		inv unionEventsOfResourceCoincidesWithTimeEvent:
-			let unionIsEnteredAndIsProcessedResourceEvent : Event = Expression Union(
+			let unionIsEnteredIsProcessed : Event = Expression Union(
 				self.isEnteredResourceEvent,
 				self.isProcessedResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent : Event = Expression Union(
-				unionIsEnteredAndIsProcessedResourceEvent,
+			let unionIsEnteredIsProcessedIsExited : Event = Expression Union(
+				unionIsEnteredIsProcessed,
 				self.isExitedResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent : Event = Expression Union(
-				unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent,
+			let unionIsEnteredIsProcessedIsExitedDoesNothingResource : Event = Expression Union(
+				unionIsEnteredIsProcessedIsExited,
 				self.doesNothingResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEventTakenOver : Event = Expression Union(
-				unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent,
+			let unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOver : Event = Expression Union(
+				unionIsEnteredIsProcessedIsExitedDoesNothingResource,
 				self.anActorIsTakenOverByAnotherOneResourceEvent
 			) in
+			let unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOverClean : Event = Expression Union(
+				unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOver,
+				self.cleanResourceEvent
+			) in
 			Relation Coincides(
-				unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent,
+				unionIsEnteredIsProcessedIsExitedDoesNothingResourceTakenOverClean,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 			

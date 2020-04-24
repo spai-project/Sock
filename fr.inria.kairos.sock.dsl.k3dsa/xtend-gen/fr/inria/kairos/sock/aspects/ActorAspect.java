@@ -43,6 +43,16 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
+  public static boolean checkPriority(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    Object result = null;
+    // #DispatchPointCut_before# boolean checkPriority()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	result = fr.inria.kairos.sock.aspects.ActorAspect._privk3_checkPriority(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+    return (boolean)result;
+  }
+  
   private static String secret(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     Object result = null;
@@ -159,13 +169,12 @@ public class ActorAspect extends NamedElementAspect {
     if (_equals) {
       ActorAspect.currentProcessTime(_self, Integer.valueOf(0));
     }
-    ResourceAspect.isEntered(_self.getResource(), _self);
     Resource _resource = _self.getResource();
     String _name_2 = _self.getName();
     String _plus_2 = (_name_2 + " ");
     String _secret = ActorAspect.secret(_self);
     String _plus_3 = (_plus_2 + _secret);
-    ResourceAspect.currentData(_resource, _plus_3);
+    ResourceAspect.isEntered(_resource, _self, _plus_3);
   }
   
   protected static void _privk3_exitOf(final ActorAspectActorAspectProperties _self_, final Actor _self) {
@@ -194,6 +203,11 @@ public class ActorAspect extends NamedElementAspect {
     String _plus_7 = (_plus_6 + "}");
     NamedElementAspect.run(_self, _plus_7);
     ResourceAspect.isProcessed(_self.getResource());
+  }
+  
+  protected static boolean _privk3_checkPriority(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    int _isPriority = _self.getIsPriority();
+    return (_isPriority == 1);
   }
   
   protected static String _privk3_secret(final ActorAspectActorAspectProperties _self_, final Actor _self) {

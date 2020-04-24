@@ -29,11 +29,11 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
-  public static void isEntered(final Resource _self, final Actor actor) {
+  public static void isEntered(final Resource _self, final Actor actor, final String secret) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void isEntered(Actor)
+    // #DispatchPointCut_before# void isEntered(Actor,String)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
-    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_isEntered(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self,actor);
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_isEntered(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self,actor,secret);
     };
   }
   
@@ -53,7 +53,7 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
-  public static String currentData(final Resource _self) {
+  private static String currentData(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# String currentData()
@@ -63,7 +63,7 @@ public class ResourceAspect extends NamedElementAspect {
     return (java.lang.String)result;
   }
   
-  public static void currentData(final Resource _self, final String currentData) {
+  private static void currentData(final Resource _self, final String currentData) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void currentData(String)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
@@ -107,7 +107,7 @@ public class ResourceAspect extends NamedElementAspect {
     NamedElementAspect.run(_self, "clean data");
   }
   
-  protected static void _privk3_isEntered(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Actor actor) {
+  protected static void _privk3_isEntered(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Actor actor, final String secret) {
     Integer _lastActorPriority = ResourceAspect.lastActorPriority(_self);
     boolean _equals = ((_lastActorPriority).intValue() == 1);
     if (_equals) {
@@ -121,6 +121,7 @@ public class ResourceAspect extends NamedElementAspect {
         InputOutput.<String>println(ResourceAspect.currentData(_self));
       }
     }
+    ResourceAspect.currentData(_self, secret);
     ResourceAspect.lastActorPriority(_self, ActorAspect.isPriority(actor));
     NamedElementAspect.time(_self);
   }
