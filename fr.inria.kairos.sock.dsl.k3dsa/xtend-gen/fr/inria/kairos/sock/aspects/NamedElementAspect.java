@@ -18,6 +18,11 @@ public abstract class NamedElementAspect {
   
   protected static void time(final NamedElement _self) {
     final fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectProperties _self_ = fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectContext.getSelf(_self);
+    	// BeginInjectInto fr.inria.kairos.sock.aspects.NamedElementAspect#void time() from fr.inria.kairos.sock.aspects.IotSystemAspect
+    		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
+    			fr.inria.kairos.sock.aspects.IotSystemAspect.time((fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
+    		} else
+    		// EndInjectInto fr.inria.kairos.sock.aspects.NamedElementAspect#void time() from fr.inria.kairos.sock.aspects.IotSystemAspect
     // #DispatchPointCut_before# void time()
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.NamedElement){
     	fr.inria.kairos.sock.aspects.NamedElementAspect._privk3_time(_self_, (fr.inria.kairos.sock.dsl.model.sock.NamedElement)_self);

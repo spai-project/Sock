@@ -17,7 +17,7 @@ package sock
 	-- Mapping event and methods
 	
 	context IotSystem
-		def : timeEvent : Event = self
+		def : timeEvent : Event = self.time()
 		def : zeroValue : Integer = 0
 	
 	-- ========================================================================================================

@@ -13,10 +13,19 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = IotSystem.class)
 @SuppressWarnings("all")
 public class IotSystemAspect extends NamedElementAspect {
+  public static void time(final IotSystem _self) {
+    final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void time()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
+    	fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_time(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
+    };
+  }
+  
   @InitializeModel
   public static void checkSchedulability(final IotSystem _self) {
     final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
@@ -44,6 +53,36 @@ public class IotSystemAspect extends NamedElementAspect {
     return (java.lang.Integer)result;
   }
   
+  private static boolean schedulabilityChecked(final IotSystem _self) {
+    final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
+    Object result = null;
+    // #DispatchPointCut_before# boolean schedulabilityChecked()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
+    	result = fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_schedulabilityChecked(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
+    };
+    return (boolean)result;
+  }
+  
+  private static void schedulabilityChecked(final IotSystem _self, final boolean schedulabilityChecked) {
+    final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void schedulabilityChecked(boolean)
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
+    	fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_schedulabilityChecked(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self,schedulabilityChecked);
+    };
+  }
+  
+  protected static void _privk3_time(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
+    boolean _schedulabilityChecked = IotSystemAspect.schedulabilityChecked(_self);
+    boolean _not = (!_schedulabilityChecked);
+    if (_not) {
+      IotSystemAspect.checkSchedulability(_self);
+      IotSystemAspect.schedulabilityChecked(_self, true);
+    }
+    Integer _timeIndex = NamedElementAspect.timeIndex(_self);
+    int _plus = ((_timeIndex).intValue() + 1);
+    NamedElementAspect.timeIndex(_self, Integer.valueOf(_plus));
+  }
+  
   protected static void _privk3_checkSchedulability(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
     EList<Resource> _ownedResource = _self.getOwnedResource();
     for (final Resource resource : _ownedResource) {
@@ -52,6 +91,10 @@ public class IotSystemAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_checkSchedulability(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self, final Resource resource) {
+    String _name = resource.getName();
+    String _plus = ("Checking schedulability for " + _name);
+    String _plus_1 = (_plus + "...");
+    InputOutput.<String>println(_plus_1);
     EList<Actor> _actor = resource.getActor();
     List<Actor> actors = new ArrayList<Actor>(_actor);
     Collections.<Actor>sort(actors, new Comparator<Actor>() {
@@ -68,19 +111,57 @@ public class IotSystemAspect extends NamedElementAspect {
         Integer realProcessTime = IotSystemAspect.computeProcessTime(_self, actor);
         int _periodTime = actor.getPeriodTime();
         float _divide = (((float) (realProcessTime).intValue()) / ((float) _periodTime));
-        float _plus = (acc + ((float) _divide));
-        acc = _plus;
+        float _plus_2 = (acc + ((float) _divide));
+        acc = _plus_2;
       }
     }
+    if ((acc > 1.0f)) {
+      throw new RuntimeException(("The system seems not to be schedulable: " + Float.valueOf(acc)));
+    }
+    InputOutput.<String>println(("Score: " + Float.valueOf(acc)));
   }
   
   protected static Integer _privk3_computeProcessTime(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self, final Actor actor) {
     boolean _checkPriority = ActorAspect.checkPriority(actor);
     if (_checkPriority) {
       int _processTime = actor.getProcessTime();
-      return Integer.valueOf((_processTime + 2));
+      return Integer.valueOf((_processTime + 1));
     } else {
       return Integer.valueOf(actor.getProcessTime());
+    }
+  }
+  
+  protected static boolean _privk3_schedulabilityChecked(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("isSchedulabilityChecked") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (boolean) ret;
+    				}		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.schedulabilityChecked;
+  }
+  
+  protected static void _privk3_schedulabilityChecked(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self, final boolean schedulabilityChecked) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setSchedulabilityChecked")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, schedulabilityChecked);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.schedulabilityChecked = schedulabilityChecked;
     }
   }
 }

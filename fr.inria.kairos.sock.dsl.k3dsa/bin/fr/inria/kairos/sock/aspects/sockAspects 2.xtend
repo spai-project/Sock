@@ -41,17 +41,7 @@ abstract class NamedElementAspect {
 
 @Aspect(className=IotSystem)
 class IotSystemAspect extends NamedElementAspect {
-	
-	private var boolean schedulabilityChecked = false
-	
-	def public void time() {
-		if (!_self.schedulabilityChecked) {
-			_self.checkSchedulability()
-			_self.schedulabilityChecked = true
-		}
-		_self.timeIndex = _self.timeIndex + 1
-	}
-	
+
 	@InitializeModel
 	def public void checkSchedulability() {
 		for (Resource resource : _self.ownedResource) {
@@ -60,7 +50,6 @@ class IotSystemAspect extends NamedElementAspect {
 	}
 	
 	def private void checkSchedulability(Resource resource){
-		println("Checking schedulability for " + resource.name + "...")
 		var List<Actor> actors = new ArrayList<Actor>(resource.actor)
 		Collections.sort(actors, new Comparator<Actor>() {
 			override compare(Actor o1, Actor o2) {
@@ -72,15 +61,11 @@ class IotSystemAspect extends NamedElementAspect {
 			var Integer realProcessTime = _self.computeProcessTime(actor)
 			acc = acc + ((realProcessTime as float / actor.periodTime as float) as float)
 		}
-		if (acc > 1.0f) {
-			throw new RuntimeException("The system seems not to be schedulable: " + acc)
-		}
-		println("Score: " + acc)
 	}
 	
 	def private Integer computeProcessTime(Actor actor) {
 		if (checkPriority(actor)) {
-			return actor.processTime + 1
+			return actor.processTime + 2
 		} else {
 			return actor.processTime	
 		}
