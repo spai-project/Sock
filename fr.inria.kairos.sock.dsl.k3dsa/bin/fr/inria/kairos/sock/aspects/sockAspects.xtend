@@ -17,6 +17,7 @@ import java.util.List
 import java.util.Collections
 import java.util.Comparator
 import java.util.ArrayList
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
@@ -41,13 +42,13 @@ abstract class NamedElementAspect {
 @Aspect(className=IotSystem)
 class IotSystemAspect extends NamedElementAspect {
 
-	@Main
+	@InitializeModel
 	def public void checkSchedulability() {
 		for (Resource resource : _self.ownedResource) {
 			_self.checkSchedulability(resource)
 		}
 	}
-
+	
 	def private void checkSchedulability(Resource resource){
 		var List<Actor> actors = new ArrayList<Actor>(resource.actor)
 		Collections.sort(actors, new Comparator<Actor>() {
@@ -64,7 +65,7 @@ class IotSystemAspect extends NamedElementAspect {
 	
 	def private Integer computeProcessTime(Actor actor) {
 		if (checkPriority(actor)) {
-			return actor.isPriority + 2
+			return actor.processTime + 2
 		} else {
 			return actor.processTime	
 		}

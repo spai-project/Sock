@@ -1,7 +1,7 @@
 package fr.inria.kairos.sock.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import fr.inria.diverse.k3.al.annotationprocessor.Main;
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
 import fr.inria.kairos.sock.aspects.ActorAspect;
 import fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
 @Aspect(className = IotSystem.class)
 @SuppressWarnings("all")
 public class IotSystemAspect extends NamedElementAspect {
-  @Main
+  @InitializeModel
   public static void checkSchedulability(final IotSystem _self) {
     final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void checkSchedulability()
@@ -77,8 +77,8 @@ public class IotSystemAspect extends NamedElementAspect {
   protected static Integer _privk3_computeProcessTime(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self, final Actor actor) {
     boolean _checkPriority = ActorAspect.checkPriority(actor);
     if (_checkPriority) {
-      int _isPriority = actor.getIsPriority();
-      return Integer.valueOf((_isPriority + 2));
+      int _processTime = actor.getProcessTime();
+      return Integer.valueOf((_processTime + 2));
     } else {
       return Integer.valueOf(actor.getProcessTime());
     }
