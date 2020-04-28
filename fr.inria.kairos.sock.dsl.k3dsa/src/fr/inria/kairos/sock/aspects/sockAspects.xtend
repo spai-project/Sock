@@ -22,14 +22,14 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
 	
-	protected var Integer timeIndex = 0
+	public var Integer timeIndex = 0
 	
-	def protected void run(String message) {
+	def public void run(String message) {
 		println("[" + _self.timeIndex + "] " + message)
 		time(_self)
 	}
 	
-	def protected void time() {
+	def public void time() {
 		_self.timeIndex = _self.timeIndex + 1
 	}
 	
@@ -49,17 +49,38 @@ class IotSystemAspect extends NamedElementAspect {
 			_self.checkSchedulability()
 			_self.schedulabilityChecked = true
 		}
-		_self.timeIndex = _self.timeIndex + 1
 	}
 	
-	@InitializeModel
-	def public void checkSchedulability() {
-		for (Resource resource : _self.ownedResource) {
-			_self.checkSchedulability(resource)
+	@Main
+	def public void main() {
+		// 1 request all actor
+		for(Actor actor : _self.ownedActor) {
+			println(actor.name)
+			actor.request()
+		}
+		// select one actor
+		val Integer index = new java.util.Random(23L).nextInt(_self.ownedActor.size())
+		val Actor actor = _self.ownedActor.get(index)
+		// 2 enter an random actor
+		actor.enterIn()
+		// 3 process
+		for (var Integer i = 0 ; i < actor.processTime() ; i++) {
+			actor.process()
+		}
+		// exit
+		actor.exitOf()
+		if (actor.checkPriority()) {
+			actor.resource.clean()
 		}
 	}
 	
-	def private void checkSchedulability(Resource resource){
+	def public void checkSchedulability() {
+		for (Resource resource : _self.ownedResource) {
+			_self.checkSchedulabilityResource(resource)
+		}
+	}
+	
+	def private void checkSchedulabilityResource(Resource resource){
 		println("Checking schedulability for " + resource.name + "...")
 		var List<Actor> actors = new ArrayList<Actor>(resource.actor)
 		Collections.sort(actors, new Comparator<Actor>() {
@@ -80,9 +101,9 @@ class IotSystemAspect extends NamedElementAspect {
 	
 	def private Integer computeProcessTime(Actor actor) {
 		if (checkPriority(actor)) {
-			return actor.processTime + 1
+			return actor.processTime + 2
 		} else {
-			return actor.processTime	
+			return actor.processTime + 1
 		}
 	}
 }

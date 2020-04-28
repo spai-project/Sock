@@ -9,6 +9,12 @@ import org.eclipse.gemoc.executionframework.engine.commons.K3DslHelper;
 
 
 public class SockRTDAccessor {
+  public static boolean getschedulabilityChecked(EObject eObject) {
+		return (boolean)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.IotSystemAspect", "schedulabilityChecked");
+	}
+	public static boolean setschedulabilityChecked(EObject eObject, boolean newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.IotSystemAspect", "schedulabilityChecked", newValue);
+	}
   public static java.lang.String getcurrentData(EObject eObject) {
 		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "currentData");
 	}

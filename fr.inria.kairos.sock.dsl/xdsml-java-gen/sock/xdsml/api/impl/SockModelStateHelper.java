@@ -49,6 +49,14 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 			EObject elem = allContentIt.next();
 
 			Class<?> clazz =null;
+			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.IotSystemAspect.class);
+			if (clazz.isInstance(elem)) {
+				ElementState elemState = theFactory.createElementState();
+				elemState.setModelElement(elem);
+				res.getOwnedElementstates().add(elemState);
+				AttributeNameToValue n2v0 = new AttributeNameToValue("schedulabilityChecked", SockRTDAccessor.getschedulabilityChecked(elem));
+				elemState.getSavedRTDs().add(n2v0);
+			}
 			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.ResourceAspect.class);
 			if (clazz.isInstance(elem)) {
 				ElementState elemState = theFactory.createElementState();

@@ -8,7 +8,7 @@ import org.eclipse.xtext.xbase.lib.InputOutput;
 @Aspect(className = NamedElement.class)
 @SuppressWarnings("all")
 public abstract class NamedElementAspect {
-  protected static void run(final NamedElement _self, final String message) {
+  public static void run(final NamedElement _self, final String message) {
     final fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectProperties _self_ = fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void run(String)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.NamedElement){
@@ -16,7 +16,7 @@ public abstract class NamedElementAspect {
     };
   }
   
-  protected static void time(final NamedElement _self) {
+  public static void time(final NamedElement _self) {
     final fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectProperties _self_ = fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectContext.getSelf(_self);
     	// BeginInjectInto fr.inria.kairos.sock.aspects.NamedElementAspect#void time() from fr.inria.kairos.sock.aspects.IotSystemAspect
     		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
@@ -37,7 +37,7 @@ public abstract class NamedElementAspect {
     };
   }
   
-  protected static Integer timeIndex(final NamedElement _self) {
+  public static Integer timeIndex(final NamedElement _self) {
     final fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectProperties _self_ = fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# Integer timeIndex()
@@ -47,7 +47,7 @@ public abstract class NamedElementAspect {
     return (java.lang.Integer)result;
   }
   
-  protected static void timeIndex(final NamedElement _self, final Integer timeIndex) {
+  public static void timeIndex(final NamedElement _self, final Integer timeIndex) {
     final fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectProperties _self_ = fr.inria.kairos.sock.aspects.NamedElementAspectNamedElementAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void timeIndex(Integer)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.NamedElement){

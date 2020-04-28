@@ -30,7 +30,7 @@ AutomataConstraintLibrary actorProcessingCycle {
 			-> (when ActorProcessingCycleEnterEvent)
 			
 			from Requested to Entered : takesOut
-			-> (when ActorProcessingCycleTakesOver)// if (ActorProcessingCyclePriorityValue.value == one))
+			-> (when ActorProcessingCycleTakesOver if (ActorProcessingCyclePriorityValue.value == one))
 			
 			from Requested to Requested : doesNothingRequested
 			-> (when ActorProcessingCycleDoesNothingEvent)
@@ -42,7 +42,7 @@ AutomataConstraintLibrary actorProcessingCycle {
 			-> (when ActorProcessingCycleExitEvent if (currentProcessTimeValue == ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = zero)
 			
 			from Entered to Stopped : exitStopped
-			-> (when ActorProcessingCycleIsTakenOver)// if (ActorProcessingCyclePriorityValue.value == zero))
+			-> (when ActorProcessingCycleIsTakenOver if (ActorProcessingCyclePriorityValue.value == zero))
 			
 			from Stopped to Stopped : doesNothingStopped
 			-> (when ActorProcessingCycleDoesNothingEvent)

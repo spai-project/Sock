@@ -84,12 +84,12 @@ package sock
 			let unionIsTakenOverForCoincides : Event = Expression Union(
 				self.actor.isTakenOverActorEvent
 			) in
-			let unionTakeOverForCoincides : Event = Expression Union(
+			let unionTakesOverForCoincides : Event = Expression Union(
 				self.actor.takesOverActorEvent
 			) in
 			let intersectionTakeOverIsTakenOverActorForCoincides : Event = Expression Intersection(
 				unionIsTakenOverForCoincides,
-				unionTakeOverForCoincides
+				unionTakesOverForCoincides
 			) in
 			Relation Coincides(self.anActorIsTakenOverByAnotherOneResourceEvent, intersectionTakeOverIsTakenOverActorForCoincides)
 		inv oneActorCanEnterInTheResourceInTheSameTimeBehavior:
