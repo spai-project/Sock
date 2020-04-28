@@ -26,3 +26,4 @@ plugins/.metadata
 hs_err_pid*
 
 **/*._trace
+*.DS_Store
