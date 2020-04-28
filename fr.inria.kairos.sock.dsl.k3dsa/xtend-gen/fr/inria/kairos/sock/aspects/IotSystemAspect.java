@@ -44,7 +44,7 @@ public class IotSystemAspect extends NamedElementAspect {
     };
   }
   
-  private static void checkSchedulabilityResource(final IotSystem _self, final Resource resource) {
+  public static void checkSchedulabilityResource(final IotSystem _self, final Resource resource) {
     final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void checkSchedulabilityResource(Resource)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
@@ -52,7 +52,7 @@ public class IotSystemAspect extends NamedElementAspect {
     };
   }
   
-  private static Integer computeProcessTime(final IotSystem _self, final Actor actor) {
+  public static Integer computeProcessTime(final IotSystem _self, final Actor actor) {
     final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# Integer computeProcessTime(Actor)
@@ -62,7 +62,7 @@ public class IotSystemAspect extends NamedElementAspect {
     return (java.lang.Integer)result;
   }
   
-  private static boolean schedulabilityChecked(final IotSystem _self) {
+  public static boolean schedulabilityChecked(final IotSystem _self) {
     final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# boolean schedulabilityChecked()
@@ -72,7 +72,7 @@ public class IotSystemAspect extends NamedElementAspect {
     return (boolean)result;
   }
   
-  private static void schedulabilityChecked(final IotSystem _self, final boolean schedulabilityChecked) {
+  public static void schedulabilityChecked(final IotSystem _self, final boolean schedulabilityChecked) {
     final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void schedulabilityChecked(boolean)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
@@ -94,7 +94,7 @@ public class IotSystemAspect extends NamedElementAspect {
     for (final Actor actor : _ownedActor) {
       {
         InputOutput.<String>println(actor.getName());
-        actor.enterIn();
+        actor.request();
       }
     }
     final Integer index = Integer.valueOf(new Random(23L).nextInt(_self.getOwnedActor().size()));

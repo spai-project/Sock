@@ -1,16 +1,43 @@
 package fr.inria.kairos.sock.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.SynchroField;
 import fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
 import fr.inria.kairos.sock.aspects.ResourceAspect;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = Actor.class)
 @SuppressWarnings("all")
 public class ActorAspect extends NamedElementAspect {
+  public static void run(final Actor _self, final String message) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void run(String)
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_run(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,message);
+    };
+  }
+  
+  public static void time(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void time()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_time(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+  }
+  
+  public static void idle(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void idle()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_idle(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+  }
+  
+  @ReplaceAspectMethod
   public static void request(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void request()
@@ -19,6 +46,7 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
+  @ReplaceAspectMethod
   public static void enterIn(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void enterIn()
@@ -27,6 +55,7 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
+  @ReplaceAspectMethod
   public static void exitOf(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void exitOf()
@@ -35,6 +64,7 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
+  @ReplaceAspectMethod
   public static void process(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void process()
@@ -53,7 +83,33 @@ public class ActorAspect extends NamedElementAspect {
     return (boolean)result;
   }
   
-  private static String secret(final Actor _self) {
+  public static void periodStart(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void periodStart()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_periodStart(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+  }
+  
+  public static Integer actorTimeIndex(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    Object result = null;
+    // #DispatchPointCut_before# Integer actorTimeIndex()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	result = fr.inria.kairos.sock.aspects.ActorAspect._privk3_actorTimeIndex(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+    return (java.lang.Integer)result;
+  }
+  
+  public static void actorTimeIndex(final Actor _self, final Integer actorTimeIndex) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void actorTimeIndex(Integer)
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_actorTimeIndex(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,actorTimeIndex);
+    };
+  }
+  
+  public static String secret(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# String secret()
@@ -63,7 +119,7 @@ public class ActorAspect extends NamedElementAspect {
     return (java.lang.String)result;
   }
   
-  private static void secret(final Actor _self, final String secret) {
+  public static void secret(final Actor _self, final String secret) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void secret(String)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
@@ -71,7 +127,7 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
-  private static Integer currentProcessTime(final Actor _self) {
+  public static Integer currentProcessTime(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# Integer currentProcessTime()
@@ -81,7 +137,7 @@ public class ActorAspect extends NamedElementAspect {
     return (java.lang.Integer)result;
   }
   
-  private static void currentProcessTime(final Actor _self, final Integer currentProcessTime) {
+  public static void currentProcessTime(final Actor _self, final Integer currentProcessTime) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void currentProcessTime(Integer)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
@@ -149,12 +205,31 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
+  protected static void _privk3_run(final ActorAspectActorAspectProperties _self_, final Actor _self, final String message) {
+    Integer _actorTimeIndex = ActorAspect.actorTimeIndex(_self);
+    String _plus = ("[" + _actorTimeIndex);
+    String _plus_1 = (_plus + "] ");
+    String _plus_2 = (_plus_1 + message);
+    InputOutput.<String>println(_plus_2);
+    ActorAspect.time(_self);
+  }
+  
+  protected static void _privk3_time(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    Integer _actorTimeIndex = ActorAspect.actorTimeIndex(_self);
+    int _plus = ((_actorTimeIndex).intValue() + 1);
+    ActorAspect.actorTimeIndex(_self, Integer.valueOf(_plus));
+  }
+  
+  protected static void _privk3_idle(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    ActorAspect.time(_self);
+  }
+  
   protected static void _privk3_request(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     String _name = _self.getName();
     String _plus = (_name + " requests ");
     String _name_1 = _self.getResource().getName();
     String _plus_1 = (_plus + _name_1);
-    NamedElementAspect.run(_self, _plus_1);
+    ActorAspect.run(_self, _plus_1);
   }
   
   protected static void _privk3_enterIn(final ActorAspectActorAspectProperties _self_, final Actor _self) {
@@ -162,7 +237,7 @@ public class ActorAspect extends NamedElementAspect {
     String _plus = (_name + " enters in ");
     String _name_1 = _self.getResource().getName();
     String _plus_1 = (_plus + _name_1);
-    NamedElementAspect.run(_self, _plus_1);
+    ActorAspect.run(_self, _plus_1);
     Integer _currentProcessTime = ActorAspect.currentProcessTime(_self);
     int _processTime = _self.getProcessTime();
     boolean _equals = ((_currentProcessTime).intValue() == _processTime);
@@ -182,7 +257,7 @@ public class ActorAspect extends NamedElementAspect {
     String _plus = (_name + " exits of ");
     String _name_1 = _self.getResource().getName();
     String _plus_1 = (_plus + _name_1);
-    NamedElementAspect.run(_self, _plus_1);
+    ActorAspect.run(_self, _plus_1);
     ResourceAspect.isExited(_self.getResource());
   }
   
@@ -201,13 +276,57 @@ public class ActorAspect extends NamedElementAspect {
     String _name_1 = _self.getResource().getName();
     String _plus_6 = (_plus_5 + _name_1);
     String _plus_7 = (_plus_6 + "}");
-    NamedElementAspect.run(_self, _plus_7);
+    ActorAspect.run(_self, _plus_7);
     ResourceAspect.isProcessed(_self.getResource());
   }
   
   protected static boolean _privk3_checkPriority(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     int _isPriority = _self.getIsPriority();
     return (_isPriority == 1);
+  }
+  
+  protected static void _privk3_periodStart(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    String _name = _self.getName();
+    String _plus = ("period of " + _name);
+    String _plus_1 = (_plus + " starts");
+    ActorAspect.run(_self, _plus_1);
+  }
+  
+  protected static Integer _privk3_actorTimeIndex(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getActorTimeIndex") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (java.lang.Integer) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.actorTimeIndex;
+  }
+  
+  protected static void _privk3_actorTimeIndex(final ActorAspectActorAspectProperties _self_, final Actor _self, final Integer actorTimeIndex) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setActorTimeIndex")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, actorTimeIndex);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.actorTimeIndex = actorTimeIndex;
+    }
   }
   
   protected static String _privk3_secret(final ActorAspectActorAspectProperties _self_, final Actor _self) {

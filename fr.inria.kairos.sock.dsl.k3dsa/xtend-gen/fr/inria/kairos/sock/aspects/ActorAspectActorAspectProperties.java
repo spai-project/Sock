@@ -4,6 +4,8 @@ import java.util.Random;
 
 @SuppressWarnings("all")
 public class ActorAspectActorAspectProperties {
+  public Integer actorTimeIndex = Integer.valueOf(0);
+  
   public String secret = Integer.valueOf(new Random().nextInt()).toString();
   
   public Integer currentProcessTime = Integer.valueOf(0);

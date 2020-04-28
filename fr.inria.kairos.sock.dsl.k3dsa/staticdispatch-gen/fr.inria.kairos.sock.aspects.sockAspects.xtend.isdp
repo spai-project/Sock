@@ -1,5 +1,0 @@
-	// BeginInjectInto fr.inria.kairos.sock.aspects.NamedElementAspect#void time() from fr.inria.kairos.sock.aspects.IotSystemAspect
-		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
-			fr.inria.kairos.sock.aspects.IotSystemAspect.time((fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
-		} else
-		// EndInjectInto fr.inria.kairos.sock.aspects.NamedElementAspect#void time() from fr.inria.kairos.sock.aspects.IotSystemAspect

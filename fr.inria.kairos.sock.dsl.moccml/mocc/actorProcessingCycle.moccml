@@ -17,15 +17,12 @@ AutomataConstraintLibrary actorProcessingCycle {
 			
 			init: Start
 			
-			from Start to Exited : starting
+			from Start to Ready : starting
 			-> ()
 			
-			from Exited to Exited : doesNothingExited
-			-> (when ActorProcessingCycleDoesNothingEvent)
-			
-			from Exited to Requested : request
+			from Ready to Requested : request
 			-> (when ActorProcessingCycleRequestEvent)
-
+			
 			from Requested to Entered : enter
 			-> (when ActorProcessingCycleEnterEvent)
 			
@@ -36,10 +33,13 @@ AutomataConstraintLibrary actorProcessingCycle {
 			-> (when ActorProcessingCycleDoesNothingEvent)
 
 			from Entered to Entered : process
-			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue < ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = (currentProcessTimeValue + one))
+			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue < (ActorProcessingCycleProcessTime.value - one)) do currentProcessTimeValue = (currentProcessTimeValue + one))
 			
-			from Entered to Exited : exit
-			-> (when ActorProcessingCycleExitEvent if (currentProcessTimeValue == ActorProcessingCycleProcessTime.value) do currentProcessTimeValue = zero)
+			from Entered to Finished : lastProcess
+			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue == (ActorProcessingCycleProcessTime.value - one)) do currentProcessTimeValue = zero)
+			
+			from Finished to Exited : exit
+			-> (when ActorProcessingCycleExitEvent)
 			
 			from Entered to Stopped : exitStopped
 			-> (when ActorProcessingCycleIsTakenOver if (ActorProcessingCyclePriorityValue.value == zero))
@@ -50,6 +50,12 @@ AutomataConstraintLibrary actorProcessingCycle {
 			from Stopped to Entered : enterStopped
 			-> (when ActorProcessingCycleEnterEvent)
 			
+			from Exited to Exited : doesNothingExited
+			-> (when ActorProcessingCycleDoesNothingEvent)
+			
+			from Exited to Ready : periodStart
+			-> (when ActorProcessingCyclePeriodStartEvent)
+			
 			/* 
 			 * STATES DEFINITION
 			 */ 
@@ -58,9 +64,9 @@ AutomataConstraintLibrary actorProcessingCycle {
 				out: starting
 			)
 			
-			State Exited (
-				in: starting, exit, doesNothingExited
-				out: doesNothingExited, request
+			State Ready (
+				in: starting, periodStart
+				out: request
 			)
 			
 			State Requested (
@@ -70,12 +76,22 @@ AutomataConstraintLibrary actorProcessingCycle {
 			
 			State Entered (
 				in: enter, process, enterStopped, takesOut
-				out: process, exit, exitStopped
+				out: process, lastProcess, exitStopped
 			)
 			
 			State Stopped(
 				in: exitStopped, doesNothingStopped
 				out: doesNothingStopped, enterStopped
+			)
+			
+			State Finished(
+				in: lastProcess
+				out: exit
+			)
+			
+			State Exited (
+				in: starting, exit, doesNothingExited
+				out: doesNothingExited, periodStart
 			)
 		
 		}
@@ -89,7 +105,8 @@ AutomataConstraintLibrary actorProcessingCycle {
 			ActorProcessingCycleDoesNothingEvent: clock,
 			ActorProcessingCycleIsTakenOver: clock,
 			ActorProcessingCycleTakesOver: clock,
-			ActorProcessingCyclePriorityValue: int
+			ActorProcessingCyclePriorityValue: int,
+			ActorProcessingCyclePeriodStartEvent: clock
 		)
 	}
 

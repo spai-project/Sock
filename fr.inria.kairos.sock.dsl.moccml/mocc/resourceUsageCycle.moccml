@@ -31,8 +31,8 @@ AutomataConstraintLibrary resourceUsageCycle {
 			from Busy to Busy : isProcessed
 			-> (when ResourceUsageCycleIsProcessedEvent)
 			
-			from Busy to Busy : takeOutAndEnterIn
-			-> (when ResourceusageCycleAnActorIsTakenOutEvent)
+			from Busy to Busy : exitOfAndEnterIn
+			-> (when ResourceusageCycleExitOfAndEnterInEvent)
 			
 			from Cleaning to Free : clean
 			-> (when ResourceusageCycleCleanEvent)
@@ -51,8 +51,8 @@ AutomataConstraintLibrary resourceUsageCycle {
 			)
 			
 			State Busy (
-				in: enter, isProcessed, takeOutAndEnterIn
-				out: exitNotPriority, isProcessed, takeOutAndEnterIn, exitPriority
+				in: enter, isProcessed, exitOfAndEnterIn
+				out: exitNotPriority, isProcessed, exitOfAndEnterIn, exitPriority
 			)
 			
 			State Cleaning (
@@ -67,7 +67,7 @@ AutomataConstraintLibrary resourceUsageCycle {
 			ResourceUsageCycleIsExitedByPriorityActorEvent: clock,
 			ResourceUsageCycleIsProcessedEvent: clock,
 			ResourceUsageCycleDoesNothingEvent: clock,
-			ResourceusageCycleAnActorIsTakenOutEvent: clock,
+			ResourceusageCycleExitOfAndEnterInEvent: clock,
 			ResourceusageCycleCleanEvent: clock
 		)
 	}

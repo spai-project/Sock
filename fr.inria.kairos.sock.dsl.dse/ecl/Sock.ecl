@@ -19,6 +19,37 @@ package sock
 	context IotSystem
 		def : timeEvent : Event = self.time()
 		def : zeroValue : Integer = 0
+		
+	-- ========================================================================================================
+	--						BEGIN PERIODICITY 
+	-- ========================================================================================================
+	
+	-- Mapping event and methods
+	
+	context Actor
+		def : periodTimeActorValue  : Integer = self.periodTime
+		def : periodStartActorEvent : Event = self
+		def : requestActorEvent : Event = self.request()
+		
+	--Constraints
+
+	context Actor
+		inv periodStartBehavior: 
+			let periodStartDefinition : Event = Expression Periodic(
+				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent,
+				self.periodTimeActorValue,
+				self.periodTimeActorValue
+			) in
+			Relation Coincides(self.periodStartActorEvent, periodStartDefinition)
+		inv mustCompleteProcessAtEachPeriodActor:
+			let periodStartFirstTickEvent : Event = Expression OneTickAndDie(
+				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
+			) in
+			let periodStartEvent : Event = Expression Concatenation(
+				self.periodStartActorEvent,
+				periodStartFirstTickEvent
+			) in
+			Relation Alternates(self.requestActorEvent, periodStartEvent)
 
 	-- ========================================================================================================
 	--						BEGIN RESOURCE USAGE CYCLE 
@@ -39,7 +70,6 @@ package sock
 		def : anActorIsTakenOverByAnotherOneResourceEvent : Event = self
 	
 	context  Actor
-		def : requestActorEvent : Event = self.request()
 		def : enterActorEvent : Event = self.enterIn()
 		def : processActorEvent : Event = self.process()
 		def : exitActorEvent : Event = self.exitOf()
@@ -107,7 +137,8 @@ package sock
 				self.doesNothingActorEvent,
 				self.isTakenOverActorEvent,
 				self.takesOverActorEvent,
-				self.isPriorityActorValue
+				self.isPriorityActorValue,
+				self.periodStartActorEvent
 			)
 		inv ActorCannotBeTakenOverAndTakesOverInTheSameTime:
 			Relation Exclusion(
@@ -154,42 +185,23 @@ package sock
 			let unionNotPriorityActorExitForResourceUsageCycle : Event = Expression Union(
 				self.actor.exitNotPriorityActorEvent
 			) in
+			let intersectionIsEnteredIsExited : Event = Expression Intersection(
+				self.isEnteredResourceEvent,
+				self.isExitedResourceEvent
+			) in
+			let unionIntersectionAndTakenOver : Event = Expression Union(
+				intersectionIsEnteredIsExited,
+				self.anActorIsTakenOverByAnotherOneResourceEvent
+			) in
 			Relation ResourceUsageCycleRelation(
 				self.isEnteredResourceEvent,
 				unionNotPriorityActorExitForResourceUsageCycle,
 				unionPriorityActorExitForResourceUsageCycle,
 				self.isProcessedResourceEvent,
 				self.doesNothingResourceEvent,
-				self.anActorIsTakenOverByAnotherOneResourceEvent,
+				unionIntersectionAndTakenOver,
 				self.cleanResourceEvent
 			)
-	
-	-- ========================================================================================================
-	--						BEGIN PERIODICITY 
-	-- ========================================================================================================
-	
-	-- Mapping event and methods
-	
-	context Actor
-		def : periodTimeActorValue  : Integer = self.periodTime
-		
-	--Constraints
-
-	context Actor
-		inv mustCompleteProcessAtEachPeriodActor:
-			let periodStartSecondAndMoreEvent : Event = Expression Periodic(
-				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent,
-				self.periodTimeActorValue,
-				self.periodTimeActorValue
-			) in
-			let periodStartFirstTickEvent : Event = Expression OneTickAndDie(
-				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
-			) in
-			let periodStartEvent : Event = Expression Concatenation(
-				periodStartSecondAndMoreEvent,
-				periodStartFirstTickEvent
-			) in
-			Relation Alternates(self.requestActorEvent, periodStartEvent)
 			
 	-- ========================================================================================================
 	--						BEGIN TIME MANAGEMENT
@@ -228,8 +240,12 @@ package sock
 				unionEnterProcessExitDoesNothingIsTakenOverRequest,
 				self.takesOverActorEvent
 			) in
-			Relation Coincides(
+			let unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOverPeriodStart : Event = Expression Union(
 				unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOver,
+				self.periodStartActorEvent
+			) in
+			Relation Coincides(
+				unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOverPeriodStart,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 

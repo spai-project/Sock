@@ -18,31 +18,18 @@ import java.util.Collections
 import java.util.Comparator
 import java.util.ArrayList
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
+import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
-	
-	public var Integer timeIndex = 0
-	
-	def public void run(String message) {
-		println("[" + _self.timeIndex + "] " + message)
-		time(_self)
-	}
-	
-	def public void time() {
-		_self.timeIndex = _self.timeIndex + 1
-	}
-	
-	def public void idle() {
-		time(_self)
-	}
+
 	
 }
 
 @Aspect(className=IotSystem)
 class IotSystemAspect extends NamedElementAspect {
 	
-	private var boolean schedulabilityChecked = false
+	public var boolean schedulabilityChecked = false
 	
 	def public void time() {
 		if (!_self.schedulabilityChecked) {
@@ -56,7 +43,7 @@ class IotSystemAspect extends NamedElementAspect {
 		// 1 request all actor
 		for(Actor actor : _self.ownedActor) {
 			println(actor.name)
-			actor.enterIn()
+			actor.request()
 		}
 		// select one actor
 		val Integer index = new java.util.Random(23L).nextInt(_self.ownedActor.size())
@@ -80,7 +67,7 @@ class IotSystemAspect extends NamedElementAspect {
 		}
 	}
 	
-	def private void checkSchedulabilityResource(Resource resource){
+	def public void checkSchedulabilityResource(Resource resource){
 		println("Checking schedulability for " + resource.name + "...")
 		var List<Actor> actors = new ArrayList<Actor>(resource.actor)
 		Collections.sort(actors, new Comparator<Actor>() {
@@ -99,7 +86,7 @@ class IotSystemAspect extends NamedElementAspect {
 		println("Score: " + acc)
 	}
 	
-	def private Integer computeProcessTime(Actor actor) {
+	def public Integer computeProcessTime(Actor actor) {
 		if (checkPriority(actor)) {
 			return actor.processTime + 2
 		} else {
@@ -110,10 +97,25 @@ class IotSystemAspect extends NamedElementAspect {
 
 @Aspect(className=Resource)
 class ResourceAspect extends NamedElementAspect {
-
-	private var String currentData = ""
 	
-	private var Integer lastActorPriority = 0
+	public var Integer resourceTimeIndex = 0
+	
+	def public void run(String message) {
+		println("[" + _self.resourceTimeIndex + "] " + message)
+		time(_self)
+	}
+	
+	def public void time() {
+		_self.resourceTimeIndex = _self.resourceTimeIndex + 1
+	}
+	
+	def public void idle() {
+		time(_self)
+	}
+
+	public var String currentData = ""
+	
+	public var Integer lastActorPriority = 0
 	
 	def public void printInfo() {
 		print(_self.name + " : ")
@@ -123,11 +125,13 @@ class ResourceAspect extends NamedElementAspect {
 		println("")
 	}
 	
+	@ReplaceAspectMethod
 	def public void clean() {
 		_self.currentData = ""
 		run(_self, "clean data")
 	}
 	
+	@ReplaceAspectMethod
 	def public void isEntered(Actor actor, String secret) {
 		if (_self.lastActorPriority == 1) {
 			// here we check that the resource did not leak any sensible information
@@ -141,10 +145,12 @@ class ResourceAspect extends NamedElementAspect {
 		_self.time()
 	}
 	
+	@ReplaceAspectMethod
 	def public void isProcessed() {
 		_self.time()
 	}
 	
+	@ReplaceAspectMethod
 	def public void isExited() {
 		_self.time()
 	}
@@ -153,15 +159,32 @@ class ResourceAspect extends NamedElementAspect {
 
 @Aspect(className=Actor)
 class ActorAspect extends NamedElementAspect {
+	
+	public var Integer actorTimeIndex = 0
+	
+	def public void run(String message) {
+		println("[" + _self.actorTimeIndex + "] " + message)
+		time(_self)
+	}
+	
+	def public void time() {
+		_self.actorTimeIndex = _self.actorTimeIndex + 1
+	}
+	
+	def public void idle() {
+		time(_self)
+	}
 
-	private var String secret = new java.util.Random().nextInt().toString()
+	public var String secret = new java.util.Random().nextInt().toString()
 	
-	private var Integer currentProcessTime = 0
+	public var Integer currentProcessTime = 0
 	
+	@ReplaceAspectMethod
 	def public void request() {
 		run(_self, _self.name + " requests " + _self.resource.name)
 	}
 	
+	@ReplaceAspectMethod
 	def public void enterIn() {
 		run(_self, _self.name + " enters in " + _self.resource.name)
 		if (_self.currentProcessTime  == _self.processTime) {
@@ -170,11 +193,13 @@ class ActorAspect extends NamedElementAspect {
 		_self.resource.isEntered(_self,  _self.name + " " + _self.secret)
 	}
 	
+	@ReplaceAspectMethod
 	def public void exitOf() {
 		run(_self, _self.name + " exits of " + _self.resource.name)
 		_self.resource.isExited()
 	}
 	
+	@ReplaceAspectMethod
 	def public void process() {
 		_self.currentProcessTime = _self.currentProcessTime + 1
 		run(_self, _self.name + " processes ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
@@ -183,6 +208,10 @@ class ActorAspect extends NamedElementAspect {
 	
 	def public boolean checkPriority() {
 		return _self.isPriority == 1
+	}
+	
+	def public void periodStart() {
+		run(_self,  "period of " + _self.name + " starts")
 	}
 	
 	@SynchroField

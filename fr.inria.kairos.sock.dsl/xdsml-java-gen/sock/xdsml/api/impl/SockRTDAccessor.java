@@ -15,6 +15,12 @@ public class SockRTDAccessor {
 	public static boolean setschedulabilityChecked(EObject eObject, boolean newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.IotSystemAspect", "schedulabilityChecked", newValue);
 	}
+  public static java.lang.Integer getresourceTimeIndex(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "resourceTimeIndex");
+	}
+	public static boolean setresourceTimeIndex(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "resourceTimeIndex", newValue);
+	}
   public static java.lang.String getcurrentData(EObject eObject) {
 		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "currentData");
 	}
@@ -27,11 +33,11 @@ public class SockRTDAccessor {
 	public static boolean setlastActorPriority(EObject eObject, java.lang.Integer newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorPriority", newValue);
 	}
-  public static java.lang.Integer gettimeIndex(EObject eObject) {
-		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.NamedElementAspect", "timeIndex");
+  public static java.lang.Integer getactorTimeIndex(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "actorTimeIndex");
 	}
-	public static boolean settimeIndex(EObject eObject, java.lang.Integer newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.NamedElementAspect", "timeIndex", newValue);
+	public static boolean setactorTimeIndex(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "actorTimeIndex", newValue);
 	}
   public static java.lang.String getsecret(EObject eObject) {
 		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "secret");

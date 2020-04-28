@@ -2,6 +2,7 @@ package fr.inria.kairos.sock.aspects;
 
 import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod;
 import fr.inria.kairos.sock.aspects.ActorAspect;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
 import fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties;
@@ -13,6 +14,30 @@ import org.eclipse.xtext.xbase.lib.InputOutput;
 @Aspect(className = Resource.class)
 @SuppressWarnings("all")
 public class ResourceAspect extends NamedElementAspect {
+  public static void run(final Resource _self, final String message) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void run(String)
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_run(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self,message);
+    };
+  }
+  
+  public static void time(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void time()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_time(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+  }
+  
+  public static void idle(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void idle()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_idle(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+  }
+  
   public static void printInfo(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void printInfo()
@@ -21,6 +46,7 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
+  @ReplaceAspectMethod
   public static void clean(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void clean()
@@ -29,6 +55,7 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
+  @ReplaceAspectMethod
   public static void isEntered(final Resource _self, final Actor actor, final String secret) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void isEntered(Actor,String)
@@ -37,6 +64,7 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
+  @ReplaceAspectMethod
   public static void isProcessed(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void isProcessed()
@@ -45,6 +73,7 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
+  @ReplaceAspectMethod
   public static void isExited(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void isExited()
@@ -53,7 +82,25 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
-  private static String currentData(final Resource _self) {
+  public static Integer resourceTimeIndex(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    Object result = null;
+    // #DispatchPointCut_before# Integer resourceTimeIndex()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	result = fr.inria.kairos.sock.aspects.ResourceAspect._privk3_resourceTimeIndex(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+    return (java.lang.Integer)result;
+  }
+  
+  public static void resourceTimeIndex(final Resource _self, final Integer resourceTimeIndex) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void resourceTimeIndex(Integer)
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_resourceTimeIndex(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self,resourceTimeIndex);
+    };
+  }
+  
+  public static String currentData(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# String currentData()
@@ -63,7 +110,7 @@ public class ResourceAspect extends NamedElementAspect {
     return (java.lang.String)result;
   }
   
-  private static void currentData(final Resource _self, final String currentData) {
+  public static void currentData(final Resource _self, final String currentData) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void currentData(String)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
@@ -71,7 +118,7 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
-  private static Integer lastActorPriority(final Resource _self) {
+  public static Integer lastActorPriority(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# Integer lastActorPriority()
@@ -81,12 +128,31 @@ public class ResourceAspect extends NamedElementAspect {
     return (java.lang.Integer)result;
   }
   
-  private static void lastActorPriority(final Resource _self, final Integer lastActorPriority) {
+  public static void lastActorPriority(final Resource _self, final Integer lastActorPriority) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void lastActorPriority(Integer)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
     	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_lastActorPriority(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self,lastActorPriority);
     };
+  }
+  
+  protected static void _privk3_run(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final String message) {
+    Integer _resourceTimeIndex = ResourceAspect.resourceTimeIndex(_self);
+    String _plus = ("[" + _resourceTimeIndex);
+    String _plus_1 = (_plus + "] ");
+    String _plus_2 = (_plus_1 + message);
+    InputOutput.<String>println(_plus_2);
+    ResourceAspect.time(_self);
+  }
+  
+  protected static void _privk3_time(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    Integer _resourceTimeIndex = ResourceAspect.resourceTimeIndex(_self);
+    int _plus = ((_resourceTimeIndex).intValue() + 1);
+    ResourceAspect.resourceTimeIndex(_self, Integer.valueOf(_plus));
+  }
+  
+  protected static void _privk3_idle(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    ResourceAspect.time(_self);
   }
   
   protected static void _privk3_printInfo(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
@@ -104,7 +170,7 @@ public class ResourceAspect extends NamedElementAspect {
   
   protected static void _privk3_clean(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
     ResourceAspect.currentData(_self, "");
-    NamedElementAspect.run(_self, "clean data");
+    ResourceAspect.run(_self, "clean data");
   }
   
   protected static void _privk3_isEntered(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Actor actor, final String secret) {
@@ -123,15 +189,52 @@ public class ResourceAspect extends NamedElementAspect {
     }
     ResourceAspect.currentData(_self, secret);
     ResourceAspect.lastActorPriority(_self, ActorAspect.isPriority(actor));
-    NamedElementAspect.time(_self);
+    ResourceAspect.time(_self);
   }
   
   protected static void _privk3_isProcessed(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
-    NamedElementAspect.time(_self);
+    ResourceAspect.time(_self);
   }
   
   protected static void _privk3_isExited(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
-    NamedElementAspect.time(_self);
+    ResourceAspect.time(_self);
+  }
+  
+  protected static Integer _privk3_resourceTimeIndex(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getResourceTimeIndex") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (java.lang.Integer) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.resourceTimeIndex;
+  }
+  
+  protected static void _privk3_resourceTimeIndex(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Integer resourceTimeIndex) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setResourceTimeIndex")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, resourceTimeIndex);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.resourceTimeIndex = resourceTimeIndex;
+    }
   }
   
   protected static String _privk3_currentData(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
