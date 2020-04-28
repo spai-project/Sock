@@ -3,13 +3,14 @@
  */
 package fr.inria.kairos.sock;
 
+import fr.inria.kairos.sock.SockStandaloneSetupGenerated;
+
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class SockStandaloneSetup /* implements SockStandaloneSetupGenerated  */{
+public class SockStandaloneSetup extends SockStandaloneSetupGenerated {
   public static void doSetup() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type SockStandaloneSetup");
+    new SockStandaloneSetup().createInjectorAndDoEMFRegistration();
   }
 }

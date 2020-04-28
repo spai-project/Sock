@@ -94,7 +94,7 @@ public class IotSystemAspect extends NamedElementAspect {
     for (final Actor actor : _ownedActor) {
       {
         InputOutput.<String>println(actor.getName());
-        actor.request();
+        actor.enterIn();
       }
     }
     final Integer index = Integer.valueOf(new Random(23L).nextInt(_self.getOwnedActor().size()));

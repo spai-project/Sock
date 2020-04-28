@@ -56,7 +56,7 @@ class IotSystemAspect extends NamedElementAspect {
 		// 1 request all actor
 		for(Actor actor : _self.ownedActor) {
 			println(actor.name)
-			actor.request()
+			actor.enterIn()
 		}
 		// select one actor
 		val Integer index = new java.util.Random(23L).nextInt(_self.ownedActor.size())

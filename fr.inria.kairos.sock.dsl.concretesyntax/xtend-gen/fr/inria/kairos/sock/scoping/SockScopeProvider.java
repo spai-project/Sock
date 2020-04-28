@@ -3,6 +3,8 @@
  */
 package fr.inria.kairos.sock.scoping;
 
+import fr.inria.kairos.sock.scoping.AbstractSockScopeProvider;
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,5 +12,5 @@ package fr.inria.kairos.sock.scoping;
  * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class SockScopeProvider /* implements AbstractSockScopeProvider  */{
+public class SockScopeProvider extends AbstractSockScopeProvider {
 }

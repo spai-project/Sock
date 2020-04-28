@@ -3,11 +3,13 @@
  */
 package fr.inria.kairos.sock.validation;
 
+import fr.inria.kairos.sock.validation.AbstractSockValidator;
+
 /**
  * This class contains custom validation rules.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class SockValidator /* implements AbstractSockValidator  */{
+public class SockValidator extends AbstractSockValidator {
 }

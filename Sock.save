@@ -17,7 +17,7 @@ package sock
 	-- Mapping event and methods
 	
 	context IotSystem
-		def : timeEvent : Event = self.time()
+		def : timeEvent : Event = self
 		def : zeroValue : Integer = 0
 
 	-- ========================================================================================================
@@ -35,7 +35,7 @@ package sock
 		def : isEnteredResourceEvent : Event = self
 		def : isProcessedResourceEvent : Event = self
 		def : isExitedResourceEvent : Event = self
-		def : doesNothingResourceEvent : Event = self.idle()
+		def : doesNothingResourceEvent : Event = self
 		def : anActorIsTakenOverByAnotherOneResourceEvent : Event = self
 	
 	context  Actor
@@ -125,8 +125,8 @@ package sock
 		def : cleanResourceEvent : Event = self.clean()
 	
 	context Actor
-		def : exitPriorityActorEvent : Event = self
-		def : exitNotPriorityActorEvent : Event = self
+		def : exitPriorityActorEvent : Event = self.exitOf()
+		def : exitNotPriorityActorEvent : Event = self.exitOf()
 		
 	-- Constraints
 	
@@ -216,47 +216,39 @@ package sock
 				unionEnterProcessExit,
 				self.doesNothingActorEvent
 			) in
-			let unionEnterProcessExitDoesNothingIsTakenOver : Event = Expression Union(
+			let unionEnterProcessExitDoesNothingResourceIsEntered : Event = Expression Union(
 				unionEnterProcessExitDoesNothing,
 				self.isTakenOverActorEvent
 			) in
-			let unionEnterProcessExitDoesNothingIsTakenOverRequest : Event = Expression Union(
-				unionEnterProcessExitDoesNothingIsTakenOver,
+			let unionEnterProcessExitDoesNothingResourceIsEnteredRequest : Event = Expression Union(
+				unionEnterProcessExitDoesNothing,
 				self.requestActorEvent
-			) in
-			let unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOver : Event = Expression Union(
-				unionEnterProcessExitDoesNothingIsTakenOverRequest,
-				self.takesOverActorEvent
-			) in
+			) in			
 			Relation Coincides(
-				unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOver,
+				unionEnterProcessExitDoesNothingResourceIsEnteredRequest,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 
 	context Resource
 		inv unionEventsOfResourceCoincidesWithTimeEvent:
-			let unionIsEnteredAndIsProcessed : Event = Expression Union(
+			let unionIsEnteredAndIsProcessedResourceEvent : Event = Expression Union(
 				self.isEnteredResourceEvent,
 				self.isProcessedResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedIsExited : Event = Expression Union(
-				unionIsEnteredAndIsProcessed,
+			let unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent : Event = Expression Union(
+				unionIsEnteredAndIsProcessedResourceEvent,
 				self.isExitedResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedIsExitedDoesNothing : Event = Expression Union(
-				unionIsEnteredAndIsProcessedIsExited,
+			let unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent : Event = Expression Union(
+				unionIsEnteredAndIsProcessedResourceEventIsExitedResourceEvent,
 				self.doesNothingResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedIsExitedDoesNothingClean : Event = Expression Union(
-				unionIsEnteredAndIsProcessedIsExitedDoesNothing,
-				self.cleanResourceEvent
-			) in
-			let unionIsEnteredAndIsProcessedIsExitedDoesNothingCleanAnActorIsTakenOverByAnotherOne : Event = Expression Union(
-				unionIsEnteredAndIsProcessedIsExitedDoesNothingClean,
+			let unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEventTakenOver : Event = Expression Union(
+				unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent,
 				self.anActorIsTakenOverByAnotherOneResourceEvent
 			) in
 			Relation Coincides(
-				unionIsEnteredAndIsProcessedIsExitedDoesNothingCleanAnActorIsTakenOverByAnotherOne,
+				unionIsEnteredAndIsProcessedResourceEventIsExitedAndDoesNothingResourceEvent,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 			

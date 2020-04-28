@@ -3,6 +3,8 @@
  */
 package fr.inria.kairos.sock.ui;
 
+import fr.inria.kairos.sock.ui.AbstractSockUiModule;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
@@ -10,5 +12,8 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
  */
 @FinalFieldsConstructor
 @SuppressWarnings("all")
-public class SockUiModule /* implements AbstractSockUiModule  */{
+public class SockUiModule extends AbstractSockUiModule {
+  public SockUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
 }

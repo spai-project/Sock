@@ -5,6 +5,7 @@ package fr.inria.kairos.sock.tests;
 
 import com.google.inject.Inject;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
+import fr.inria.kairos.sock.tests.SockInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -17,8 +18,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@RunWith(XtextRunner.class)/* 
-@InjectWith(/* name is null */) */
+@RunWith(XtextRunner.class)
+@InjectWith(SockInjectorProvider.class)
 @SuppressWarnings("all")
 public class SockParsingTest {
   @Inject

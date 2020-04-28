@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
+import fr.inria.kairos.sock.services.SockGrammarAccess;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -19,7 +20,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class SockFormatter extends AbstractFormatter2 {
   @Inject
   @Extension
-  private /* SockGrammarAccess */Object _sockGrammarAccess;
+  private SockGrammarAccess _sockGrammarAccess;
   
   protected void _format(final IotSystem iotSystem, @Extension final IFormattableDocument document) {
     EList<Actor> _ownedActor = iotSystem.getOwnedActor();

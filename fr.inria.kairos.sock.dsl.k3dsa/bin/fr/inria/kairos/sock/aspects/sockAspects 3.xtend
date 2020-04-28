@@ -22,14 +22,14 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
 	
-	protected var Integer timeIndex = 0
+	public var Integer timeIndex = 0
 	
-	def protected void run(String message) {
+	def public void run(String message) {
 		println("[" + _self.timeIndex + "] " + message)
 		time(_self)
 	}
 	
-	def protected void time() {
+	def public void time() {
 		_self.timeIndex = _self.timeIndex + 1
 	}
 	

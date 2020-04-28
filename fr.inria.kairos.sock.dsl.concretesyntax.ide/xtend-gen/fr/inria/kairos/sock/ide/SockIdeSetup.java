@@ -3,8 +3,12 @@
  */
 package fr.inria.kairos.sock.ide;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
+import fr.inria.kairos.sock.SockRuntimeModule;
 import fr.inria.kairos.sock.SockStandaloneSetup;
+import fr.inria.kairos.sock.ide.SockIdeModule;
+import org.eclipse.xtext.util.Modules2;
 
 /**
  * Initialization support for running Xtext languages as language servers.
@@ -13,8 +17,8 @@ import fr.inria.kairos.sock.SockStandaloneSetup;
 public class SockIdeSetup extends SockStandaloneSetup {
   @Override
   public Injector createInjector() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from SockRuntimeModule to Module"
-      + "\nType mismatch: cannot convert from SockIdeModule to Module");
+    SockRuntimeModule _sockRuntimeModule = new SockRuntimeModule();
+    SockIdeModule _sockIdeModule = new SockIdeModule();
+    return Guice.createInjector(Modules2.mixin(_sockRuntimeModule, _sockIdeModule));
   }
 }
