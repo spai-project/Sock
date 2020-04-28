@@ -159,7 +159,7 @@ main() {
 		////[ Resource ]
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map isExitedResourceEvent2Clock();
 		////[ Resource ]
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map doesNothingResourceEvent2Clock();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map idleResourceEvent2Clock();
 		////[ Resource ]
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map anActorIsTakenOverByAnotherOneResourceEvent2Clock();
 		
@@ -174,7 +174,7 @@ main() {
 		////[ Actor ]
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitActorEvent2Clock();
 		////[ Actor ]
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map doesNothingActorEvent2Clock();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map idleActorEvent2Clock();
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map processTimeActorValue2Integer();
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map isPriorityActorValue2Integer();
 		////[ Actor ]
@@ -1222,14 +1222,14 @@ main() {
 	}
 
 
-	mapping inMM1::Actor::unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOverPeriodStart2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Actor::unionEnterProcessExitIdleIsTakenOverRequestTakesOverPeriodStart2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOverPeriodStart';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitIdleIsTakenOverRequestTakesOverPeriodStart';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOver2Expression()->asSequence()->first();
+					bindable := self -> map unionEnterProcessExitIdleIsTakenOverRequestTakesOver2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1247,14 +1247,14 @@ main() {
 		}
 	}
 
-	mapping inMM1::Actor::unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOver2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Actor::unionEnterProcessExitIdleIsTakenOverRequestTakesOver2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOver';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitIdleIsTakenOverRequestTakesOver';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionEnterProcessExitDoesNothingIsTakenOverRequest2Expression()->asSequence()->first();
+					bindable := self -> map unionEnterProcessExitIdleIsTakenOverRequest2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1272,14 +1272,14 @@ main() {
 		}
 	}
 
-	mapping inMM1::Actor::unionEnterProcessExitDoesNothingIsTakenOverRequest2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Actor::unionEnterProcessExitIdleIsTakenOverRequest2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitDoesNothingIsTakenOverRequest';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitIdleIsTakenOverRequest';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionEnterProcessExitDoesNothingIsTakenOver2Expression()->asSequence()->first();
+					bindable := self -> map unionEnterProcessExitIdleIsTakenOver2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1297,14 +1297,14 @@ main() {
 		}
 	}
 
-	mapping inMM1::Actor::unionEnterProcessExitDoesNothingIsTakenOver2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Actor::unionEnterProcessExitIdleIsTakenOver2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitDoesNothingIsTakenOver';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitIdleIsTakenOver';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionEnterProcessExitDoesNothing2Expression()->asSequence()->first();
+					bindable := self -> map unionEnterProcessExitIdle2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1322,9 +1322,9 @@ main() {
 		}
 	}
 
-	mapping inMM1::Actor::unionEnterProcessExitDoesNothing2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Actor::unionEnterProcessExitIdle2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitDoesNothing';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionEnterProcessExitIdle';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
@@ -1336,7 +1336,7 @@ main() {
 					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_doesNothingActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_idleActorEvent']->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1397,14 +1397,14 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::unionIsEnteredAndIsProcessedIsExitedDoesNothingCleanAnActorIsTakenOverByAnotherOne2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionIsEnteredAndIsProcessedIsExitedIdleCleanAnActorIsTakenOverByAnotherOne2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedIsExitedDoesNothingCleanAnActorIsTakenOverByAnotherOne';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedIsExitedIdleCleanAnActorIsTakenOverByAnotherOne';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionIsEnteredAndIsProcessedIsExitedDoesNothingClean2Expression()->asSequence()->first();
+					bindable := self -> map unionIsEnteredAndIsProcessedIsExitedIdleClean2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1422,14 +1422,14 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::unionIsEnteredAndIsProcessedIsExitedDoesNothingClean2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionIsEnteredAndIsProcessedIsExitedIdleClean2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedIsExitedDoesNothingClean';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedIsExitedIdleClean';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map unionIsEnteredAndIsProcessedIsExitedDoesNothing2Expression()->asSequence()->first();
+					bindable := self -> map unionIsEnteredAndIsProcessedIsExitedIdle2Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1447,9 +1447,9 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::unionIsEnteredAndIsProcessedIsExitedDoesNothing2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionIsEnteredAndIsProcessedIsExitedIdle2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedIsExitedDoesNothing';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIsEnteredAndIsProcessedIsExitedIdle';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
@@ -1461,7 +1461,7 @@ main() {
 					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent']->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1686,15 +1686,15 @@ main() {
 				theMainBlock.elements += result;
 			}
 		}
-	 	mapping inMM1::Resource::doesNothingResourceEvent2Clock() :TimeModel::Clock 
+	 	mapping inMM1::Resource::idleResourceEvent2Clock() :TimeModel::Clock 
 		{
-			name:= getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent';
+			name:= getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
 				//referencedObjectRefs += self.oclAsType(EObject);
 				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "idle")->first().oclAsType(EObject);
 			
-				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent';
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent';
 			kind :=TimeModel::EventKind::undefined;
 						
 			};
@@ -1776,15 +1776,15 @@ main() {
 				theMainBlock.elements += result;
 			}
 		}
-	 	mapping inMM1::Actor::doesNothingActorEvent2Clock() :TimeModel::Clock 
+	 	mapping inMM1::Actor::idleActorEvent2Clock() :TimeModel::Clock 
 		{
-			name:= getNameOrUID(self.oclAsType(EObject))+'_doesNothingActorEvent';
+			name:= getNameOrUID(self.oclAsType(EObject))+'_idleActorEvent';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
 				//referencedObjectRefs += self.oclAsType(EObject);
 				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "idle")->first().oclAsType(EObject);
 			
-				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_doesNothingActorEvent';
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_idleActorEvent';
 			kind :=TimeModel::EventKind::undefined;
 						
 			};
@@ -2018,7 +2018,7 @@ main() {
 					_abstract := seqOfAbstractEntity[name = 'ActorProcessingCycleExitEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_doesNothingActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_idleActorEvent']->first();
 					_abstract := seqOfAbstractEntity[name = 'ActorProcessingCycleDoesNothingEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -2198,7 +2198,7 @@ main() {
 					_abstract := seqOfAbstractEntity[name = 'ResourceUsageCycleIsProcessedEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent']->first();
 					_abstract := seqOfAbstractEntity[name = 'ResourceUsageCycleDoesNothingEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -2222,7 +2222,7 @@ main() {
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
 			
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-							bindable := self -> map unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOverPeriodStart2Expression()->asSequence()->first();
+							bindable := self -> map unionEnterProcessExitIdleIsTakenOverRequestTakesOverPeriodStart2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -2242,7 +2242,7 @@ main() {
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
 			
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-							bindable := self -> map unionIsEnteredAndIsProcessedIsExitedDoesNothingCleanAnActorIsTakenOverByAnotherOne2Expression()->asSequence()->first();
+							bindable := self -> map unionIsEnteredAndIsProcessedIsExitedIdleCleanAnActorIsTakenOverByAnotherOne2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -2285,12 +2285,12 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map isEnteredResourceEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map isProcessedResourceEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map isExitedResourceEvent2MSE();
-	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map doesNothingResourceEvent2MSE();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map idleResourceEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map anActorIsTakenOverByAnotherOneResourceEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map enterActorEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map processActorEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitActorEvent2MSE();
-	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map doesNothingActorEvent2MSE();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map idleActorEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map isTakenOverActorEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map takesOverActorEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map cleanResourceEvent2MSE();
@@ -2369,13 +2369,13 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 				seqOfMSE += result
 			}
 		}
-	 	mapping inMM1::Resource::doesNothingResourceEvent2MSE() :FeedBack::ModelSpecificEvent 
+	 	mapping inMM1::Resource::idleResourceEvent2MSE() :FeedBack::ModelSpecificEvent 
 		{
-			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent';
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent';
 
 				caller := self.oclAsType(EObject);
 				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "idle")->first();
-				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_doesNothingResourceEvent')->first().oclAsType(EObject);
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent')->first().oclAsType(EObject);
 				
 			end{
 				theFeedBackSpec.events += result;
@@ -2432,13 +2432,13 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 				seqOfMSE += result
 			}
 		}
-	 	mapping inMM1::Actor::doesNothingActorEvent2MSE() :FeedBack::ModelSpecificEvent 
+	 	mapping inMM1::Actor::idleActorEvent2MSE() :FeedBack::ModelSpecificEvent 
 		{
-			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_doesNothingActorEvent';
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_idleActorEvent';
 
 				caller := self.oclAsType(EObject);
 				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "idle")->first();
-				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_doesNothingActorEvent')->first().oclAsType(EObject);
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_idleActorEvent')->first().oclAsType(EObject);
 				
 			end{
 				theFeedBackSpec.events += result;

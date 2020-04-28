@@ -66,14 +66,14 @@ package sock
 		def : isEnteredResourceEvent : Event = self
 		def : isProcessedResourceEvent : Event = self
 		def : isExitedResourceEvent : Event = self
-		def : doesNothingResourceEvent : Event = self.idle()
+		def : idleResourceEvent : Event = self.idle()
 		def : anActorIsTakenOverByAnotherOneResourceEvent : Event = self
 	
 	context  Actor
 		def : enterActorEvent : Event = self.enterIn()
 		def : processActorEvent : Event = self.process()
 		def : exitActorEvent : Event = self.exitOf()
-		def : doesNothingActorEvent : Event = self.idle()
+		def : idleActorEvent : Event = self.idle()
 		def : processTimeActorValue : Integer = self.processTime
 		def : isPriorityActorValue : Integer = self.isPriority
 		def : isTakenOverActorEvent : Event = self.exitOf()
@@ -134,7 +134,7 @@ package sock
 				self.processActorEvent,
 				self.processTimeActorValue,
 				self.exitActorEvent,
-				self.doesNothingActorEvent,
+				self.idleActorEvent,
 				self.isTakenOverActorEvent,
 				self.takesOverActorEvent,
 				self.isPriorityActorValue,
@@ -198,7 +198,7 @@ package sock
 				unionNotPriorityActorExitForResourceUsageCycle,
 				unionPriorityActorExitForResourceUsageCycle,
 				self.isProcessedResourceEvent,
-				self.doesNothingResourceEvent,
+				self.idleResourceEvent,
 				unionIntersectionAndTakenOver,
 				self.cleanResourceEvent
 			)
@@ -224,28 +224,28 @@ package sock
 				unionEnterProcess,
 				self.exitActorEvent
 			) in
-			let unionEnterProcessExitDoesNothing : Event = Expression Union(
+			let unionEnterProcessExitIdle : Event = Expression Union(
 				unionEnterProcessExit,
-				self.doesNothingActorEvent
+				self.idleActorEvent
 			) in
-			let unionEnterProcessExitDoesNothingIsTakenOver : Event = Expression Union(
-				unionEnterProcessExitDoesNothing,
+			let unionEnterProcessExitIdleIsTakenOver : Event = Expression Union(
+				unionEnterProcessExitIdle,
 				self.isTakenOverActorEvent
 			) in
-			let unionEnterProcessExitDoesNothingIsTakenOverRequest : Event = Expression Union(
-				unionEnterProcessExitDoesNothingIsTakenOver,
+			let unionEnterProcessExitIdleIsTakenOverRequest : Event = Expression Union(
+				unionEnterProcessExitIdleIsTakenOver,
 				self.requestActorEvent
 			) in
-			let unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOver : Event = Expression Union(
-				unionEnterProcessExitDoesNothingIsTakenOverRequest,
+			let unionEnterProcessExitIdleIsTakenOverRequestTakesOver : Event = Expression Union(
+				unionEnterProcessExitIdleIsTakenOverRequest,
 				self.takesOverActorEvent
 			) in
-			let unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOverPeriodStart : Event = Expression Union(
-				unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOver,
+			let unionEnterProcessExitIdleIsTakenOverRequestTakesOverPeriodStart : Event = Expression Union(
+				unionEnterProcessExitIdleIsTakenOverRequestTakesOver,
 				self.periodStartActorEvent
 			) in
 			Relation Coincides(
-				unionEnterProcessExitDoesNothingIsTakenOverRequestTakesOverPeriodStart,
+				unionEnterProcessExitIdleIsTakenOverRequestTakesOverPeriodStart,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 
@@ -259,20 +259,20 @@ package sock
 				unionIsEnteredAndIsProcessed,
 				self.isExitedResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedIsExitedDoesNothing : Event = Expression Union(
+			let unionIsEnteredAndIsProcessedIsExitedIdle : Event = Expression Union(
 				unionIsEnteredAndIsProcessedIsExited,
-				self.doesNothingResourceEvent
+				self.idleResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedIsExitedDoesNothingClean : Event = Expression Union(
-				unionIsEnteredAndIsProcessedIsExitedDoesNothing,
+			let unionIsEnteredAndIsProcessedIsExitedIdleClean : Event = Expression Union(
+				unionIsEnteredAndIsProcessedIsExitedIdle,
 				self.cleanResourceEvent
 			) in
-			let unionIsEnteredAndIsProcessedIsExitedDoesNothingCleanAnActorIsTakenOverByAnotherOne : Event = Expression Union(
-				unionIsEnteredAndIsProcessedIsExitedDoesNothingClean,
+			let unionIsEnteredAndIsProcessedIsExitedIdleCleanAnActorIsTakenOverByAnotherOne : Event = Expression Union(
+				unionIsEnteredAndIsProcessedIsExitedIdleClean,
 				self.anActorIsTakenOverByAnotherOneResourceEvent
 			) in
 			Relation Coincides(
-				unionIsEnteredAndIsProcessedIsExitedDoesNothingCleanAnActorIsTakenOverByAnotherOne,
+				unionIsEnteredAndIsProcessedIsExitedIdleCleanAnActorIsTakenOverByAnotherOne,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 			
