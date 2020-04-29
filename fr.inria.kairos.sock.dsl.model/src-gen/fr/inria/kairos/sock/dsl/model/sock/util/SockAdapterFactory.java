@@ -87,6 +87,11 @@ public class SockAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseMaliciousActor(MaliciousActor object) {
+			return createMaliciousActorAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -158,6 +163,20 @@ public class SockAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.inria.kairos.sock.dsl.model.sock.MaliciousActor <em>Malicious Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.MaliciousActor
+	 * @generated
+	 */
+	public Adapter createMaliciousActorAdapter() {
 		return null;
 	}
 

@@ -5,11 +5,13 @@ import fr.inria.kairos.sock.dsl.model.sock.NamedElement
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem
 import fr.inria.kairos.sock.dsl.model.sock.Resource
 import fr.inria.kairos.sock.dsl.model.sock.Actor
+import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor
 
 import static extension fr.inria.kairos.sock.aspects.NamedElementAspect.*
 import static extension fr.inria.kairos.sock.aspects.IotSystemAspect.*
 import static extension fr.inria.kairos.sock.aspects.ResourceAspect.*
 import static extension fr.inria.kairos.sock.aspects.ActorAspect.*
+import static extension fr.inria.kairos.sock.aspects.MaliciousActorAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.SynchroField
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.Step
@@ -47,14 +49,6 @@ class ResourceAspect extends NamedElementAspect {
 	
 	@ReplaceAspectMethod
 	def public void isEntered(Actor actor, String secret) {
-		// TODO Move this check into a new actor that is malicious
-		if (_self.lastActorPriority == 1) {
-			// here we check that the resource did not leak any sensible information
-			if (_self.currentData != "") {
-				println("WARNING: The resource " + _self.name + " may have leak the following secret:")
-				println(_self.currentData)
-			}
-		}
 		_self.currentData = secret
 		_self.lastActorPriority = actor.priority
 	}
@@ -224,4 +218,30 @@ class ActorAspect extends NamedElementAspect {
 		_self.actorTimeIndex = _self.actorTimeIndex + 1
 	}
 
+}
+
+@Aspect(className=MaliciousActor)
+class MaliciousActorAspect extends ActorAspect {
+
+	@ReplaceAspectMethod
+	def public void enterIn() {
+		run(_self, _self.name + " enters in " + _self.resource.name)
+		_self.stealSensibleInformationFromResource()
+		if (_self.currentProcessTime  == _self.processTime) {
+			_self.currentProcessTime = 0
+		}
+		_self.resource.isEntered(_self, _self.name + " " + _self.secret)
+		_self.write("1")
+	}
+	
+	def public void stealSensibleInformationFromResource() {
+		if (_self.resource.lastActorPriority == 1) {
+			// here we check that the resource did not leak any sensible information
+			if (_self.resource.currentData != "") {
+				println("WARNING: The resource " + _self.name + " may have leak the following secret:")
+				println(_self.resource.currentData)
+			}
+		}
+	}
+	
 }

@@ -9,12 +9,6 @@ import org.eclipse.gemoc.executionframework.engine.commons.K3DslHelper;
 
 
 public class SockRTDAccessor {
-  public static boolean getschedulabilityChecked(EObject eObject) {
-		return (boolean)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.IotSystemAspect", "schedulabilityChecked");
-	}
-	public static boolean setschedulabilityChecked(EObject eObject, boolean newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.IotSystemAspect", "schedulabilityChecked", newValue);
-	}
   public static java.lang.String getcurrentData(EObject eObject) {
 		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "currentData");
 	}
@@ -26,36 +20,6 @@ public class SockRTDAccessor {
 	}
 	public static boolean setlastActorPriority(EObject eObject, java.lang.Integer newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorPriority", newValue);
-	}
-  public static java.lang.String getfolder(EObject eObject) {
-		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "folder");
-	}
-	public static boolean setfolder(EObject eObject, java.lang.String newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "folder", newValue);
-	}
-  public static java.lang.String getsubFolder(EObject eObject) {
-		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "subFolder");
-	}
-	public static boolean setsubFolder(EObject eObject, java.lang.String newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "subFolder", newValue);
-	}
-  public static java.lang.Integer getactorTimeIndex(EObject eObject) {
-		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "actorTimeIndex");
-	}
-	public static boolean setactorTimeIndex(EObject eObject, java.lang.Integer newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "actorTimeIndex", newValue);
-	}
-  public static java.lang.String getsecret(EObject eObject) {
-		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "secret");
-	}
-	public static boolean setsecret(EObject eObject, java.lang.String newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "secret", newValue);
-	}
-  public static java.lang.Integer getcurrentProcessTime(EObject eObject) {
-		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "currentProcessTime");
-	}
-	public static boolean setcurrentProcessTime(EObject eObject, java.lang.Integer newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "currentProcessTime", newValue);
 	}
   public static java.lang.Integer getisPriority(EObject eObject) {
 		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "isPriority");
@@ -74,6 +38,42 @@ public class SockRTDAccessor {
 	}
 	public static boolean setperiodTime(EObject eObject, java.lang.Integer newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "periodTime", newValue);
+	}
+  public static java.lang.String getsecret(EObject eObject) {
+		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "secret");
+	}
+	public static boolean setsecret(EObject eObject, java.lang.String newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "secret", newValue);
+	}
+  public static java.lang.Integer getcurrentProcessTime(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "currentProcessTime");
+	}
+	public static boolean setcurrentProcessTime(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "currentProcessTime", newValue);
+	}
+  public static java.lang.String getfolder(EObject eObject) {
+		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "folder");
+	}
+	public static boolean setfolder(EObject eObject, java.lang.String newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "folder", newValue);
+	}
+  public static java.lang.String getsubFolder(EObject eObject) {
+		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "subFolder");
+	}
+	public static boolean setsubFolder(EObject eObject, java.lang.String newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "subFolder", newValue);
+	}
+  public static boolean gethasFinishedTaskForPeriod(EObject eObject) {
+		return (boolean)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "hasFinishedTaskForPeriod");
+	}
+	public static boolean sethasFinishedTaskForPeriod(EObject eObject, boolean newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "hasFinishedTaskForPeriod", newValue);
+	}
+  public static java.lang.Integer getactorTimeIndex(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "actorTimeIndex");
+	}
+	public static boolean setactorTimeIndex(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "actorTimeIndex", newValue);
 	}
 
 public static Object getAspectProperty(EObject eObject, String languageName, String aspectName, String propertyName) {

@@ -39,6 +39,11 @@ public class ActorAspect extends NamedElementAspect {
   @ReplaceAspectMethod
   public static void enterIn(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void enterIn() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+    		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+    			fr.inria.kairos.sock.aspects.MaliciousActorAspect.enterIn((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+    		} else
+    		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void enterIn() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
     // #DispatchPointCut_before# void enterIn()
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
     	fr.inria.kairos.sock.aspects.ActorAspect._privk3_enterIn(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);

@@ -4,6 +4,7 @@ package fr.inria.kairos.sock.dsl.model.sock.impl;
 
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
+import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor;
 import fr.inria.kairos.sock.dsl.model.sock.NamedElement;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
 import fr.inria.kairos.sock.dsl.model.sock.SockFactory;
@@ -51,6 +52,13 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * @generated
 	 */
 	private EClass actorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass maliciousActorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -292,6 +300,15 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMaliciousActor() {
+		return maliciousActorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getActor_ProcessTime() {
 		return (EAttribute) actorEClass.getEStructuralFeatures().get(2);
 	}
@@ -358,6 +375,8 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		createEOperation(actorEClass, ACTOR___PROCESS);
 		createEOperation(actorEClass, ACTOR___REQUEST);
 		createEOperation(actorEClass, ACTOR___READY);
+
+		maliciousActorEClass = createEClass(MALICIOUS_ACTOR);
 	}
 
 	/**
@@ -392,6 +411,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		iotSystemEClass.getESuperTypes().add(this.getNamedElement());
 		resourceEClass.getESuperTypes().add(this.getNamedElement());
 		actorEClass.getESuperTypes().add(this.getNamedElement());
+		maliciousActorEClass.getESuperTypes().add(this.getActor());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -442,6 +462,9 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		initEOperation(getActor__Request(), null, "request", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getActor__Ready(), null, "ready", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(maliciousActorEClass, MaliciousActor.class, "MaliciousActor", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

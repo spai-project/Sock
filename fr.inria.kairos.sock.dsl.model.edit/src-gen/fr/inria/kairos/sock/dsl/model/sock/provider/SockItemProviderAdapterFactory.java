@@ -142,6 +142,29 @@ public class SockItemProviderAdapterFactory extends SockAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.inria.kairos.sock.dsl.model.sock.MaliciousActor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MaliciousActorItemProvider maliciousActorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.inria.kairos.sock.dsl.model.sock.MaliciousActor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMaliciousActorAdapter() {
+		if (maliciousActorItemProvider == null) {
+			maliciousActorItemProvider = new MaliciousActorItemProvider(this);
+		}
+
+		return maliciousActorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,6 +269,8 @@ public class SockItemProviderAdapterFactory extends SockAdapterFactory
 			resourceItemProvider.dispose();
 		if (actorItemProvider != null)
 			actorItemProvider.dispose();
+		if (maliciousActorItemProvider != null)
+			maliciousActorItemProvider.dispose();
 	}
 
 }

@@ -1,6 +1,5 @@
 package fr.inria.kairos.sock.aspects;
 
-import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod;
 import fr.inria.kairos.sock.aspects.ActorAspect;
@@ -109,19 +108,6 @@ public class ResourceAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_isEntered(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Actor actor, final String secret) {
-    Integer _lastActorPriority = ResourceAspect.lastActorPriority(_self);
-    boolean _equals = ((_lastActorPriority).intValue() == 1);
-    if (_equals) {
-      String _currentData = ResourceAspect.currentData(_self);
-      boolean _notEquals = (!Objects.equal(_currentData, ""));
-      if (_notEquals) {
-        String _name = _self.getName();
-        String _plus = ("WARNING: The resource " + _name);
-        String _plus_1 = (_plus + " may have leak the following secret:");
-        InputOutput.<String>println(_plus_1);
-        InputOutput.<String>println(ResourceAspect.currentData(_self));
-      }
-    }
     ResourceAspect.currentData(_self, secret);
     ResourceAspect.lastActorPriority(_self, ActorAspect.isPriority(actor));
   }

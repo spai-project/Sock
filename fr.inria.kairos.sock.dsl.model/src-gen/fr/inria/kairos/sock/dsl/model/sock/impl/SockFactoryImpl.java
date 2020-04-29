@@ -61,6 +61,8 @@ public class SockFactoryImpl extends EFactoryImpl implements SockFactory {
 			return createResource();
 		case SockPackage.ACTOR:
 			return createActor();
+		case SockPackage.MALICIOUS_ACTOR:
+			return createMaliciousActor();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -94,6 +96,16 @@ public class SockFactoryImpl extends EFactoryImpl implements SockFactory {
 	public Actor createActor() {
 		ActorImpl actor = new ActorImpl();
 		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MaliciousActor createMaliciousActor() {
+		MaliciousActorImpl maliciousActor = new MaliciousActorImpl();
+		return maliciousActor;
 	}
 
 	/**

@@ -49,14 +49,6 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 			EObject elem = allContentIt.next();
 
 			Class<?> clazz =null;
-			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.IotSystemAspect.class);
-			if (clazz.isInstance(elem)) {
-				ElementState elemState = theFactory.createElementState();
-				elemState.setModelElement(elem);
-				res.getOwnedElementstates().add(elemState);
-				AttributeNameToValue n2v0 = new AttributeNameToValue("schedulabilityChecked", SockRTDAccessor.getschedulabilityChecked(elem));
-				elemState.getSavedRTDs().add(n2v0);
-			}
 			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.ResourceAspect.class);
 			if (clazz.isInstance(elem)) {
 				ElementState elemState = theFactory.createElementState();
@@ -72,22 +64,24 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 				ElementState elemState = theFactory.createElementState();
 				elemState.setModelElement(elem);
 				res.getOwnedElementstates().add(elemState);
-				AttributeNameToValue n2v0 = new AttributeNameToValue("folder", SockRTDAccessor.getfolder(elem));
+				AttributeNameToValue n2v0 = new AttributeNameToValue("isPriority", SockRTDAccessor.getisPriority(elem));
 				elemState.getSavedRTDs().add(n2v0);
-				AttributeNameToValue n2v1 = new AttributeNameToValue("subFolder", SockRTDAccessor.getsubFolder(elem));
+				AttributeNameToValue n2v1 = new AttributeNameToValue("processTime", SockRTDAccessor.getprocessTime(elem));
 				elemState.getSavedRTDs().add(n2v1);
-				AttributeNameToValue n2v2 = new AttributeNameToValue("actorTimeIndex", SockRTDAccessor.getactorTimeIndex(elem));
+				AttributeNameToValue n2v2 = new AttributeNameToValue("periodTime", SockRTDAccessor.getperiodTime(elem));
 				elemState.getSavedRTDs().add(n2v2);
 				AttributeNameToValue n2v3 = new AttributeNameToValue("secret", SockRTDAccessor.getsecret(elem));
 				elemState.getSavedRTDs().add(n2v3);
 				AttributeNameToValue n2v4 = new AttributeNameToValue("currentProcessTime", SockRTDAccessor.getcurrentProcessTime(elem));
 				elemState.getSavedRTDs().add(n2v4);
-				AttributeNameToValue n2v5 = new AttributeNameToValue("isPriority", SockRTDAccessor.getisPriority(elem));
+				AttributeNameToValue n2v5 = new AttributeNameToValue("folder", SockRTDAccessor.getfolder(elem));
 				elemState.getSavedRTDs().add(n2v5);
-				AttributeNameToValue n2v6 = new AttributeNameToValue("processTime", SockRTDAccessor.getprocessTime(elem));
+				AttributeNameToValue n2v6 = new AttributeNameToValue("subFolder", SockRTDAccessor.getsubFolder(elem));
 				elemState.getSavedRTDs().add(n2v6);
-				AttributeNameToValue n2v7 = new AttributeNameToValue("periodTime", SockRTDAccessor.getperiodTime(elem));
+				AttributeNameToValue n2v7 = new AttributeNameToValue("hasFinishedTaskForPeriod", SockRTDAccessor.gethasFinishedTaskForPeriod(elem));
 				elemState.getSavedRTDs().add(n2v7);
+				AttributeNameToValue n2v8 = new AttributeNameToValue("actorTimeIndex", SockRTDAccessor.getactorTimeIndex(elem));
+				elemState.getSavedRTDs().add(n2v8);
 			}
 		}
 		return res;

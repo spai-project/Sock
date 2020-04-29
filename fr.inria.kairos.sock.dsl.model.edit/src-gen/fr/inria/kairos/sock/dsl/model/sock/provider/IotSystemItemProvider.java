@@ -148,6 +148,9 @@ public class IotSystemItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add(createChildParameter(SockPackage.Literals.IOT_SYSTEM__OWNED_ACTOR,
 				SockFactory.eINSTANCE.createActor()));
 
+		newChildDescriptors.add(createChildParameter(SockPackage.Literals.IOT_SYSTEM__OWNED_ACTOR,
+				SockFactory.eINSTANCE.createMaliciousActor()));
+
 		newChildDescriptors.add(createChildParameter(SockPackage.Literals.IOT_SYSTEM__OWNED_RESOURCE,
 				SockFactory.eINSTANCE.createResource()));
 	}
