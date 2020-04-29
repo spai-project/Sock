@@ -24,18 +24,16 @@ public class Resource extends NamedElement {
 		return actors;
 	}
 	
-	public double computeSchedulableScore() {
+	public double computeSchedulableScore(boolean withFlushTask) {
 		double acc = 0.0f;
 		for (Actor actor : this.actors) {
-			acc += actor.getProcessTime() / ((double)actor.getPeriodTime());
+			acc += actor.getScore(withFlushTask);
 		}
 		return acc;
 	}
 	
-	public boolean isSchedulable() {
-		if (getBound() > 1.0d) {
-		}
-		return computeSchedulableScore() < getBound();
+	public boolean isSchedulable(boolean withFlushTask) {
+		return computeSchedulableScore(withFlushTask) < getBound();
 	}
 	
 	public double getBound() {

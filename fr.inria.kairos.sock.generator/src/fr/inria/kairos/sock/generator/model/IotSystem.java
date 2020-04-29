@@ -28,8 +28,12 @@ public class IotSystem extends NamedElement {
 	}
 	
 	public boolean isSchedulable() {
+		return this.isSchedulable(true);
+	}
+	
+	public boolean isSchedulable(boolean withFlushTask) {
 		for (Resource resource : this.getOwnedResource()) {
-			if (!resource.isSchedulable()) {
+			if (!resource.isSchedulable(withFlushTask)) {
 				return false;
 			}
 		}

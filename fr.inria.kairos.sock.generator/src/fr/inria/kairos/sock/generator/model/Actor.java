@@ -24,7 +24,15 @@ public class Actor extends NamedElement {
 	public Resource getResource() {
 		return resource;
 	}
+	
+	public double getScore() {
+		return this.getScore(true);
+	}
 
+	public double getScore(boolean withFlushTask) {
+		return (withFlushTask ? this.computeProccessTime() : this.getProcessTime() + 1) / ((double)this.getPeriodTime());
+	}
+	
 	public int getIsPriority() {
 		return isPriority;
 	}
@@ -48,6 +56,12 @@ public class Actor extends NamedElement {
 					"\t\t\tperiodTime " + this.getPeriodTime() + Main.nl +
 					"\t\t\tresource \"" + this.resource.getName() + "\"" + Main.nl +
 				"\t\t}";
+	}
+
+	@Override
+	public String toString() {
+		return "Actor [resource=" + resource.getName() + ", isPriority=" + isPriority + ", processTime=" + processTime
+				+ ", periodTime=" + periodTime + ", name=" + name + "]";
 	}
 	
 }
