@@ -8,29 +8,16 @@ import fr.inria.kairos.sock.aspects.NamedElementAspect;
 import fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = Resource.class)
 @SuppressWarnings("all")
 public class ResourceAspect extends NamedElementAspect {
-  public static void printInfo(final Resource _self) {
-    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void printInfo()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
-    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_printInfo(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
-    };
-  }
-  
-  @ReplaceAspectMethod
-  public static void clean(final Resource _self) {
-    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void clean()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
-    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_clean(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
-    };
-  }
-  
   @ReplaceAspectMethod
   public static void isEntered(final Resource _self, final Actor actor, final String secret) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
@@ -56,6 +43,33 @@ public class ResourceAspect extends NamedElementAspect {
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
     	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_isExited(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
     };
+  }
+  
+  @ReplaceAspectMethod
+  public static void clean(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void clean()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_clean(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+  }
+  
+  public static void checkSchedulabilityResource(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void checkSchedulabilityResource()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_checkSchedulabilityResource(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+  }
+  
+  public static double getBound(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    Object result = null;
+    // #DispatchPointCut_before# double getBound()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	result = fr.inria.kairos.sock.aspects.ResourceAspect._privk3_getBound(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+    return (double)result;
   }
   
   public static String currentData(final Resource _self) {
@@ -94,23 +108,6 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
-  protected static void _privk3_printInfo(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
-    String _name = _self.getName();
-    String _plus = (_name + " : ");
-    InputOutput.<String>print(_plus);
-    EList<Actor> _actor = _self.getActor();
-    for (final Actor a : _actor) {
-      String _name_1 = a.getName();
-      String _plus_1 = (_name_1 + " ");
-      InputOutput.<String>print(_plus_1);
-    }
-    InputOutput.<String>println("");
-  }
-  
-  protected static void _privk3_clean(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
-    ResourceAspect.currentData(_self, "");
-  }
-  
   protected static void _privk3_isEntered(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Actor actor, final String secret) {
     Integer _lastActorPriority = ResourceAspect.lastActorPriority(_self);
     boolean _equals = ((_lastActorPriority).intValue() == 1);
@@ -133,6 +130,59 @@ public class ResourceAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_isExited(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    ResourceAspect.checkSchedulabilityResource(_self);
+  }
+  
+  protected static void _privk3_clean(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    ResourceAspect.currentData(_self, "");
+  }
+  
+  protected static void _privk3_checkSchedulabilityResource(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    String _name = _self.getName();
+    String _plus = ("Checking schedulability for " + _name);
+    String _plus_1 = (_plus + "...");
+    InputOutput.<String>println(_plus_1);
+    EList<Actor> _actor = _self.getActor();
+    List<Actor> actors = new ArrayList<Actor>(_actor);
+    Collections.<Actor>sort(actors, new Comparator<Actor>() {
+      @Override
+      public int compare(final Actor o1, final Actor o2) {
+        Integer _isPriority = ActorAspect.isPriority(o2);
+        Integer _isPriority_1 = ActorAspect.isPriority(o1);
+        return ((_isPriority).intValue() - (_isPriority_1).intValue());
+      }
+    });
+    float acc = 0.0f;
+    for (final Actor actor : actors) {
+      boolean _hasFinishedTaskForPeriod = ActorAspect.hasFinishedTaskForPeriod(actor);
+      boolean _not = (!_hasFinishedTaskForPeriod);
+      if (_not) {
+        float realProcessTime = ActorAspect.computeProcessTime(actor);
+        int _periodTime = actor.getPeriodTime();
+        float _divide = (((float) realProcessTime) / ((float) _periodTime));
+        float _plus_2 = (acc + ((float) _divide));
+        acc = _plus_2;
+      }
+    }
+    if ((acc > 1.0f)) {
+      throw new RuntimeException(("The system seems not to be schedulable: " + Float.valueOf(acc)));
+    } else {
+      double _bound = ResourceAspect.getBound(_self);
+      boolean _lessEqualsThan = (acc <= _bound);
+      if (_lessEqualsThan) {
+      } else {
+        if (((1 <= acc) && (acc < ResourceAspect.getBound(_self)))) {
+        }
+      }
+    }
+    InputOutput.<String>println(("Score: " + Float.valueOf(acc)));
+  }
+  
+  protected static double _privk3_getBound(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    final double n = _self.getActor().size();
+    double _pow = Math.pow(2.0d, (1 / n));
+    double _minus = (_pow - 1);
+    return (n * _minus);
   }
   
   protected static String _privk3_currentData(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
