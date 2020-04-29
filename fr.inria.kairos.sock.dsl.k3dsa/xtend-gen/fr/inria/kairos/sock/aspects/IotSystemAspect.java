@@ -1,7 +1,6 @@
 package fr.inria.kairos.sock.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.kairos.sock.aspects.ActorAspect;
 import fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 
@@ -24,15 +22,6 @@ public class IotSystemAspect extends NamedElementAspect {
     // #DispatchPointCut_before# void time()
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
     	fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_time(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
-    };
-  }
-  
-  @Main
-  public static void main(final IotSystem _self) {
-    final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void main()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
-    	fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_main(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
     };
   }
   
@@ -62,52 +51,8 @@ public class IotSystemAspect extends NamedElementAspect {
     return (java.lang.Integer)result;
   }
   
-  public static boolean schedulabilityChecked(final IotSystem _self) {
-    final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
-    Object result = null;
-    // #DispatchPointCut_before# boolean schedulabilityChecked()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
-    	result = fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_schedulabilityChecked(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self);
-    };
-    return (boolean)result;
-  }
-  
-  public static void schedulabilityChecked(final IotSystem _self, final boolean schedulabilityChecked) {
-    final fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectProperties _self_ = fr.inria.kairos.sock.aspects.IotSystemAspectIotSystemAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void schedulabilityChecked(boolean)
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.IotSystem){
-    	fr.inria.kairos.sock.aspects.IotSystemAspect._privk3_schedulabilityChecked(_self_, (fr.inria.kairos.sock.dsl.model.sock.IotSystem)_self,schedulabilityChecked);
-    };
-  }
-  
   protected static void _privk3_time(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
-    boolean _schedulabilityChecked = IotSystemAspect.schedulabilityChecked(_self);
-    boolean _not = (!_schedulabilityChecked);
-    if (_not) {
-      IotSystemAspect.checkSchedulability(_self);
-      IotSystemAspect.schedulabilityChecked(_self, true);
-    }
-  }
-  
-  protected static void _privk3_main(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
-    EList<Actor> _ownedActor = _self.getOwnedActor();
-    for (final Actor actor : _ownedActor) {
-      {
-        InputOutput.<String>println(actor.getName());
-        actor.request();
-      }
-    }
-    final Integer index = Integer.valueOf(new Random(23L).nextInt(_self.getOwnedActor().size()));
-    final Actor actor_1 = _self.getOwnedActor().get((index).intValue());
-    actor_1.enterIn();
-    for (Integer i = Integer.valueOf(0); (i.compareTo(ActorAspect.processTime(actor_1)) < 0); i++) {
-      actor_1.process();
-    }
-    actor_1.exitOf();
-    boolean _checkPriority = ActorAspect.checkPriority(actor_1);
-    if (_checkPriority) {
-      actor_1.getResource().clean();
-    }
+    IotSystemAspect.checkSchedulability(_self);
   }
   
   protected static void _privk3_checkSchedulability(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
@@ -156,40 +101,6 @@ public class IotSystemAspect extends NamedElementAspect {
     } else {
       int _processTime_1 = actor.getProcessTime();
       return Integer.valueOf((_processTime_1 + 1));
-    }
-  }
-  
-  protected static boolean _privk3_schedulabilityChecked(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self) {
-    try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("isSchedulabilityChecked") &&
-    			m.getParameterTypes().length == 0) {
-    				Object ret = m.invoke(_self);
-    				if (ret != null) {
-    					return (boolean) ret;
-    				}		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
-    return _self_.schedulabilityChecked;
-  }
-  
-  protected static void _privk3_schedulabilityChecked(final IotSystemAspectIotSystemAspectProperties _self_, final IotSystem _self, final boolean schedulabilityChecked) {
-    boolean setterCalled = false;
-    try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("setSchedulabilityChecked")
-    				&& m.getParameterTypes().length == 1) {
-    			m.invoke(_self, schedulabilityChecked);
-    			setterCalled = true;
-    		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
-    if (!setterCalled) {
-    	_self_.schedulabilityChecked = schedulabilityChecked;
     }
   }
 }

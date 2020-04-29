@@ -4,6 +4,10 @@ import java.util.Random;
 
 @SuppressWarnings("all")
 public class ActorAspectActorAspectProperties {
+  public final String folder = "/Users/stephaniechallita/Desktop/runtime-EclipseApplication/";
+  
+  public String subFolder = "";
+  
   public Integer actorTimeIndex = Integer.valueOf(0);
   
   public String secret = Integer.valueOf(new Random().nextInt()).toString();

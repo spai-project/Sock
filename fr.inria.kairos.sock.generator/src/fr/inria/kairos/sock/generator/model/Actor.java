@@ -37,6 +37,10 @@ public class Actor extends NamedElement {
 		return periodTime;
 	}
 	
+	public double computeProccessTime() {
+		return (double)(this.getProcessTime() + (this.getIsPriority() == 1 ? 2 : 1));
+	}
+	
 	public String toTSock() {
 		return "\t\tActor " + this.getName() + " {" + Main.nl +
 					"\t\t\tisPriority " + this.getIsPriority() + Main.nl +

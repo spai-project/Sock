@@ -332,13 +332,22 @@ public interface SockPackage extends EPackage {
 	int ACTOR___REQUEST = NAMED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Ready</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___READY = NAMED_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 5;
+	int ACTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * Returns the meta object for class '{@link fr.inria.kairos.sock.dsl.model.sock.NamedElement <em>Named Element</em>}'.
@@ -525,6 +534,16 @@ public interface SockPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getActor__Request();
+
+	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#ready() <em>Ready</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Ready</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#ready()
+	 * @generated
+	 */
+	EOperation getActor__Ready();
 
 	/**
 	 * Returns the meta object for the attribute '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getProcessTime <em>Process Time</em>}'.
@@ -722,6 +741,14 @@ public interface SockPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ACTOR___REQUEST = eINSTANCE.getActor__Request();
+
+		/**
+		 * The meta object literal for the '<em><b>Ready</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___READY = eINSTANCE.getActor__Ready();
 
 		/**
 		 * The meta object literal for the '<em><b>Process Time</b></em>' attribute feature.

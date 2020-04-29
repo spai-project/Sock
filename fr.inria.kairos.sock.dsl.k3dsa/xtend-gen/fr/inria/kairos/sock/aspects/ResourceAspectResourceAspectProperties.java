@@ -2,8 +2,6 @@ package fr.inria.kairos.sock.aspects;
 
 @SuppressWarnings("all")
 public class ResourceAspectResourceAspectProperties {
-  public Integer resourceTimeIndex = Integer.valueOf(0);
-  
   public String currentData = "";
   
   public Integer lastActorPriority = Integer.valueOf(0);

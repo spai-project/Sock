@@ -283,6 +283,15 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getActor__Ready() {
+		return actorEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getActor_ProcessTime() {
 		return (EAttribute) actorEClass.getEStructuralFeatures().get(2);
 	}
@@ -348,6 +357,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		createEOperation(actorEClass, ACTOR___IDLE);
 		createEOperation(actorEClass, ACTOR___PROCESS);
 		createEOperation(actorEClass, ACTOR___REQUEST);
+		createEOperation(actorEClass, ACTOR___READY);
 	}
 
 	/**
@@ -430,6 +440,8 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		initEOperation(getActor__Process(), null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getActor__Request(), null, "request", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getActor__Ready(), null, "ready", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

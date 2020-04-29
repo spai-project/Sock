@@ -28,7 +28,7 @@ package sock
 	
 	context Actor
 		def : periodTimeActorValue  : Integer = self.periodTime
-		def : periodStartActorEvent : Event = self
+		def : periodStartActorEvent : Event = self.ready()
 		def : requestActorEvent : Event = self.request()
 		
 	--Constraints
@@ -66,7 +66,7 @@ package sock
 		def : isEnteredResourceEvent : Event = self
 		def : isProcessedResourceEvent : Event = self
 		def : isExitedResourceEvent : Event = self
-		def : idleResourceEvent : Event = self.idle()
+		def : idleResourceEvent : Event = self
 		def : anActorIsTakenOverByAnotherOneResourceEvent : Event = self
 	
 	context  Actor

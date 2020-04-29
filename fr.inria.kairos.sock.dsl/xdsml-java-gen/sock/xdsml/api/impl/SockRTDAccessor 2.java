@@ -27,18 +27,6 @@ public class SockRTDAccessor {
 	public static boolean setlastActorPriority(EObject eObject, java.lang.Integer newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorPriority", newValue);
 	}
-  public static java.lang.String getfolder(EObject eObject) {
-		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "folder");
-	}
-	public static boolean setfolder(EObject eObject, java.lang.String newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "folder", newValue);
-	}
-  public static java.lang.String getsubFolder(EObject eObject) {
-		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "subFolder");
-	}
-	public static boolean setsubFolder(EObject eObject, java.lang.String newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "subFolder", newValue);
-	}
   public static java.lang.Integer getactorTimeIndex(EObject eObject) {
 		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "actorTimeIndex");
 	}

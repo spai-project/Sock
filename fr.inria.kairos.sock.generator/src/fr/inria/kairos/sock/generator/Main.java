@@ -47,12 +47,14 @@ public class Main {
 		System.out.println(globalUnschedulableSystems.size() + "/" + systems.size());
 		System.out.println((double)globalUnschedulableSystems.size() / (double)systems.size());
 
-		for (Interval interval : classification.keySet()) {
-			System.out.println(interval + "/" + classification.get(interval).size());
-			final List<IotSystem> unschedulableSystems = computeUnschedulableSystems(classification.get(interval));
-			System.out.println(unschedulableSystems.size() + "/" + systems.size());
-			System.out.println((double)unschedulableSystems.size() / (double)systems.size());
-		}
+//		for (Interval interval : classification.keySet()) {
+//			System.out.println(interval + "/" + classification.get(interval).size());
+//			final List<IotSystem> unschedulableSystems = computeUnschedulableSystems(classification.get(interval));
+//			System.out.println(unschedulableSystems.size() + "/" + systems.size());
+//			System.out.println((double)unschedulableSystems.size() / (double)systems.size());
+//		}
+//		
+//		System.out.println(systems.get(rand.nextInt(systems.size())).toTSock());
 	}
 
 	private static Map<Interval, List<IotSystem>> initInterval() {

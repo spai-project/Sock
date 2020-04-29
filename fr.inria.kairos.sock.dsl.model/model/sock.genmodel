@@ -33,6 +33,7 @@
       <genOperations ecoreOperation="sock.ecore#//Actor/idle"/>
       <genOperations ecoreOperation="sock.ecore#//Actor/process"/>
       <genOperations ecoreOperation="sock.ecore#//Actor/request"/>
+      <genOperations ecoreOperation="sock.ecore#//Actor/ready"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

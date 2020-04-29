@@ -27,13 +27,20 @@ public class Resource extends NamedElement {
 	public double computeSchedulableScore() {
 		double acc = 0.0f;
 		for (Actor actor : this.actors) {
-			acc += ((double)actor.getProcessTime() + (actor.getIsPriority() == 1 ? 2 : 1)) / ((double)actor.getPeriodTime());
+			acc += actor.getProcessTime() / ((double)actor.getPeriodTime());
 		}
 		return acc;
 	}
 	
 	public boolean isSchedulable() {
-		return computeSchedulableScore() < 1.0d;
+		if (getBound() > 1.0d) {
+		}
+		return computeSchedulableScore() < getBound();
+	}
+	
+	public double getBound() {
+		final double n = this.actors.size();
+		return n * (Math.pow(2.0d, 1 / n) - 1);
 	}
 	
 	public String toTSock() {
