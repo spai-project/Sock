@@ -35,7 +35,7 @@ public class Activator extends AbstractUIPlugin {
       super.start(context);
 	  plugin = this;
 	  viewpoints = new HashSet<Viewpoint>();
-	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/dsl.odesign")); 
+	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/sock.odesign")); 
     }
 
     /*

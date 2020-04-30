@@ -4,7 +4,7 @@
   <extension point="org.eclipse.sirius.componentization">
     <component class="fr.inria.kairos.sock.dsl.design.Activator"
                id="fr.inria.kairos.sock.dsl.design"
-	       name="dsl">
+	       name="sock">
     </component>
   </extension>
 </plugin>
