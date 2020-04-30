@@ -145,6 +145,25 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
+	public class ActorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.inria.kairos.sock.Sock.Actor");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cActor_ImplParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMaliciousActorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Actor:
+		//	Actor_Impl | MaliciousActor;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Actor_Impl | MaliciousActor
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Actor_Impl
+		public RuleCall getActor_ImplParserRuleCall_0() { return cActor_ImplParserRuleCall_0; }
+		
+		//MaliciousActor
+		public RuleCall getMaliciousActorParserRuleCall_1() { return cMaliciousActorParserRuleCall_1; }
+	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.inria.kairos.sock.Sock.EString");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -164,8 +183,8 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
-	public class ActorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.inria.kairos.sock.Sock.Actor");
+	public class Actor_ImplElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.inria.kairos.sock.Sock.Actor_Impl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cActorAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cActorKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -191,7 +210,7 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cResourceResourceEStringParserRuleCall_7_1_0_1 = (RuleCall)cResourceResourceCrossReference_7_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
-		//Actor:
+		//Actor_Impl Actor:
 		//	{Actor}
 		//	'Actor'
 		//	name=EString
@@ -379,13 +398,124 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
+	public class MaliciousActorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.inria.kairos.sock.Sock.MaliciousActor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMaliciousActorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMaliciousActorKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cIsPriorityKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cIsPriorityAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cIsPriorityEIntParserRuleCall_4_1_0 = (RuleCall)cIsPriorityAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cProcessTimeKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cProcessTimeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cProcessTimeEIntParserRuleCall_5_1_0 = (RuleCall)cProcessTimeAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cPeriodTimeKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cPeriodTimeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cPeriodTimeEIntParserRuleCall_6_1_0 = (RuleCall)cPeriodTimeAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cResourceKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cResourceAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cResourceResourceCrossReference_7_1_0 = (CrossReference)cResourceAssignment_7_1.eContents().get(0);
+		private final RuleCall cResourceResourceEStringParserRuleCall_7_1_0_1 = (RuleCall)cResourceResourceCrossReference_7_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//MaliciousActor:
+		//	{MaliciousActor}
+		//	'MaliciousActor'
+		//	name=EString
+		//	'{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)? ('resource'
+		//	resource=[Resource|EString])?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{MaliciousActor} 'MaliciousActor' name=EString '{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)?
+		//('periodTime' periodTime=EInt)? ('resource' resource=[Resource|EString])? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{MaliciousActor}
+		public Action getMaliciousActorAction_0() { return cMaliciousActorAction_0; }
+		
+		//'MaliciousActor'
+		public Keyword getMaliciousActorKeyword_1() { return cMaliciousActorKeyword_1; }
+		
+		//name=EString
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//('isPriority' isPriority=EInt)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'isPriority'
+		public Keyword getIsPriorityKeyword_4_0() { return cIsPriorityKeyword_4_0; }
+		
+		//isPriority=EInt
+		public Assignment getIsPriorityAssignment_4_1() { return cIsPriorityAssignment_4_1; }
+		
+		//EInt
+		public RuleCall getIsPriorityEIntParserRuleCall_4_1_0() { return cIsPriorityEIntParserRuleCall_4_1_0; }
+		
+		//('processTime' processTime=EInt)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'processTime'
+		public Keyword getProcessTimeKeyword_5_0() { return cProcessTimeKeyword_5_0; }
+		
+		//processTime=EInt
+		public Assignment getProcessTimeAssignment_5_1() { return cProcessTimeAssignment_5_1; }
+		
+		//EInt
+		public RuleCall getProcessTimeEIntParserRuleCall_5_1_0() { return cProcessTimeEIntParserRuleCall_5_1_0; }
+		
+		//('periodTime' periodTime=EInt)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'periodTime'
+		public Keyword getPeriodTimeKeyword_6_0() { return cPeriodTimeKeyword_6_0; }
+		
+		//periodTime=EInt
+		public Assignment getPeriodTimeAssignment_6_1() { return cPeriodTimeAssignment_6_1; }
+		
+		//EInt
+		public RuleCall getPeriodTimeEIntParserRuleCall_6_1_0() { return cPeriodTimeEIntParserRuleCall_6_1_0; }
+		
+		//('resource' resource=[Resource|EString])?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'resource'
+		public Keyword getResourceKeyword_7_0() { return cResourceKeyword_7_0; }
+		
+		//resource=[Resource|EString]
+		public Assignment getResourceAssignment_7_1() { return cResourceAssignment_7_1; }
+		
+		//[Resource|EString]
+		public CrossReference getResourceResourceCrossReference_7_1_0() { return cResourceResourceCrossReference_7_1_0; }
+		
+		//EString
+		public RuleCall getResourceResourceEStringParserRuleCall_7_1_0_1() { return cResourceResourceEStringParserRuleCall_7_1_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
 	
 	
 	private final IotSystemElements pIotSystem;
-	private final EStringElements pEString;
 	private final ActorElements pActor;
+	private final EStringElements pEString;
+	private final Actor_ImplElements pActor_Impl;
 	private final ResourceElements pResource;
 	private final EIntElements pEInt;
+	private final MaliciousActorElements pMaliciousActor;
 	
 	private final Grammar grammar;
 	
@@ -397,10 +527,12 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pIotSystem = new IotSystemElements();
-		this.pEString = new EStringElements();
 		this.pActor = new ActorElements();
+		this.pEString = new EStringElements();
+		this.pActor_Impl = new Actor_ImplElements();
 		this.pResource = new ResourceElements();
 		this.pEInt = new EIntElements();
+		this.pMaliciousActor = new MaliciousActorElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -445,6 +577,16 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		return getIotSystemAccess().getRule();
 	}
 	
+	//Actor:
+	//	Actor_Impl | MaliciousActor;
+	public ActorElements getActorAccess() {
+		return pActor;
+	}
+	
+	public ParserRule getActorRule() {
+		return getActorAccess().getRule();
+	}
+	
 	//EString:
 	//	STRING | ID;
 	public EStringElements getEStringAccess() {
@@ -455,19 +597,19 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		return getEStringAccess().getRule();
 	}
 	
-	//Actor:
+	//Actor_Impl Actor:
 	//	{Actor}
 	//	'Actor'
 	//	name=EString
 	//	'{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)? ('resource'
 	//	resource=[Resource|EString])?
 	//	'}';
-	public ActorElements getActorAccess() {
-		return pActor;
+	public Actor_ImplElements getActor_ImplAccess() {
+		return pActor_Impl;
 	}
 	
-	public ParserRule getActorRule() {
-		return getActorAccess().getRule();
+	public ParserRule getActor_ImplRule() {
+		return getActor_ImplAccess().getRule();
 	}
 	
 	//Resource:
@@ -492,6 +634,21 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEIntRule() {
 		return getEIntAccess().getRule();
+	}
+	
+	//MaliciousActor:
+	//	{MaliciousActor}
+	//	'MaliciousActor'
+	//	name=EString
+	//	'{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)? ('resource'
+	//	resource=[Resource|EString])?
+	//	'}';
+	public MaliciousActorElements getMaliciousActorAccess() {
+		return pMaliciousActor;
+	}
+	
+	public ParserRule getMaliciousActorRule() {
+		return getMaliciousActorAccess().getRule();
 	}
 	
 	//terminal ID:

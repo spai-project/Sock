@@ -6,6 +6,7 @@ package fr.inria.kairos.sock.serializer;
 import com.google.inject.Inject;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
+import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
 import fr.inria.kairos.sock.dsl.model.sock.SockPackage;
 import fr.inria.kairos.sock.services.SockGrammarAccess;
@@ -33,10 +34,13 @@ public class SockSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (epackage == SockPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case SockPackage.ACTOR:
-				sequence_Actor(context, (Actor) semanticObject); 
+				sequence_Actor_Impl(context, (Actor) semanticObject); 
 				return; 
 			case SockPackage.IOT_SYSTEM:
 				sequence_IotSystem(context, (IotSystem) semanticObject); 
+				return; 
+			case SockPackage.MALICIOUS_ACTOR:
+				sequence_MaliciousActor(context, (MaliciousActor) semanticObject); 
 				return; 
 			case SockPackage.RESOURCE:
 				sequence_Resource(context, (Resource) semanticObject); 
@@ -49,11 +53,12 @@ public class SockSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Actor returns Actor
+	 *     Actor_Impl returns Actor
 	 *
 	 * Constraint:
 	 *     (name=EString isPriority=EInt? processTime=EInt? periodTime=EInt? resource=[Resource|EString]?)
 	 */
-	protected void sequence_Actor(ISerializationContext context, Actor semanticObject) {
+	protected void sequence_Actor_Impl(ISerializationContext context, Actor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -66,6 +71,19 @@ public class SockSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString (ownedActor+=Actor ownedActor+=Actor*)? (ownedResource+=Resource ownedResource+=Resource*)?)
 	 */
 	protected void sequence_IotSystem(ISerializationContext context, IotSystem semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Actor returns MaliciousActor
+	 *     MaliciousActor returns MaliciousActor
+	 *
+	 * Constraint:
+	 *     (name=EString isPriority=EInt? processTime=EInt? periodTime=EInt? resource=[Resource|EString]?)
+	 */
+	protected void sequence_MaliciousActor(ISerializationContext context, MaliciousActor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

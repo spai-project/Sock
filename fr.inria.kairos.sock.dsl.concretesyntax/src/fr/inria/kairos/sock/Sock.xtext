@@ -13,12 +13,14 @@ IotSystem returns IotSystem:
 		('ownedResource' '{' ownedResource+=Resource ( "," ownedResource+=Resource)* '}' )?
 	'}';
 
+Actor returns Actor:
+	Actor_Impl | MaliciousActor;
 
 
 EString returns ecore::EString:
 	STRING | ID;
 
-Actor returns Actor:
+Actor_Impl returns Actor:
 	{Actor}
 	'Actor'
 	name=EString
@@ -39,3 +41,14 @@ Resource returns Resource:
 
 EInt returns ecore::EInt:
 	'-'? INT;
+
+MaliciousActor returns MaliciousActor:
+	{MaliciousActor}
+	'MaliciousActor'
+	name=EString
+	'{'
+		('isPriority' isPriority=EInt)?
+		('processTime' processTime=EInt)?
+		('periodTime' periodTime=EInt)?
+		('resource' resource=[Resource|EString])?
+	'}';

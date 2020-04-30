@@ -14,7 +14,6 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @SuppressWarnings("all")
 public class SockUiModule extends AbstractSockUiModule {
   public SockUiModule(final AbstractUIPlugin plugin) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe type SockUiModule is already defined in SockUiModule.xtend.");
+    super(plugin);
   }
 }

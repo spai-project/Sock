@@ -4,6 +4,7 @@
 '-'=26
 'Actor'=17
 'IotSystem'=11
+'MaliciousActor'=27
 'Resource'=22
 'actor'=23
 'isPriority'=18
@@ -37,3 +38,4 @@ T__23=23
 T__24=24
 T__25=25
 T__26=26
+T__27=27
