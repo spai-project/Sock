@@ -67,18 +67,18 @@ public class ActorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Period Time feature.
+	 * This adds a property descriptor for the Is Priority feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPeriodTimePropertyDescriptor(Object object) {
+	protected void addIsPriorityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Actor_periodTime_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Actor_periodTime_feature",
+						getResourceLocator(), getString("_UI_Actor_isPriority_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Actor_isPriority_feature",
 								"_UI_Actor_type"),
-						SockPackage.Literals.ACTOR__PERIOD_TIME, true, false, false,
+						SockPackage.Literals.ACTOR__IS_PRIORITY, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
@@ -99,18 +99,18 @@ public class ActorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Priority feature.
+	 * This adds a property descriptor for the Period Time feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsPriorityPropertyDescriptor(Object object) {
+	protected void addPeriodTimePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Actor_isPriority_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Actor_isPriority_feature",
+						getResourceLocator(), getString("_UI_Actor_periodTime_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Actor_periodTime_feature",
 								"_UI_Actor_type"),
-						SockPackage.Literals.ACTOR__IS_PRIORITY, true, false, false,
+						SockPackage.Literals.ACTOR__PERIOD_TIME, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 

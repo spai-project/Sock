@@ -1,6 +1,6 @@
 /**
  */
-package fr.inria.kairos.sock.dsl.model.sock.presentation;
+package fr.inria.kairos.sock.dsl.model.sock.exp_attacks.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -153,19 +153,21 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import fr.inria.kairos.sock.dsl.model.sock.provider.SockItemProviderAdapterFactory;
-
 import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.provider.Exp_attacksItemProviderAdapterFactory;
+
+import fr.inria.kairos.sock.dsl.model.sock.presentation.SockEditorPlugin;
+
+import fr.inria.kairos.sock.dsl.model.sock.provider.SockItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
- * This is an example of a Sock model editor.
+ * This is an example of a Exp_attacks model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SockEditor extends MultiPageEditorPart
+public class Exp_attacksEditor extends MultiPageEditorPart
 		implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
@@ -325,16 +327,16 @@ public class SockEditor extends MultiPageEditorPart
 		public void partActivated(IWorkbenchPart p) {
 			if (p instanceof ContentOutline) {
 				if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
-					getActionBarContributor().setActiveEditor(SockEditor.this);
+					getActionBarContributor().setActiveEditor(Exp_attacksEditor.this);
 
 					setCurrentViewer(contentOutlineViewer);
 				}
 			} else if (p instanceof PropertySheet) {
 				if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
-					getActionBarContributor().setActiveEditor(SockEditor.this);
+					getActionBarContributor().setActiveEditor(Exp_attacksEditor.this);
 					handleActivate();
 				}
-			} else if (p == SockEditor.this) {
+			} else if (p == Exp_attacksEditor.this) {
 				handleActivate();
 			}
 		}
@@ -505,7 +507,7 @@ public class SockEditor extends MultiPageEditorPart
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
 							if (!isDirty()) {
-								getSite().getPage().closeEditor(SockEditor.this, false);
+								getSite().getPage().closeEditor(Exp_attacksEditor.this, false);
 							}
 						}
 					});
@@ -515,7 +517,7 @@ public class SockEditor extends MultiPageEditorPart
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
-							if (getSite().getPage().getActiveEditor() == SockEditor.this) {
+							if (getSite().getPage().getActiveEditor() == Exp_attacksEditor.this) {
 								handleActivate();
 							}
 						}
@@ -546,7 +548,7 @@ public class SockEditor extends MultiPageEditorPart
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(SockEditor.this, false);
+				getSite().getPage().closeEditor(Exp_attacksEditor.this, false);
 			} else {
 				removedResources.clear();
 				changedResources.clear();
@@ -660,7 +662,7 @@ public class SockEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SockEditor() {
+	public Exp_attacksEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -983,7 +985,7 @@ public class SockEditor extends MultiPageEditorPart
 			// Create a page for the selection tree view.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SockEditor.this) {
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), Exp_attacksEditor.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						Tree tree = new Tree(composite, SWT.MULTI);
@@ -1019,7 +1021,7 @@ public class SockEditor extends MultiPageEditorPart
 			// Create a page for the parent tree view.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SockEditor.this) {
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), Exp_attacksEditor.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						Tree tree = new Tree(composite, SWT.MULTI);
@@ -1048,7 +1050,7 @@ public class SockEditor extends MultiPageEditorPart
 			// This is the page for the list viewer
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SockEditor.this) {
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), Exp_attacksEditor.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						return new ListViewer(composite);
@@ -1073,7 +1075,7 @@ public class SockEditor extends MultiPageEditorPart
 			// This is the page for the tree viewer
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SockEditor.this) {
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), Exp_attacksEditor.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						return new TreeViewer(composite);
@@ -1100,7 +1102,7 @@ public class SockEditor extends MultiPageEditorPart
 			// This is the page for the table viewer.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SockEditor.this) {
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), Exp_attacksEditor.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						return new TableViewer(composite);
@@ -1143,7 +1145,7 @@ public class SockEditor extends MultiPageEditorPart
 			// This is the page for the table tree viewer.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SockEditor.this) {
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), Exp_attacksEditor.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						return new TreeViewer(composite);
@@ -1362,8 +1364,8 @@ public class SockEditor extends MultiPageEditorPart
 				ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
 			@Override
 			public void setSelectionToViewer(List<?> selection) {
-				SockEditor.this.setSelectionToViewer(selection);
-				SockEditor.this.setFocus();
+				Exp_attacksEditor.this.setSelectionToViewer(selection);
+				Exp_attacksEditor.this.setFocus();
 			}
 
 			@Override

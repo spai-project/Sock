@@ -14,4 +14,12 @@
             genModel="model/sock.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sock -->
+      <package
+            uri="http://kairos.inria.fr/sock/exp_attacks"
+            class="fr.inria.kairos.sock.dsl.model.sock.exp_attacks.Exp_attacksPackage"
+            genModel="model/sock.genmodel"/>
+   </extension>
+
 </plugin>

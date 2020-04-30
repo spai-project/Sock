@@ -1,7 +1,7 @@
 package fr.inria.kairos.sock.aspects;
 
 import fr.inria.kairos.sock.aspects.MaliciousActorAspectMaliciousActorAspectProperties;
-import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor;
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor;
 import java.util.Map;
 
 @SuppressWarnings("all")
@@ -14,7 +14,7 @@ public class MaliciousActorAspectMaliciousActorAspectContext {
     		return INSTANCE.map.get(_self);
   }
   
-  private Map<MaliciousActor, MaliciousActorAspectMaliciousActorAspectProperties> map = new java.util.WeakHashMap<fr.inria.kairos.sock.dsl.model.sock.MaliciousActor, fr.inria.kairos.sock.aspects.MaliciousActorAspectMaliciousActorAspectProperties>();
+  private Map<MaliciousActor, MaliciousActorAspectMaliciousActorAspectProperties> map = new java.util.WeakHashMap<fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor, fr.inria.kairos.sock.aspects.MaliciousActorAspectMaliciousActorAspectProperties>();
   
   public Map<MaliciousActor, MaliciousActorAspectMaliciousActorAspectProperties> getMap() {
     return map;

@@ -1,8 +1,11 @@
 /**
  */
-package fr.inria.kairos.sock.dsl.model.sock.util;
+package fr.inria.kairos.sock.dsl.model.sock.exp_attacks.util;
 
-import fr.inria.kairos.sock.dsl.model.sock.*;
+import fr.inria.kairos.sock.dsl.model.sock.Actor;
+import fr.inria.kairos.sock.dsl.model.sock.NamedElement;
+
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,17 +22,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage
+ * @see fr.inria.kairos.sock.dsl.model.sock.exp_attacks.Exp_attacksPackage
  * @generated
  */
-public class SockSwitch<T> extends Switch<T> {
+public class Exp_attacksSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static SockPackage modelPackage;
+	protected static Exp_attacksPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -37,9 +40,9 @@ public class SockSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SockSwitch() {
+	public Exp_attacksSwitch() {
 		if (modelPackage == null) {
-			modelPackage = SockPackage.eINSTANCE;
+			modelPackage = Exp_attacksPackage.eINSTANCE;
 		}
 	}
 
@@ -66,36 +69,13 @@ public class SockSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case SockPackage.NAMED_ELEMENT: {
-			NamedElement namedElement = (NamedElement) theEObject;
-			T result = caseNamedElement(namedElement);
+		case Exp_attacksPackage.MALICIOUS_ACTOR: {
+			MaliciousActor maliciousActor = (MaliciousActor) theEObject;
+			T result = caseMaliciousActor(maliciousActor);
 			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case SockPackage.IOT_SYSTEM: {
-			IotSystem iotSystem = (IotSystem) theEObject;
-			T result = caseIotSystem(iotSystem);
+				result = caseActor(maliciousActor);
 			if (result == null)
-				result = caseNamedElement(iotSystem);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case SockPackage.RESOURCE: {
-			Resource resource = (Resource) theEObject;
-			T result = caseResource(resource);
-			if (result == null)
-				result = caseNamedElement(resource);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case SockPackage.ACTOR: {
-			Actor actor = (Actor) theEObject;
-			T result = caseActor(actor);
-			if (result == null)
-				result = caseNamedElement(actor);
+				result = caseNamedElement(maliciousActor);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -103,6 +83,21 @@ public class SockSwitch<T> extends Switch<T> {
 		default:
 			return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Malicious Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Malicious Actor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMaliciousActor(MaliciousActor object) {
+		return null;
 	}
 
 	/**
@@ -117,36 +112,6 @@ public class SockSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Iot System</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Iot System</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIotSystem(IotSystem object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResource(Resource object) {
 		return null;
 	}
 
@@ -181,4 +146,4 @@ public class SockSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //SockSwitch
+} //Exp_attacksSwitch

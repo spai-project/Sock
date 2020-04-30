@@ -1,6 +1,8 @@
 /**
  */
-package fr.inria.kairos.sock.dsl.model.sock;
+package fr.inria.kairos.sock.dsl.model.sock.exp_attacks;
+
+import fr.inria.kairos.sock.dsl.model.sock.Actor;
 
 /**
  * <!-- begin-user-doc -->
@@ -8,7 +10,7 @@ package fr.inria.kairos.sock.dsl.model.sock;
  * <!-- end-user-doc -->
  *
  *
- * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getMaliciousActor()
+ * @see fr.inria.kairos.sock.dsl.model.sock.exp_attacks.Exp_attacksPackage#getMaliciousActor()
  * @model
  * @generated
  */

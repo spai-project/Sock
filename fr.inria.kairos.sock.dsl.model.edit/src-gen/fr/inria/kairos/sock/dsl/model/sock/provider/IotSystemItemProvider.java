@@ -6,6 +6,8 @@ import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.SockFactory;
 import fr.inria.kairos.sock.dsl.model.sock.SockPackage;
 
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.Exp_attacksFactory;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -149,7 +151,7 @@ public class IotSystemItemProvider extends NamedElementItemProvider {
 				SockFactory.eINSTANCE.createActor()));
 
 		newChildDescriptors.add(createChildParameter(SockPackage.Literals.IOT_SYSTEM__OWNED_ACTOR,
-				SockFactory.eINSTANCE.createMaliciousActor()));
+				Exp_attacksFactory.eINSTANCE.createMaliciousActor()));
 
 		newChildDescriptors.add(createChildParameter(SockPackage.Literals.IOT_SYSTEM__OWNED_RESOURCE,
 				SockFactory.eINSTANCE.createResource()));

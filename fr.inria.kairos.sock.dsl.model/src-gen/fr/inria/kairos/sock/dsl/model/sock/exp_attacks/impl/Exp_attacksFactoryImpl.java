@@ -1,8 +1,8 @@
 /**
  */
-package fr.inria.kairos.sock.dsl.model.sock.impl;
+package fr.inria.kairos.sock.dsl.model.sock.exp_attacks.impl;
 
-import fr.inria.kairos.sock.dsl.model.sock.*;
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -18,23 +18,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SockFactoryImpl extends EFactoryImpl implements SockFactory {
+public class Exp_attacksFactoryImpl extends EFactoryImpl implements Exp_attacksFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static SockFactory init() {
+	public static Exp_attacksFactory init() {
 		try {
-			SockFactory theSockFactory = (SockFactory) EPackage.Registry.INSTANCE.getEFactory(SockPackage.eNS_URI);
-			if (theSockFactory != null) {
-				return theSockFactory;
+			Exp_attacksFactory theExp_attacksFactory = (Exp_attacksFactory) EPackage.Registry.INSTANCE
+					.getEFactory(Exp_attacksPackage.eNS_URI);
+			if (theExp_attacksFactory != null) {
+				return theExp_attacksFactory;
 			}
 		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new SockFactoryImpl();
+		return new Exp_attacksFactoryImpl();
 	}
 
 	/**
@@ -43,7 +44,7 @@ public class SockFactoryImpl extends EFactoryImpl implements SockFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SockFactoryImpl() {
+	public Exp_attacksFactoryImpl() {
 		super();
 	}
 
@@ -55,12 +56,8 @@ public class SockFactoryImpl extends EFactoryImpl implements SockFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case SockPackage.IOT_SYSTEM:
-			return createIotSystem();
-		case SockPackage.RESOURCE:
-			return createResource();
-		case SockPackage.ACTOR:
-			return createActor();
+		case Exp_attacksPackage.MALICIOUS_ACTOR:
+			return createMaliciousActor();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -71,9 +68,9 @@ public class SockFactoryImpl extends EFactoryImpl implements SockFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IotSystem createIotSystem() {
-		IotSystemImpl iotSystem = new IotSystemImpl();
-		return iotSystem;
+	public MaliciousActor createMaliciousActor() {
+		MaliciousActorImpl maliciousActor = new MaliciousActorImpl();
+		return maliciousActor;
 	}
 
 	/**
@@ -81,28 +78,8 @@ public class SockFactoryImpl extends EFactoryImpl implements SockFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Resource createResource() {
-		ResourceImpl resource = new ResourceImpl();
-		return resource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Actor createActor() {
-		ActorImpl actor = new ActorImpl();
-		return actor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SockPackage getSockPackage() {
-		return (SockPackage) getEPackage();
+	public Exp_attacksPackage getExp_attacksPackage() {
+		return (Exp_attacksPackage) getEPackage();
 	}
 
 	/**
@@ -112,8 +89,8 @@ public class SockFactoryImpl extends EFactoryImpl implements SockFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static SockPackage getPackage() {
-		return SockPackage.eINSTANCE;
+	public static Exp_attacksPackage getPackage() {
+		return Exp_attacksPackage.eINSTANCE;
 	}
 
-} //SockFactoryImpl
+} //Exp_attacksFactoryImpl

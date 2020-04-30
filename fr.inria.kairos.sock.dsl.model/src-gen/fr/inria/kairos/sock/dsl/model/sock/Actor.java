@@ -27,7 +27,7 @@ public interface Actor extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link fr.inria.kairos.sock.dsl.model.sock.Resource#getActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resource</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Resource</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -51,11 +51,65 @@ public interface Actor extends NamedElement {
 	void setResource(Resource value);
 
 	/**
+	 * Returns the value of the '<em><b>Is Priority</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Priority</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Priority</em>' attribute.
+	 * @see #setIsPriority(int)
+	 * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor_IsPriority()
+	 * @model default="0"
+	 * @generated
+	 */
+	int getIsPriority();
+
+	/**
+	 * Sets the value of the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsPriority <em>Is Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Priority</em>' attribute.
+	 * @see #getIsPriority()
+	 * @generated
+	 */
+	void setIsPriority(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Process Time</b></em>' attribute.
+	 * The default value is <code>"3"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Process Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Process Time</em>' attribute.
+	 * @see #setProcessTime(int)
+	 * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor_ProcessTime()
+	 * @model default="3"
+	 * @generated
+	 */
+	int getProcessTime();
+
+	/**
+	 * Sets the value of the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getProcessTime <em>Process Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Process Time</em>' attribute.
+	 * @see #getProcessTime()
+	 * @generated
+	 */
+	void setProcessTime(int value);
+
+	/**
 	 * Returns the value of the '<em><b>Period Time</b></em>' attribute.
 	 * The default value is <code>"10"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Period Time</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Period Time</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -124,59 +178,5 @@ public interface Actor extends NamedElement {
 	 * @generated
 	 */
 	void ready();
-
-	/**
-	 * Returns the value of the '<em><b>Process Time</b></em>' attribute.
-	 * The default value is <code>"3"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Process Time</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Process Time</em>' attribute.
-	 * @see #setProcessTime(int)
-	 * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor_ProcessTime()
-	 * @model default="3"
-	 * @generated
-	 */
-	int getProcessTime();
-
-	/**
-	 * Sets the value of the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getProcessTime <em>Process Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Process Time</em>' attribute.
-	 * @see #getProcessTime()
-	 * @generated
-	 */
-	void setProcessTime(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Priority</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Priority</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Priority</em>' attribute.
-	 * @see #setIsPriority(int)
-	 * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor_IsPriority()
-	 * @model default="0"
-	 * @generated
-	 */
-	int getIsPriority();
-
-	/**
-	 * Sets the value of the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsPriority <em>Is Priority</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Priority</em>' attribute.
-	 * @see #getIsPriority()
-	 * @generated
-	 */
-	void setIsPriority(int value);
 
 } // Actor

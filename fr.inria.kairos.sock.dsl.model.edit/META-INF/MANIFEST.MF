@@ -9,7 +9,8 @@ Bundle-Activator: fr.inria.kairos.sock.dsl.model.sock.provider.SockEditPlugin$Im
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: fr.inria.kairos.sock.dsl.model.sock.provider
+Export-Package: fr.inria.kairos.sock.dsl.model.sock.exp_attacks.provider,
+ fr.inria.kairos.sock.dsl.model.sock.provider
 Require-Bundle: org.eclipse.core.runtime,
  fr.inria.kairos.sock.dsl.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

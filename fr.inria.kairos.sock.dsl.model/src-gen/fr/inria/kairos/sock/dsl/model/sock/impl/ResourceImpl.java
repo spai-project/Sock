@@ -7,6 +7,7 @@ import fr.inria.kairos.sock.dsl.model.sock.Resource;
 import fr.inria.kairos.sock.dsl.model.sock.SockPackage;
 
 import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;

@@ -1,9 +1,11 @@
 /**
  */
-package fr.inria.kairos.sock.dsl.model.sock.impl;
+package fr.inria.kairos.sock.dsl.model.sock.exp_attacks.impl;
 
-import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor;
-import fr.inria.kairos.sock.dsl.model.sock.SockPackage;
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.Exp_attacksPackage;
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor;
+
+import fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -31,7 +33,7 @@ public class MaliciousActorImpl extends ActorImpl implements MaliciousActor {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SockPackage.Literals.MALICIOUS_ACTOR;
+		return Exp_attacksPackage.Literals.MALICIOUS_ACTOR;
 	}
 
 } //MaliciousActorImpl

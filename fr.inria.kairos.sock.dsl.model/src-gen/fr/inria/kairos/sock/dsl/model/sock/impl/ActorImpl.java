@@ -5,10 +5,14 @@ package fr.inria.kairos.sock.dsl.model.sock.impl;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
 import fr.inria.kairos.sock.dsl.model.sock.SockPackage;
+
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -193,6 +197,50 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getIsPriority() {
+		return isPriority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsPriority(int newIsPriority) {
+		int oldIsPriority = isPriority;
+		isPriority = newIsPriority;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SockPackage.ACTOR__IS_PRIORITY, oldIsPriority,
+					isPriority));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getProcessTime() {
+		return processTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProcessTime(int newProcessTime) {
+		int oldProcessTime = processTime;
+		processTime = newProcessTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SockPackage.ACTOR__PROCESS_TIME, oldProcessTime,
+					processTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getPeriodTime() {
 		return periodTime;
 	}
@@ -281,51 +329,6 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getProcessTime() {
-		return processTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProcessTime(int newProcessTime) {
-		int oldProcessTime = processTime;
-		processTime = newProcessTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SockPackage.ACTOR__PROCESS_TIME, oldProcessTime,
-					processTime));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getIsPriority() {
-		return isPriority;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsPriority(int newIsPriority) {
-		int oldIsPriority = isPriority;
-		isPriority = newIsPriority;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SockPackage.ACTOR__IS_PRIORITY, oldIsPriority,
-					isPriority));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -379,7 +382,6 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

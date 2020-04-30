@@ -1,8 +1,11 @@
 /**
  */
-package fr.inria.kairos.sock.dsl.model.sock.util;
+package fr.inria.kairos.sock.dsl.model.sock.exp_attacks.util;
 
-import fr.inria.kairos.sock.dsl.model.sock.*;
+import fr.inria.kairos.sock.dsl.model.sock.Actor;
+import fr.inria.kairos.sock.dsl.model.sock.NamedElement;
+
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -16,17 +19,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage
+ * @see fr.inria.kairos.sock.dsl.model.sock.exp_attacks.Exp_attacksPackage
  * @generated
  */
-public class SockAdapterFactory extends AdapterFactoryImpl {
+public class Exp_attacksAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static SockPackage modelPackage;
+	protected static Exp_attacksPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -34,9 +37,9 @@ public class SockAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SockAdapterFactory() {
+	public Exp_attacksAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = SockPackage.eINSTANCE;
+			modelPackage = Exp_attacksPackage.eINSTANCE;
 		}
 	}
 
@@ -65,20 +68,15 @@ public class SockAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SockSwitch<Adapter> modelSwitch = new SockSwitch<Adapter>() {
+	protected Exp_attacksSwitch<Adapter> modelSwitch = new Exp_attacksSwitch<Adapter>() {
+		@Override
+		public Adapter caseMaliciousActor(MaliciousActor object) {
+			return createMaliciousActorAdapter();
+		}
+
 		@Override
 		public Adapter caseNamedElement(NamedElement object) {
 			return createNamedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseIotSystem(IotSystem object) {
-			return createIotSystemAdapter();
-		}
-
-		@Override
-		public Adapter caseResource(Resource object) {
-			return createResourceAdapter();
 		}
 
 		@Override
@@ -106,6 +104,20 @@ public class SockAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor <em>Malicious Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor
+	 * @generated
+	 */
+	public Adapter createMaliciousActorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link fr.inria.kairos.sock.dsl.model.sock.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -116,34 +128,6 @@ public class SockAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.inria.kairos.sock.dsl.model.sock.IotSystem <em>Iot System</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.inria.kairos.sock.dsl.model.sock.IotSystem
-	 * @generated
-	 */
-	public Adapter createIotSystemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.inria.kairos.sock.dsl.model.sock.Resource <em>Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.inria.kairos.sock.dsl.model.sock.Resource
-	 * @generated
-	 */
-	public Adapter createResourceAdapter() {
 		return null;
 	}
 
@@ -173,4 +157,4 @@ public class SockAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //SockAdapterFactory
+} //Exp_attacksAdapterFactory

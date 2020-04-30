@@ -1,8 +1,8 @@
 /**
  */
-package fr.inria.kairos.sock.dsl.model.sock.provider;
+package fr.inria.kairos.sock.dsl.model.sock.exp_attacks.provider;
 
-import fr.inria.kairos.sock.dsl.model.sock.util.SockAdapterFactory;
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.util.Exp_attacksAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SockItemProviderAdapterFactory extends SockAdapterFactory
+public class Exp_attacksItemProviderAdapterFactory extends Exp_attacksAdapterFactory
 		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -64,7 +64,7 @@ public class SockItemProviderAdapterFactory extends SockAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SockItemProviderAdapterFactory() {
+	public Exp_attacksItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -73,72 +73,26 @@ public class SockItemProviderAdapterFactory extends SockAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.inria.kairos.sock.dsl.model.sock.IotSystem} instances.
+	 * This keeps track of the one adapter used for all {@link fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IotSystemItemProvider iotSystemItemProvider;
+	protected MaliciousActorItemProvider maliciousActorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.inria.kairos.sock.dsl.model.sock.IotSystem}.
+	 * This creates an adapter for a {@link fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIotSystemAdapter() {
-		if (iotSystemItemProvider == null) {
-			iotSystemItemProvider = new IotSystemItemProvider(this);
+	public Adapter createMaliciousActorAdapter() {
+		if (maliciousActorItemProvider == null) {
+			maliciousActorItemProvider = new MaliciousActorItemProvider(this);
 		}
 
-		return iotSystemItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.inria.kairos.sock.dsl.model.sock.Resource} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceItemProvider resourceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.inria.kairos.sock.dsl.model.sock.Resource}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceAdapter() {
-		if (resourceItemProvider == null) {
-			resourceItemProvider = new ResourceItemProvider(this);
-		}
-
-		return resourceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.inria.kairos.sock.dsl.model.sock.Actor} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ActorItemProvider actorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.inria.kairos.sock.dsl.model.sock.Actor}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createActorAdapter() {
-		if (actorItemProvider == null) {
-			actorItemProvider = new ActorItemProvider(this);
-		}
-
-		return actorItemProvider;
+		return maliciousActorItemProvider;
 	}
 
 	/**
@@ -240,12 +194,8 @@ public class SockItemProviderAdapterFactory extends SockAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (iotSystemItemProvider != null)
-			iotSystemItemProvider.dispose();
-		if (resourceItemProvider != null)
-			resourceItemProvider.dispose();
-		if (actorItemProvider != null)
-			actorItemProvider.dispose();
+		if (maliciousActorItemProvider != null)
+			maliciousActorItemProvider.dispose();
 	}
 
 }

@@ -5,7 +5,6 @@ import fr.inria.kairos.sock.dsl.model.sock.NamedElement
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem
 import fr.inria.kairos.sock.dsl.model.sock.Resource
 import fr.inria.kairos.sock.dsl.model.sock.Actor
-import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor
 
 import static extension fr.inria.kairos.sock.aspects.NamedElementAspect.*
 import static extension fr.inria.kairos.sock.aspects.IotSystemAspect.*
@@ -24,6 +23,7 @@ import java.io.File
 import java.util.Calendar
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
+import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
