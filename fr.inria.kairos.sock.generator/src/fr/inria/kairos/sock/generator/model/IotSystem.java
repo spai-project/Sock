@@ -3,9 +3,9 @@ package fr.inria.kairos.sock.generator.model;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import fr.inria.kairos.sock.generator.Main;
-
 import java.util.ArrayList;
+
+import static fr.inria.kairos.sock.generator.GeneratorHelper.NEW_LINE;
 
 public class IotSystem extends NamedElement {
 		
@@ -41,16 +41,16 @@ public class IotSystem extends NamedElement {
 	}
 	
 	public String toTSock() {
-		return "IotSystem " + this.name + " {" + Main.nl + 
-					"\townedActor {" + Main.nl + 
+		return "IotSystem " + this.name + " {" + NEW_LINE + 
+					"\townedActor {" + NEW_LINE + 
 						this.ownedActor.stream()
 							.map(a -> a.toTSock())
-							.collect(Collectors.joining("," + Main.nl)) + Main.nl +
-					"\t}" + Main.nl + "\townedResource {" + Main.nl + 
+							.collect(Collectors.joining("," + NEW_LINE)) + NEW_LINE +
+					"\t}" + NEW_LINE + "\townedResource {" + NEW_LINE + 
 						this.ownedResource.stream()
 							.map(r -> r.toTSock())
-							.collect(Collectors.joining("," + Main.nl)) + Main.nl +
-					"\t}" + Main.nl +
+							.collect(Collectors.joining("," + NEW_LINE)) + NEW_LINE +
+					"\t}" + NEW_LINE +
 				"}";
 					
 	}

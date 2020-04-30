@@ -50,7 +50,7 @@ public class RequestQueue {
 				.filter(this::isNextToEnter)
 				.collect(Collectors.toList());
 		if (candidatesNextToEnter.size() > 1) {
-			throw new RuntimeException("Should not have two candidates for next to enter. " + this.requestQueue.peek()
+			throw new RuntimeException("Should not have two candidates for next to enter. " + SockDeciderHelper.NEW_LINE + this.requestQueue.peek()
 					+ " " + candidatesNextToEnter.stream().map(SockDeciderHelper::concatAllSubStepsName)
 							.collect(Collectors.joining(SockDeciderHelper.NEW_LINE)));
 		} else if (candidatesNextToEnter.isEmpty()) {

@@ -1,8 +1,10 @@
 package fr.inria.kairos.sock.generator.model;
 
-import fr.inria.kairos.sock.generator.Main;
+import static fr.inria.kairos.sock.generator.GeneratorHelper.NEW_LINE;
 
 public class Actor extends NamedElement {
+	
+	public static int flushTaskCost = 5;
 	
 	private final Resource resource;
 	
@@ -46,15 +48,16 @@ public class Actor extends NamedElement {
 	}
 	
 	public double computeProccessTime() {
-		return (double)(this.getProcessTime() + (this.getIsPriority() == 1 ? 2 : 1));
+		return (double)(this.getProcessTime() + 
+				1 + (this.getIsPriority() == 1 ? this.flushTaskCost : 0));
 	}
 	
 	public String toTSock() {
-		return "\t\tActor " + this.getName() + " {" + Main.nl +
-					"\t\t\tisPriority " + this.getIsPriority() + Main.nl +
-					"\t\t\tprocessTime " + this.getProcessTime() + Main.nl +
-					"\t\t\tperiodTime " + this.getPeriodTime() + Main.nl +
-					"\t\t\tresource \"" + this.resource.getName() + "\"" + Main.nl +
+		return "\t\tActor " + this.getName() + " {" + NEW_LINE +
+					"\t\t\tisPriority " + this.getIsPriority() + NEW_LINE +
+					"\t\t\tprocessTime " + this.getProcessTime() + NEW_LINE +
+					"\t\t\tperiodTime " + this.getPeriodTime() + NEW_LINE +
+					"\t\t\tresource \"" + this.resource.getName() + "\"" + NEW_LINE +
 				"\t\t}";
 	}
 

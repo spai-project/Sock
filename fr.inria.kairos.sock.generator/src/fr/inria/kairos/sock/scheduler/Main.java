@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
+import fr.inria.kairos.sock.generator.Generator;
+import fr.inria.kairos.sock.generator.Interval;
 import fr.inria.kairos.sock.generator.model.Actor;
 import fr.inria.kairos.sock.generator.model.IotSystem;
 
@@ -13,8 +16,7 @@ public class Main {
 	
 	public static void main(String [] args) {
 		final IotSystem s = new IotSystem("s");
-		fr.inria.kairos.sock.generator.Main.initSystemWithGivenBaseUtilization(
-						new fr.inria.kairos.sock.generator.Main.Interval(0.62d, 0.68d), s);
+		new Generator(new Random(23L)).initSystemWithGivenBaseUtilization(new Interval(0.62d, 0.68d), s);
 		printListActors(s.getOwnedActor());
 		printListActors(schedule(s));
 	}

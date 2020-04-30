@@ -3,7 +3,7 @@ package fr.inria.kairos.sock.generator.model;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import fr.inria.kairos.sock.generator.Main;
+import static fr.inria.kairos.sock.generator.GeneratorHelper.NEW_LINE;
 
 import java.util.ArrayList;
 
@@ -42,12 +42,12 @@ public class Resource extends NamedElement {
 	}
 	
 	public String toTSock() {
-		return "\t\tResource " + this.getName() + " {" + Main.nl +
+		return "\t\tResource " + this.getName() + " {" + NEW_LINE +
 					"\t\t\tactor (" + 
 						this.actors.stream()
 							.map(a -> "\"" + a.getName() + "\"")
 							.collect(Collectors.joining(", ")) + 
-						")" + Main.nl +
+						")" + NEW_LINE +
 				"\t\t}";
 	}
 	
