@@ -1,5 +1,60 @@
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void initFolder() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.initFolder((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void initFolder() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#boolean checkPriority() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			result = fr.inria.kairos.sock.aspects.MaliciousActorAspect.checkPriority((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#boolean checkPriority() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void ready() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.ready((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void ready() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void idle() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.idle((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void idle() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void request() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.request((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void request() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void time() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.time((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void time() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void process() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.process((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void process() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void createIfDoesNotExists(String) from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.createIfDoesNotExists((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self,path);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void createIfDoesNotExists(String) from fr.inria.kairos.sock.aspects.MaliciousActorAspect
 	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void enterIn() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
 		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
 			fr.inria.kairos.sock.aspects.MaliciousActorAspect.enterIn((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
 		} else
 		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void enterIn() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void write(String) from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.write((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self,action);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void write(String) from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void run(String) from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.run((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self,message);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void run(String) from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+	// BeginInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void exitOf() from fr.inria.kairos.sock.aspects.MaliciousActorAspect
+		if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+			fr.inria.kairos.sock.aspects.MaliciousActorAspect.exitOf((fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
+		} else
+		// EndInjectInto fr.inria.kairos.sock.aspects.ActorAspect#void exitOf() from fr.inria.kairos.sock.aspects.MaliciousActorAspect

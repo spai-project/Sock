@@ -18,7 +18,5 @@ public class ActorAspectActorAspectProperties {
   
   public String subFolder = "";
   
-  public boolean hasFinishedTaskForPeriod = false;
-  
   public Integer actorTimeIndex = Integer.valueOf(0);
 }

@@ -60,42 +60,12 @@ class ResourceAspect extends NamedElementAspect {
 	
 	@ReplaceAspectMethod
 	def public void isExited() {
-		_self.checkSchedulabilityResource()
+
 	}
 	
 	@ReplaceAspectMethod
 	def public void clean() {
 		_self.currentData = ""
-	}
-	
-	def public void checkSchedulabilityResource(){
-		println("Checking schedulability for " + _self.name + "...")
-		var List<Actor> actors = new ArrayList<Actor>(_self.actor)
-		Collections.sort(actors, new Comparator<Actor>() {
-			override compare(Actor o1, Actor o2) {
-				return o2.priority - o1.priority
-			}
-		});
-		var float acc = 0.0f
-		for (Actor actor : actors) {
-			if (! actor.hasFinishedTaskForPeriod) {
-				var float realProcessTime = actor.computeProcessTime()
-				acc = acc + ((realProcessTime as float / actor.periodTime as float) as float)
-			}
-		}
-		if (acc > 1.0f) {
-			throw new RuntimeException("The system seems not to be schedulable: " + acc)
-		} else if (acc <= _self.getBound()){
-			
-		} else if (1 <= acc && acc < _self.getBound()) {
-			
-		}
-		println("Score: " + acc)
-	}
-	
-	def public double getBound() {
-		val double n = _self.actor.size();
-		return n * (Math.pow(2.0d, 1 / n) - 1);
 	}
 	
 }
@@ -120,7 +90,6 @@ class ActorAspect extends NamedElementAspect {
 	def public void ready() {
 		run(_self,  _self.name + " is ready")
 		_self.write("+")
-		_self.hasFinishedTaskForPeriod = false
 	}
 	
 	@ReplaceAspectMethod
@@ -151,7 +120,6 @@ class ActorAspect extends NamedElementAspect {
 		run(_self, _self.name + " exits of " + _self.resource.name)
 		_self.resource.isExited()
 		_self.write("0")
-		_self.hasFinishedTaskForPeriod = true
 	}
 	
 	@ReplaceAspectMethod
@@ -188,19 +156,6 @@ class ActorAspect extends NamedElementAspect {
 		writer.close()
 	}
 	
-	// SCHEDULABILITY RELATED
-	
-	public var boolean hasFinishedTaskForPeriod = false
-	
-	def public float computeProcessTime() {
-		// must count the request and the clean task
-		if (_self.checkPriority()) {
-			return _self.processTime + 2
-		} else {
-			return _self.processTime + 1
-		}
-	}
-	
 	def public boolean checkPriority() {
 		return _self.isPriority == 1
 	}
@@ -222,17 +177,95 @@ class ActorAspect extends NamedElementAspect {
 
 @Aspect(className=MaliciousActor)
 class MaliciousActorAspect extends ActorAspect {
+	
+	@SynchroField
+	public var Integer isPriority = 0
+	
+	@SynchroField
+	public var Integer processTime = 3
+	
+	@SynchroField
+	public var Integer periodTime = 25
 
+	public var String secret = new java.util.Random().nextInt().toString()
+	
+	public var Integer currentProcessTime = 0
+	
+	@ReplaceAspectMethod
+	def public void ready() {
+		run(_self,  _self.name + " is ready")
+		_self.write("+")
+	}
+	
+	@ReplaceAspectMethod
+	def public void request() {
+		_self.initFolder()
+		run(_self, _self.name + " requests " + _self.resource.name)
+	}
+	
 	@ReplaceAspectMethod
 	def public void enterIn() {
 		run(_self, _self.name + " enters in " + _self.resource.name)
-		_self.stealSensibleInformationFromResource()
 		if (_self.currentProcessTime  == _self.processTime) {
 			_self.currentProcessTime = 0
 		}
 		_self.resource.isEntered(_self, _self.name + " " + _self.secret)
 		_self.write("1")
 	}
+			
+	@ReplaceAspectMethod
+	def public void process() {
+		_self.currentProcessTime = _self.currentProcessTime + 1
+		run(_self, _self.name + " processes ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
+		_self.resource.isProcessed()
+	}
+	
+	@ReplaceAspectMethod
+	def public void exitOf() {
+		run(_self, _self.name + " exits of " + _self.resource.name)
+		_self.resource.isExited()
+		_self.write("0")
+	}
+	
+	@ReplaceAspectMethod
+	def public void idle() {
+		time(_self)
+	}
+
+	// MANAGEMENT OF FILE OUTPUT TO BUILD BINARY SIGNAL GRAPH
+	
+	public val String folder = "/Users/stephaniechallita/Desktop/runtime-EclipseApplication/"
+	
+	public var String subFolder = ""
+	
+	def public void createIfDoesNotExists(String path) {
+		val File fd = new File(path);
+		if (! fd.exists()) {
+			fd.mkdir()
+		}
+	}
+	
+	def public void initFolder() {
+		_self.createIfDoesNotExists(_self.folder)
+		if (_self.subFolder.isEmpty()) {
+			_self.subFolder = (_self.eContainer as IotSystem).name + "/";
+		}
+		_self.createIfDoesNotExists(_self.folder + _self.subFolder)
+	}
+	
+	def public void write(String action) {
+		val java.io.FileWriter writer = new java.io.FileWriter(
+			_self.folder + _self.subFolder + _self.name, true
+		);
+		writer.write(_self.actorTimeIndex + " " + action + "\n")
+		writer.close()
+	}
+	
+	def public boolean checkPriority() {
+		return _self.isPriority == 1
+	}
+	
+	// MALICIOUS RELATED
 	
 	def public void stealSensibleInformationFromResource() {
 		if (_self.resource.lastActorPriority == 1) {
@@ -243,5 +276,19 @@ class MaliciousActorAspect extends ActorAspect {
 			}
 		}
 	}
+	
+	// UTILS AROUND TIME AND EXECUTION TRACES 
+	
+	public var Integer actorTimeIndex = 0
+	
+	def public void run(String message) {
+		println("[" + _self.actorTimeIndex + "] " + message)
+		time(_self)
+	}
+	
+	def public void time() {
+		_self.actorTimeIndex = _self.actorTimeIndex + 1
+	}
+	
 	
 }
