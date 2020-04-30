@@ -23,7 +23,7 @@ import java.io.File
 import java.util.Calendar
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
-import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor
+import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {

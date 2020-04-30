@@ -49,6 +49,15 @@ public interface SockFactory extends EFactory {
 	Actor createActor();
 
 	/**
+	 * Returns a new object of class '<em>Malicious Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Malicious Actor</em>'.
+	 * @generated
+	 */
+	MaliciousActor createMaliciousActor();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

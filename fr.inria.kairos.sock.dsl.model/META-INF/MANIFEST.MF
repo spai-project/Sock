@@ -9,9 +9,6 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: fr.inria.kairos.sock.dsl.model.sock,
- fr.inria.kairos.sock.dsl.model.sock.exp_attacks,
- fr.inria.kairos.sock.dsl.model.sock.exp_attacks.impl,
- fr.inria.kairos.sock.dsl.model.sock.exp_attacks.util,
  fr.inria.kairos.sock.dsl.model.sock.impl,
  fr.inria.kairos.sock.dsl.model.sock.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,

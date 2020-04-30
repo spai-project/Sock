@@ -6,8 +6,8 @@ import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod;
 import fr.inria.kairos.sock.aspects.ActorAspect;
 import fr.inria.kairos.sock.aspects.MaliciousActorAspectMaliciousActorAspectProperties;
 import fr.inria.kairos.sock.aspects.ResourceAspect;
+import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
-import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = MaliciousActor.class)
@@ -17,16 +17,16 @@ public class MaliciousActorAspect extends ActorAspect {
   public static void enterIn(final MaliciousActor _self) {
     final fr.inria.kairos.sock.aspects.MaliciousActorAspectMaliciousActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.MaliciousActorAspectMaliciousActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void enterIn()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor){
-    	fr.inria.kairos.sock.aspects.MaliciousActorAspect._privk3_enterIn(_self_, (fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor)_self);
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+    	fr.inria.kairos.sock.aspects.MaliciousActorAspect._privk3_enterIn(_self_, (fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
     };
   }
   
   public static void stealSensibleInformationFromResource(final MaliciousActor _self) {
     final fr.inria.kairos.sock.aspects.MaliciousActorAspectMaliciousActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.MaliciousActorAspectMaliciousActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void stealSensibleInformationFromResource()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor){
-    	fr.inria.kairos.sock.aspects.MaliciousActorAspect._privk3_stealSensibleInformationFromResource(_self_, (fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor)_self);
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.MaliciousActor){
+    	fr.inria.kairos.sock.aspects.MaliciousActorAspect._privk3_stealSensibleInformationFromResource(_self_, (fr.inria.kairos.sock.dsl.model.sock.MaliciousActor)_self);
     };
   }
   

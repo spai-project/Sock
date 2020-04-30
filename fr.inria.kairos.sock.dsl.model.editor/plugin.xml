@@ -34,32 +34,4 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated sock -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="fr.inria.kairos.sock.dsl.model.sock.exp_attacks.presentation.Exp_attacksModelWizardID"
-            name="%_UI_Exp_attacksModelWizard_label"
-            class="fr.inria.kairos.sock.dsl.model.sock.exp_attacks.presentation.Exp_attacksModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/Exp_attacksModelFile.gif">
-         <description>%_UI_Exp_attacksModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated sock -->
-      <editor
-            id="fr.inria.kairos.sock.dsl.model.sock.exp_attacks.presentation.Exp_attacksEditorID"
-            name="%_UI_Exp_attacksEditor_label"
-            icon="icons/full/obj16/Exp_attacksModelFile.gif"
-            extensions="exp_attacks"
-            class="fr.inria.kairos.sock.dsl.model.sock.exp_attacks.presentation.Exp_attacksEditor"
-            contributorClass="fr.inria.kairos.sock.dsl.model.sock.exp_attacks.presentation.Exp_attacksActionBarContributor">
-      </editor>
-   </extension>
-
 </plugin>

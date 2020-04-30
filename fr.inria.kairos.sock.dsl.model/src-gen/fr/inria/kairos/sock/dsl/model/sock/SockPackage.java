@@ -350,6 +350,133 @@ public interface SockPackage extends EPackage {
 	int ACTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
+	 * The meta object id for the '{@link fr.inria.kairos.sock.dsl.model.sock.impl.MaliciousActorImpl <em>Malicious Actor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.inria.kairos.sock.dsl.model.sock.impl.MaliciousActorImpl
+	 * @see fr.inria.kairos.sock.dsl.model.sock.impl.SockPackageImpl#getMaliciousActor()
+	 * @generated
+	 */
+	int MALICIOUS_ACTOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR__NAME = ACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR__RESOURCE = ACTOR__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Is Priority</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR__IS_PRIORITY = ACTOR__IS_PRIORITY;
+
+	/**
+	 * The feature id for the '<em><b>Process Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR__PROCESS_TIME = ACTOR__PROCESS_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Period Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR__PERIOD_TIME = ACTOR__PERIOD_TIME;
+
+	/**
+	 * The number of structural features of the '<em>Malicious Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Enter In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR___ENTER_IN = ACTOR___ENTER_IN;
+
+	/**
+	 * The operation id for the '<em>Exit Of</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR___EXIT_OF = ACTOR___EXIT_OF;
+
+	/**
+	 * The operation id for the '<em>Idle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR___IDLE = ACTOR___IDLE;
+
+	/**
+	 * The operation id for the '<em>Process</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR___PROCESS = ACTOR___PROCESS;
+
+	/**
+	 * The operation id for the '<em>Request</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR___REQUEST = ACTOR___REQUEST;
+
+	/**
+	 * The operation id for the '<em>Ready</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR___READY = ACTOR___READY;
+
+	/**
+	 * The number of operations of the '<em>Malicious Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR_OPERATION_COUNT = ACTOR_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link fr.inria.kairos.sock.dsl.model.sock.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -568,6 +695,16 @@ public interface SockPackage extends EPackage {
 	EOperation getActor__Ready();
 
 	/**
+	 * Returns the meta object for class '{@link fr.inria.kairos.sock.dsl.model.sock.MaliciousActor <em>Malicious Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Malicious Actor</em>'.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.MaliciousActor
+	 * @generated
+	 */
+	EClass getMaliciousActor();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -765,6 +902,16 @@ public interface SockPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ACTOR___READY = eINSTANCE.getActor__Ready();
+
+		/**
+		 * The meta object literal for the '{@link fr.inria.kairos.sock.dsl.model.sock.impl.MaliciousActorImpl <em>Malicious Actor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.inria.kairos.sock.dsl.model.sock.impl.MaliciousActorImpl
+		 * @see fr.inria.kairos.sock.dsl.model.sock.impl.SockPackageImpl#getMaliciousActor()
+		 * @generated
+		 */
+		EClass MALICIOUS_ACTOR = eINSTANCE.getMaliciousActor();
 
 	}
 

@@ -67,11 +67,8 @@
         <ecoreOperation href="sock.ecore#//Actor/ready"/>
       </genOperations>
     </genClasses>
-    <nestedGenPackages prefix="Exp_attacks" basePackage="fr.inria.kairos.sock.dsl.model.sock" disposableProviderFactory="true">
-      <ecorePackage href="sock.ecore#//exp_attacks"/>
-      <genClasses>
-        <ecoreClass href="sock.ecore#//exp_attacks/MaliciousActor"/>
-      </genClasses>
-    </nestedGenPackages>
+    <genClasses>
+      <ecoreClass href="sock.ecore#//MaliciousActor"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

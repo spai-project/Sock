@@ -155,8 +155,6 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import fr.inria.kairos.sock.dsl.model.sock.provider.SockItemProviderAdapterFactory;
 
-import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.provider.Exp_attacksItemProviderAdapterFactory;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
@@ -678,7 +676,6 @@ public class SockEditor extends MultiPageEditorPart
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SockItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Exp_attacksItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

@@ -33,7 +33,5 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eSubpackages name="exp_attacks" nsURI="http://kairos.inria.fr/sock/exp_attacks" nsPrefix="exp_attacks">
-    <eClassifiers xsi:type="ecore:EClass" name="MaliciousActor" eSuperTypes="//Actor"/>
-  </eSubpackages>
+  <eClassifiers xsi:type="ecore:EClass" name="MaliciousActor" eSuperTypes="//Actor"/>
 </ecore:EPackage>

@@ -1,11 +1,8 @@
 /**
  */
-package fr.inria.kairos.sock.dsl.model.sock.exp_attacks.provider;
+package fr.inria.kairos.sock.dsl.model.sock.provider;
 
-import fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor;
-
-import fr.inria.kairos.sock.dsl.model.sock.provider.ActorItemProvider;
-import fr.inria.kairos.sock.dsl.model.sock.provider.SockEditPlugin;
+import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,12 +10,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link fr.inria.kairos.sock.dsl.model.sock.exp_attacks.MaliciousActor} object.
+ * This is the item provider adapter for a {@link fr.inria.kairos.sock.dsl.model.sock.MaliciousActor} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -106,17 +101,6 @@ public class MaliciousActorItemProvider extends ActorItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SockEditPlugin.INSTANCE;
 	}
 
 }
