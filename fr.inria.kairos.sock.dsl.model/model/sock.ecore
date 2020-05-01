@@ -9,6 +9,9 @@
     <eOperations name="time"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedActor" upperBound="-1" eType="//Actor" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedResource" upperBound="-1" eType="//Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentTime">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="//NamedElement">
     <eOperations name="clean"/>
@@ -30,6 +33,9 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodTime" defaultValueLiteral="10">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentProcessTime">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eStructuralFeatures>
   </eClassifiers>

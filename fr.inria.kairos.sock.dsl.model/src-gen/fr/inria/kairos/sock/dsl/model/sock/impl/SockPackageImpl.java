@@ -174,6 +174,15 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIotSystem_CurrentTime() {
+		return (EAttribute) iotSystemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getIotSystem__Time() {
 		return iotSystemEClass.getEOperations().get(0);
 	}
@@ -257,6 +266,15 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 */
 	public EAttribute getActor_PeriodTime() {
 		return (EAttribute) actorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActor_CurrentProcessTime() {
+		return (EAttribute) actorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -357,6 +375,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		iotSystemEClass = createEClass(IOT_SYSTEM);
 		createEReference(iotSystemEClass, IOT_SYSTEM__OWNED_ACTOR);
 		createEReference(iotSystemEClass, IOT_SYSTEM__OWNED_RESOURCE);
+		createEAttribute(iotSystemEClass, IOT_SYSTEM__CURRENT_TIME);
 		createEOperation(iotSystemEClass, IOT_SYSTEM___TIME);
 
 		resourceEClass = createEClass(RESOURCE);
@@ -369,6 +388,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		createEAttribute(actorEClass, ACTOR__IS_PRIORITY);
 		createEAttribute(actorEClass, ACTOR__PROCESS_TIME);
 		createEAttribute(actorEClass, ACTOR__PERIOD_TIME);
+		createEAttribute(actorEClass, ACTOR__CURRENT_PROCESS_TIME);
 		createEOperation(actorEClass, ACTOR___ENTER_IN);
 		createEOperation(actorEClass, ACTOR___EXIT_OF);
 		createEOperation(actorEClass, ACTOR___IDLE);
@@ -427,6 +447,8 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		initEReference(getIotSystem_OwnedResource(), this.getResource(), null, "ownedResource", null, 0, -1,
 				IotSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIotSystem_CurrentTime(), ecorePackage.getEInt(), "currentTime", null, 0, 1, IotSystem.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getIotSystem__Time(), null, "time", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -450,6 +472,9 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_PeriodTime(), ecorePackage.getEInt(), "periodTime", "10", 0, 1, Actor.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActor_CurrentProcessTime(), ecorePackage.getEInt(), "currentProcessTime", null, 0, 1,
+				Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEOperation(getActor__EnterIn(), null, "enterIn", 0, 1, IS_UNIQUE, IS_ORDERED);
 

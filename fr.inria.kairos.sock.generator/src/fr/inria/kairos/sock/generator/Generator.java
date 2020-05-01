@@ -48,6 +48,10 @@ public class Generator {
 	}
 	
 	public IotSystem initSystemWithGivenBaseUtilization(Interval targetedInterval, final IotSystem system) {
+		return this.initSystemWithGivenBaseUtilization(targetedInterval, system, false);
+	}
+	
+	public IotSystem initSystemWithGivenBaseUtilization(Interval targetedInterval, final IotSystem system, boolean withFlushTask) {
 		final Resource resource = new Resource("r" + targetedInterval.format());
 		while (true) {
 			final int nbActor = 3 + this.random.nextInt(7);
@@ -55,7 +59,7 @@ public class Generator {
 				final Actor actor = getNextActor(resource, system.getOwnedActor().size() + targetedInterval.format());
 				system.getOwnedActor().add(actor);
 			}
-			double score = resource.computeSchedulableScore(false);
+			double score = resource.computeSchedulableScore(withFlushTask);
 			if (targetedInterval.i <= score && score <= targetedInterval.j) {
 				break;
 			} else {

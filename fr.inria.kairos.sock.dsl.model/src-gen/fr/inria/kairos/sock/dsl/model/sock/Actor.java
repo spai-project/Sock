@@ -15,6 +15,7 @@ package fr.inria.kairos.sock.dsl.model.sock;
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsPriority <em>Is Priority</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getProcessTime <em>Process Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getPeriodTime <em>Period Time</em>}</li>
+ *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getCurrentProcessTime <em>Current Process Time</em>}</li>
  * </ul>
  *
  * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor()
@@ -130,6 +131,32 @@ public interface Actor extends NamedElement {
 	 * @generated
 	 */
 	void setPeriodTime(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Current Process Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Current Process Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current Process Time</em>' attribute.
+	 * @see #setCurrentProcessTime(int)
+	 * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor_CurrentProcessTime()
+	 * @model
+	 * @generated
+	 */
+	int getCurrentProcessTime();
+
+	/**
+	 * Sets the value of the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getCurrentProcessTime <em>Current Process Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Process Time</em>' attribute.
+	 * @see #getCurrentProcessTime()
+	 * @generated
+	 */
+	void setCurrentProcessTime(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -132,13 +132,22 @@ public interface SockPackage extends EPackage {
 	int IOT_SYSTEM__OWNED_RESOURCE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Current Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IOT_SYSTEM__CURRENT_TIME = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Iot System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IOT_SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int IOT_SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Time</em>' operation.
@@ -278,13 +287,22 @@ public interface SockPackage extends EPackage {
 	int ACTOR__PERIOD_TIME = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Current Process Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__CURRENT_PROCESS_TIME = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int ACTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Enter In</em>' operation.
@@ -403,6 +421,15 @@ public interface SockPackage extends EPackage {
 	 * @ordered
 	 */
 	int MALICIOUS_ACTOR__PERIOD_TIME = ACTOR__PERIOD_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Current Process Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR__CURRENT_PROCESS_TIME = ACTOR__CURRENT_PROCESS_TIME;
 
 	/**
 	 * The number of structural features of the '<em>Malicious Actor</em>' class.
@@ -530,6 +557,17 @@ public interface SockPackage extends EPackage {
 	EReference getIotSystem_OwnedResource();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.inria.kairos.sock.dsl.model.sock.IotSystem#getCurrentTime <em>Current Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Current Time</em>'.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.IotSystem#getCurrentTime()
+	 * @see #getIotSystem()
+	 * @generated
+	 */
+	EAttribute getIotSystem_CurrentTime();
+
+	/**
 	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.IotSystem#time() <em>Time</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -633,6 +671,17 @@ public interface SockPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getActor_PeriodTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getCurrentProcessTime <em>Current Process Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Current Process Time</em>'.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#getCurrentProcessTime()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_CurrentProcessTime();
 
 	/**
 	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#enterIn() <em>Enter In</em>}' operation.
@@ -772,6 +821,14 @@ public interface SockPackage extends EPackage {
 		EReference IOT_SYSTEM__OWNED_RESOURCE = eINSTANCE.getIotSystem_OwnedResource();
 
 		/**
+		 * The meta object literal for the '<em><b>Current Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IOT_SYSTEM__CURRENT_TIME = eINSTANCE.getIotSystem_CurrentTime();
+
+		/**
 		 * The meta object literal for the '<em><b>Time</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -854,6 +911,14 @@ public interface SockPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTOR__PERIOD_TIME = eINSTANCE.getActor_PeriodTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Process Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__CURRENT_PROCESS_TIME = eINSTANCE.getActor_CurrentProcessTime();
 
 		/**
 		 * The meta object literal for the '<em><b>Enter In</b></em>' operation.

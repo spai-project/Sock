@@ -11,12 +11,15 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.IotSystemImpl#getOwnedActor <em>Owned Actor</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.IotSystemImpl#getOwnedResource <em>Owned Resource</em>}</li>
+ *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.IotSystemImpl#getCurrentTime <em>Current Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,6 +59,26 @@ public class IotSystemImpl extends NamedElementImpl implements IotSystem {
 	 * @ordered
 	 */
 	protected EList<Resource> ownedResource;
+
+	/**
+	 * The default value of the '{@link #getCurrentTime() <em>Current Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int CURRENT_TIME_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCurrentTime() <em>Current Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected int currentTime = CURRENT_TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,6 +129,28 @@ public class IotSystemImpl extends NamedElementImpl implements IotSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getCurrentTime() {
+		return currentTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentTime(int newCurrentTime) {
+		int oldCurrentTime = currentTime;
+		currentTime = newCurrentTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SockPackage.IOT_SYSTEM__CURRENT_TIME, oldCurrentTime,
+					currentTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void time() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -139,6 +185,8 @@ public class IotSystemImpl extends NamedElementImpl implements IotSystem {
 			return getOwnedActor();
 		case SockPackage.IOT_SYSTEM__OWNED_RESOURCE:
 			return getOwnedResource();
+		case SockPackage.IOT_SYSTEM__CURRENT_TIME:
+			return getCurrentTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,6 +208,9 @@ public class IotSystemImpl extends NamedElementImpl implements IotSystem {
 			getOwnedResource().clear();
 			getOwnedResource().addAll((Collection<? extends Resource>) newValue);
 			return;
+		case SockPackage.IOT_SYSTEM__CURRENT_TIME:
+			setCurrentTime((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -178,6 +229,9 @@ public class IotSystemImpl extends NamedElementImpl implements IotSystem {
 		case SockPackage.IOT_SYSTEM__OWNED_RESOURCE:
 			getOwnedResource().clear();
 			return;
+		case SockPackage.IOT_SYSTEM__CURRENT_TIME:
+			setCurrentTime(CURRENT_TIME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -194,6 +248,8 @@ public class IotSystemImpl extends NamedElementImpl implements IotSystem {
 			return ownedActor != null && !ownedActor.isEmpty();
 		case SockPackage.IOT_SYSTEM__OWNED_RESOURCE:
 			return ownedResource != null && !ownedResource.isEmpty();
+		case SockPackage.IOT_SYSTEM__CURRENT_TIME:
+			return currentTime != CURRENT_TIME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -211,6 +267,23 @@ public class IotSystemImpl extends NamedElementImpl implements IotSystem {
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (currentTime: ");
+		result.append(currentTime);
+		result.append(')');
+		return result.toString();
 	}
 
 } //IotSystemImpl

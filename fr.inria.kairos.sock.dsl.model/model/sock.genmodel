@@ -18,6 +18,9 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="sock.ecore#//IotSystem/ownedResource"/>
       </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="sock.ecore#//IotSystem/currentTime"/>
+      </genFeatures>
       <genOperations>
         <ecoreOperation href="sock.ecore#//IotSystem/time"/>
       </genOperations>
@@ -47,6 +50,9 @@
       </genFeatures>
       <genFeatures createChild="false">
         <ecoreFeature xsi:type="ecore:EAttribute" href="sock.ecore#//Actor/periodTime"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="sock.ecore#//Actor/currentProcessTime"/>
       </genFeatures>
       <genOperations>
         <ecoreOperation href="sock.ecore#//Actor/enterIn"/>

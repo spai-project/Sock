@@ -49,6 +49,14 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 			EObject elem = allContentIt.next();
 
 			Class<?> clazz =null;
+			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.IotSystemAspect.class);
+			if (clazz.isInstance(elem)) {
+				ElementState elemState = theFactory.createElementState();
+				elemState.setModelElement(elem);
+				res.getOwnedElementstates().add(elemState);
+				AttributeNameToValue n2v0 = new AttributeNameToValue("currentTime", SockRTDAccessor.getcurrentTime(elem));
+				elemState.getSavedRTDs().add(n2v0);
+			}
 			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.ResourceAspect.class);
 			if (clazz.isInstance(elem)) {
 				ElementState elemState = theFactory.createElementState();
@@ -78,10 +86,8 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 				elemState.getSavedRTDs().add(n2v5);
 				AttributeNameToValue n2v6 = new AttributeNameToValue("subFolder", SockRTDAccessor.getsubFolder(elem));
 				elemState.getSavedRTDs().add(n2v6);
-				AttributeNameToValue n2v7 = new AttributeNameToValue("hasFinishedTaskForPeriod", SockRTDAccessor.gethasFinishedTaskForPeriod(elem));
+				AttributeNameToValue n2v7 = new AttributeNameToValue("actorTimeIndex", SockRTDAccessor.getactorTimeIndex(elem));
 				elemState.getSavedRTDs().add(n2v7);
-				AttributeNameToValue n2v8 = new AttributeNameToValue("actorTimeIndex", SockRTDAccessor.getactorTimeIndex(elem));
-				elemState.getSavedRTDs().add(n2v8);
 			}
 		}
 		return res;

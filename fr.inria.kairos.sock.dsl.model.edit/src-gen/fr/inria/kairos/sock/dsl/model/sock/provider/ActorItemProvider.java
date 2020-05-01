@@ -48,6 +48,7 @@ public class ActorItemProvider extends NamedElementItemProvider {
 			addIsPriorityPropertyDescriptor(object);
 			addProcessTimePropertyDescriptor(object);
 			addPeriodTimePropertyDescriptor(object);
+			addCurrentProcessTimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +116,22 @@ public class ActorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Current Process Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCurrentProcessTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Actor_currentProcessTime_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Actor_currentProcessTime_feature",
+								"_UI_Actor_type"),
+						SockPackage.Literals.ACTOR__CURRENT_PROCESS_TIME, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns Actor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,6 +180,7 @@ public class ActorItemProvider extends NamedElementItemProvider {
 		case SockPackage.ACTOR__IS_PRIORITY:
 		case SockPackage.ACTOR__PROCESS_TIME:
 		case SockPackage.ACTOR__PERIOD_TIME:
+		case SockPackage.ACTOR__CURRENT_PROCESS_TIME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

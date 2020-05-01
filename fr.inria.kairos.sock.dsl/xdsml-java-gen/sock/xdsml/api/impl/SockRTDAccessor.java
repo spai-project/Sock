@@ -9,6 +9,12 @@ import org.eclipse.gemoc.executionframework.engine.commons.K3DslHelper;
 
 
 public class SockRTDAccessor {
+  public static java.lang.Integer getcurrentTime(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.IotSystemAspect", "currentTime");
+	}
+	public static boolean setcurrentTime(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.IotSystemAspect", "currentTime", newValue);
+	}
   public static java.lang.String getcurrentData(EObject eObject) {
 		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "currentData");
 	}
@@ -62,12 +68,6 @@ public class SockRTDAccessor {
 	}
 	public static boolean setsubFolder(EObject eObject, java.lang.String newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "subFolder", newValue);
-	}
-  public static boolean gethasFinishedTaskForPeriod(EObject eObject) {
-		return (boolean)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "hasFinishedTaskForPeriod");
-	}
-	public static boolean sethasFinishedTaskForPeriod(EObject eObject, boolean newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "hasFinishedTaskForPeriod", newValue);
 	}
   public static java.lang.Integer getactorTimeIndex(EObject eObject) {
 		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "actorTimeIndex");
