@@ -40,10 +40,10 @@ query identifyUserRelations() {
 	seqOfAbstractEntity				+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/actorProcessingCycle.moccml")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
 	seqOfExpressionDeclaration		+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/actorProcessingCycle.moccml")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
 	kernelTypes 					+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/actorProcessingCycle.moccml")[TimeModel::BasicType::Type];
-	seqOfRelationDeclaration		+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isPriorityActor.moccml")[TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration];
-	seqOfAbstractEntity				+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isPriorityActor.moccml")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
-	seqOfExpressionDeclaration		+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isPriorityActor.moccml")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
-	kernelTypes 					+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isPriorityActor.moccml")[TimeModel::BasicType::Type];
+	seqOfRelationDeclaration		+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isSensibleActor.moccml")[TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration];
+	seqOfAbstractEntity				+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isSensibleActor.moccml")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
+	seqOfExpressionDeclaration		+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isSensibleActor.moccml")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
+	kernelTypes 					+= getLibObjects("platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isSensibleActor.moccml")[TimeModel::BasicType::Type];
 
 	Kernel_Integer 					:= kernelTypes[name='int']->asSequence()->first();
 	Kernel_Clock_Type				:= kernelTypes[name='clock']->asSequence()->first();	
@@ -105,8 +105,8 @@ main() {
 			
 		}; 
 		imports+= object TimeModel::ImportStatement{
-			importURI := 'platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isPriorityActor.moccml';
-			alias := 'isPriorityActor';
+			importURI := 'platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isSensibleActor.moccml';
+			alias := 'isSensibleActor';
 			
 		}; 
 	
@@ -176,7 +176,7 @@ main() {
 		////[ Actor ]
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map idleActorEvent2Clock();
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map processTimeActorValue2Integer();
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map isPriorityActorValue2Integer();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map isSensibleActorValue2Integer();
 		////[ Actor ]
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map isTakenOverActorEvent2Clock();
 		////[ Actor ]
@@ -233,9 +233,9 @@ main() {
 		
 
 		////[ Actor ]
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitPriorityActorEvent2Clock();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitSensibleActorEvent2Clock();
 		////[ Actor ]
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitNotPriorityActorEvent2Clock();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitNotSensibleActorEvent2Clock();
 		
 
 
@@ -245,13 +245,13 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map unionExitWithOrWithoutPriorityCoincidesExitActor22unionExitWithOrWithoutPriorityCoincidesExitActor();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map unionExitWithOrWithoutSensibleCoincidesExitActor22unionExitWithOrWithoutSensibleCoincidesExitActor();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map excludeExitWithAndWithoutPriorityActor12excludeExitWithAndWithoutPriorityActor();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map excludeExitWithAndWithoutSensibleActor12excludeExitWithAndWithoutSensibleActor();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map priorityOnExitBehavior12priorityOnExitBehavior();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map SensibleOnExitBehavior12SensibleOnExitBehavior();
 		
 		
 
@@ -259,7 +259,7 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map resourceUsageCycleBehavior52resourceUsageCycleBehavior();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map resourceUsageCycleBehavior32resourceUsageCycleBehavior();
 		
 		
 
@@ -975,73 +975,23 @@ main() {
 	}
 
 
-	mapping inMM1::Actor::unionExitWithOrWithoutPriorityForCoincides2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Actor::unionExitWithOrWithoutSensibleForCoincides2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionExitWithOrWithoutPriorityForCoincides';
+		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionExitWithOrWithoutSensibleForCoincides';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 		
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitSensibleActorEvent']->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
 					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitNotSensibleActorEvent']->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
-					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-		end{
-			theMainBlock.expressions += result;
-		}
-	}
-
-	mapping inMM1::Resource::unionIntersectionAndTakenOver2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
-	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Union_unionIntersectionAndTakenOver';
-		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
-		
-
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := self -> map intersectionIsEnteredIsExited2Expression()->asSequence()->first();
-				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
-					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
-					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_anActorIsTakenOverByAnotherOneResourceEvent']->first();
-				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
-					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
-					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-		end{
-			theMainBlock.expressions += result;
-		}
-	}
-
-	mapping inMM1::Resource::intersectionIsEnteredIsExited2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
-	{
-		name := getNameOrUID(self.oclAsType(EObject))+'_Intersection_intersectionIsEnteredIsExited';
-		type := seqOfExpressionDeclaration->select(rd | rd.name = "Intersection")->first();
-		
-
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_isEnteredResourceEvent']->first();
-				//	var size : Integer = seqOfExpressionDeclaration[name = 'Intersection']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Intersection).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
-					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Intersection']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Intersection).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
-					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_isExitedResourceEvent']->first();
-				//	var size : Integer = seqOfExpressionDeclaration[name = 'Intersection']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Intersection).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
-					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Intersection']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Intersection).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
 					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
@@ -1054,22 +1004,22 @@ main() {
 	
 //Create an intermediate expression
 //create the expressions... 
-	mapping inMM1::Resource::intermediate_unionNotPriorityActorExitForResourceUsageCycle2Expression(an1 : Actor, an2 : Actor, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::intermediate_unionNotSensibleActorExitForResourceUsageCycle2Expression(an1 : Actor, an2 : Actor, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{ 
-		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_unionNotPriorityActorExitForResourceUsageCycle'+nb.toString();
+		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_unionNotSensibleActorExitForResourceUsageCycle'+nb.toString();
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 
 		
 
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-		 			bindable := theMainBlock.elements[name = getNameOrUID(an1.oclAsType(EObject))+'_exitNotPriorityActorEvent']->first();
+		 			bindable := theMainBlock.elements[name = getNameOrUID(an1.oclAsType(EObject))+'_exitNotSensibleActorEvent']->first();
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
 					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(an2.oclAsType(EObject))+'_exitNotPriorityActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(an2.oclAsType(EObject))+'_exitNotSensibleActorEvent']->first();
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
 					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
@@ -1079,9 +1029,9 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::intermediate_unionNotPriorityActorExitForResourceUsageCycle2Expression(expr :TimeModel::CCSLModel::ClockExpressionAndRelation::Expression , an : Actor, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::intermediate_unionNotSensibleActorExitForResourceUsageCycle2Expression(expr :TimeModel::CCSLModel::ClockExpressionAndRelation::Expression , an : Actor, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_unionNotPriorityActorExitForResourceUsageCycle'+nb.toString();
+		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_unionNotSensibleActorExitForResourceUsageCycle'+nb.toString();
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 
 			
@@ -1092,7 +1042,7 @@ main() {
 					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(an.oclAsType(EObject))+'_exitNotPriorityActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(an.oclAsType(EObject))+'_exitNotSensibleActorEvent']->first();
 					
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1103,7 +1053,7 @@ main() {
 		}
 	}
 	
-	mapping inMM1::Resource::unionNotPriorityActorExitForResourceUsageCycle2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionNotSensibleActorExitForResourceUsageCycle2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
 		init{
 
@@ -1117,11 +1067,11 @@ main() {
 		var newExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression := lastExpr;
 		var size : Integer = sources->size(); 
 		if(size = 1)then{
-			result := self.map intermediate_unionNotPriorityActorExitForResourceUsageCycle2Expression(sources->at(1),sources->at(1), 1);
+			result := self.map intermediate_unionNotSensibleActorExitForResourceUsageCycle2Expression(sources->at(1),sources->at(1), 1);
 		}else{
-			lastExpr := self.map intermediate_unionNotPriorityActorExitForResourceUsageCycle2Expression(sources->at(1),sources->at(2), 1);
+			lastExpr := self.map intermediate_unionNotSensibleActorExitForResourceUsageCycle2Expression(sources->at(1),sources->at(2), 1);
 			while (i <= size){
-				newExpr := self.map intermediate_unionNotPriorityActorExitForResourceUsageCycle2Expression(lastExpr,sources->at(i), i);
+				newExpr := self.map intermediate_unionNotSensibleActorExitForResourceUsageCycle2Expression(lastExpr,sources->at(i), i);
 				lastExpr := newExpr;
 				i := i + 1;
 			};
@@ -1140,22 +1090,22 @@ main() {
 	
 //Create an intermediate expression
 //create the expressions... 
-	mapping inMM1::Resource::intermediate_unionPriorityActorExitForResourceUsageCycle2Expression(an1 : Actor, an2 : Actor, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::intermediate_unionSensibleActorExitForResourceUsageCycle2Expression(an1 : Actor, an2 : Actor, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{ 
-		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_unionPriorityActorExitForResourceUsageCycle'+nb.toString();
+		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_unionSensibleActorExitForResourceUsageCycle'+nb.toString();
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 
 		
 
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-		 			bindable := theMainBlock.elements[name = getNameOrUID(an1.oclAsType(EObject))+'_exitPriorityActorEvent']->first();
+		 			bindable := theMainBlock.elements[name = getNameOrUID(an1.oclAsType(EObject))+'_exitSensibleActorEvent']->first();
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
 					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(an2.oclAsType(EObject))+'_exitPriorityActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(an2.oclAsType(EObject))+'_exitSensibleActorEvent']->first();
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
 					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
@@ -1165,9 +1115,9 @@ main() {
 		}
 	}
 
-	mapping inMM1::Resource::intermediate_unionPriorityActorExitForResourceUsageCycle2Expression(expr :TimeModel::CCSLModel::ClockExpressionAndRelation::Expression , an : Actor, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::intermediate_unionSensibleActorExitForResourceUsageCycle2Expression(expr :TimeModel::CCSLModel::ClockExpressionAndRelation::Expression , an : Actor, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
-		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_unionPriorityActorExitForResourceUsageCycle'+nb.toString();
+		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_unionSensibleActorExitForResourceUsageCycle'+nb.toString();
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 
 			
@@ -1178,7 +1128,7 @@ main() {
 					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(an.oclAsType(EObject))+'_exitPriorityActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(an.oclAsType(EObject))+'_exitSensibleActorEvent']->first();
 					
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
@@ -1189,7 +1139,7 @@ main() {
 		}
 	}
 	
-	mapping inMM1::Resource::unionPriorityActorExitForResourceUsageCycle2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	mapping inMM1::Resource::unionSensibleActorExitForResourceUsageCycle2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
 		init{
 
@@ -1203,11 +1153,11 @@ main() {
 		var newExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression := lastExpr;
 		var size : Integer = sources->size(); 
 		if(size = 1)then{
-			result := self.map intermediate_unionPriorityActorExitForResourceUsageCycle2Expression(sources->at(1),sources->at(1), 1);
+			result := self.map intermediate_unionSensibleActorExitForResourceUsageCycle2Expression(sources->at(1),sources->at(1), 1);
 		}else{
-			lastExpr := self.map intermediate_unionPriorityActorExitForResourceUsageCycle2Expression(sources->at(1),sources->at(2), 1);
+			lastExpr := self.map intermediate_unionSensibleActorExitForResourceUsageCycle2Expression(sources->at(1),sources->at(2), 1);
 			while (i <= size){
-				newExpr := self.map intermediate_unionPriorityActorExitForResourceUsageCycle2Expression(lastExpr,sources->at(i), i);
+				newExpr := self.map intermediate_unionSensibleActorExitForResourceUsageCycle2Expression(lastExpr,sources->at(i), i);
 				lastExpr := newExpr;
 				i := i + 1;
 			};
@@ -1804,11 +1754,11 @@ main() {
 				theMainBlock.elements += result;
 			}
 		}
-		mapping inMM1::Actor::isPriorityActorValue2Integer() :TimeModel::BasicType::IntegerElement
+		mapping inMM1::Actor::isSensibleActorValue2Integer() :TimeModel::BasicType::IntegerElement
 		 {
-			name:= getNameOrUID(self.oclAsType(EObject)) + '_isPriorityActorValue';
+			name:= getNameOrUID(self.oclAsType(EObject)) + '_isSensibleActorValue';
 			type:= Kernel_Integer;
-			value := self.isPriority;
+			value := self.isSensible;
 
 			end{
 				theMainBlock.elements += result;
@@ -2030,12 +1980,8 @@ main() {
 					_abstract := seqOfAbstractEntity[name = 'ActorProcessingCycleTakesOver']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_isPriorityActorValue']->first();
-					_abstract := seqOfAbstractEntity[name = 'ActorProcessingCyclePriorityValue']->first();
-				};
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_periodStartActorEvent']->first();
-					_abstract := seqOfAbstractEntity[name = 'ActorProcessingCyclePeriodStartEvent']->first();
+					_abstract := seqOfAbstractEntity[name = 'ActorProcessingCyclePriorityValue']->first();
 				};
 		
 		theMainBlock.relations += result;
@@ -2079,13 +2025,13 @@ main() {
 		}
 
 //relation stuff		
-	 	mapping inMM1::Actor::exitPriorityActorEvent2Clock() :TimeModel::Clock 
+	 	mapping inMM1::Actor::exitSensibleActorEvent2Clock() :TimeModel::Clock 
 		{
-			name:= getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent';
+			name:= getNameOrUID(self.oclAsType(EObject))+'_exitSensibleActorEvent';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
 			
-				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent';
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_exitSensibleActorEvent';
 			kind :=TimeModel::EventKind::undefined;
 						
 			};
@@ -2095,13 +2041,13 @@ main() {
 				theMainBlock.elements += result;
 			}
 		}
-	 	mapping inMM1::Actor::exitNotPriorityActorEvent2Clock() :TimeModel::Clock 
+	 	mapping inMM1::Actor::exitNotSensibleActorEvent2Clock() :TimeModel::Clock 
 		{
-			name:= getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent';
+			name:= getNameOrUID(self.oclAsType(EObject))+'_exitNotSensibleActorEvent';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
 			
-				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent';
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_exitNotSensibleActorEvent';
 			kind :=TimeModel::EventKind::undefined;
 						
 			};
@@ -2116,9 +2062,9 @@ main() {
 
 //relation stuff		
 	
-		mapping inMM1::Actor::unionExitWithOrWithoutPriorityCoincidesExitActor22unionExitWithOrWithoutPriorityCoincidesExitActor(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::Actor::unionExitWithOrWithoutSensibleCoincidesExitActor22unionExitWithOrWithoutSensibleCoincidesExitActor(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
-		 	name := getNameOrUID(self.oclAsType(EObject))+"Coincides_unionExitWithOrWithoutPriorityCoincidesExitActor";
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Coincides_unionExitWithOrWithoutSensibleCoincidesExitActor";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
 			
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -2126,7 +2072,7 @@ main() {
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-							bindable := self -> map unionExitWithOrWithoutPriorityForCoincides2Expression()->asSequence()->first();
+							bindable := self -> map unionExitWithOrWithoutSensibleForCoincides2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
 				};
 		
@@ -2134,17 +2080,17 @@ main() {
 		}
 		
 	
-		mapping inMM1::Actor::excludeExitWithAndWithoutPriorityActor12excludeExitWithAndWithoutPriorityActor(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::Actor::excludeExitWithAndWithoutSensibleActor12excludeExitWithAndWithoutSensibleActor(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
-		 	name := getNameOrUID(self.oclAsType(EObject))+"Exclusion_excludeExitWithAndWithoutPriorityActor";
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Exclusion_excludeExitWithAndWithoutSensibleActor";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Exclusion")->first();
 			
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitSensibleActorEvent']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Exclusion']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitNotSensibleActorEvent']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Exclusion']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
 				};
 		
@@ -2152,22 +2098,22 @@ main() {
 		}
 		
 	
-		mapping inMM1::Actor::priorityOnExitBehavior12priorityOnExitBehavior(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::Actor::SensibleOnExitBehavior12SensibleOnExitBehavior(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
-		 	name := getNameOrUID(self.oclAsType(EObject))+"IsPriorityActorRelation_priorityOnExitBehavior";
-			type := seqOfRelationDeclaration->select(rd | rd.name = "IsPriorityActorRelation")->first();
+		 	name := getNameOrUID(self.oclAsType(EObject))+"IsSensibleActorRelation_SensibleOnExitBehavior";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "IsSensibleActorRelation")->first();
 			
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent']->first();
-					_abstract := seqOfAbstractEntity[name = 'isPriorityActorIsPriorityEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitSensibleActorEvent']->first();
+					_abstract := seqOfAbstractEntity[name = 'isSensibleActorIsSensibleEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent']->first();
-					_abstract := seqOfAbstractEntity[name = 'isPriorityActorIsNotPriorityEvent']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_exitNotSensibleActorEvent']->first();
+					_abstract := seqOfAbstractEntity[name = 'isSensibleActorIsNotSensibleEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_isPriorityActorValue']->first();
-					_abstract := seqOfAbstractEntity[name = 'isPriorityActorPriorityValue']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_isSensibleActorValue']->first();
+					_abstract := seqOfAbstractEntity[name = 'isSensibleActorSensibleValue']->first();
 				};
 		
 		theMainBlock.relations += result;
@@ -2176,7 +2122,7 @@ main() {
 
 //relation stuff		
 	
-		mapping inMM1::Resource::resourceUsageCycleBehavior52resourceUsageCycleBehavior(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::Resource::resourceUsageCycleBehavior32resourceUsageCycleBehavior(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
 		 	name := getNameOrUID(self.oclAsType(EObject))+"ResourceUsageCycleRelation_resourceUsageCycleBehavior";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "ResourceUsageCycleRelation")->first();
@@ -2186,11 +2132,11 @@ main() {
 					_abstract := seqOfAbstractEntity[name = 'ResourceUsageCycleIsEnteredEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-							bindable := self -> map unionNotPriorityActorExitForResourceUsageCycle2Expression()->asSequence()->first();
+							bindable := self -> map unionNotSensibleActorExitForResourceUsageCycle2Expression()->asSequence()->first();
 					_abstract := seqOfAbstractEntity[name = 'ResourceUsageCycleIsExitedByNotPriorityActorEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-							bindable := self -> map unionPriorityActorExitForResourceUsageCycle2Expression()->asSequence()->first();
+							bindable := self -> map unionSensibleActorExitForResourceUsageCycle2Expression()->asSequence()->first();
 					_abstract := seqOfAbstractEntity[name = 'ResourceUsageCycleIsExitedByPriorityActorEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -2202,7 +2148,7 @@ main() {
 					_abstract := seqOfAbstractEntity[name = 'ResourceUsageCycleDoesNothingEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-							bindable := self -> map unionIntersectionAndTakenOver2Expression()->asSequence()->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_anActorIsTakenOverByAnotherOneResourceEvent']->first();
 					_abstract := seqOfAbstractEntity[name = 'ResourceusageCycleExitOfAndEnterInEvent']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -2294,8 +2240,8 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map isTakenOverActorEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map takesOverActorEvent2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Resource.oclAsType(EClass)).oclAsType(Resource)->map cleanResourceEvent2MSE();
-	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitPriorityActorEvent2MSE();
-	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitNotPriorityActorEvent2MSE();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitSensibleActorEvent2MSE();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map exitNotSensibleActorEvent2MSE();
 }		
 
 
@@ -2484,22 +2430,22 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 				seqOfMSE += result
 			}
 		}
-	 	mapping inMM1::Actor::exitPriorityActorEvent2MSE() :FeedBack::ModelSpecificEvent 
+	 	mapping inMM1::Actor::exitSensibleActorEvent2MSE() :FeedBack::ModelSpecificEvent 
 		{
-			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent';
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_exitSensibleActorEvent';
 
-				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_exitPriorityActorEvent')->first().oclAsType(EObject);
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_exitSensibleActorEvent')->first().oclAsType(EObject);
 				
 			end{
 				theFeedBackSpec.events += result;
 				seqOfMSE += result
 			}
 		}
-	 	mapping inMM1::Actor::exitNotPriorityActorEvent2MSE() :FeedBack::ModelSpecificEvent 
+	 	mapping inMM1::Actor::exitNotSensibleActorEvent2MSE() :FeedBack::ModelSpecificEvent 
 		{
-			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent';
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_exitNotSensibleActorEvent';
 
-				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_exitNotPriorityActorEvent')->first().oclAsType(EObject);
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_exitNotSensibleActorEvent')->first().oclAsType(EObject);
 				
 			end{
 				theFeedBackSpec.events += result;

@@ -20,8 +20,8 @@ public class MaliciousActorAspect extends ActorAspect {
   }
   
   protected static void _privk3_stealSensibleInformationFromResource(final MaliciousActorAspectMaliciousActorAspectProperties _self_, final MaliciousActor _self) {
-    Integer _lastActorPriority = ResourceAspect.lastActorPriority(_self.getResource());
-    boolean _equals = ((_lastActorPriority).intValue() == 1);
+    Integer _lastActorSensibility = ResourceAspect.lastActorSensibility(_self.getResource());
+    boolean _equals = ((_lastActorSensibility).intValue() == 1);
     if (_equals) {
       String _currentData = ResourceAspect.currentData(_self.getResource());
       boolean _notEquals = (!Objects.equal(_currentData, ""));

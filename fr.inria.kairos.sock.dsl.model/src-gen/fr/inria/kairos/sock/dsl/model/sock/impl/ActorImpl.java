@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getResource <em>Resource</em>}</li>
- *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getIsPriority <em>Is Priority</em>}</li>
+ *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getIsSensible <em>Is Sensible</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getProcessTime <em>Process Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getPeriodTime <em>Period Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getCurrentProcessTime <em>Current Process Time</em>}</li>
@@ -47,24 +47,24 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	protected Resource resource;
 
 	/**
-	 * The default value of the '{@link #getIsPriority() <em>Is Priority</em>}' attribute.
+	 * The default value of the '{@link #getIsSensible() <em>Is Sensible</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsPriority()
+	 * @see #getIsSensible()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int IS_PRIORITY_EDEFAULT = 0;
+	protected static final int IS_SENSIBLE_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getIsPriority() <em>Is Priority</em>}' attribute.
+	 * The cached value of the '{@link #getIsSensible() <em>Is Sensible</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsPriority()
+	 * @see #getIsSensible()
 	 * @generated
 	 * @ordered
 	 */
-	protected int isPriority = IS_PRIORITY_EDEFAULT;
+	protected int isSensible = IS_SENSIBLE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getProcessTime() <em>Process Time</em>}' attribute.
@@ -218,8 +218,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getIsPriority() {
-		return isPriority;
+	public int getIsSensible() {
+		return isSensible;
 	}
 
 	/**
@@ -227,12 +227,12 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIsPriority(int newIsPriority) {
-		int oldIsPriority = isPriority;
-		isPriority = newIsPriority;
+	public void setIsSensible(int newIsSensible) {
+		int oldIsSensible = isSensible;
+		isSensible = newIsSensible;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SockPackage.ACTOR__IS_PRIORITY, oldIsPriority,
-					isPriority));
+			eNotify(new ENotificationImpl(this, Notification.SET, SockPackage.ACTOR__IS_SENSIBLE, oldIsSensible,
+					isSensible));
 	}
 
 	/**
@@ -410,8 +410,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 			if (resolve)
 				return getResource();
 			return basicGetResource();
-		case SockPackage.ACTOR__IS_PRIORITY:
-			return getIsPriority();
+		case SockPackage.ACTOR__IS_SENSIBLE:
+			return getIsSensible();
 		case SockPackage.ACTOR__PROCESS_TIME:
 			return getProcessTime();
 		case SockPackage.ACTOR__PERIOD_TIME:
@@ -433,8 +433,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 		case SockPackage.ACTOR__RESOURCE:
 			setResource((Resource) newValue);
 			return;
-		case SockPackage.ACTOR__IS_PRIORITY:
-			setIsPriority((Integer) newValue);
+		case SockPackage.ACTOR__IS_SENSIBLE:
+			setIsSensible((Integer) newValue);
 			return;
 		case SockPackage.ACTOR__PROCESS_TIME:
 			setProcessTime((Integer) newValue);
@@ -460,8 +460,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 		case SockPackage.ACTOR__RESOURCE:
 			setResource((Resource) null);
 			return;
-		case SockPackage.ACTOR__IS_PRIORITY:
-			setIsPriority(IS_PRIORITY_EDEFAULT);
+		case SockPackage.ACTOR__IS_SENSIBLE:
+			setIsSensible(IS_SENSIBLE_EDEFAULT);
 			return;
 		case SockPackage.ACTOR__PROCESS_TIME:
 			setProcessTime(PROCESS_TIME_EDEFAULT);
@@ -486,8 +486,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 		switch (featureID) {
 		case SockPackage.ACTOR__RESOURCE:
 			return resource != null;
-		case SockPackage.ACTOR__IS_PRIORITY:
-			return isPriority != IS_PRIORITY_EDEFAULT;
+		case SockPackage.ACTOR__IS_SENSIBLE:
+			return isSensible != IS_SENSIBLE_EDEFAULT;
 		case SockPackage.ACTOR__PROCESS_TIME:
 			return processTime != PROCESS_TIME_EDEFAULT;
 		case SockPackage.ACTOR__PERIOD_TIME:
@@ -539,8 +539,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (isPriority: ");
-		result.append(isPriority);
+		result.append(" (isSensible: ");
+		result.append(isSensible);
 		result.append(", processTime: ");
 		result.append(processTime);
 		result.append(", periodTime: ");

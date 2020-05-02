@@ -7,9 +7,9 @@ void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && 
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Actor.process(  ) ) ) { fr.inria.kairos.sock.aspects.ActorAspect.process(self );}
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Actor.exitOf(  ) ) ) { fr.inria.kairos.sock.aspects.ActorAspect.exitOf(self );}
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Actor.idle(  ) ) ) { fr.inria.kairos.sock.aspects.ActorAspect.idle(self );}
-void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) &&  call ( void Actor.setIsPriority(java.lang.Integer)){fr.inria.kairos.sock.aspects.ActorAspect.isPriority(self, (java.lang.Integer)thisJoinPoint.getArgs()[0]);proceed(self);
+void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) &&  call ( void Actor.setIsSensible(java.lang.Integer)){fr.inria.kairos.sock.aspects.ActorAspect.isSensible(self, (java.lang.Integer)thisJoinPoint.getArgs()[0]);proceed(self);
 }
-void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) &&  call ( void fr.inria.kairos.sock.aspects.ActorAspect.isPriority(fr.inria.kairos.sock.dsl.model.sock.Actor,java.lang.Integer)){self.setIsPriority( (java.lang.Integer)thisJoinPoint.getArgs()[0]);proceed(self);
+void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) &&  call ( void fr.inria.kairos.sock.aspects.ActorAspect.isSensible(fr.inria.kairos.sock.dsl.model.sock.Actor,java.lang.Integer)){self.setIsSensible( (java.lang.Integer)thisJoinPoint.getArgs()[0]);proceed(self);
 }
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) &&  call ( void Actor.setProcessTime(java.lang.Integer)){fr.inria.kairos.sock.aspects.ActorAspect.processTime(self, (java.lang.Integer)thisJoinPoint.getArgs()[0]);proceed(self);
 }

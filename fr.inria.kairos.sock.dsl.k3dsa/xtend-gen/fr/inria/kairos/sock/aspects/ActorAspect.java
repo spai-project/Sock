@@ -96,12 +96,12 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
-  public static boolean checkPriority(final Actor _self) {
+  public static boolean checkSensible(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     Object result = null;
-    // #DispatchPointCut_before# boolean checkPriority()
+    // #DispatchPointCut_before# boolean checkSensible()
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
-    	result = fr.inria.kairos.sock.aspects.ActorAspect._privk3_checkPriority(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    	result = fr.inria.kairos.sock.aspects.ActorAspect._privk3_checkSensible(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
     };
     return (boolean)result;
   }
@@ -123,22 +123,22 @@ public class ActorAspect extends NamedElementAspect {
   }
   
   @SynchroField
-  public static Integer isPriority(final Actor _self) {
+  public static Integer isSensible(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     Object result = null;
-    // #DispatchPointCut_before# Integer isPriority()
+    // #DispatchPointCut_before# Integer isSensible()
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
-    	result = fr.inria.kairos.sock.aspects.ActorAspect._privk3_isPriority(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    	result = fr.inria.kairos.sock.aspects.ActorAspect._privk3_isSensible(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
     };
     return (java.lang.Integer)result;
   }
   
   @SynchroField
-  public static void isPriority(final Actor _self, final Integer isPriority) {
+  public static void isSensible(final Actor _self, final Integer isSensible) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void isPriority(Integer)
+    // #DispatchPointCut_before# void isSensible(Integer)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
-    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_isPriority(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,isPriority);
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_isSensible(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,isSensible);
     };
   }
   
@@ -379,9 +379,9 @@ public class ActorAspect extends NamedElementAspect {
     }
   }
   
-  protected static boolean _privk3_checkPriority(final ActorAspectActorAspectProperties _self_, final Actor _self) {
-    int _isPriority = _self.getIsPriority();
-    return (_isPriority == 1);
+  protected static boolean _privk3_checkSensible(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    int _isSensible = _self.getIsSensible();
+    return (_isSensible == 1);
   }
   
   protected static void _privk3_run(final ActorAspectActorAspectProperties _self_, final Actor _self, final String message) {
@@ -399,10 +399,10 @@ public class ActorAspect extends NamedElementAspect {
     ActorAspect.actorTimeIndex(_self, Integer.valueOf(_plus));
   }
   
-  protected static Integer _privk3_isPriority(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+  protected static Integer _privk3_isSensible(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("getIsPriority") &&
+    		if (m.getName().equals("getIsSensible") &&
     			m.getParameterTypes().length == 0) {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
@@ -415,16 +415,16 @@ public class ActorAspect extends NamedElementAspect {
     } catch (Exception e) {
     	// Chut !
     }
-    return _self_.isPriority;
+    return _self_.isSensible;
   }
   
-  protected static void _privk3_isPriority(final ActorAspectActorAspectProperties _self_, final Actor _self, final Integer isPriority) {
+  protected static void _privk3_isSensible(final ActorAspectActorAspectProperties _self_, final Actor _self, final Integer isSensible) {
     boolean setterCalled = false;
     try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("setIsPriority")
+    		if (m.getName().equals("setIsSensible")
     				&& m.getParameterTypes().length == 1) {
-    			m.invoke(_self, isPriority);
+    			m.invoke(_self, isSensible);
     			setterCalled = true;
     		}
     	}
@@ -432,7 +432,7 @@ public class ActorAspect extends NamedElementAspect {
     	// Chut !
     }
     if (!setterCalled) {
-    	_self_.isPriority = isPriority;
+    	_self_.isSensible = isSensible;
     }
   }
   

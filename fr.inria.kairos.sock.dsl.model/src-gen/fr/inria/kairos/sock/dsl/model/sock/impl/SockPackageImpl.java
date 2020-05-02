@@ -246,7 +246,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getActor_IsPriority() {
+	public EAttribute getActor_IsSensible() {
 		return (EAttribute) actorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -385,7 +385,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 
 		actorEClass = createEClass(ACTOR);
 		createEReference(actorEClass, ACTOR__RESOURCE);
-		createEAttribute(actorEClass, ACTOR__IS_PRIORITY);
+		createEAttribute(actorEClass, ACTOR__IS_SENSIBLE);
 		createEAttribute(actorEClass, ACTOR__PROCESS_TIME);
 		createEAttribute(actorEClass, ACTOR__PERIOD_TIME);
 		createEAttribute(actorEClass, ACTOR__CURRENT_PROCESS_TIME);
@@ -466,7 +466,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		initEReference(getActor_Resource(), this.getResource(), this.getResource_Actor(), "resource", null, 0, 1,
 				Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActor_IsPriority(), ecorePackage.getEInt(), "isPriority", "0", 0, 1, Actor.class,
+		initEAttribute(getActor_IsSensible(), ecorePackage.getEInt(), "isSensible", "0", 0, 1, Actor.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActor_ProcessTime(), ecorePackage.getEInt(), "processTime", "3", 0, 1, Actor.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -260,13 +260,13 @@ public interface SockPackage extends EPackage {
 	int ACTOR__RESOURCE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Is Priority</b></em>' attribute.
+	 * The feature id for the '<em><b>Is Sensible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__IS_PRIORITY = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ACTOR__IS_SENSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Process Time</b></em>' attribute.
@@ -396,13 +396,13 @@ public interface SockPackage extends EPackage {
 	int MALICIOUS_ACTOR__RESOURCE = ACTOR__RESOURCE;
 
 	/**
-	 * The feature id for the '<em><b>Is Priority</b></em>' attribute.
+	 * The feature id for the '<em><b>Is Sensible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MALICIOUS_ACTOR__IS_PRIORITY = ACTOR__IS_PRIORITY;
+	int MALICIOUS_ACTOR__IS_SENSIBLE = ACTOR__IS_SENSIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Process Time</b></em>' attribute.
@@ -640,15 +640,15 @@ public interface SockPackage extends EPackage {
 	EReference getActor_Resource();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsPriority <em>Is Priority</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsSensible <em>Is Sensible</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Priority</em>'.
-	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#getIsPriority()
+	 * @return the meta object for the attribute '<em>Is Sensible</em>'.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#getIsSensible()
 	 * @see #getActor()
 	 * @generated
 	 */
-	EAttribute getActor_IsPriority();
+	EAttribute getActor_IsSensible();
 
 	/**
 	 * Returns the meta object for the attribute '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getProcessTime <em>Process Time</em>}'.
@@ -889,12 +889,12 @@ public interface SockPackage extends EPackage {
 		EReference ACTOR__RESOURCE = eINSTANCE.getActor_Resource();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Priority</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Is Sensible</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTOR__IS_PRIORITY = eINSTANCE.getActor_IsPriority();
+		EAttribute ACTOR__IS_SENSIBLE = eINSTANCE.getActor_IsSensible();
 
 		/**
 		 * The meta object literal for the '<em><b>Process Time</b></em>' attribute feature.

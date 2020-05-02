@@ -45,7 +45,7 @@ public class ActorItemProvider extends NamedElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addResourcePropertyDescriptor(object);
-			addIsPriorityPropertyDescriptor(object);
+			addIsSensiblePropertyDescriptor(object);
 			addProcessTimePropertyDescriptor(object);
 			addPeriodTimePropertyDescriptor(object);
 			addCurrentProcessTimePropertyDescriptor(object);
@@ -68,18 +68,18 @@ public class ActorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Priority feature.
+	 * This adds a property descriptor for the Is Sensible feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsPriorityPropertyDescriptor(Object object) {
+	protected void addIsSensiblePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Actor_isPriority_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Actor_isPriority_feature",
+						getResourceLocator(), getString("_UI_Actor_isSensible_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Actor_isSensible_feature",
 								"_UI_Actor_type"),
-						SockPackage.Literals.ACTOR__IS_PRIORITY, true, false, false,
+						SockPackage.Literals.ACTOR__IS_SENSIBLE, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
@@ -177,7 +177,7 @@ public class ActorItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Actor.class)) {
-		case SockPackage.ACTOR__IS_PRIORITY:
+		case SockPackage.ACTOR__IS_SENSIBLE:
 		case SockPackage.ACTOR__PROCESS_TIME:
 		case SockPackage.ACTOR__PERIOD_TIME:
 		case SockPackage.ACTOR__CURRENT_PROCESS_TIME:

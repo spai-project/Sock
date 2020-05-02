@@ -12,7 +12,7 @@ package fr.inria.kairos.sock.dsl.model.sock;
  * </p>
  * <ul>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getResource <em>Resource</em>}</li>
- *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsPriority <em>Is Priority</em>}</li>
+ *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsSensible <em>Is Sensible</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getProcessTime <em>Process Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getPeriodTime <em>Period Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getCurrentProcessTime <em>Current Process Time</em>}</li>
@@ -52,31 +52,31 @@ public interface Actor extends NamedElement {
 	void setResource(Resource value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Priority</b></em>' attribute.
+	 * Returns the value of the '<em><b>Is Sensible</b></em>' attribute.
 	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Is Priority</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Is Sensible</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Priority</em>' attribute.
-	 * @see #setIsPriority(int)
-	 * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor_IsPriority()
+	 * @return the value of the '<em>Is Sensible</em>' attribute.
+	 * @see #setIsSensible(int)
+	 * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor_IsSensible()
 	 * @model default="0"
 	 * @generated
 	 */
-	int getIsPriority();
+	int getIsSensible();
 
 	/**
-	 * Sets the value of the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsPriority <em>Is Priority</em>}' attribute.
+	 * Sets the value of the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getIsSensible <em>Is Sensible</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Priority</em>' attribute.
-	 * @see #getIsPriority()
+	 * @param value the new value of the '<em>Is Sensible</em>' attribute.
+	 * @see #getIsSensible()
 	 * @generated
 	 */
-	void setIsPriority(int value);
+	void setIsSensible(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Process Time</b></em>' attribute.

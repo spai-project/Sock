@@ -4,7 +4,7 @@ import java.util.Random;
 
 @SuppressWarnings("all")
 public class ActorAspectActorAspectProperties {
-  public Integer isPriority = Integer.valueOf(0);
+  public Integer isSensible = Integer.valueOf(0);
   
   public Integer processTime = Integer.valueOf(3);
   

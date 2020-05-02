@@ -7,7 +7,8 @@ ECLimport "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibra
 
 ECLimport "platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/resourceUsageCycle.moccml"
 ECLimport "platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/actorProcessingCycle.moccml"
-ECLimport "platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isPriorityActor.moccml"
+ECLimport "platform:/resource/fr.inria.kairos.sock.dsl.moccml/mocc/isSensibleActor.moccml"
+
 
 package sock
 
@@ -75,7 +76,7 @@ package sock
 		def : exitActorEvent : Event = self.exitOf()
 		def : idleActorEvent : Event = self.idle()
 		def : processTimeActorValue : Integer = self.processTime
-		def : isPriorityActorValue : Integer = self.isPriority
+		def : isSensibleActorValue : Integer = self.isSensible
 		def : isTakenOverActorEvent : Event = self.exitOf()
 		def : takesOverActorEvent : Event = self.enterIn()
 		
@@ -125,7 +126,6 @@ package sock
 		inv oneActorCanEnterInTheResourceInTheSameTimeBehavior:
 			Relation Exclusion(self.actor.enterActorEvent)
 		
-		
 	context Actor
 		inv processTimeBehavior:
 			Relation ActorProcessingCycle(
@@ -137,7 +137,6 @@ package sock
 				self.idleActorEvent,
 				self.isTakenOverActorEvent,
 				self.takesOverActorEvent,
-				self.isPriorityActorValue,
 				self.periodStartActorEvent
 			)
 		inv ActorCannotBeTakenOverAndTakesOverInTheSameTime:
@@ -147,59 +146,51 @@ package sock
 			)
 	
 	-- ========================================================================================================
-	--						BEGIN RESOURCE CLEANING AFTER HIGH PRIORITY
+	--						BEGIN RESOURCE CLEANING AFTER HIGH Sensible
 	-- ========================================================================================================
 	
 	-- Mapping event and methods	
 	
 	context Resource
 		def : cleanResourceEvent : Event = self.clean()
-	
+		
 	context Actor
-		def : exitPriorityActorEvent : Event = self
-		def : exitNotPriorityActorEvent : Event = self
+		def : exitSensibleActorEvent : Event = self
+		def : exitNotSensibleActorEvent : Event = self
 		
 	-- Constraints
 	
 	context Actor
-		inv unionExitWithOrWithoutPriorityCoincidesExitActor:
-			let unionExitWithOrWithoutPriorityForCoincides :  Event = Expression Union(
-				self.exitPriorityActorEvent,
-				self.exitNotPriorityActorEvent			
+		inv unionExitWithOrWithoutSensibleCoincidesExitActor:
+			let unionExitWithOrWithoutSensibleForCoincides :  Event = Expression Union(
+				self.exitSensibleActorEvent,
+				self.exitNotSensibleActorEvent			
 			) in
-			Relation Coincides(self.exitActorEvent, unionExitWithOrWithoutPriorityForCoincides)
-		inv excludeExitWithAndWithoutPriorityActor:
-			Relation Exclusion(self.exitPriorityActorEvent, self.exitNotPriorityActorEvent)
-		inv priorityOnExitBehavior:
-			Relation IsPriorityActorRelation(
-				self.exitPriorityActorEvent, 
-				self.exitNotPriorityActorEvent,
-				self.isPriorityActorValue
+			Relation Coincides(self.exitActorEvent, unionExitWithOrWithoutSensibleForCoincides)
+		inv excludeExitWithAndWithoutSensibleActor:
+			Relation Exclusion(self.exitSensibleActorEvent, self.exitNotSensibleActorEvent)
+		inv SensibleOnExitBehavior:
+			Relation IsSensibleActorRelation(
+				self.exitSensibleActorEvent, 
+				self.exitNotSensibleActorEvent,
+				self.isSensibleActorValue
 			)
 	
 	context Resource
 		inv resourceUsageCycleBehavior:
-			let unionPriorityActorExitForResourceUsageCycle : Event = Expression Union(
-				self.actor.exitPriorityActorEvent
+			let unionSensibleActorExitForResourceUsageCycle : Event = Expression Union(
+				self.actor.exitSensibleActorEvent
 			) in
-			let unionNotPriorityActorExitForResourceUsageCycle : Event = Expression Union(
-				self.actor.exitNotPriorityActorEvent
-			) in
-			let intersectionIsEnteredIsExited : Event = Expression Intersection(
-				self.isEnteredResourceEvent,
-				self.isExitedResourceEvent
-			) in
-			let unionIntersectionAndTakenOver : Event = Expression Union(
-				intersectionIsEnteredIsExited,
-				self.anActorIsTakenOverByAnotherOneResourceEvent
+			let unionNotSensibleActorExitForResourceUsageCycle : Event = Expression Union(
+				self.actor.exitNotSensibleActorEvent
 			) in
 			Relation ResourceUsageCycleRelation(
 				self.isEnteredResourceEvent,
-				unionNotPriorityActorExitForResourceUsageCycle,
-				unionPriorityActorExitForResourceUsageCycle,
+				unionNotSensibleActorExitForResourceUsageCycle,
+				unionSensibleActorExitForResourceUsageCycle,
 				self.isProcessedResourceEvent,
 				self.idleResourceEvent,
-				unionIntersectionAndTakenOver,
+				self.anActorIsTakenOverByAnotherOneResourceEvent,
 				self.cleanResourceEvent
 			)
 			

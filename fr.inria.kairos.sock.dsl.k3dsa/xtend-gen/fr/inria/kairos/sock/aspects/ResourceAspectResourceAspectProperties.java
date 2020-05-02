@@ -4,5 +4,5 @@ package fr.inria.kairos.sock.aspects;
 public class ResourceAspectResourceAspectProperties {
   public String currentData = "";
   
-  public Integer lastActorPriority = Integer.valueOf(0);
+  public Integer lastActorSensibility = Integer.valueOf(0);
 }

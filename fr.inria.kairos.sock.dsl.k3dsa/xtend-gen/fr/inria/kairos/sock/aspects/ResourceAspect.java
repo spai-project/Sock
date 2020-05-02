@@ -2,7 +2,6 @@ package fr.inria.kairos.sock.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod;
-import fr.inria.kairos.sock.aspects.ActorAspect;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
 import fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
@@ -65,27 +64,27 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
-  public static Integer lastActorPriority(final Resource _self) {
+  public static Integer lastActorSensibility(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     Object result = null;
-    // #DispatchPointCut_before# Integer lastActorPriority()
+    // #DispatchPointCut_before# Integer lastActorSensibility()
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
-    	result = fr.inria.kairos.sock.aspects.ResourceAspect._privk3_lastActorPriority(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    	result = fr.inria.kairos.sock.aspects.ResourceAspect._privk3_lastActorSensibility(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
     };
     return (java.lang.Integer)result;
   }
   
-  public static void lastActorPriority(final Resource _self, final Integer lastActorPriority) {
+  public static void lastActorSensibility(final Resource _self, final Integer lastActorSensibility) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void lastActorPriority(Integer)
+    // #DispatchPointCut_before# void lastActorSensibility(Integer)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
-    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_lastActorPriority(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self,lastActorPriority);
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_lastActorSensibility(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self,lastActorSensibility);
     };
   }
   
   protected static void _privk3_isEntered(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Actor actor, final String secret) {
     ResourceAspect.currentData(_self, secret);
-    ResourceAspect.lastActorPriority(_self, ActorAspect.isPriority(actor));
+    ResourceAspect.lastActorSensibility(_self, Integer.valueOf(actor.getIsSensible()));
   }
   
   protected static void _privk3_isProcessed(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
@@ -135,10 +134,10 @@ public class ResourceAspect extends NamedElementAspect {
     }
   }
   
-  protected static Integer _privk3_lastActorPriority(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+  protected static Integer _privk3_lastActorSensibility(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
     try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("getLastActorPriority") &&
+    		if (m.getName().equals("getLastActorSensibility") &&
     			m.getParameterTypes().length == 0) {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
@@ -151,16 +150,16 @@ public class ResourceAspect extends NamedElementAspect {
     } catch (Exception e) {
     	// Chut !
     }
-    return _self_.lastActorPriority;
+    return _self_.lastActorSensibility;
   }
   
-  protected static void _privk3_lastActorPriority(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Integer lastActorPriority) {
+  protected static void _privk3_lastActorSensibility(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Integer lastActorSensibility) {
     boolean setterCalled = false;
     try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("setLastActorPriority")
+    		if (m.getName().equals("setLastActorSensibility")
     				&& m.getParameterTypes().length == 1) {
-    			m.invoke(_self, lastActorPriority);
+    			m.invoke(_self, lastActorSensibility);
     			setterCalled = true;
     		}
     	}
@@ -168,7 +167,7 @@ public class ResourceAspect extends NamedElementAspect {
     	// Chut !
     }
     if (!setterCalled) {
-    	_self_.lastActorPriority = lastActorPriority;
+    	_self_.lastActorSensibility = lastActorSensibility;
     }
   }
 }
