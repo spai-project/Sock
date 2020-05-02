@@ -4,7 +4,7 @@ import static fr.inria.kairos.sock.generator.GeneratorHelper.NEW_LINE;
 
 public class Actor extends NamedElement {
 	
-	public static int flushTaskCost = 5;
+	public static int flushTaskCost = 1;
 	
 	private final Resource resource;
 	
@@ -49,7 +49,7 @@ public class Actor extends NamedElement {
 	
 	public double computeProccessTime() {
 		return (double)(this.getProcessTime() + 
-				1 + (this.getIsPriority() == 1 ? this.flushTaskCost : 0));
+				1 + 1 + (this.getIsPriority() == 1 ? Actor.flushTaskCost : 0));
 	}
 	
 	public String toTSock() {

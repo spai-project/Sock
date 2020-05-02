@@ -22,17 +22,23 @@ public class Generator {
 	
 	private int maxProcessTime;
 	
+	private int minNbActor;
+	
+	private int maxNbActor;
+	
 	public Generator(Random random) {
-		this(random, 50, 1000, 50, 3, 30);
+		this(random, 50, 1000, 50, 3, 30, 2, 10);
 	}
 	
-	public Generator(Random random, int minPeriodTime, int maxPeriodTime, int stepPeriodTime, int minProcessTime, int maxProcessTime) {
+	public Generator(Random random, int minPeriodTime, int maxPeriodTime, int stepPeriodTime, int minProcessTime, int maxProcessTime, int minNbActor, int maxNbActor) {
 		this.random = random;
 		this.minPeriodTime = minPeriodTime;
 		this.maxPeriodTime = maxPeriodTime;
 		this.stepPeriodTime = stepPeriodTime;
 		this.minProcessTime = minProcessTime;
 		this.maxProcessTime = maxProcessTime;
+		this.minNbActor = minNbActor;
+		this.maxNbActor = maxNbActor;
 	}
 	
 	public List<IotSystem> generateSystemsWithGivenBaseUtilization(int targetNumberSystems, Interval targetedInterval) {
@@ -51,10 +57,37 @@ public class Generator {
 		return this.initSystemWithGivenBaseUtilization(targetedInterval, system, false);
 	}
 	
+	public IotSystem initSystemWithGivenBoundForResource(Interval targetedInterval, final IotSystem system) {
+		return this.initSystemWithGivenBoundForResource(targetedInterval, system, false);
+	}
+	
+	public IotSystem initSystemWithGivenBoundForResource(Interval targetedInterval, final IotSystem system, boolean withFlushTask) {
+		final Resource resource = new Resource("r" + targetedInterval.format());
+		while (true) {
+			final int nbActor = this.minNbActor + this.random.nextInt(this.maxNbActor - this.minNbActor);
+			for (int i = 0 ; i < nbActor ; i++) {
+				final Actor actor = getNextActor(resource, system.getOwnedActor().size() + targetedInterval.format());
+				system.getOwnedActor().add(actor);
+			}
+			double score = resource.computeSchedulableScore(withFlushTask);
+			double bound = resource.getBound();
+			System.out.println(bound + ":" + score);
+			if (targetedInterval.i <= score && score <= targetedInterval.j
+					&& score <= bound) {
+				break;
+			} else {
+				system.getOwnedActor().clear();
+				resource.getActors().clear();
+			}
+		}
+		system.getOwnedResource().add(resource);
+		return system;
+	}
+	
 	public IotSystem initSystemWithGivenBaseUtilization(Interval targetedInterval, final IotSystem system, boolean withFlushTask) {
 		final Resource resource = new Resource("r" + targetedInterval.format());
 		while (true) {
-			final int nbActor = 3 + this.random.nextInt(7);
+			final int nbActor = 2 + this.random.nextInt(8);
 			for (int i = 0 ; i < nbActor ; i++) {
 				final Actor actor = getNextActor(resource, system.getOwnedActor().size() + targetedInterval.format());
 				system.getOwnedActor().add(actor);
