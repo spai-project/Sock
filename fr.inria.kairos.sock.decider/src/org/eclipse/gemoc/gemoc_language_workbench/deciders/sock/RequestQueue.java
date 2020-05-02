@@ -1,8 +1,7 @@
 package org.eclipse.gemoc.gemoc_language_workbench.deciders.sock;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -12,17 +11,11 @@ import org.eclipse.gemoc.gemoc_language_workbench.deciders.sock.utils.SockDecide
 import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
-import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
-
 public class RequestQueue {
 
 	public boolean initialRequests = false;
 
-	private final Queue<String> requestQueue = new LinkedList<>();
-
-	public String peek() {
-		return this.requestQueue.peek();
-	}
+	private List<String> requestQueue = new ArrayList<>();
 
 	public boolean isNextToEnter(final Step<?> possibleLogicalStep) {
 		return possibleLogicalStep instanceof GenericParallelStep
@@ -34,7 +27,7 @@ public class RequestQueue {
 		if (requestQueue.isEmpty()) {
 			return false;
 		}
-		final String head = requestQueue.peek();
+		final String head = requestQueue.get(0);
 
 		return !SockDeciderHelper.getAllSubStepsNameMatchingPredicate(possibleLogicalStep,
 				SockDeciderChecker.enter.and(new Predicate<String>() {
@@ -50,13 +43,13 @@ public class RequestQueue {
 				.collect(Collectors.toList());
 		if (candidatesNextToEnter.size() > 1) {
 			throw new RuntimeException("Should not have two candidates for next to enter. " + SockDeciderHelper.NEW_LINE
-					+ this.requestQueue.peek() + " "
+					+ this.requestQueue.get(0) + " "
 					+ candidatesNextToEnter.stream().map(SockDeciderHelper::concatAllSubStepsName)
 							.collect(Collectors.joining(SockDeciderHelper.NEW_LINE)));
 		} else if (candidatesNextToEnter.isEmpty()) {
 			return null;
 		} else {
-			this.requestQueue.peek();
+			this.requestQueue.remove(0);
 			return candidatesNextToEnter.get(0);
 		}
 	}
@@ -64,7 +57,7 @@ public class RequestQueue {
 	private void handleTakeOverEvent(Step<?> choosenOne) {
 		SockDeciderHelper.getAllSubStepsNameMatchingPredicate(choosenOne, SockDeciderChecker.isTakenOver).stream()
 				.map(clockName -> clockName.split("_")[1]).findAny()
-				.ifPresent(clockName -> ((LinkedList<String>) this.requestQueue).add(0, clockName));
+				.ifPresent(clockName -> this.requestQueue.add(0, clockName));
 	}
 
 	public void addRequestsToQueue(Step<?> choosenOne, IotSystemManager systemManager) {
@@ -73,16 +66,18 @@ public class RequestQueue {
 				.map(clockName -> clockName.split("_")[1]).collect(Collectors.toList());
 		if (candidates.isEmpty()) {
 			this.handleTakeOverEvent(choosenOne);
-		} else if (candidates.size() == 1) {
-			this.requestQueue.add(candidates.get(0));
-		} else if (!this.initialRequests) {
-			// TODO it might be a problem with the semantics establish by Liu and Layland
-			// since the proof
-			// has been done in the context of non-preemptive tasks
-			// We handle the initial requests by actor to schedule them.
-			// After that, the period and compute time will naturally schedule the actors
-			this.initialRequests = true;
-			systemManager.getScheduledActors(candidates).forEach(this.requestQueue::add);
+		} else if (candidates.size() >= 1) {
+			candidates.addAll(this.requestQueue);
+			this.requestQueue = systemManager.getScheduledActors(candidates);
+		}
+		String enteringActorName = SockDeciderHelper
+				.getAllSubStepsNameMatchingPredicate(choosenOne, SockDeciderChecker.enter)
+				.stream()
+				.map(clockName -> clockName.split("_")[1])
+				.findFirst()
+				.orElse(null);
+		if (enteringActorName != null) {
+			this.requestQueue.remove(enteringActorName);
 		}
 	}
 

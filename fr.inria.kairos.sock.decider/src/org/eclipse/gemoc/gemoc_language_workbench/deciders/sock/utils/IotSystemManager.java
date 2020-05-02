@@ -4,6 +4,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
+
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 
@@ -25,7 +27,7 @@ public class IotSystemManager {
 			.filter(actor -> candidates.contains(actor.getName()))
 			.sorted(new Comparator<Actor>() {
 				public int compare(Actor a, Actor b) {
-					int comparison = - Double.compare(computeRateMonotonicScore(a), computeRateMonotonicScore(b));
+					int comparison = - Double.compare(computeOnlineRateMonotonicScore(a), computeOnlineRateMonotonicScore(b));
 					return comparison;
 				}
 			}).map(Actor::getName)
@@ -44,12 +46,13 @@ public class IotSystemManager {
 					.orElseGet(() -> null);
 	}
 	
-	public double computeRateMonotonicScore(Actor actor) {
-		return (this.computeProcessTimeActor(actor) / ((double) actor.getPeriodTime()));
+	public double computeOnlineRateMonotonicScore(Actor actor) {
+		double timeUntilNextPeriodOfTakenOverActor = (double) (actor.getPeriodTime() - (this.getCurrentTime() % actor.getPeriodTime()));
+		return (this.computeProcessTimeActor(actor) / timeUntilNextPeriodOfTakenOverActor);
 	}
 	
 	public double computeProcessTimeActor(Actor actor) {
-		return ((double) actor.getProcessTime() - actor.getCurrentProcessTime()) + (actor.getIsPriority() == 1 ? 2.0D : 1.0D);
+		return ((double) actor.getProcessTime() - actor.getCurrentProcessTime()) + (actor.getIsPriority() == 1 ? 3.0D : 2.0D);
 	}
 
 }

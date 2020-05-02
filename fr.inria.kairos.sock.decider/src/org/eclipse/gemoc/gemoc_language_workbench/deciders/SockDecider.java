@@ -54,12 +54,12 @@ public class SockDecider implements ILogicalStepDecider {
 			double processTimeIsTakenOver = systemManager.computeProcessTimeActor(actorTakenOver);
 			double processTimeTakingOver = systemManager.computeProcessTimeActor(actorTakingOver);
 			double requiredTimeToCompleteTaskForActorTakenOver = processTimeIsTakenOver + processTimeTakingOver;
-			int timeUntilNextPeriodOfTakenOverActor = (systemManager.getCurrentTime() % actorTakenOver.getPeriodTime()) + 1;
+			int timeUntilNextPeriodOfTakenOverActor =  actorTakenOver.getPeriodTime() - (systemManager.getCurrentTime() % actorTakenOver.getPeriodTime()) + 1;
 			if (requiredTimeToCompleteTaskForActorTakenOver > timeUntilNextPeriodOfTakenOverActor) {
 				choosenOne = possibleLogicalSteps.stream()
 						.filter(possibleLogicalStep -> possibleLogicalStep instanceof GenericParallelStep)
 						.filter(possibleLogicalStep -> SockDeciderChecker
-								.hasAnotherClockThanOnlyPredicate(possibleLogicalStep, SockDeciderChecker.process))
+								.hasClockPredicate(possibleLogicalStep, SockDeciderChecker.process))
 						.findFirst()
 						.get(); // TODO improve handle errors
 			}

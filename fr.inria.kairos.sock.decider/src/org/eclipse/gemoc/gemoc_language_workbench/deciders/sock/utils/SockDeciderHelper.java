@@ -11,7 +11,7 @@ import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public class SockDeciderHelper {
 	
-	public static final Random RAND = new Random();
+	public static final Random RAND = new Random(23L);
 	
 	public static final String NEW_LINE = System.lineSeparator();
 	
