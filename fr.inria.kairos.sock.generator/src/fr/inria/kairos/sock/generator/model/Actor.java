@@ -6,17 +6,21 @@ public class Actor extends NamedElement {
 	
 	public static int flushTaskCost = 1;
 	
+	public static int enterTaskCost = 1;
+	
+	public static int exitTaskCost = 1;
+	
 	private final Resource resource;
 	
-	private final int isPriority;
+	private final int isSensible;
 	
 	private final int processTime;
 
 	private final int periodTime;
 	
-	public Actor(String name, int isPriority, int processTime, int periodTime, Resource resource) {
+	public Actor(String name, int isSensible, int processTime, int periodTime, Resource resource) {
 		super(name);
-		this.isPriority = isPriority;
+		this.isSensible = isSensible;
 		this.processTime = processTime;
 		this.periodTime = periodTime;
 		this.resource = resource;
@@ -32,11 +36,11 @@ public class Actor extends NamedElement {
 	}
 
 	public double getScore(boolean withFlushTask) {
-		return (withFlushTask ? this.computeProccessTime() : this.getProcessTime() + 1) / ((double)this.getPeriodTime());
+		return  this.computeProccessTime(withFlushTask) / ((double)this.getPeriodTime());
 	}
 	
-	public int getIsPriority() {
-		return isPriority;
+	public int getIsSensible() {
+		return this.isSensible;
 	}
 
 	public int getProcessTime() {
@@ -47,14 +51,14 @@ public class Actor extends NamedElement {
 		return periodTime;
 	}
 	
-	public double computeProccessTime() {
-		return (double)(this.getProcessTime() + 
-				1 + 1 + (this.getIsPriority() == 1 ? Actor.flushTaskCost : 0));
+	public double computeProccessTime(boolean withFlushTask) {
+		return this.getProcessTime() + Actor.enterTaskCost + Actor.exitTaskCost
+				+ (withFlushTask && this.getIsSensible() == 1 ? Actor.flushTaskCost : 0);
 	}
 	
 	public String toTSock() {
 		return "\t\tActor " + this.getName() + " {" + NEW_LINE +
-					"\t\t\tisPriority " + this.getIsPriority() + NEW_LINE +
+					"\t\t\tisPriority " + this.getIsSensible() + NEW_LINE +
 					"\t\t\tprocessTime " + this.getProcessTime() + NEW_LINE +
 					"\t\t\tperiodTime " + this.getPeriodTime() + NEW_LINE +
 					"\t\t\tresource \"" + this.resource.getName() + "\"" + NEW_LINE +
@@ -63,7 +67,7 @@ public class Actor extends NamedElement {
 
 	@Override
 	public String toString() {
-		return "Actor [resource=" + resource.getName() + ", isPriority=" + isPriority + ", processTime=" + processTime
+		return "Actor [resource=" + resource.getName() + ", isSensible=" + getIsSensible() + ", processTime=" + processTime
 				+ ", periodTime=" + periodTime + ", name=" + name + "]";
 	}
 	

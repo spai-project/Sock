@@ -71,7 +71,6 @@ public class Generator {
 			}
 			double score = resource.computeSchedulableScore(withFlushTask);
 			double bound = resource.getBound();
-			System.out.println(bound + ":" + score);
 			if (targetedInterval.i <= score && score <= targetedInterval.j
 					&& score <= bound) {
 				break;
