@@ -9,6 +9,7 @@ IotSystem returns IotSystem:
 	'IotSystem'
 	name=EString
 	'{'
+		('currentTime' currentTime=EInt)?
 		('ownedActor' '{' ownedActor+=Actor ( "," ownedActor+=Actor)* '}' )?
 		('ownedResource' '{' ownedResource+=Resource ( "," ownedResource+=Resource)* '}' )?
 	'}';
@@ -25,9 +26,10 @@ Actor_Impl returns Actor:
 	'Actor'
 	name=EString
 	'{'
-		('isPriority' isPriority=EInt)?
+		('isSensible' isSensible=EInt)?
 		('processTime' processTime=EInt)?
 		('periodTime' periodTime=EInt)?
+		('currentProcessTime' currentProcessTime=EInt)?
 		('resource' resource=[Resource|EString])?
 	'}';
 
@@ -47,8 +49,9 @@ MaliciousActor returns MaliciousActor:
 	'MaliciousActor'
 	name=EString
 	'{'
-		('isPriority' isPriority=EInt)?
+		('isSensible' isSensible=EInt)?
 		('processTime' processTime=EInt)?
 		('periodTime' periodTime=EInt)?
+		('currentProcessTime' currentProcessTime=EInt)?
 		('resource' resource=[Resource|EString])?
 	'}';

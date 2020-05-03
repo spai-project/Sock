@@ -160,6 +160,8 @@ main() {
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map isTakenOverActorEvent2Clock();
 		////[ Actor ]
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map takesOverActorEvent2Clock();
+		////[ Actor ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map periodStartActorEvent2Clock();
 		
 
 
@@ -205,8 +207,6 @@ main() {
 		
 
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map periodTimeActorValue2Integer();
-		////[ Actor ]
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Actor.oclAsType(EClass)).oclAsType(Actor)->map periodStartActorEvent2Clock();
 		
 
 
@@ -1687,6 +1687,24 @@ main() {
 				theMainBlock.elements += result;
 			}
 		}
+	 	mapping inMM1::Actor::periodStartActorEvent2Clock() :TimeModel::Clock 
+		{
+			name:= getNameOrUID(self.oclAsType(EObject))+'_periodStartActorEvent';
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "ready")->first().oclAsType(EObject);
+			
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_periodStartActorEvent';
+			kind :=TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
 
 //relation stuff		
 
@@ -1893,24 +1911,6 @@ main() {
 			name:= getNameOrUID(self.oclAsType(EObject)) + '_periodTimeActorValue';
 			type:= Kernel_Integer;
 			value := self.periodTime;
-
-			end{
-				theMainBlock.elements += result;
-			}
-		}
-	 	mapping inMM1::Actor::periodStartActorEvent2Clock() :TimeModel::Clock 
-		{
-			name:= getNameOrUID(self.oclAsType(EObject))+'_periodStartActorEvent';
-			tickingEvent := object TimeModel::Event{
- 				referencedObjectRefs += self.oclAsType(EObject);
-				//referencedObjectRefs += self.oclAsType(EObject);
-				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "ready")->first().oclAsType(EObject);
-			
-				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_periodStartActorEvent';
-			kind :=TimeModel::EventKind::undefined;
-						
-			};
-			type:= Kernel_Clock_Type;
 
 			end{
 				theMainBlock.elements += result;

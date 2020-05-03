@@ -48,6 +48,7 @@ package sock
 		def : isSensibleActorValue : Integer = self.isSensible
 		def : isTakenOverActorEvent : Event = self.exitOf()
 		def : takesOverActorEvent : Event = self.enterIn()
+		def : periodStartActorEvent : Event = self.ready()
 		
 	-- Constraints
 	
@@ -121,7 +122,6 @@ package sock
 	
 	context Actor
 		def : periodTimeActorValue  : Integer = self.periodTime
-		def : periodStartActorEvent : Event = self.ready()
 		
 	--Constraints
 

@@ -15,6 +15,10 @@ public class SockDeciderHelper {
 	
 	public static final String NEW_LINE = System.lineSeparator();
 	
+	public static String getEntityNameFromClockName(String clockName) {
+		return clockName.split("_")[1];
+	}
+	
 	public static Step<?> returnRandomOne(List<Step<?>> possibleLogicalSteps) {
 		return possibleLogicalSteps.get(possibleLogicalSteps.size() < 2 ? 0 : RAND.nextInt(possibleLogicalSteps.size()));
 	}

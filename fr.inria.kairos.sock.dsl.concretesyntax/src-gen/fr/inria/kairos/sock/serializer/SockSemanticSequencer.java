@@ -56,7 +56,14 @@ public class SockSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Actor_Impl returns Actor
 	 *
 	 * Constraint:
-	 *     (name=EString isPriority=EInt? processTime=EInt? periodTime=EInt? resource=[Resource|EString]?)
+	 *     (
+	 *         name=EString 
+	 *         isSensible=EInt? 
+	 *         processTime=EInt? 
+	 *         periodTime=EInt? 
+	 *         currentProcessTime=EInt? 
+	 *         resource=[Resource|EString]?
+	 *     )
 	 */
 	protected void sequence_Actor_Impl(ISerializationContext context, Actor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -68,7 +75,7 @@ public class SockSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IotSystem returns IotSystem
 	 *
 	 * Constraint:
-	 *     (name=EString (ownedActor+=Actor ownedActor+=Actor*)? (ownedResource+=Resource ownedResource+=Resource*)?)
+	 *     (name=EString currentTime=EInt? (ownedActor+=Actor ownedActor+=Actor*)? (ownedResource+=Resource ownedResource+=Resource*)?)
 	 */
 	protected void sequence_IotSystem(ISerializationContext context, IotSystem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -81,7 +88,14 @@ public class SockSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MaliciousActor returns MaliciousActor
 	 *
 	 * Constraint:
-	 *     (name=EString isPriority=EInt? processTime=EInt? periodTime=EInt? resource=[Resource|EString]?)
+	 *     (
+	 *         name=EString 
+	 *         isSensible=EInt? 
+	 *         processTime=EInt? 
+	 *         periodTime=EInt? 
+	 *         currentProcessTime=EInt? 
+	 *         resource=[Resource|EString]?
+	 *     )
 	 */
 	protected void sequence_MaliciousActor(ISerializationContext context, MaliciousActor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

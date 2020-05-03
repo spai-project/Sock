@@ -40,6 +40,7 @@ public class Main {
 				maxNbActor
 		);
 		final List<Interval> intervals = Arrays.asList(new Interval[] {
+				new Interval(0.50d, 0.60d),
 				new Interval(0.60d, 0.70d),
 				new Interval(0.70d, 0.80d),
 				new Interval(0.80d, 0.90d)

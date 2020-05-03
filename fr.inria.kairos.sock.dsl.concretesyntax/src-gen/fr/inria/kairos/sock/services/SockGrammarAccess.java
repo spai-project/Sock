@@ -33,38 +33,42 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cOwnedActorKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cOwnedActorAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cOwnedActorActorParserRuleCall_4_2_0 = (RuleCall)cOwnedActorAssignment_4_2.eContents().get(0);
-		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
-		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
-		private final Assignment cOwnedActorAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final RuleCall cOwnedActorActorParserRuleCall_4_3_1_0 = (RuleCall)cOwnedActorAssignment_4_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
+		private final Keyword cCurrentTimeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cCurrentTimeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cCurrentTimeEIntParserRuleCall_4_1_0 = (RuleCall)cCurrentTimeAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cOwnedResourceKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cOwnedActorKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cOwnedResourceAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cOwnedResourceResourceParserRuleCall_5_2_0 = (RuleCall)cOwnedResourceAssignment_5_2.eContents().get(0);
+		private final Assignment cOwnedActorAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cOwnedActorActorParserRuleCall_5_2_0 = (RuleCall)cOwnedActorAssignment_5_2.eContents().get(0);
 		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
 		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cOwnedResourceAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cOwnedResourceResourceParserRuleCall_5_3_1_0 = (RuleCall)cOwnedResourceAssignment_5_3_1.eContents().get(0);
+		private final Assignment cOwnedActorAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
+		private final RuleCall cOwnedActorActorParserRuleCall_5_3_1_0 = (RuleCall)cOwnedActorAssignment_5_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cOwnedResourceKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cOwnedResourceAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cOwnedResourceResourceParserRuleCall_6_2_0 = (RuleCall)cOwnedResourceAssignment_6_2.eContents().get(0);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
+		private final Assignment cOwnedResourceAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cOwnedResourceResourceParserRuleCall_6_3_1_0 = (RuleCall)cOwnedResourceAssignment_6_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//IotSystem:
 		//	{IotSystem}
 		//	'IotSystem'
 		//	name=EString
-		//	'{' ('ownedActor' '{' ownedActor+=Actor ("," ownedActor+=Actor)* '}')? ('ownedResource' '{' ownedResource+=Resource
-		//	("," ownedResource+=Resource)* '}')?
+		//	'{' ('currentTime' currentTime=EInt)? ('ownedActor' '{' ownedActor+=Actor ("," ownedActor+=Actor)* '}')?
+		//	('ownedResource' '{' ownedResource+=Resource ("," ownedResource+=Resource)* '}')?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IotSystem} 'IotSystem' name=EString '{' ('ownedActor' '{' ownedActor+=Actor ("," ownedActor+=Actor)* '}')?
-		//('ownedResource' '{' ownedResource+=Resource ("," ownedResource+=Resource)* '}')? '}'
+		//{IotSystem} 'IotSystem' name=EString '{' ('currentTime' currentTime=EInt)? ('ownedActor' '{' ownedActor+=Actor (","
+		//ownedActor+=Actor)* '}')? ('ownedResource' '{' ownedResource+=Resource ("," ownedResource+=Resource)* '}')? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{IotSystem}
@@ -82,68 +86,80 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('ownedActor' '{' ownedActor+=Actor ("," ownedActor+=Actor)* '}')?
+		//('currentTime' currentTime=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'ownedActor'
-		public Keyword getOwnedActorKeyword_4_0() { return cOwnedActorKeyword_4_0; }
+		//'currentTime'
+		public Keyword getCurrentTimeKeyword_4_0() { return cCurrentTimeKeyword_4_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
+		//currentTime=EInt
+		public Assignment getCurrentTimeAssignment_4_1() { return cCurrentTimeAssignment_4_1; }
 		
-		//ownedActor+=Actor
-		public Assignment getOwnedActorAssignment_4_2() { return cOwnedActorAssignment_4_2; }
+		//EInt
+		public RuleCall getCurrentTimeEIntParserRuleCall_4_1_0() { return cCurrentTimeEIntParserRuleCall_4_1_0; }
 		
-		//Actor
-		public RuleCall getOwnedActorActorParserRuleCall_4_2_0() { return cOwnedActorActorParserRuleCall_4_2_0; }
-		
-		//("," ownedActor+=Actor)*
-		public Group getGroup_4_3() { return cGroup_4_3; }
-		
-		//","
-		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
-		
-		//ownedActor+=Actor
-		public Assignment getOwnedActorAssignment_4_3_1() { return cOwnedActorAssignment_4_3_1; }
-		
-		//Actor
-		public RuleCall getOwnedActorActorParserRuleCall_4_3_1_0() { return cOwnedActorActorParserRuleCall_4_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
-		
-		//('ownedResource' '{' ownedResource+=Resource ("," ownedResource+=Resource)* '}')?
+		//('ownedActor' '{' ownedActor+=Actor ("," ownedActor+=Actor)* '}')?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//'ownedResource'
-		public Keyword getOwnedResourceKeyword_5_0() { return cOwnedResourceKeyword_5_0; }
+		//'ownedActor'
+		public Keyword getOwnedActorKeyword_5_0() { return cOwnedActorKeyword_5_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5_1() { return cLeftCurlyBracketKeyword_5_1; }
 		
-		//ownedResource+=Resource
-		public Assignment getOwnedResourceAssignment_5_2() { return cOwnedResourceAssignment_5_2; }
+		//ownedActor+=Actor
+		public Assignment getOwnedActorAssignment_5_2() { return cOwnedActorAssignment_5_2; }
 		
-		//Resource
-		public RuleCall getOwnedResourceResourceParserRuleCall_5_2_0() { return cOwnedResourceResourceParserRuleCall_5_2_0; }
+		//Actor
+		public RuleCall getOwnedActorActorParserRuleCall_5_2_0() { return cOwnedActorActorParserRuleCall_5_2_0; }
 		
-		//("," ownedResource+=Resource)*
+		//("," ownedActor+=Actor)*
 		public Group getGroup_5_3() { return cGroup_5_3; }
 		
 		//","
 		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
 		
-		//ownedResource+=Resource
-		public Assignment getOwnedResourceAssignment_5_3_1() { return cOwnedResourceAssignment_5_3_1; }
+		//ownedActor+=Actor
+		public Assignment getOwnedActorAssignment_5_3_1() { return cOwnedActorAssignment_5_3_1; }
 		
-		//Resource
-		public RuleCall getOwnedResourceResourceParserRuleCall_5_3_1_0() { return cOwnedResourceResourceParserRuleCall_5_3_1_0; }
+		//Actor
+		public RuleCall getOwnedActorActorParserRuleCall_5_3_1_0() { return cOwnedActorActorParserRuleCall_5_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_4() { return cRightCurlyBracketKeyword_5_4; }
 		
+		//('ownedResource' '{' ownedResource+=Resource ("," ownedResource+=Resource)* '}')?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'ownedResource'
+		public Keyword getOwnedResourceKeyword_6_0() { return cOwnedResourceKeyword_6_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+		
+		//ownedResource+=Resource
+		public Assignment getOwnedResourceAssignment_6_2() { return cOwnedResourceAssignment_6_2; }
+		
+		//Resource
+		public RuleCall getOwnedResourceResourceParserRuleCall_6_2_0() { return cOwnedResourceResourceParserRuleCall_6_2_0; }
+		
+		//("," ownedResource+=Resource)*
+		public Group getGroup_6_3() { return cGroup_6_3; }
+		
+		//","
+		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
+		
+		//ownedResource+=Resource
+		public Assignment getOwnedResourceAssignment_6_3_1() { return cOwnedResourceAssignment_6_3_1; }
+		
+		//Resource
+		public RuleCall getOwnedResourceResourceParserRuleCall_6_3_1_0() { return cOwnedResourceResourceParserRuleCall_6_3_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class ActorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.inria.kairos.sock.Sock.Actor");
@@ -192,9 +208,9 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIsPriorityKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cIsPriorityAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cIsPriorityEIntParserRuleCall_4_1_0 = (RuleCall)cIsPriorityAssignment_4_1.eContents().get(0);
+		private final Keyword cIsSensibleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cIsSensibleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cIsSensibleEIntParserRuleCall_4_1_0 = (RuleCall)cIsSensibleAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cProcessTimeKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cProcessTimeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -204,23 +220,27 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPeriodTimeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cPeriodTimeEIntParserRuleCall_6_1_0 = (RuleCall)cPeriodTimeAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cResourceKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cResourceAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cResourceResourceCrossReference_7_1_0 = (CrossReference)cResourceAssignment_7_1.eContents().get(0);
-		private final RuleCall cResourceResourceEStringParserRuleCall_7_1_0_1 = (RuleCall)cResourceResourceCrossReference_7_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cCurrentProcessTimeKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cCurrentProcessTimeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cCurrentProcessTimeEIntParserRuleCall_7_1_0 = (RuleCall)cCurrentProcessTimeAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cResourceKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cResourceAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cResourceResourceCrossReference_8_1_0 = (CrossReference)cResourceAssignment_8_1.eContents().get(0);
+		private final RuleCall cResourceResourceEStringParserRuleCall_8_1_0_1 = (RuleCall)cResourceResourceCrossReference_8_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Actor_Impl Actor:
 		//	{Actor}
 		//	'Actor'
 		//	name=EString
-		//	'{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)? ('resource'
-		//	resource=[Resource|EString])?
+		//	'{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)?
+		//	('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Actor} 'Actor' name=EString '{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)? ('periodTime'
-		//periodTime=EInt)? ('resource' resource=[Resource|EString])? '}'
+		//{Actor} 'Actor' name=EString '{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)? ('periodTime'
+		//periodTime=EInt)? ('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Actor}
@@ -238,17 +258,17 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('isPriority' isPriority=EInt)?
+		//('isSensible' isSensible=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'isPriority'
-		public Keyword getIsPriorityKeyword_4_0() { return cIsPriorityKeyword_4_0; }
+		//'isSensible'
+		public Keyword getIsSensibleKeyword_4_0() { return cIsSensibleKeyword_4_0; }
 		
-		//isPriority=EInt
-		public Assignment getIsPriorityAssignment_4_1() { return cIsPriorityAssignment_4_1; }
+		//isSensible=EInt
+		public Assignment getIsSensibleAssignment_4_1() { return cIsSensibleAssignment_4_1; }
 		
 		//EInt
-		public RuleCall getIsPriorityEIntParserRuleCall_4_1_0() { return cIsPriorityEIntParserRuleCall_4_1_0; }
+		public RuleCall getIsSensibleEIntParserRuleCall_4_1_0() { return cIsSensibleEIntParserRuleCall_4_1_0; }
 		
 		//('processTime' processTime=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -274,23 +294,35 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getPeriodTimeEIntParserRuleCall_6_1_0() { return cPeriodTimeEIntParserRuleCall_6_1_0; }
 		
-		//('resource' resource=[Resource|EString])?
+		//('currentProcessTime' currentProcessTime=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
+		//'currentProcessTime'
+		public Keyword getCurrentProcessTimeKeyword_7_0() { return cCurrentProcessTimeKeyword_7_0; }
+		
+		//currentProcessTime=EInt
+		public Assignment getCurrentProcessTimeAssignment_7_1() { return cCurrentProcessTimeAssignment_7_1; }
+		
+		//EInt
+		public RuleCall getCurrentProcessTimeEIntParserRuleCall_7_1_0() { return cCurrentProcessTimeEIntParserRuleCall_7_1_0; }
+		
+		//('resource' resource=[Resource|EString])?
+		public Group getGroup_8() { return cGroup_8; }
+		
 		//'resource'
-		public Keyword getResourceKeyword_7_0() { return cResourceKeyword_7_0; }
+		public Keyword getResourceKeyword_8_0() { return cResourceKeyword_8_0; }
 		
 		//resource=[Resource|EString]
-		public Assignment getResourceAssignment_7_1() { return cResourceAssignment_7_1; }
+		public Assignment getResourceAssignment_8_1() { return cResourceAssignment_8_1; }
 		
 		//[Resource|EString]
-		public CrossReference getResourceResourceCrossReference_7_1_0() { return cResourceResourceCrossReference_7_1_0; }
+		public CrossReference getResourceResourceCrossReference_8_1_0() { return cResourceResourceCrossReference_8_1_0; }
 		
 		//EString
-		public RuleCall getResourceResourceEStringParserRuleCall_7_1_0_1() { return cResourceResourceEStringParserRuleCall_7_1_0_1; }
+		public RuleCall getResourceResourceEStringParserRuleCall_8_1_0_1() { return cResourceResourceEStringParserRuleCall_8_1_0_1; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class ResourceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.inria.kairos.sock.Sock.Resource");
@@ -407,9 +439,9 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIsPriorityKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cIsPriorityAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cIsPriorityEIntParserRuleCall_4_1_0 = (RuleCall)cIsPriorityAssignment_4_1.eContents().get(0);
+		private final Keyword cIsSensibleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cIsSensibleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cIsSensibleEIntParserRuleCall_4_1_0 = (RuleCall)cIsSensibleAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cProcessTimeKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cProcessTimeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -419,23 +451,28 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPeriodTimeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cPeriodTimeEIntParserRuleCall_6_1_0 = (RuleCall)cPeriodTimeAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cResourceKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cResourceAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cResourceResourceCrossReference_7_1_0 = (CrossReference)cResourceAssignment_7_1.eContents().get(0);
-		private final RuleCall cResourceResourceEStringParserRuleCall_7_1_0_1 = (RuleCall)cResourceResourceCrossReference_7_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cCurrentProcessTimeKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cCurrentProcessTimeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cCurrentProcessTimeEIntParserRuleCall_7_1_0 = (RuleCall)cCurrentProcessTimeAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cResourceKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cResourceAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cResourceResourceCrossReference_8_1_0 = (CrossReference)cResourceAssignment_8_1.eContents().get(0);
+		private final RuleCall cResourceResourceEStringParserRuleCall_8_1_0_1 = (RuleCall)cResourceResourceCrossReference_8_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//MaliciousActor:
 		//	{MaliciousActor}
 		//	'MaliciousActor'
 		//	name=EString
-		//	'{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)? ('resource'
-		//	resource=[Resource|EString])?
+		//	'{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)?
+		//	('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MaliciousActor} 'MaliciousActor' name=EString '{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)?
-		//('periodTime' periodTime=EInt)? ('resource' resource=[Resource|EString])? '}'
+		//{MaliciousActor} 'MaliciousActor' name=EString '{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)?
+		//('periodTime' periodTime=EInt)? ('currentProcessTime' currentProcessTime=EInt)? ('resource'
+		//resource=[Resource|EString])? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{MaliciousActor}
@@ -453,17 +490,17 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('isPriority' isPriority=EInt)?
+		//('isSensible' isSensible=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'isPriority'
-		public Keyword getIsPriorityKeyword_4_0() { return cIsPriorityKeyword_4_0; }
+		//'isSensible'
+		public Keyword getIsSensibleKeyword_4_0() { return cIsSensibleKeyword_4_0; }
 		
-		//isPriority=EInt
-		public Assignment getIsPriorityAssignment_4_1() { return cIsPriorityAssignment_4_1; }
+		//isSensible=EInt
+		public Assignment getIsSensibleAssignment_4_1() { return cIsSensibleAssignment_4_1; }
 		
 		//EInt
-		public RuleCall getIsPriorityEIntParserRuleCall_4_1_0() { return cIsPriorityEIntParserRuleCall_4_1_0; }
+		public RuleCall getIsSensibleEIntParserRuleCall_4_1_0() { return cIsSensibleEIntParserRuleCall_4_1_0; }
 		
 		//('processTime' processTime=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -489,23 +526,35 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getPeriodTimeEIntParserRuleCall_6_1_0() { return cPeriodTimeEIntParserRuleCall_6_1_0; }
 		
-		//('resource' resource=[Resource|EString])?
+		//('currentProcessTime' currentProcessTime=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
+		//'currentProcessTime'
+		public Keyword getCurrentProcessTimeKeyword_7_0() { return cCurrentProcessTimeKeyword_7_0; }
+		
+		//currentProcessTime=EInt
+		public Assignment getCurrentProcessTimeAssignment_7_1() { return cCurrentProcessTimeAssignment_7_1; }
+		
+		//EInt
+		public RuleCall getCurrentProcessTimeEIntParserRuleCall_7_1_0() { return cCurrentProcessTimeEIntParserRuleCall_7_1_0; }
+		
+		//('resource' resource=[Resource|EString])?
+		public Group getGroup_8() { return cGroup_8; }
+		
 		//'resource'
-		public Keyword getResourceKeyword_7_0() { return cResourceKeyword_7_0; }
+		public Keyword getResourceKeyword_8_0() { return cResourceKeyword_8_0; }
 		
 		//resource=[Resource|EString]
-		public Assignment getResourceAssignment_7_1() { return cResourceAssignment_7_1; }
+		public Assignment getResourceAssignment_8_1() { return cResourceAssignment_8_1; }
 		
 		//[Resource|EString]
-		public CrossReference getResourceResourceCrossReference_7_1_0() { return cResourceResourceCrossReference_7_1_0; }
+		public CrossReference getResourceResourceCrossReference_8_1_0() { return cResourceResourceCrossReference_8_1_0; }
 		
 		//EString
-		public RuleCall getResourceResourceEStringParserRuleCall_7_1_0_1() { return cResourceResourceEStringParserRuleCall_7_1_0_1; }
+		public RuleCall getResourceResourceEStringParserRuleCall_8_1_0_1() { return cResourceResourceEStringParserRuleCall_8_1_0_1; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	
 	
@@ -566,8 +615,8 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 	//	{IotSystem}
 	//	'IotSystem'
 	//	name=EString
-	//	'{' ('ownedActor' '{' ownedActor+=Actor ("," ownedActor+=Actor)* '}')? ('ownedResource' '{' ownedResource+=Resource
-	//	("," ownedResource+=Resource)* '}')?
+	//	'{' ('currentTime' currentTime=EInt)? ('ownedActor' '{' ownedActor+=Actor ("," ownedActor+=Actor)* '}')?
+	//	('ownedResource' '{' ownedResource+=Resource ("," ownedResource+=Resource)* '}')?
 	//	'}';
 	public IotSystemElements getIotSystemAccess() {
 		return pIotSystem;
@@ -601,8 +650,8 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 	//	{Actor}
 	//	'Actor'
 	//	name=EString
-	//	'{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)? ('resource'
-	//	resource=[Resource|EString])?
+	//	'{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)?
+	//	('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])?
 	//	'}';
 	public Actor_ImplElements getActor_ImplAccess() {
 		return pActor_Impl;
@@ -640,8 +689,8 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 	//	{MaliciousActor}
 	//	'MaliciousActor'
 	//	name=EString
-	//	'{' ('isPriority' isPriority=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)? ('resource'
-	//	resource=[Resource|EString])?
+	//	'{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)?
+	//	('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])?
 	//	'}';
 	public MaliciousActorElements getMaliciousActorAccess() {
 		return pMaliciousActor;

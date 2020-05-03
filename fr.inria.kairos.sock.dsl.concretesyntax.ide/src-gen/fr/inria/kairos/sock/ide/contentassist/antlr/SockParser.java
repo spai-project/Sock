@@ -35,14 +35,16 @@ public class SockParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getIotSystemAccess().getGroup(), "rule__IotSystem__Group__0");
 			builder.put(grammarAccess.getIotSystemAccess().getGroup_4(), "rule__IotSystem__Group_4__0");
-			builder.put(grammarAccess.getIotSystemAccess().getGroup_4_3(), "rule__IotSystem__Group_4_3__0");
 			builder.put(grammarAccess.getIotSystemAccess().getGroup_5(), "rule__IotSystem__Group_5__0");
 			builder.put(grammarAccess.getIotSystemAccess().getGroup_5_3(), "rule__IotSystem__Group_5_3__0");
+			builder.put(grammarAccess.getIotSystemAccess().getGroup_6(), "rule__IotSystem__Group_6__0");
+			builder.put(grammarAccess.getIotSystemAccess().getGroup_6_3(), "rule__IotSystem__Group_6_3__0");
 			builder.put(grammarAccess.getActor_ImplAccess().getGroup(), "rule__Actor_Impl__Group__0");
 			builder.put(grammarAccess.getActor_ImplAccess().getGroup_4(), "rule__Actor_Impl__Group_4__0");
 			builder.put(grammarAccess.getActor_ImplAccess().getGroup_5(), "rule__Actor_Impl__Group_5__0");
 			builder.put(grammarAccess.getActor_ImplAccess().getGroup_6(), "rule__Actor_Impl__Group_6__0");
 			builder.put(grammarAccess.getActor_ImplAccess().getGroup_7(), "rule__Actor_Impl__Group_7__0");
+			builder.put(grammarAccess.getActor_ImplAccess().getGroup_8(), "rule__Actor_Impl__Group_8__0");
 			builder.put(grammarAccess.getResourceAccess().getGroup(), "rule__Resource__Group__0");
 			builder.put(grammarAccess.getResourceAccess().getGroup_4(), "rule__Resource__Group_4__0");
 			builder.put(grammarAccess.getResourceAccess().getGroup_4_3(), "rule__Resource__Group_4_3__0");
@@ -52,24 +54,28 @@ public class SockParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMaliciousActorAccess().getGroup_5(), "rule__MaliciousActor__Group_5__0");
 			builder.put(grammarAccess.getMaliciousActorAccess().getGroup_6(), "rule__MaliciousActor__Group_6__0");
 			builder.put(grammarAccess.getMaliciousActorAccess().getGroup_7(), "rule__MaliciousActor__Group_7__0");
+			builder.put(grammarAccess.getMaliciousActorAccess().getGroup_8(), "rule__MaliciousActor__Group_8__0");
 			builder.put(grammarAccess.getIotSystemAccess().getNameAssignment_2(), "rule__IotSystem__NameAssignment_2");
-			builder.put(grammarAccess.getIotSystemAccess().getOwnedActorAssignment_4_2(), "rule__IotSystem__OwnedActorAssignment_4_2");
-			builder.put(grammarAccess.getIotSystemAccess().getOwnedActorAssignment_4_3_1(), "rule__IotSystem__OwnedActorAssignment_4_3_1");
-			builder.put(grammarAccess.getIotSystemAccess().getOwnedResourceAssignment_5_2(), "rule__IotSystem__OwnedResourceAssignment_5_2");
-			builder.put(grammarAccess.getIotSystemAccess().getOwnedResourceAssignment_5_3_1(), "rule__IotSystem__OwnedResourceAssignment_5_3_1");
+			builder.put(grammarAccess.getIotSystemAccess().getCurrentTimeAssignment_4_1(), "rule__IotSystem__CurrentTimeAssignment_4_1");
+			builder.put(grammarAccess.getIotSystemAccess().getOwnedActorAssignment_5_2(), "rule__IotSystem__OwnedActorAssignment_5_2");
+			builder.put(grammarAccess.getIotSystemAccess().getOwnedActorAssignment_5_3_1(), "rule__IotSystem__OwnedActorAssignment_5_3_1");
+			builder.put(grammarAccess.getIotSystemAccess().getOwnedResourceAssignment_6_2(), "rule__IotSystem__OwnedResourceAssignment_6_2");
+			builder.put(grammarAccess.getIotSystemAccess().getOwnedResourceAssignment_6_3_1(), "rule__IotSystem__OwnedResourceAssignment_6_3_1");
 			builder.put(grammarAccess.getActor_ImplAccess().getNameAssignment_2(), "rule__Actor_Impl__NameAssignment_2");
-			builder.put(grammarAccess.getActor_ImplAccess().getIsPriorityAssignment_4_1(), "rule__Actor_Impl__IsPriorityAssignment_4_1");
+			builder.put(grammarAccess.getActor_ImplAccess().getIsSensibleAssignment_4_1(), "rule__Actor_Impl__IsSensibleAssignment_4_1");
 			builder.put(grammarAccess.getActor_ImplAccess().getProcessTimeAssignment_5_1(), "rule__Actor_Impl__ProcessTimeAssignment_5_1");
 			builder.put(grammarAccess.getActor_ImplAccess().getPeriodTimeAssignment_6_1(), "rule__Actor_Impl__PeriodTimeAssignment_6_1");
-			builder.put(grammarAccess.getActor_ImplAccess().getResourceAssignment_7_1(), "rule__Actor_Impl__ResourceAssignment_7_1");
+			builder.put(grammarAccess.getActor_ImplAccess().getCurrentProcessTimeAssignment_7_1(), "rule__Actor_Impl__CurrentProcessTimeAssignment_7_1");
+			builder.put(grammarAccess.getActor_ImplAccess().getResourceAssignment_8_1(), "rule__Actor_Impl__ResourceAssignment_8_1");
 			builder.put(grammarAccess.getResourceAccess().getNameAssignment_2(), "rule__Resource__NameAssignment_2");
 			builder.put(grammarAccess.getResourceAccess().getActorAssignment_4_2(), "rule__Resource__ActorAssignment_4_2");
 			builder.put(grammarAccess.getResourceAccess().getActorAssignment_4_3_1(), "rule__Resource__ActorAssignment_4_3_1");
 			builder.put(grammarAccess.getMaliciousActorAccess().getNameAssignment_2(), "rule__MaliciousActor__NameAssignment_2");
-			builder.put(grammarAccess.getMaliciousActorAccess().getIsPriorityAssignment_4_1(), "rule__MaliciousActor__IsPriorityAssignment_4_1");
+			builder.put(grammarAccess.getMaliciousActorAccess().getIsSensibleAssignment_4_1(), "rule__MaliciousActor__IsSensibleAssignment_4_1");
 			builder.put(grammarAccess.getMaliciousActorAccess().getProcessTimeAssignment_5_1(), "rule__MaliciousActor__ProcessTimeAssignment_5_1");
 			builder.put(grammarAccess.getMaliciousActorAccess().getPeriodTimeAssignment_6_1(), "rule__MaliciousActor__PeriodTimeAssignment_6_1");
-			builder.put(grammarAccess.getMaliciousActorAccess().getResourceAssignment_7_1(), "rule__MaliciousActor__ResourceAssignment_7_1");
+			builder.put(grammarAccess.getMaliciousActorAccess().getCurrentProcessTimeAssignment_7_1(), "rule__MaliciousActor__CurrentProcessTimeAssignment_7_1");
+			builder.put(grammarAccess.getMaliciousActorAccess().getResourceAssignment_8_1(), "rule__MaliciousActor__ResourceAssignment_8_1");
 		}
 	}
 	
