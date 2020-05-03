@@ -318,17 +318,8 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getActor__Request() {
-		return actorEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getActor__Ready() {
-		return actorEClass.getEOperations().get(5);
+		return actorEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -393,7 +384,6 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		createEOperation(actorEClass, ACTOR___EXIT_OF);
 		createEOperation(actorEClass, ACTOR___IDLE);
 		createEOperation(actorEClass, ACTOR___PROCESS);
-		createEOperation(actorEClass, ACTOR___REQUEST);
 		createEOperation(actorEClass, ACTOR___READY);
 
 		maliciousActorEClass = createEClass(MALICIOUS_ACTOR);
@@ -483,8 +473,6 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		initEOperation(getActor__Idle(), null, "idle", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getActor__Process(), null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getActor__Request(), null, "request", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getActor__Ready(), null, "ready", 0, 1, IS_UNIQUE, IS_ORDERED);
 

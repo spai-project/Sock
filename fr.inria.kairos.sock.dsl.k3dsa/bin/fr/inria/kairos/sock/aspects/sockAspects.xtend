@@ -97,12 +97,6 @@ class ActorAspect extends NamedElementAspect {
 	}
 	
 	@ReplaceAspectMethod
-	def public void request() {
-		_self.initFolder()
-		run(_self, _self.name + " requests " + _self.resource.name)
-	}
-	
-	@ReplaceAspectMethod
 	def public void enterIn() {
 		run(_self, _self.name + " enters in " + _self.resource.name)
 		if (_self.currentProcessTime  == _self.processTime) {

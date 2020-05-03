@@ -19,8 +19,8 @@ AutomataConstraintLibrary resourceUsageCycle {
 			from Free to Busy : enter
 			-> (when ResourceUsageCycleIsEnteredEvent)
 			
-			from Free to Free : doesNothing
-			-> (when ResourceUsageCycleDoesNothingEvent)
+			from Free to Free : idle
+			-> (when ResourceUsageCycleIdleEvent)
 			
 			from Busy to Free : exitNotPriority
 			-> (when ResourceUsageCycleIsExitedByNotPriorityActorEvent)
@@ -46,8 +46,8 @@ AutomataConstraintLibrary resourceUsageCycle {
 			)
 			
 			State Free (
-				in: starting, doesNothing, exitNotPriority, clean
-				out: enter, doesNothing
+				in: starting, idle, exitNotPriority, clean
+				out: enter, idle
 			)
 			
 			State Busy (
@@ -66,7 +66,7 @@ AutomataConstraintLibrary resourceUsageCycle {
 			ResourceUsageCycleIsExitedByNotPriorityActorEvent: clock,
 			ResourceUsageCycleIsExitedByPriorityActorEvent: clock,
 			ResourceUsageCycleIsProcessedEvent: clock,
-			ResourceUsageCycleDoesNothingEvent: clock,
+			ResourceUsageCycleIdleEvent: clock,
 			ResourceusageCycleExitOfAndEnterInEvent: clock,
 			ResourceusageCycleCleanEvent: clock
 		)

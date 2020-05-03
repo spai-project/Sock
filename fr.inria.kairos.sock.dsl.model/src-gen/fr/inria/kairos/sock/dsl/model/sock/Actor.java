@@ -196,14 +196,6 @@ public interface Actor extends NamedElement {
 	 * @model
 	 * @generated
 	 */
-	void request();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void ready();
 
 } // Actor

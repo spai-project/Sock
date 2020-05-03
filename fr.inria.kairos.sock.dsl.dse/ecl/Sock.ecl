@@ -16,46 +16,15 @@ package sock
 	--						BEGIN GLOBAL
 	-- ========================================================================================================
 	-- Mapping event and methods
-	
+
 	context IotSystem
 		def : timeEvent : Event = self.time()
 		def : zeroValue : Integer = 0
-		
-	-- ========================================================================================================
-	--						BEGIN PERIODICITY 
-	-- ========================================================================================================
-	
-	-- Mapping event and methods
-	
-	context Actor
-		def : periodTimeActorValue  : Integer = self.periodTime
-		def : periodStartActorEvent : Event = self.ready()
-		def : requestActorEvent : Event = self.request()
-		
-	--Constraints
-
-	context Actor
-		inv periodStartBehavior: 
-			let periodStartDefinition : Event = Expression Periodic(
-				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent,
-				self.periodTimeActorValue,
-				self.periodTimeActorValue
-			) in
-			Relation Coincides(self.periodStartActorEvent, periodStartDefinition)
-		inv mustCompleteProcessAtEachPeriodActor:
-			let periodStartFirstTickEvent : Event = Expression OneTickAndDie(
-				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
-			) in
-			let periodStartEvent : Event = Expression Concatenation(
-				self.periodStartActorEvent,
-				periodStartFirstTickEvent
-			) in
-			Relation Alternates(self.requestActorEvent, periodStartEvent)
 
 	-- ========================================================================================================
 	--						BEGIN RESOURCE USAGE CYCLE 
 	-- 				This resource usage includes : 
-	--					- the basic cycle request enter process exit
+	--					- the basic cycle enter process exit
 	--					- the management of the time that the actor must process
 	--					- the takes over by a high-priority actor from a resource of 
 	--					a low-priority actor
@@ -72,8 +41,8 @@ package sock
 	
 	context  Actor
 		def : enterActorEvent : Event = self.enterIn()
-		def : processActorEvent : Event = self.process()
 		def : exitActorEvent : Event = self.exitOf()
+		def : processActorEvent : Event = self.process()
 		def : idleActorEvent : Event = self.idle()
 		def : processTimeActorValue : Integer = self.processTime
 		def : isSensibleActorValue : Integer = self.isSensible
@@ -129,7 +98,6 @@ package sock
 	context Actor
 		inv processTimeBehavior:
 			Relation ActorProcessingCycle(
-				self.requestActorEvent,
 				self.enterActorEvent,
 				self.processActorEvent,
 				self.processTimeActorValue,
@@ -144,6 +112,36 @@ package sock
 				self.takesOverActorEvent,
 				self.isTakenOverActorEvent
 			)
+			
+	-- ========================================================================================================
+	--						BEGIN PERIODICITY 
+	-- ========================================================================================================
+	
+	-- Mapping event and methods
+	
+	context Actor
+		def : periodTimeActorValue  : Integer = self.periodTime
+		def : periodStartActorEvent : Event = self.ready()
+		
+	--Constraints
+
+	context Actor
+		inv periodStartBehavior: 
+			let periodStartDefinition : Event = Expression Periodic(
+				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent,
+				self.periodTimeActorValue,
+				self.periodTimeActorValue
+			) in
+			Relation Coincides(self.periodStartActorEvent, periodStartDefinition)
+		inv mustCompleteProcessAtEachPeriodActor:
+			let periodStartFirstTickEvent : Event = Expression OneTickAndDie(
+				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
+			) in
+			let periodStartEvent : Event = Expression Concatenation(
+				self.periodStartActorEvent,
+				periodStartFirstTickEvent
+			) in
+			Relation Alternates(self.exitActorEvent, periodStartEvent)
 	
 	-- ========================================================================================================
 	--						BEGIN RESOURCE CLEANING AFTER HIGH Sensible
@@ -223,20 +221,16 @@ package sock
 				unionEnterProcessExitIdle,
 				self.isTakenOverActorEvent
 			) in
-			let unionEnterProcessExitIdleIsTakenOverRequest : Event = Expression Union(
+			let unionEnterProcessExitIdleIsTakenOverTakesOver : Event = Expression Union(
 				unionEnterProcessExitIdleIsTakenOver,
-				self.requestActorEvent
-			) in
-			let unionEnterProcessExitIdleIsTakenOverRequestTakesOver : Event = Expression Union(
-				unionEnterProcessExitIdleIsTakenOverRequest,
 				self.takesOverActorEvent
 			) in
-			let unionEnterProcessExitIdleIsTakenOverRequestTakesOverPeriodStart : Event = Expression Union(
-				unionEnterProcessExitIdleIsTakenOverRequestTakesOver,
+			let unionEnterProcessExitIdleIsTakenOverTakesOverPeriodStart : Event = Expression Union(
+				unionEnterProcessExitIdleIsTakenOverTakesOver,
 				self.periodStartActorEvent
 			) in
 			Relation Coincides(
-				unionEnterProcessExitIdleIsTakenOverRequestTakesOverPeriodStart,
+				unionEnterProcessExitIdleIsTakenOverTakesOverPeriodStart,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 

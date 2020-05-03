@@ -34,7 +34,6 @@
       <genOperations ecoreOperation="sock.ecore#//Actor/exitOf"/>
       <genOperations ecoreOperation="sock.ecore#//Actor/idle"/>
       <genOperations ecoreOperation="sock.ecore#//Actor/process"/>
-      <genOperations ecoreOperation="sock.ecore#//Actor/request"/>
       <genOperations ecoreOperation="sock.ecore#//Actor/ready"/>
     </genClasses>
     <genClasses ecoreClass="sock.ecore#//MaliciousActor"/>

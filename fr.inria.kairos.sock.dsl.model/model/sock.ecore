@@ -23,7 +23,6 @@
     <eOperations name="exitOf"/>
     <eOperations name="idle"/>
     <eOperations name="process"/>
-    <eOperations name="request"/>
     <eOperations name="ready"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"
         eOpposite="#//Resource/actor"/>

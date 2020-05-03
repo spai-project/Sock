@@ -2,7 +2,6 @@
 package fr.inria.kairos.sock.dsl.model.sock;
 public aspect AspectJActor{
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Actor.ready(  ) ) ) { fr.inria.kairos.sock.aspects.ActorAspect.ready(self );}
-void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Actor.request(  ) ) ) { fr.inria.kairos.sock.aspects.ActorAspect.request(self );}
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Actor.enterIn(  ) ) ) { fr.inria.kairos.sock.aspects.ActorAspect.enterIn(self );}
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Actor.process(  ) ) ) { fr.inria.kairos.sock.aspects.ActorAspect.process(self );}
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Actor.exitOf(  ) ) ) { fr.inria.kairos.sock.aspects.ActorAspect.exitOf(self );}

@@ -64,7 +64,7 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 				res.getOwnedElementstates().add(elemState);
 				AttributeNameToValue n2v0 = new AttributeNameToValue("currentData", SockRTDAccessor.getcurrentData(elem));
 				elemState.getSavedRTDs().add(n2v0);
-				AttributeNameToValue n2v1 = new AttributeNameToValue("lastActorPriority", SockRTDAccessor.getlastActorPriority(elem));
+				AttributeNameToValue n2v1 = new AttributeNameToValue("lastActorSensibility", SockRTDAccessor.getlastActorSensibility(elem));
 				elemState.getSavedRTDs().add(n2v1);
 			}
 			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.ActorAspect.class);
@@ -72,7 +72,7 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 				ElementState elemState = theFactory.createElementState();
 				elemState.setModelElement(elem);
 				res.getOwnedElementstates().add(elemState);
-				AttributeNameToValue n2v0 = new AttributeNameToValue("isPriority", SockRTDAccessor.getisPriority(elem));
+				AttributeNameToValue n2v0 = new AttributeNameToValue("isSensible", SockRTDAccessor.getisSensible(elem));
 				elemState.getSavedRTDs().add(n2v0);
 				AttributeNameToValue n2v1 = new AttributeNameToValue("processTime", SockRTDAccessor.getprocessTime(elem));
 				elemState.getSavedRTDs().add(n2v1);

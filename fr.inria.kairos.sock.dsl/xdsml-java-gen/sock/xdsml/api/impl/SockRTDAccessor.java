@@ -21,17 +21,17 @@ public class SockRTDAccessor {
 	public static boolean setcurrentData(EObject eObject, java.lang.String newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "currentData", newValue);
 	}
-  public static java.lang.Integer getlastActorPriority(EObject eObject) {
-		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorPriority");
+  public static java.lang.Integer getlastActorSensibility(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorSensibility");
 	}
-	public static boolean setlastActorPriority(EObject eObject, java.lang.Integer newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorPriority", newValue);
+	public static boolean setlastActorSensibility(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorSensibility", newValue);
 	}
-  public static java.lang.Integer getisPriority(EObject eObject) {
-		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "isPriority");
+  public static java.lang.Integer getisSensible(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "isSensible");
 	}
-	public static boolean setisPriority(EObject eObject, java.lang.Integer newValue) {
-		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "isPriority", newValue);
+	public static boolean setisSensible(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "isSensible", newValue);
 	}
   public static java.lang.Integer getprocessTime(EObject eObject) {
 		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "processTime");

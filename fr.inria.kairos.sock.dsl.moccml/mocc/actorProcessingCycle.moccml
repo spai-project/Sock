@@ -19,41 +19,32 @@ AutomataConstraintLibrary actorProcessingCycle {
 			
 			from Start to Ready : starting
 			-> ()
-			
-			from Ready to Requested : request
-			-> (when ActorProcessingCycleRequestEvent)
-			
-			from Requested to Entered : enter
+
+			from Ready to Entered : enter
 			-> (when ActorProcessingCycleEnterEvent)
 			
-			from Requested to Entered : takesOut
-			-> (when ActorProcessingCycleTakesOver)
+			from Ready to Entered : takesOver
+			-> (when ActorProcessingCycleTakesOverEvent)
 			
-			from Requested to Requested : doesNothingRequested
-			-> (when ActorProcessingCycleDoesNothingEvent)
+			from Ready to Ready : idleReady
+			-> (when ActorProcessingCycleIdleEvent)
 
 			from Entered to Entered : process
-			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue < (ActorProcessingCycleProcessTime.value - one)) do currentProcessTimeValue = (currentProcessTimeValue + one))
+			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue < (ActorProcessingCycleProcessTimeValue.value - one)) do currentProcessTimeValue = (currentProcessTimeValue + one))
 			
 			from Entered to Finished : lastProcess
-			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue == (ActorProcessingCycleProcessTime.value - one)) do currentProcessTimeValue = zero)
+			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue == (ActorProcessingCycleProcessTimeValue.value - one)) do currentProcessTimeValue = zero)
 			
 			from Finished to Exited : exit
 			-> (when ActorProcessingCycleExitEvent)
 			
-			from Entered to Stopped : exitStopped
-			-> (when ActorProcessingCycleIsTakenOver)
+			from Entered to Ready : isTakenOver
+			-> (when ActorProcessingCycleIsTakenOverEvent)
 			
-			from Stopped to Stopped : doesNothingStopped
-			-> (when ActorProcessingCycleDoesNothingEvent)
+			from Exited to Exited : idleExited
+			-> (when ActorProcessingCycleIdleEvent)
 			
-			from Stopped to Entered : enterStopped
-			-> (when ActorProcessingCycleEnterEvent)
-			
-			from Exited to Exited : doesNothingExited
-			-> (when ActorProcessingCycleDoesNothingEvent)
-			
-			from Exited to Ready : periodStart
+			from Exited to Ready : ready
 			-> (when ActorProcessingCyclePeriodStartEvent)
 			
 			/* 
@@ -65,23 +56,13 @@ AutomataConstraintLibrary actorProcessingCycle {
 			)
 			
 			State Ready (
-				in: starting, periodStart
-				out: request
-			)
-			
-			State Requested (
-				in: request, doesNothingRequested
-				out: enter, doesNothingRequested, takesOut
+				in: starting, ready, idleReady
+				out: enter, idleReady, takesOver
 			)
 			
 			State Entered (
-				in: enter, process, enterStopped, takesOut
-				out: process, lastProcess, exitStopped
-			)
-			
-			State Stopped(
-				in: exitStopped, doesNothingStopped
-				out: doesNothingStopped, enterStopped
+				in: enter, process, takesOver
+				out: process, lastProcess, isTakenOver
 			)
 			
 			State Finished(
@@ -90,21 +71,20 @@ AutomataConstraintLibrary actorProcessingCycle {
 			)
 			
 			State Exited (
-				in: starting, exit, doesNothingExited
-				out: doesNothingExited, periodStart
+				in: exit, idleExited
+				out: idleExited, ready
 			)
 		
 		}
 		
 		RelationDeclaration ActorProcessingCycle(
-			ActorProcessingCycleRequestEvent: clock,
 			ActorProcessingCycleEnterEvent: clock,
 			ActorProcessingCycleProcessEvent: clock,
-			ActorProcessingCycleProcessTime: int,
+			ActorProcessingCycleProcessTimeValue: int,
 			ActorProcessingCycleExitEvent: clock,
-			ActorProcessingCycleDoesNothingEvent: clock,
-			ActorProcessingCycleIsTakenOver: clock,
-			ActorProcessingCycleTakesOver: clock,
+			ActorProcessingCycleIdleEvent: clock,
+			ActorProcessingCycleIsTakenOverEvent: clock,
+			ActorProcessingCycleTakesOverEvent: clock,
 			ActorProcessingCyclePeriodStartEvent: clock
 		)
 	}

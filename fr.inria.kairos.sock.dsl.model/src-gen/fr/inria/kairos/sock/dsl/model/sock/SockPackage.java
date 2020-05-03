@@ -341,22 +341,13 @@ public interface SockPackage extends EPackage {
 	int ACTOR___PROCESS = NAMED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Request</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR___REQUEST = NAMED_ELEMENT_OPERATION_COUNT + 4;
-
-	/**
 	 * The operation id for the '<em>Ready</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR___READY = NAMED_ELEMENT_OPERATION_COUNT + 5;
+	int ACTOR___READY = NAMED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Actor</em>' class.
@@ -365,7 +356,7 @@ public interface SockPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 6;
+	int ACTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link fr.inria.kairos.sock.dsl.model.sock.impl.MaliciousActorImpl <em>Malicious Actor</em>}' class.
@@ -475,15 +466,6 @@ public interface SockPackage extends EPackage {
 	 * @ordered
 	 */
 	int MALICIOUS_ACTOR___PROCESS = ACTOR___PROCESS;
-
-	/**
-	 * The operation id for the '<em>Request</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MALICIOUS_ACTOR___REQUEST = ACTOR___REQUEST;
 
 	/**
 	 * The operation id for the '<em>Ready</em>' operation.
@@ -724,16 +706,6 @@ public interface SockPackage extends EPackage {
 	EOperation getActor__Process();
 
 	/**
-	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#request() <em>Request</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Request</em>' operation.
-	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#request()
-	 * @generated
-	 */
-	EOperation getActor__Request();
-
-	/**
 	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#ready() <em>Ready</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -951,14 +923,6 @@ public interface SockPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ACTOR___PROCESS = eINSTANCE.getActor__Process();
-
-		/**
-		 * The meta object literal for the '<em><b>Request</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ACTOR___REQUEST = eINSTANCE.getActor__Request();
 
 		/**
 		 * The meta object literal for the '<em><b>Ready</b></em>' operation.
