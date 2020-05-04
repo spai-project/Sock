@@ -31,6 +31,7 @@ Actor_Impl returns Actor:
 		('periodTime' periodTime=EInt)?
 		('currentProcessTime' currentProcessTime=EInt)?
 		('resource' resource=[Resource|EString])?
+		('code' code=EString)?
 	'}';
 
 Resource returns Resource:

@@ -500,9 +500,34 @@ ruleActor_Impl returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_14='}'
+		(
+			otherlv_14='code'
+			{
+				newLeafNode(otherlv_14, grammarAccess.getActor_ImplAccess().getCodeKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getActor_ImplAccess().getCodeEStringParserRuleCall_9_1_0());
+					}
+					lv_code_15_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getActor_ImplRule());
+						}
+						set(
+							$current,
+							"code",
+							lv_code_15_0,
+							"fr.inria.kairos.sock.Sock.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_16='}'
 		{
-			newLeafNode(otherlv_14, grammarAccess.getActor_ImplAccess().getRightCurlyBracketKeyword_9());
+			newLeafNode(otherlv_16, grammarAccess.getActor_ImplAccess().getRightCurlyBracketKeyword_10());
 		}
 	)
 ;

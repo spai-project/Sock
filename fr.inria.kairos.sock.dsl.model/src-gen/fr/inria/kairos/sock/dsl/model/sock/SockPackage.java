@@ -296,49 +296,22 @@ public interface SockPackage extends EPackage {
 	int ACTOR__CURRENT_PROCESS_TIME = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__CODE = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Enter In</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR___ENTER_IN = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Exit Of</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR___EXIT_OF = NAMED_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Idle</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR___IDLE = NAMED_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Process</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR___PROCESS = NAMED_ELEMENT_OPERATION_COUNT + 3;
+	int ACTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Ready</em>' operation.
@@ -347,7 +320,43 @@ public interface SockPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR___READY = NAMED_ELEMENT_OPERATION_COUNT + 4;
+	int ACTOR___READY = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Enter In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___ENTER_IN = NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Process</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___PROCESS = NAMED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Exit Of</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___EXIT_OF = NAMED_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Idle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___IDLE = NAMED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Actor</em>' class.
@@ -423,6 +432,15 @@ public interface SockPackage extends EPackage {
 	int MALICIOUS_ACTOR__CURRENT_PROCESS_TIME = ACTOR__CURRENT_PROCESS_TIME;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR__CODE = ACTOR__CODE;
+
+	/**
 	 * The number of structural features of the '<em>Malicious Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -432,6 +450,15 @@ public interface SockPackage extends EPackage {
 	int MALICIOUS_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Ready</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR___READY = ACTOR___READY;
+
+	/**
 	 * The operation id for the '<em>Enter In</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -439,6 +466,15 @@ public interface SockPackage extends EPackage {
 	 * @ordered
 	 */
 	int MALICIOUS_ACTOR___ENTER_IN = ACTOR___ENTER_IN;
+
+	/**
+	 * The operation id for the '<em>Process</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MALICIOUS_ACTOR___PROCESS = ACTOR___PROCESS;
 
 	/**
 	 * The operation id for the '<em>Exit Of</em>' operation.
@@ -457,24 +493,6 @@ public interface SockPackage extends EPackage {
 	 * @ordered
 	 */
 	int MALICIOUS_ACTOR___IDLE = ACTOR___IDLE;
-
-	/**
-	 * The operation id for the '<em>Process</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MALICIOUS_ACTOR___PROCESS = ACTOR___PROCESS;
-
-	/**
-	 * The operation id for the '<em>Ready</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MALICIOUS_ACTOR___READY = ACTOR___READY;
 
 	/**
 	 * The number of operations of the '<em>Malicious Actor</em>' class.
@@ -664,6 +682,17 @@ public interface SockPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getActor_CurrentProcessTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code</em>'.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#getCode()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_Code();
 
 	/**
 	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#enterIn() <em>Enter In</em>}' operation.
@@ -891,6 +920,14 @@ public interface SockPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTOR__CURRENT_PROCESS_TIME = eINSTANCE.getActor_CurrentProcessTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__CODE = eINSTANCE.getActor_Code();
 
 		/**
 		 * The meta object literal for the '<em><b>Enter In</b></em>' operation.

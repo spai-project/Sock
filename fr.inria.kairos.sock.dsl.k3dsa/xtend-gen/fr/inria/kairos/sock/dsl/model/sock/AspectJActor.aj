@@ -22,5 +22,9 @@ void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) && 
 }
 void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) &&  call ( void fr.inria.kairos.sock.aspects.ActorAspect.currentProcessTime(fr.inria.kairos.sock.dsl.model.sock.Actor,java.lang.Integer)){self.setCurrentProcessTime( (java.lang.Integer)thisJoinPoint.getArgs()[0]);proceed(self);
 }
+void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) &&  call ( void Actor.setCode(java.lang.String)){fr.inria.kairos.sock.aspects.ActorAspect.code(self, (java.lang.String)thisJoinPoint.getArgs()[0]);proceed(self);
+}
+void around (fr.inria.kairos.sock.dsl.model.sock.Actor self)  :target (self) &&  call ( void fr.inria.kairos.sock.aspects.ActorAspect.code(fr.inria.kairos.sock.dsl.model.sock.Actor,java.lang.String)){self.setCode( (java.lang.String)thisJoinPoint.getArgs()[0]);proceed(self);
+}
 
 }

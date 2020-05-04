@@ -24,6 +24,10 @@ import java.util.Calendar
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor
+import java.util.Map
+
+import groovy.lang.Binding
+import groovy.lang.GroovyShell
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
@@ -89,6 +93,9 @@ class ActorAspect extends NamedElementAspect {
 	
 	@SynchroField
 	public var Integer currentProcessTime = 0
+	
+	@SynchroField
+	public var String code = ""
 
 	@ReplaceAspectMethod
 	def public void ready() {
@@ -98,6 +105,7 @@ class ActorAspect extends NamedElementAspect {
 	
 	@ReplaceAspectMethod
 	def public void enterIn() {
+		_self.initFolder();
 		run(_self, _self.name + " enters in " + _self.resource.name)
 		if (_self.currentProcessTime  == _self.processTime) {
 			_self.currentProcessTime = 0
@@ -118,6 +126,23 @@ class ActorAspect extends NamedElementAspect {
 		run(_self, _self.name + " exits of " + _self.resource.name)
 		_self.resource.isExited()
 		_self.write("0")
+		if (_self.checkSensible()) {
+			_self.time()
+			_self.write("-")
+			_self.untime()
+		}
+		if (_self.code !== null && _self.code !== ""){
+			try{
+				val binding = new Binding
+				binding.setVariable("time", _self.actorTimeIndex)
+				val ucl = ActorAspect.classLoader
+				val shell = new GroovyShell(ucl, binding)
+				val res = shell.evaluate(_self.code) as Map<String, Object>
+			} catch (Exception cnfe){
+				println("Failed to call Groovy script " + _self.code)
+				cnfe.printStackTrace
+			}			
+		}
 	}
 	
 	@ReplaceAspectMethod
@@ -131,8 +156,8 @@ class ActorAspect extends NamedElementAspect {
 	
 	public var String subFolder = ""
 	
-	def public void createIfDoesNotExists(String path) {
-		val File fd = new File(path);
+	def public void createIfDoesNotExists(String pathfolder) {
+		val File fd = new File(pathfolder);
 		if (! fd.exists()) {
 			fd.mkdir()
 		}
@@ -143,12 +168,17 @@ class ActorAspect extends NamedElementAspect {
 		if (_self.subFolder.isEmpty()) {
 			_self.subFolder = (_self.eContainer as IotSystem).name + "/";
 		}
-		_self.createIfDoesNotExists(_self.folder + _self.subFolder)
+		_self.createIfDoesNotExists(_self.folder + "/" + _self.subFolder)
+		
 	}
 	
 	def public void write(String action) {
+		_self.write(action, _self.name)
+	}
+	
+	def public void write(String action, String filename) {
 		val java.io.FileWriter writer = new java.io.FileWriter(
-			_self.folder + _self.subFolder + _self.name, true
+			_self.folder + _self.subFolder + "/" +  filename, true
 		);
 		writer.write(_self.actorTimeIndex + " " + action + "\n")
 		writer.close()
@@ -169,6 +199,10 @@ class ActorAspect extends NamedElementAspect {
 	
 	def public void time() {
 		_self.actorTimeIndex = _self.actorTimeIndex + 1
+	}
+	
+	def public void untime() {
+		_self.actorTimeIndex = _self.actorTimeIndex - 1
 	}
 
 }

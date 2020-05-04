@@ -30,11 +30,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sock.ecore#//Actor/processTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sock.ecore#//Actor/periodTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sock.ecore#//Actor/currentProcessTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sock.ecore#//Actor/code"/>
+      <genOperations ecoreOperation="sock.ecore#//Actor/ready"/>
       <genOperations ecoreOperation="sock.ecore#//Actor/enterIn"/>
+      <genOperations ecoreOperation="sock.ecore#//Actor/process"/>
       <genOperations ecoreOperation="sock.ecore#//Actor/exitOf"/>
       <genOperations ecoreOperation="sock.ecore#//Actor/idle"/>
-      <genOperations ecoreOperation="sock.ecore#//Actor/process"/>
-      <genOperations ecoreOperation="sock.ecore#//Actor/ready"/>
     </genClasses>
     <genClasses ecoreClass="sock.ecore#//MaliciousActor"/>
   </genPackages>

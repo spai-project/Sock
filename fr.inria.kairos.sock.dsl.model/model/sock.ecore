@@ -19,11 +19,11 @@
         eType="#//Actor" eOpposite="#//Actor/resource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//NamedElement">
+    <eOperations name="ready"/>
     <eOperations name="enterIn"/>
+    <eOperations name="process"/>
     <eOperations name="exitOf"/>
     <eOperations name="idle"/>
-    <eOperations name="process"/>
-    <eOperations name="ready"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"
         eOpposite="#//Resource/actor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSensible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -33,6 +33,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="10"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentProcessTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MaliciousActor" eSuperTypes="#//Actor"/>
 </ecore:EPackage>

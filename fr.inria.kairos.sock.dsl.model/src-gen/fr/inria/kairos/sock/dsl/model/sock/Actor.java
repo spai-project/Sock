@@ -16,6 +16,7 @@ package fr.inria.kairos.sock.dsl.model.sock;
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getProcessTime <em>Process Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getPeriodTime <em>Period Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getCurrentProcessTime <em>Current Process Time</em>}</li>
+ *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor()
@@ -157,6 +158,32 @@ public interface Actor extends NamedElement {
 	 * @generated
 	 */
 	void setCurrentProcessTime(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Code</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Code</em>' attribute.
+	 * @see #setCode(String)
+	 * @see fr.inria.kairos.sock.dsl.model.sock.SockPackage#getActor_Code()
+	 * @model
+	 * @generated
+	 */
+	String getCode();
+
+	/**
+	 * Sets the value of the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#getCode <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Code</em>' attribute.
+	 * @see #getCode()
+	 * @generated
+	 */
+	void setCode(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

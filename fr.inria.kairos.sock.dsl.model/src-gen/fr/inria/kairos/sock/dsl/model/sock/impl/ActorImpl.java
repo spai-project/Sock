@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getProcessTime <em>Process Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getPeriodTime <em>Period Time</em>}</li>
  *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getCurrentProcessTime <em>Current Process Time</em>}</li>
+ *   <li>{@link fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -125,6 +126,26 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	 * @ordered
 	 */
 	protected int currentProcessTime = CURRENT_PROCESS_TIME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CODE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected String code = CODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -306,6 +327,27 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCode() {
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCode(String newCode) {
+		String oldCode = code;
+		code = newCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SockPackage.ACTOR__CODE, oldCode, code));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void enterIn() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -407,6 +449,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 			return getPeriodTime();
 		case SockPackage.ACTOR__CURRENT_PROCESS_TIME:
 			return getCurrentProcessTime();
+		case SockPackage.ACTOR__CODE:
+			return getCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -433,6 +477,9 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 			return;
 		case SockPackage.ACTOR__CURRENT_PROCESS_TIME:
 			setCurrentProcessTime((Integer) newValue);
+			return;
+		case SockPackage.ACTOR__CODE:
+			setCode((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -461,6 +508,9 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 		case SockPackage.ACTOR__CURRENT_PROCESS_TIME:
 			setCurrentProcessTime(CURRENT_PROCESS_TIME_EDEFAULT);
 			return;
+		case SockPackage.ACTOR__CODE:
+			setCode(CODE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -483,6 +533,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 			return periodTime != PERIOD_TIME_EDEFAULT;
 		case SockPackage.ACTOR__CURRENT_PROCESS_TIME:
 			return currentProcessTime != CURRENT_PROCESS_TIME_EDEFAULT;
+		case SockPackage.ACTOR__CODE:
+			return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -495,20 +547,20 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+		case SockPackage.ACTOR___READY:
+			ready();
+			return null;
 		case SockPackage.ACTOR___ENTER_IN:
 			enterIn();
+			return null;
+		case SockPackage.ACTOR___PROCESS:
+			process();
 			return null;
 		case SockPackage.ACTOR___EXIT_OF:
 			exitOf();
 			return null;
 		case SockPackage.ACTOR___IDLE:
 			idle();
-			return null;
-		case SockPackage.ACTOR___PROCESS:
-			process();
-			return null;
-		case SockPackage.ACTOR___READY:
-			ready();
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -533,6 +585,8 @@ public class ActorImpl extends NamedElementImpl implements Actor {
 		result.append(periodTime);
 		result.append(", currentProcessTime: ");
 		result.append(currentProcessTime);
+		result.append(", code: ");
+		result.append(code);
 		result.append(')');
 		return result.toString();
 	}

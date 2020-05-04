@@ -228,19 +228,24 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cResourceAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
 		private final CrossReference cResourceResourceCrossReference_8_1_0 = (CrossReference)cResourceAssignment_8_1.eContents().get(0);
 		private final RuleCall cResourceResourceEStringParserRuleCall_8_1_0_1 = (RuleCall)cResourceResourceCrossReference_8_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cCodeKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cCodeAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cCodeEStringParserRuleCall_9_1_0 = (RuleCall)cCodeAssignment_9_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Actor_Impl Actor:
 		//	{Actor}
 		//	'Actor'
 		//	name=EString
 		//	'{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)?
-		//	('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])?
+		//	('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])? ('code' code=EString)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Actor} 'Actor' name=EString '{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)? ('periodTime'
-		//periodTime=EInt)? ('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])? '}'
+		//periodTime=EInt)? ('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])? ('code'
+		//code=EString)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Actor}
@@ -321,8 +326,20 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getResourceResourceEStringParserRuleCall_8_1_0_1() { return cResourceResourceEStringParserRuleCall_8_1_0_1; }
 		
+		//('code' code=EString)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'code'
+		public Keyword getCodeKeyword_9_0() { return cCodeKeyword_9_0; }
+		
+		//code=EString
+		public Assignment getCodeAssignment_9_1() { return cCodeAssignment_9_1; }
+		
+		//EString
+		public RuleCall getCodeEStringParserRuleCall_9_1_0() { return cCodeEStringParserRuleCall_9_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 	public class ResourceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.inria.kairos.sock.Sock.Resource");
@@ -651,7 +668,7 @@ public class SockGrammarAccess extends AbstractGrammarElementFinder {
 	//	'Actor'
 	//	name=EString
 	//	'{' ('isSensible' isSensible=EInt)? ('processTime' processTime=EInt)? ('periodTime' periodTime=EInt)?
-	//	('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])?
+	//	('currentProcessTime' currentProcessTime=EInt)? ('resource' resource=[Resource|EString])? ('code' code=EString)?
 	//	'}';
 	public Actor_ImplElements getActor_ImplAccess() {
 		return pActor_Impl;

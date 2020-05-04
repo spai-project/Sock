@@ -14,6 +14,8 @@ public class ActorAspectActorAspectProperties {
   
   public Integer currentProcessTime = Integer.valueOf(0);
   
+  public String code = "";
+  
   public final String folder = "/Users/stephaniechallita/Desktop/runtime-EclipseApplication/";
   
   public String subFolder = "";

@@ -49,6 +49,7 @@ public class ActorItemProvider extends NamedElementItemProvider {
 			addProcessTimePropertyDescriptor(object);
 			addPeriodTimePropertyDescriptor(object);
 			addCurrentProcessTimePropertyDescriptor(object);
+			addCodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +133,21 @@ public class ActorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Code feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Actor_code_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Actor_code_feature", "_UI_Actor_type"),
+						SockPackage.Literals.ACTOR__CODE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns Actor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,6 +197,7 @@ public class ActorItemProvider extends NamedElementItemProvider {
 		case SockPackage.ACTOR__PROCESS_TIME:
 		case SockPackage.ACTOR__PERIOD_TIME:
 		case SockPackage.ACTOR__CURRENT_PROCESS_TIME:
+		case SockPackage.ACTOR__CODE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

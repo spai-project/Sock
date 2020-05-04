@@ -45,6 +45,7 @@ public class SockParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getActor_ImplAccess().getGroup_6(), "rule__Actor_Impl__Group_6__0");
 			builder.put(grammarAccess.getActor_ImplAccess().getGroup_7(), "rule__Actor_Impl__Group_7__0");
 			builder.put(grammarAccess.getActor_ImplAccess().getGroup_8(), "rule__Actor_Impl__Group_8__0");
+			builder.put(grammarAccess.getActor_ImplAccess().getGroup_9(), "rule__Actor_Impl__Group_9__0");
 			builder.put(grammarAccess.getResourceAccess().getGroup(), "rule__Resource__Group__0");
 			builder.put(grammarAccess.getResourceAccess().getGroup_4(), "rule__Resource__Group_4__0");
 			builder.put(grammarAccess.getResourceAccess().getGroup_4_3(), "rule__Resource__Group_4_3__0");
@@ -67,6 +68,7 @@ public class SockParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getActor_ImplAccess().getPeriodTimeAssignment_6_1(), "rule__Actor_Impl__PeriodTimeAssignment_6_1");
 			builder.put(grammarAccess.getActor_ImplAccess().getCurrentProcessTimeAssignment_7_1(), "rule__Actor_Impl__CurrentProcessTimeAssignment_7_1");
 			builder.put(grammarAccess.getActor_ImplAccess().getResourceAssignment_8_1(), "rule__Actor_Impl__ResourceAssignment_8_1");
+			builder.put(grammarAccess.getActor_ImplAccess().getCodeAssignment_9_1(), "rule__Actor_Impl__CodeAssignment_9_1");
 			builder.put(grammarAccess.getResourceAccess().getNameAssignment_2(), "rule__Resource__NameAssignment_2");
 			builder.put(grammarAccess.getResourceAccess().getActorAssignment_4_2(), "rule__Resource__ActorAssignment_4_2");
 			builder.put(grammarAccess.getResourceAccess().getActorAssignment_4_3_1(), "rule__Resource__ActorAssignment_4_3_1");

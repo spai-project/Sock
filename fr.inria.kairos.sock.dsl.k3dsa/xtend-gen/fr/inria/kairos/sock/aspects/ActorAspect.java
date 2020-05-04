@@ -9,8 +9,11 @@ import fr.inria.kairos.sock.aspects.ResourceAspect;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
+import groovy.lang.Binding;
+import groovy.lang.GroovyShell;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -63,11 +66,11 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
-  public static void createIfDoesNotExists(final Actor _self, final String path) {
+  public static void createIfDoesNotExists(final Actor _self, final String pathfolder) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void createIfDoesNotExists(String)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
-    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_createIfDoesNotExists(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,path);
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_createIfDoesNotExists(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,pathfolder);
     };
   }
   
@@ -84,6 +87,14 @@ public class ActorAspect extends NamedElementAspect {
     // #DispatchPointCut_before# void write(String)
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
     	fr.inria.kairos.sock.aspects.ActorAspect._privk3_write(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,action);
+    };
+  }
+  
+  public static void write(final Actor _self, final String action, final String filename) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void write(String,String)
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_write(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,action,filename);
     };
   }
   
@@ -110,6 +121,14 @@ public class ActorAspect extends NamedElementAspect {
     // #DispatchPointCut_before# void time()
     if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
     	fr.inria.kairos.sock.aspects.ActorAspect._privk3_time(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+  }
+  
+  public static void untime(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void untime()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_untime(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
     };
   }
   
@@ -211,6 +230,26 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
+  @SynchroField
+  public static String code(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    Object result = null;
+    // #DispatchPointCut_before# String code()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	result = fr.inria.kairos.sock.aspects.ActorAspect._privk3_code(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+    return (java.lang.String)result;
+  }
+  
+  @SynchroField
+  public static void code(final Actor _self, final String code) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void code(String)
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_code(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self,code);
+    };
+  }
+  
   public static String folder(final Actor _self) {
     final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
     Object result = null;
@@ -265,6 +304,7 @@ public class ActorAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_enterIn(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    ActorAspect.initFolder(_self);
     String _name = _self.getName();
     String _plus = (_name + " enters in ");
     String _name_1 = _self.getResource().getName();
@@ -312,14 +352,40 @@ public class ActorAspect extends NamedElementAspect {
     ActorAspect.run(_self, _plus_1);
     ResourceAspect.isExited(_self.getResource());
     ActorAspect.write(_self, "0");
+    boolean _checkSensible = ActorAspect.checkSensible(_self);
+    if (_checkSensible) {
+      ActorAspect.time(_self);
+      ActorAspect.write(_self, "-");
+      ActorAspect.untime(_self);
+    }
+    if (((_self.getCode() != null) && (_self.getCode() != ""))) {
+      try {
+        final Binding binding = new Binding();
+        binding.setVariable("time", ActorAspect.actorTimeIndex(_self));
+        final ClassLoader ucl = ActorAspect.class.getClassLoader();
+        final GroovyShell shell = new GroovyShell(ucl, binding);
+        Object _evaluate = shell.evaluate(_self.getCode());
+        final Map<String, Object> res = ((Map<String, Object>) _evaluate);
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception cnfe = (Exception)_t;
+          String _code = _self.getCode();
+          String _plus_2 = ("Failed to call Groovy script " + _code);
+          InputOutput.<String>println(_plus_2);
+          cnfe.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+    }
   }
   
   protected static void _privk3_idle(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     ActorAspect.time(_self);
   }
   
-  protected static void _privk3_createIfDoesNotExists(final ActorAspectActorAspectProperties _self_, final Actor _self, final String path) {
-    final File fd = new File(path);
+  protected static void _privk3_createIfDoesNotExists(final ActorAspectActorAspectProperties _self_, final Actor _self, final String pathfolder) {
+    final File fd = new File(pathfolder);
     boolean _exists = fd.exists();
     boolean _not = (!_exists);
     if (_not) {
@@ -337,24 +403,29 @@ public class ActorAspect extends NamedElementAspect {
       ActorAspect.subFolder(_self, _plus);
     }
     String _folder = ActorAspect.folder(_self);
+    String _plus_1 = (_folder + "/");
     String _subFolder = ActorAspect.subFolder(_self);
-    String _plus_1 = (_folder + _subFolder);
-    ActorAspect.createIfDoesNotExists(_self, _plus_1);
+    String _plus_2 = (_plus_1 + _subFolder);
+    ActorAspect.createIfDoesNotExists(_self, _plus_2);
   }
   
   protected static void _privk3_write(final ActorAspectActorAspectProperties _self_, final Actor _self, final String action) {
+    ActorAspect.write(_self, action, _self.getName());
+  }
+  
+  protected static void _privk3_write(final ActorAspectActorAspectProperties _self_, final Actor _self, final String action, final String filename) {
     try {
       String _folder = ActorAspect.folder(_self);
       String _subFolder = ActorAspect.subFolder(_self);
       String _plus = (_folder + _subFolder);
-      String _name = _self.getName();
-      String _plus_1 = (_plus + _name);
-      final FileWriter writer = new FileWriter(_plus_1, true);
+      String _plus_1 = (_plus + "/");
+      String _plus_2 = (_plus_1 + filename);
+      final FileWriter writer = new FileWriter(_plus_2, true);
       Integer _actorTimeIndex = ActorAspect.actorTimeIndex(_self);
-      String _plus_2 = (_actorTimeIndex + " ");
-      String _plus_3 = (_plus_2 + action);
-      String _plus_4 = (_plus_3 + "\n");
-      writer.write(_plus_4);
+      String _plus_3 = (_actorTimeIndex + " ");
+      String _plus_4 = (_plus_3 + action);
+      String _plus_5 = (_plus_4 + "\n");
+      writer.write(_plus_5);
       writer.close();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -379,6 +450,12 @@ public class ActorAspect extends NamedElementAspect {
     Integer _actorTimeIndex = ActorAspect.actorTimeIndex(_self);
     int _plus = ((_actorTimeIndex).intValue() + 1);
     ActorAspect.actorTimeIndex(_self, Integer.valueOf(_plus));
+  }
+  
+  protected static void _privk3_untime(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    Integer _actorTimeIndex = ActorAspect.actorTimeIndex(_self);
+    int _minus = ((_actorTimeIndex).intValue() - 1);
+    ActorAspect.actorTimeIndex(_self, Integer.valueOf(_minus));
   }
   
   protected static Integer _privk3_isSensible(final ActorAspectActorAspectProperties _self_, final Actor _self) {
@@ -563,6 +640,43 @@ public class ActorAspect extends NamedElementAspect {
     }
     if (!setterCalled) {
     	_self_.currentProcessTime = currentProcessTime;
+    }
+  }
+  
+  protected static String _privk3_code(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getCode") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (java.lang.String) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.code;
+  }
+  
+  protected static void _privk3_code(final ActorAspectActorAspectProperties _self_, final Actor _self, final String code) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setCode")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, code);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.code = code;
     }
   }
   

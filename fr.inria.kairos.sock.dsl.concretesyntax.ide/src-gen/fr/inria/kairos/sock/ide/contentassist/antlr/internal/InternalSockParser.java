@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSockParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'IotSystem'", "'{'", "'}'", "'currentTime'", "'ownedActor'", "','", "'ownedResource'", "'Actor'", "'isSensible'", "'processTime'", "'periodTime'", "'currentProcessTime'", "'resource'", "'Resource'", "'actor'", "'('", "')'", "'-'", "'MaliciousActor'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'IotSystem'", "'{'", "'}'", "'currentTime'", "'ownedActor'", "','", "'ownedResource'", "'Actor'", "'isSensible'", "'processTime'", "'periodTime'", "'currentProcessTime'", "'resource'", "'code'", "'Resource'", "'actor'", "'('", "')'", "'-'", "'MaliciousActor'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -36,6 +36,7 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int T__30=30;
     public static final int RULE_ID=5;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
@@ -640,7 +641,7 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
             if ( (LA1_0==18) ) {
                 alt1=1;
             }
-            else if ( (LA1_0==29) ) {
+            else if ( (LA1_0==30) ) {
                 alt1=2;
             }
             else {
@@ -3516,17 +3517,22 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group__9"
-    // InternalSock.g:1160:1: rule__Actor_Impl__Group__9 : rule__Actor_Impl__Group__9__Impl ;
+    // InternalSock.g:1160:1: rule__Actor_Impl__Group__9 : rule__Actor_Impl__Group__9__Impl rule__Actor_Impl__Group__10 ;
     public final void rule__Actor_Impl__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1164:1: ( rule__Actor_Impl__Group__9__Impl )
-            // InternalSock.g:1165:2: rule__Actor_Impl__Group__9__Impl
+            // InternalSock.g:1164:1: ( rule__Actor_Impl__Group__9__Impl rule__Actor_Impl__Group__10 )
+            // InternalSock.g:1165:2: rule__Actor_Impl__Group__9__Impl rule__Actor_Impl__Group__10
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_13);
             rule__Actor_Impl__Group__9__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Actor_Impl__Group__10();
 
             state._fsp--;
 
@@ -3549,21 +3555,42 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group__9__Impl"
-    // InternalSock.g:1171:1: rule__Actor_Impl__Group__9__Impl : ( '}' ) ;
+    // InternalSock.g:1172:1: rule__Actor_Impl__Group__9__Impl : ( ( rule__Actor_Impl__Group_9__0 )? ) ;
     public final void rule__Actor_Impl__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1175:1: ( ( '}' ) )
-            // InternalSock.g:1176:1: ( '}' )
+            // InternalSock.g:1176:1: ( ( ( rule__Actor_Impl__Group_9__0 )? ) )
+            // InternalSock.g:1177:1: ( ( rule__Actor_Impl__Group_9__0 )? )
             {
-            // InternalSock.g:1176:1: ( '}' )
-            // InternalSock.g:1177:2: '}'
+            // InternalSock.g:1177:1: ( ( rule__Actor_Impl__Group_9__0 )? )
+            // InternalSock.g:1178:2: ( rule__Actor_Impl__Group_9__0 )?
             {
-             before(grammarAccess.getActor_ImplAccess().getRightCurlyBracketKeyword_9()); 
-            match(input,13,FOLLOW_2); 
-             after(grammarAccess.getActor_ImplAccess().getRightCurlyBracketKeyword_9()); 
+             before(grammarAccess.getActor_ImplAccess().getGroup_9()); 
+            // InternalSock.g:1179:2: ( rule__Actor_Impl__Group_9__0 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
+
+            if ( (LA13_0==24) ) {
+                alt13=1;
+            }
+            switch (alt13) {
+                case 1 :
+                    // InternalSock.g:1179:3: rule__Actor_Impl__Group_9__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Actor_Impl__Group_9__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getActor_ImplAccess().getGroup_9()); 
 
             }
 
@@ -3585,15 +3612,85 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Actor_Impl__Group__9__Impl"
 
 
+    // $ANTLR start "rule__Actor_Impl__Group__10"
+    // InternalSock.g:1187:1: rule__Actor_Impl__Group__10 : rule__Actor_Impl__Group__10__Impl ;
+    public final void rule__Actor_Impl__Group__10() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSock.g:1191:1: ( rule__Actor_Impl__Group__10__Impl )
+            // InternalSock.g:1192:2: rule__Actor_Impl__Group__10__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Actor_Impl__Group__10__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Actor_Impl__Group__10"
+
+
+    // $ANTLR start "rule__Actor_Impl__Group__10__Impl"
+    // InternalSock.g:1198:1: rule__Actor_Impl__Group__10__Impl : ( '}' ) ;
+    public final void rule__Actor_Impl__Group__10__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSock.g:1202:1: ( ( '}' ) )
+            // InternalSock.g:1203:1: ( '}' )
+            {
+            // InternalSock.g:1203:1: ( '}' )
+            // InternalSock.g:1204:2: '}'
+            {
+             before(grammarAccess.getActor_ImplAccess().getRightCurlyBracketKeyword_10()); 
+            match(input,13,FOLLOW_2); 
+             after(grammarAccess.getActor_ImplAccess().getRightCurlyBracketKeyword_10()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Actor_Impl__Group__10__Impl"
+
+
     // $ANTLR start "rule__Actor_Impl__Group_4__0"
-    // InternalSock.g:1187:1: rule__Actor_Impl__Group_4__0 : rule__Actor_Impl__Group_4__0__Impl rule__Actor_Impl__Group_4__1 ;
+    // InternalSock.g:1214:1: rule__Actor_Impl__Group_4__0 : rule__Actor_Impl__Group_4__0__Impl rule__Actor_Impl__Group_4__1 ;
     public final void rule__Actor_Impl__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1191:1: ( rule__Actor_Impl__Group_4__0__Impl rule__Actor_Impl__Group_4__1 )
-            // InternalSock.g:1192:2: rule__Actor_Impl__Group_4__0__Impl rule__Actor_Impl__Group_4__1
+            // InternalSock.g:1218:1: ( rule__Actor_Impl__Group_4__0__Impl rule__Actor_Impl__Group_4__1 )
+            // InternalSock.g:1219:2: rule__Actor_Impl__Group_4__0__Impl rule__Actor_Impl__Group_4__1
             {
             pushFollow(FOLLOW_7);
             rule__Actor_Impl__Group_4__0__Impl();
@@ -3624,17 +3721,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_4__0__Impl"
-    // InternalSock.g:1199:1: rule__Actor_Impl__Group_4__0__Impl : ( 'isSensible' ) ;
+    // InternalSock.g:1226:1: rule__Actor_Impl__Group_4__0__Impl : ( 'isSensible' ) ;
     public final void rule__Actor_Impl__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1203:1: ( ( 'isSensible' ) )
-            // InternalSock.g:1204:1: ( 'isSensible' )
+            // InternalSock.g:1230:1: ( ( 'isSensible' ) )
+            // InternalSock.g:1231:1: ( 'isSensible' )
             {
-            // InternalSock.g:1204:1: ( 'isSensible' )
-            // InternalSock.g:1205:2: 'isSensible'
+            // InternalSock.g:1231:1: ( 'isSensible' )
+            // InternalSock.g:1232:2: 'isSensible'
             {
              before(grammarAccess.getActor_ImplAccess().getIsSensibleKeyword_4_0()); 
             match(input,19,FOLLOW_2); 
@@ -3661,14 +3758,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_4__1"
-    // InternalSock.g:1214:1: rule__Actor_Impl__Group_4__1 : rule__Actor_Impl__Group_4__1__Impl ;
+    // InternalSock.g:1241:1: rule__Actor_Impl__Group_4__1 : rule__Actor_Impl__Group_4__1__Impl ;
     public final void rule__Actor_Impl__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1218:1: ( rule__Actor_Impl__Group_4__1__Impl )
-            // InternalSock.g:1219:2: rule__Actor_Impl__Group_4__1__Impl
+            // InternalSock.g:1245:1: ( rule__Actor_Impl__Group_4__1__Impl )
+            // InternalSock.g:1246:2: rule__Actor_Impl__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__Group_4__1__Impl();
@@ -3694,21 +3791,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_4__1__Impl"
-    // InternalSock.g:1225:1: rule__Actor_Impl__Group_4__1__Impl : ( ( rule__Actor_Impl__IsSensibleAssignment_4_1 ) ) ;
+    // InternalSock.g:1252:1: rule__Actor_Impl__Group_4__1__Impl : ( ( rule__Actor_Impl__IsSensibleAssignment_4_1 ) ) ;
     public final void rule__Actor_Impl__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1229:1: ( ( ( rule__Actor_Impl__IsSensibleAssignment_4_1 ) ) )
-            // InternalSock.g:1230:1: ( ( rule__Actor_Impl__IsSensibleAssignment_4_1 ) )
+            // InternalSock.g:1256:1: ( ( ( rule__Actor_Impl__IsSensibleAssignment_4_1 ) ) )
+            // InternalSock.g:1257:1: ( ( rule__Actor_Impl__IsSensibleAssignment_4_1 ) )
             {
-            // InternalSock.g:1230:1: ( ( rule__Actor_Impl__IsSensibleAssignment_4_1 ) )
-            // InternalSock.g:1231:2: ( rule__Actor_Impl__IsSensibleAssignment_4_1 )
+            // InternalSock.g:1257:1: ( ( rule__Actor_Impl__IsSensibleAssignment_4_1 ) )
+            // InternalSock.g:1258:2: ( rule__Actor_Impl__IsSensibleAssignment_4_1 )
             {
              before(grammarAccess.getActor_ImplAccess().getIsSensibleAssignment_4_1()); 
-            // InternalSock.g:1232:2: ( rule__Actor_Impl__IsSensibleAssignment_4_1 )
-            // InternalSock.g:1232:3: rule__Actor_Impl__IsSensibleAssignment_4_1
+            // InternalSock.g:1259:2: ( rule__Actor_Impl__IsSensibleAssignment_4_1 )
+            // InternalSock.g:1259:3: rule__Actor_Impl__IsSensibleAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__IsSensibleAssignment_4_1();
@@ -3741,14 +3838,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_5__0"
-    // InternalSock.g:1241:1: rule__Actor_Impl__Group_5__0 : rule__Actor_Impl__Group_5__0__Impl rule__Actor_Impl__Group_5__1 ;
+    // InternalSock.g:1268:1: rule__Actor_Impl__Group_5__0 : rule__Actor_Impl__Group_5__0__Impl rule__Actor_Impl__Group_5__1 ;
     public final void rule__Actor_Impl__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1245:1: ( rule__Actor_Impl__Group_5__0__Impl rule__Actor_Impl__Group_5__1 )
-            // InternalSock.g:1246:2: rule__Actor_Impl__Group_5__0__Impl rule__Actor_Impl__Group_5__1
+            // InternalSock.g:1272:1: ( rule__Actor_Impl__Group_5__0__Impl rule__Actor_Impl__Group_5__1 )
+            // InternalSock.g:1273:2: rule__Actor_Impl__Group_5__0__Impl rule__Actor_Impl__Group_5__1
             {
             pushFollow(FOLLOW_7);
             rule__Actor_Impl__Group_5__0__Impl();
@@ -3779,17 +3876,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_5__0__Impl"
-    // InternalSock.g:1253:1: rule__Actor_Impl__Group_5__0__Impl : ( 'processTime' ) ;
+    // InternalSock.g:1280:1: rule__Actor_Impl__Group_5__0__Impl : ( 'processTime' ) ;
     public final void rule__Actor_Impl__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1257:1: ( ( 'processTime' ) )
-            // InternalSock.g:1258:1: ( 'processTime' )
+            // InternalSock.g:1284:1: ( ( 'processTime' ) )
+            // InternalSock.g:1285:1: ( 'processTime' )
             {
-            // InternalSock.g:1258:1: ( 'processTime' )
-            // InternalSock.g:1259:2: 'processTime'
+            // InternalSock.g:1285:1: ( 'processTime' )
+            // InternalSock.g:1286:2: 'processTime'
             {
              before(grammarAccess.getActor_ImplAccess().getProcessTimeKeyword_5_0()); 
             match(input,20,FOLLOW_2); 
@@ -3816,14 +3913,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_5__1"
-    // InternalSock.g:1268:1: rule__Actor_Impl__Group_5__1 : rule__Actor_Impl__Group_5__1__Impl ;
+    // InternalSock.g:1295:1: rule__Actor_Impl__Group_5__1 : rule__Actor_Impl__Group_5__1__Impl ;
     public final void rule__Actor_Impl__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1272:1: ( rule__Actor_Impl__Group_5__1__Impl )
-            // InternalSock.g:1273:2: rule__Actor_Impl__Group_5__1__Impl
+            // InternalSock.g:1299:1: ( rule__Actor_Impl__Group_5__1__Impl )
+            // InternalSock.g:1300:2: rule__Actor_Impl__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__Group_5__1__Impl();
@@ -3849,21 +3946,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_5__1__Impl"
-    // InternalSock.g:1279:1: rule__Actor_Impl__Group_5__1__Impl : ( ( rule__Actor_Impl__ProcessTimeAssignment_5_1 ) ) ;
+    // InternalSock.g:1306:1: rule__Actor_Impl__Group_5__1__Impl : ( ( rule__Actor_Impl__ProcessTimeAssignment_5_1 ) ) ;
     public final void rule__Actor_Impl__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1283:1: ( ( ( rule__Actor_Impl__ProcessTimeAssignment_5_1 ) ) )
-            // InternalSock.g:1284:1: ( ( rule__Actor_Impl__ProcessTimeAssignment_5_1 ) )
+            // InternalSock.g:1310:1: ( ( ( rule__Actor_Impl__ProcessTimeAssignment_5_1 ) ) )
+            // InternalSock.g:1311:1: ( ( rule__Actor_Impl__ProcessTimeAssignment_5_1 ) )
             {
-            // InternalSock.g:1284:1: ( ( rule__Actor_Impl__ProcessTimeAssignment_5_1 ) )
-            // InternalSock.g:1285:2: ( rule__Actor_Impl__ProcessTimeAssignment_5_1 )
+            // InternalSock.g:1311:1: ( ( rule__Actor_Impl__ProcessTimeAssignment_5_1 ) )
+            // InternalSock.g:1312:2: ( rule__Actor_Impl__ProcessTimeAssignment_5_1 )
             {
              before(grammarAccess.getActor_ImplAccess().getProcessTimeAssignment_5_1()); 
-            // InternalSock.g:1286:2: ( rule__Actor_Impl__ProcessTimeAssignment_5_1 )
-            // InternalSock.g:1286:3: rule__Actor_Impl__ProcessTimeAssignment_5_1
+            // InternalSock.g:1313:2: ( rule__Actor_Impl__ProcessTimeAssignment_5_1 )
+            // InternalSock.g:1313:3: rule__Actor_Impl__ProcessTimeAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__ProcessTimeAssignment_5_1();
@@ -3896,14 +3993,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_6__0"
-    // InternalSock.g:1295:1: rule__Actor_Impl__Group_6__0 : rule__Actor_Impl__Group_6__0__Impl rule__Actor_Impl__Group_6__1 ;
+    // InternalSock.g:1322:1: rule__Actor_Impl__Group_6__0 : rule__Actor_Impl__Group_6__0__Impl rule__Actor_Impl__Group_6__1 ;
     public final void rule__Actor_Impl__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1299:1: ( rule__Actor_Impl__Group_6__0__Impl rule__Actor_Impl__Group_6__1 )
-            // InternalSock.g:1300:2: rule__Actor_Impl__Group_6__0__Impl rule__Actor_Impl__Group_6__1
+            // InternalSock.g:1326:1: ( rule__Actor_Impl__Group_6__0__Impl rule__Actor_Impl__Group_6__1 )
+            // InternalSock.g:1327:2: rule__Actor_Impl__Group_6__0__Impl rule__Actor_Impl__Group_6__1
             {
             pushFollow(FOLLOW_7);
             rule__Actor_Impl__Group_6__0__Impl();
@@ -3934,17 +4031,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_6__0__Impl"
-    // InternalSock.g:1307:1: rule__Actor_Impl__Group_6__0__Impl : ( 'periodTime' ) ;
+    // InternalSock.g:1334:1: rule__Actor_Impl__Group_6__0__Impl : ( 'periodTime' ) ;
     public final void rule__Actor_Impl__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1311:1: ( ( 'periodTime' ) )
-            // InternalSock.g:1312:1: ( 'periodTime' )
+            // InternalSock.g:1338:1: ( ( 'periodTime' ) )
+            // InternalSock.g:1339:1: ( 'periodTime' )
             {
-            // InternalSock.g:1312:1: ( 'periodTime' )
-            // InternalSock.g:1313:2: 'periodTime'
+            // InternalSock.g:1339:1: ( 'periodTime' )
+            // InternalSock.g:1340:2: 'periodTime'
             {
              before(grammarAccess.getActor_ImplAccess().getPeriodTimeKeyword_6_0()); 
             match(input,21,FOLLOW_2); 
@@ -3971,14 +4068,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_6__1"
-    // InternalSock.g:1322:1: rule__Actor_Impl__Group_6__1 : rule__Actor_Impl__Group_6__1__Impl ;
+    // InternalSock.g:1349:1: rule__Actor_Impl__Group_6__1 : rule__Actor_Impl__Group_6__1__Impl ;
     public final void rule__Actor_Impl__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1326:1: ( rule__Actor_Impl__Group_6__1__Impl )
-            // InternalSock.g:1327:2: rule__Actor_Impl__Group_6__1__Impl
+            // InternalSock.g:1353:1: ( rule__Actor_Impl__Group_6__1__Impl )
+            // InternalSock.g:1354:2: rule__Actor_Impl__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__Group_6__1__Impl();
@@ -4004,21 +4101,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_6__1__Impl"
-    // InternalSock.g:1333:1: rule__Actor_Impl__Group_6__1__Impl : ( ( rule__Actor_Impl__PeriodTimeAssignment_6_1 ) ) ;
+    // InternalSock.g:1360:1: rule__Actor_Impl__Group_6__1__Impl : ( ( rule__Actor_Impl__PeriodTimeAssignment_6_1 ) ) ;
     public final void rule__Actor_Impl__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1337:1: ( ( ( rule__Actor_Impl__PeriodTimeAssignment_6_1 ) ) )
-            // InternalSock.g:1338:1: ( ( rule__Actor_Impl__PeriodTimeAssignment_6_1 ) )
+            // InternalSock.g:1364:1: ( ( ( rule__Actor_Impl__PeriodTimeAssignment_6_1 ) ) )
+            // InternalSock.g:1365:1: ( ( rule__Actor_Impl__PeriodTimeAssignment_6_1 ) )
             {
-            // InternalSock.g:1338:1: ( ( rule__Actor_Impl__PeriodTimeAssignment_6_1 ) )
-            // InternalSock.g:1339:2: ( rule__Actor_Impl__PeriodTimeAssignment_6_1 )
+            // InternalSock.g:1365:1: ( ( rule__Actor_Impl__PeriodTimeAssignment_6_1 ) )
+            // InternalSock.g:1366:2: ( rule__Actor_Impl__PeriodTimeAssignment_6_1 )
             {
              before(grammarAccess.getActor_ImplAccess().getPeriodTimeAssignment_6_1()); 
-            // InternalSock.g:1340:2: ( rule__Actor_Impl__PeriodTimeAssignment_6_1 )
-            // InternalSock.g:1340:3: rule__Actor_Impl__PeriodTimeAssignment_6_1
+            // InternalSock.g:1367:2: ( rule__Actor_Impl__PeriodTimeAssignment_6_1 )
+            // InternalSock.g:1367:3: rule__Actor_Impl__PeriodTimeAssignment_6_1
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__PeriodTimeAssignment_6_1();
@@ -4051,14 +4148,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_7__0"
-    // InternalSock.g:1349:1: rule__Actor_Impl__Group_7__0 : rule__Actor_Impl__Group_7__0__Impl rule__Actor_Impl__Group_7__1 ;
+    // InternalSock.g:1376:1: rule__Actor_Impl__Group_7__0 : rule__Actor_Impl__Group_7__0__Impl rule__Actor_Impl__Group_7__1 ;
     public final void rule__Actor_Impl__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1353:1: ( rule__Actor_Impl__Group_7__0__Impl rule__Actor_Impl__Group_7__1 )
-            // InternalSock.g:1354:2: rule__Actor_Impl__Group_7__0__Impl rule__Actor_Impl__Group_7__1
+            // InternalSock.g:1380:1: ( rule__Actor_Impl__Group_7__0__Impl rule__Actor_Impl__Group_7__1 )
+            // InternalSock.g:1381:2: rule__Actor_Impl__Group_7__0__Impl rule__Actor_Impl__Group_7__1
             {
             pushFollow(FOLLOW_7);
             rule__Actor_Impl__Group_7__0__Impl();
@@ -4089,17 +4186,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_7__0__Impl"
-    // InternalSock.g:1361:1: rule__Actor_Impl__Group_7__0__Impl : ( 'currentProcessTime' ) ;
+    // InternalSock.g:1388:1: rule__Actor_Impl__Group_7__0__Impl : ( 'currentProcessTime' ) ;
     public final void rule__Actor_Impl__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1365:1: ( ( 'currentProcessTime' ) )
-            // InternalSock.g:1366:1: ( 'currentProcessTime' )
+            // InternalSock.g:1392:1: ( ( 'currentProcessTime' ) )
+            // InternalSock.g:1393:1: ( 'currentProcessTime' )
             {
-            // InternalSock.g:1366:1: ( 'currentProcessTime' )
-            // InternalSock.g:1367:2: 'currentProcessTime'
+            // InternalSock.g:1393:1: ( 'currentProcessTime' )
+            // InternalSock.g:1394:2: 'currentProcessTime'
             {
              before(grammarAccess.getActor_ImplAccess().getCurrentProcessTimeKeyword_7_0()); 
             match(input,22,FOLLOW_2); 
@@ -4126,14 +4223,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_7__1"
-    // InternalSock.g:1376:1: rule__Actor_Impl__Group_7__1 : rule__Actor_Impl__Group_7__1__Impl ;
+    // InternalSock.g:1403:1: rule__Actor_Impl__Group_7__1 : rule__Actor_Impl__Group_7__1__Impl ;
     public final void rule__Actor_Impl__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1380:1: ( rule__Actor_Impl__Group_7__1__Impl )
-            // InternalSock.g:1381:2: rule__Actor_Impl__Group_7__1__Impl
+            // InternalSock.g:1407:1: ( rule__Actor_Impl__Group_7__1__Impl )
+            // InternalSock.g:1408:2: rule__Actor_Impl__Group_7__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__Group_7__1__Impl();
@@ -4159,21 +4256,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_7__1__Impl"
-    // InternalSock.g:1387:1: rule__Actor_Impl__Group_7__1__Impl : ( ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 ) ) ;
+    // InternalSock.g:1414:1: rule__Actor_Impl__Group_7__1__Impl : ( ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 ) ) ;
     public final void rule__Actor_Impl__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1391:1: ( ( ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 ) ) )
-            // InternalSock.g:1392:1: ( ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 ) )
+            // InternalSock.g:1418:1: ( ( ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 ) ) )
+            // InternalSock.g:1419:1: ( ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 ) )
             {
-            // InternalSock.g:1392:1: ( ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 ) )
-            // InternalSock.g:1393:2: ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 )
+            // InternalSock.g:1419:1: ( ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 ) )
+            // InternalSock.g:1420:2: ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 )
             {
              before(grammarAccess.getActor_ImplAccess().getCurrentProcessTimeAssignment_7_1()); 
-            // InternalSock.g:1394:2: ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 )
-            // InternalSock.g:1394:3: rule__Actor_Impl__CurrentProcessTimeAssignment_7_1
+            // InternalSock.g:1421:2: ( rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 )
+            // InternalSock.g:1421:3: rule__Actor_Impl__CurrentProcessTimeAssignment_7_1
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__CurrentProcessTimeAssignment_7_1();
@@ -4206,14 +4303,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_8__0"
-    // InternalSock.g:1403:1: rule__Actor_Impl__Group_8__0 : rule__Actor_Impl__Group_8__0__Impl rule__Actor_Impl__Group_8__1 ;
+    // InternalSock.g:1430:1: rule__Actor_Impl__Group_8__0 : rule__Actor_Impl__Group_8__0__Impl rule__Actor_Impl__Group_8__1 ;
     public final void rule__Actor_Impl__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1407:1: ( rule__Actor_Impl__Group_8__0__Impl rule__Actor_Impl__Group_8__1 )
-            // InternalSock.g:1408:2: rule__Actor_Impl__Group_8__0__Impl rule__Actor_Impl__Group_8__1
+            // InternalSock.g:1434:1: ( rule__Actor_Impl__Group_8__0__Impl rule__Actor_Impl__Group_8__1 )
+            // InternalSock.g:1435:2: rule__Actor_Impl__Group_8__0__Impl rule__Actor_Impl__Group_8__1
             {
             pushFollow(FOLLOW_4);
             rule__Actor_Impl__Group_8__0__Impl();
@@ -4244,17 +4341,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_8__0__Impl"
-    // InternalSock.g:1415:1: rule__Actor_Impl__Group_8__0__Impl : ( 'resource' ) ;
+    // InternalSock.g:1442:1: rule__Actor_Impl__Group_8__0__Impl : ( 'resource' ) ;
     public final void rule__Actor_Impl__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1419:1: ( ( 'resource' ) )
-            // InternalSock.g:1420:1: ( 'resource' )
+            // InternalSock.g:1446:1: ( ( 'resource' ) )
+            // InternalSock.g:1447:1: ( 'resource' )
             {
-            // InternalSock.g:1420:1: ( 'resource' )
-            // InternalSock.g:1421:2: 'resource'
+            // InternalSock.g:1447:1: ( 'resource' )
+            // InternalSock.g:1448:2: 'resource'
             {
              before(grammarAccess.getActor_ImplAccess().getResourceKeyword_8_0()); 
             match(input,23,FOLLOW_2); 
@@ -4281,14 +4378,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_8__1"
-    // InternalSock.g:1430:1: rule__Actor_Impl__Group_8__1 : rule__Actor_Impl__Group_8__1__Impl ;
+    // InternalSock.g:1457:1: rule__Actor_Impl__Group_8__1 : rule__Actor_Impl__Group_8__1__Impl ;
     public final void rule__Actor_Impl__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1434:1: ( rule__Actor_Impl__Group_8__1__Impl )
-            // InternalSock.g:1435:2: rule__Actor_Impl__Group_8__1__Impl
+            // InternalSock.g:1461:1: ( rule__Actor_Impl__Group_8__1__Impl )
+            // InternalSock.g:1462:2: rule__Actor_Impl__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__Group_8__1__Impl();
@@ -4314,21 +4411,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__Group_8__1__Impl"
-    // InternalSock.g:1441:1: rule__Actor_Impl__Group_8__1__Impl : ( ( rule__Actor_Impl__ResourceAssignment_8_1 ) ) ;
+    // InternalSock.g:1468:1: rule__Actor_Impl__Group_8__1__Impl : ( ( rule__Actor_Impl__ResourceAssignment_8_1 ) ) ;
     public final void rule__Actor_Impl__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1445:1: ( ( ( rule__Actor_Impl__ResourceAssignment_8_1 ) ) )
-            // InternalSock.g:1446:1: ( ( rule__Actor_Impl__ResourceAssignment_8_1 ) )
+            // InternalSock.g:1472:1: ( ( ( rule__Actor_Impl__ResourceAssignment_8_1 ) ) )
+            // InternalSock.g:1473:1: ( ( rule__Actor_Impl__ResourceAssignment_8_1 ) )
             {
-            // InternalSock.g:1446:1: ( ( rule__Actor_Impl__ResourceAssignment_8_1 ) )
-            // InternalSock.g:1447:2: ( rule__Actor_Impl__ResourceAssignment_8_1 )
+            // InternalSock.g:1473:1: ( ( rule__Actor_Impl__ResourceAssignment_8_1 ) )
+            // InternalSock.g:1474:2: ( rule__Actor_Impl__ResourceAssignment_8_1 )
             {
              before(grammarAccess.getActor_ImplAccess().getResourceAssignment_8_1()); 
-            // InternalSock.g:1448:2: ( rule__Actor_Impl__ResourceAssignment_8_1 )
-            // InternalSock.g:1448:3: rule__Actor_Impl__ResourceAssignment_8_1
+            // InternalSock.g:1475:2: ( rule__Actor_Impl__ResourceAssignment_8_1 )
+            // InternalSock.g:1475:3: rule__Actor_Impl__ResourceAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__Actor_Impl__ResourceAssignment_8_1();
@@ -4360,15 +4457,170 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Actor_Impl__Group_8__1__Impl"
 
 
+    // $ANTLR start "rule__Actor_Impl__Group_9__0"
+    // InternalSock.g:1484:1: rule__Actor_Impl__Group_9__0 : rule__Actor_Impl__Group_9__0__Impl rule__Actor_Impl__Group_9__1 ;
+    public final void rule__Actor_Impl__Group_9__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSock.g:1488:1: ( rule__Actor_Impl__Group_9__0__Impl rule__Actor_Impl__Group_9__1 )
+            // InternalSock.g:1489:2: rule__Actor_Impl__Group_9__0__Impl rule__Actor_Impl__Group_9__1
+            {
+            pushFollow(FOLLOW_4);
+            rule__Actor_Impl__Group_9__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Actor_Impl__Group_9__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Actor_Impl__Group_9__0"
+
+
+    // $ANTLR start "rule__Actor_Impl__Group_9__0__Impl"
+    // InternalSock.g:1496:1: rule__Actor_Impl__Group_9__0__Impl : ( 'code' ) ;
+    public final void rule__Actor_Impl__Group_9__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSock.g:1500:1: ( ( 'code' ) )
+            // InternalSock.g:1501:1: ( 'code' )
+            {
+            // InternalSock.g:1501:1: ( 'code' )
+            // InternalSock.g:1502:2: 'code'
+            {
+             before(grammarAccess.getActor_ImplAccess().getCodeKeyword_9_0()); 
+            match(input,24,FOLLOW_2); 
+             after(grammarAccess.getActor_ImplAccess().getCodeKeyword_9_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Actor_Impl__Group_9__0__Impl"
+
+
+    // $ANTLR start "rule__Actor_Impl__Group_9__1"
+    // InternalSock.g:1511:1: rule__Actor_Impl__Group_9__1 : rule__Actor_Impl__Group_9__1__Impl ;
+    public final void rule__Actor_Impl__Group_9__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSock.g:1515:1: ( rule__Actor_Impl__Group_9__1__Impl )
+            // InternalSock.g:1516:2: rule__Actor_Impl__Group_9__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Actor_Impl__Group_9__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Actor_Impl__Group_9__1"
+
+
+    // $ANTLR start "rule__Actor_Impl__Group_9__1__Impl"
+    // InternalSock.g:1522:1: rule__Actor_Impl__Group_9__1__Impl : ( ( rule__Actor_Impl__CodeAssignment_9_1 ) ) ;
+    public final void rule__Actor_Impl__Group_9__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSock.g:1526:1: ( ( ( rule__Actor_Impl__CodeAssignment_9_1 ) ) )
+            // InternalSock.g:1527:1: ( ( rule__Actor_Impl__CodeAssignment_9_1 ) )
+            {
+            // InternalSock.g:1527:1: ( ( rule__Actor_Impl__CodeAssignment_9_1 ) )
+            // InternalSock.g:1528:2: ( rule__Actor_Impl__CodeAssignment_9_1 )
+            {
+             before(grammarAccess.getActor_ImplAccess().getCodeAssignment_9_1()); 
+            // InternalSock.g:1529:2: ( rule__Actor_Impl__CodeAssignment_9_1 )
+            // InternalSock.g:1529:3: rule__Actor_Impl__CodeAssignment_9_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Actor_Impl__CodeAssignment_9_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getActor_ImplAccess().getCodeAssignment_9_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Actor_Impl__Group_9__1__Impl"
+
+
     // $ANTLR start "rule__Resource__Group__0"
-    // InternalSock.g:1457:1: rule__Resource__Group__0 : rule__Resource__Group__0__Impl rule__Resource__Group__1 ;
+    // InternalSock.g:1538:1: rule__Resource__Group__0 : rule__Resource__Group__0__Impl rule__Resource__Group__1 ;
     public final void rule__Resource__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1461:1: ( rule__Resource__Group__0__Impl rule__Resource__Group__1 )
-            // InternalSock.g:1462:2: rule__Resource__Group__0__Impl rule__Resource__Group__1
+            // InternalSock.g:1542:1: ( rule__Resource__Group__0__Impl rule__Resource__Group__1 )
+            // InternalSock.g:1543:2: rule__Resource__Group__0__Impl rule__Resource__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__Resource__Group__0__Impl();
@@ -4399,21 +4651,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__0__Impl"
-    // InternalSock.g:1469:1: rule__Resource__Group__0__Impl : ( () ) ;
+    // InternalSock.g:1550:1: rule__Resource__Group__0__Impl : ( () ) ;
     public final void rule__Resource__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1473:1: ( ( () ) )
-            // InternalSock.g:1474:1: ( () )
+            // InternalSock.g:1554:1: ( ( () ) )
+            // InternalSock.g:1555:1: ( () )
             {
-            // InternalSock.g:1474:1: ( () )
-            // InternalSock.g:1475:2: ()
+            // InternalSock.g:1555:1: ( () )
+            // InternalSock.g:1556:2: ()
             {
              before(grammarAccess.getResourceAccess().getResourceAction_0()); 
-            // InternalSock.g:1476:2: ()
-            // InternalSock.g:1476:3: 
+            // InternalSock.g:1557:2: ()
+            // InternalSock.g:1557:3: 
             {
             }
 
@@ -4436,14 +4688,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__1"
-    // InternalSock.g:1484:1: rule__Resource__Group__1 : rule__Resource__Group__1__Impl rule__Resource__Group__2 ;
+    // InternalSock.g:1565:1: rule__Resource__Group__1 : rule__Resource__Group__1__Impl rule__Resource__Group__2 ;
     public final void rule__Resource__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1488:1: ( rule__Resource__Group__1__Impl rule__Resource__Group__2 )
-            // InternalSock.g:1489:2: rule__Resource__Group__1__Impl rule__Resource__Group__2
+            // InternalSock.g:1569:1: ( rule__Resource__Group__1__Impl rule__Resource__Group__2 )
+            // InternalSock.g:1570:2: rule__Resource__Group__1__Impl rule__Resource__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Resource__Group__1__Impl();
@@ -4474,20 +4726,20 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__1__Impl"
-    // InternalSock.g:1496:1: rule__Resource__Group__1__Impl : ( 'Resource' ) ;
+    // InternalSock.g:1577:1: rule__Resource__Group__1__Impl : ( 'Resource' ) ;
     public final void rule__Resource__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1500:1: ( ( 'Resource' ) )
-            // InternalSock.g:1501:1: ( 'Resource' )
+            // InternalSock.g:1581:1: ( ( 'Resource' ) )
+            // InternalSock.g:1582:1: ( 'Resource' )
             {
-            // InternalSock.g:1501:1: ( 'Resource' )
-            // InternalSock.g:1502:2: 'Resource'
+            // InternalSock.g:1582:1: ( 'Resource' )
+            // InternalSock.g:1583:2: 'Resource'
             {
              before(grammarAccess.getResourceAccess().getResourceKeyword_1()); 
-            match(input,24,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getResourceAccess().getResourceKeyword_1()); 
 
             }
@@ -4511,14 +4763,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__2"
-    // InternalSock.g:1511:1: rule__Resource__Group__2 : rule__Resource__Group__2__Impl rule__Resource__Group__3 ;
+    // InternalSock.g:1592:1: rule__Resource__Group__2 : rule__Resource__Group__2__Impl rule__Resource__Group__3 ;
     public final void rule__Resource__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1515:1: ( rule__Resource__Group__2__Impl rule__Resource__Group__3 )
-            // InternalSock.g:1516:2: rule__Resource__Group__2__Impl rule__Resource__Group__3
+            // InternalSock.g:1596:1: ( rule__Resource__Group__2__Impl rule__Resource__Group__3 )
+            // InternalSock.g:1597:2: rule__Resource__Group__2__Impl rule__Resource__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__Resource__Group__2__Impl();
@@ -4549,21 +4801,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__2__Impl"
-    // InternalSock.g:1523:1: rule__Resource__Group__2__Impl : ( ( rule__Resource__NameAssignment_2 ) ) ;
+    // InternalSock.g:1604:1: rule__Resource__Group__2__Impl : ( ( rule__Resource__NameAssignment_2 ) ) ;
     public final void rule__Resource__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1527:1: ( ( ( rule__Resource__NameAssignment_2 ) ) )
-            // InternalSock.g:1528:1: ( ( rule__Resource__NameAssignment_2 ) )
+            // InternalSock.g:1608:1: ( ( ( rule__Resource__NameAssignment_2 ) ) )
+            // InternalSock.g:1609:1: ( ( rule__Resource__NameAssignment_2 ) )
             {
-            // InternalSock.g:1528:1: ( ( rule__Resource__NameAssignment_2 ) )
-            // InternalSock.g:1529:2: ( rule__Resource__NameAssignment_2 )
+            // InternalSock.g:1609:1: ( ( rule__Resource__NameAssignment_2 ) )
+            // InternalSock.g:1610:2: ( rule__Resource__NameAssignment_2 )
             {
              before(grammarAccess.getResourceAccess().getNameAssignment_2()); 
-            // InternalSock.g:1530:2: ( rule__Resource__NameAssignment_2 )
-            // InternalSock.g:1530:3: rule__Resource__NameAssignment_2
+            // InternalSock.g:1611:2: ( rule__Resource__NameAssignment_2 )
+            // InternalSock.g:1611:3: rule__Resource__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Resource__NameAssignment_2();
@@ -4596,14 +4848,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__3"
-    // InternalSock.g:1538:1: rule__Resource__Group__3 : rule__Resource__Group__3__Impl rule__Resource__Group__4 ;
+    // InternalSock.g:1619:1: rule__Resource__Group__3 : rule__Resource__Group__3__Impl rule__Resource__Group__4 ;
     public final void rule__Resource__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1542:1: ( rule__Resource__Group__3__Impl rule__Resource__Group__4 )
-            // InternalSock.g:1543:2: rule__Resource__Group__3__Impl rule__Resource__Group__4
+            // InternalSock.g:1623:1: ( rule__Resource__Group__3__Impl rule__Resource__Group__4 )
+            // InternalSock.g:1624:2: rule__Resource__Group__3__Impl rule__Resource__Group__4
             {
             pushFollow(FOLLOW_14);
             rule__Resource__Group__3__Impl();
@@ -4634,17 +4886,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__3__Impl"
-    // InternalSock.g:1550:1: rule__Resource__Group__3__Impl : ( '{' ) ;
+    // InternalSock.g:1631:1: rule__Resource__Group__3__Impl : ( '{' ) ;
     public final void rule__Resource__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1554:1: ( ( '{' ) )
-            // InternalSock.g:1555:1: ( '{' )
+            // InternalSock.g:1635:1: ( ( '{' ) )
+            // InternalSock.g:1636:1: ( '{' )
             {
-            // InternalSock.g:1555:1: ( '{' )
-            // InternalSock.g:1556:2: '{'
+            // InternalSock.g:1636:1: ( '{' )
+            // InternalSock.g:1637:2: '{'
             {
              before(grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_3()); 
             match(input,12,FOLLOW_2); 
@@ -4671,14 +4923,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__4"
-    // InternalSock.g:1565:1: rule__Resource__Group__4 : rule__Resource__Group__4__Impl rule__Resource__Group__5 ;
+    // InternalSock.g:1646:1: rule__Resource__Group__4 : rule__Resource__Group__4__Impl rule__Resource__Group__5 ;
     public final void rule__Resource__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1569:1: ( rule__Resource__Group__4__Impl rule__Resource__Group__5 )
-            // InternalSock.g:1570:2: rule__Resource__Group__4__Impl rule__Resource__Group__5
+            // InternalSock.g:1650:1: ( rule__Resource__Group__4__Impl rule__Resource__Group__5 )
+            // InternalSock.g:1651:2: rule__Resource__Group__4__Impl rule__Resource__Group__5
             {
             pushFollow(FOLLOW_14);
             rule__Resource__Group__4__Impl();
@@ -4709,29 +4961,29 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__4__Impl"
-    // InternalSock.g:1577:1: rule__Resource__Group__4__Impl : ( ( rule__Resource__Group_4__0 )? ) ;
+    // InternalSock.g:1658:1: rule__Resource__Group__4__Impl : ( ( rule__Resource__Group_4__0 )? ) ;
     public final void rule__Resource__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1581:1: ( ( ( rule__Resource__Group_4__0 )? ) )
-            // InternalSock.g:1582:1: ( ( rule__Resource__Group_4__0 )? )
+            // InternalSock.g:1662:1: ( ( ( rule__Resource__Group_4__0 )? ) )
+            // InternalSock.g:1663:1: ( ( rule__Resource__Group_4__0 )? )
             {
-            // InternalSock.g:1582:1: ( ( rule__Resource__Group_4__0 )? )
-            // InternalSock.g:1583:2: ( rule__Resource__Group_4__0 )?
+            // InternalSock.g:1663:1: ( ( rule__Resource__Group_4__0 )? )
+            // InternalSock.g:1664:2: ( rule__Resource__Group_4__0 )?
             {
              before(grammarAccess.getResourceAccess().getGroup_4()); 
-            // InternalSock.g:1584:2: ( rule__Resource__Group_4__0 )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalSock.g:1665:2: ( rule__Resource__Group_4__0 )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA13_0==25) ) {
-                alt13=1;
+            if ( (LA14_0==26) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // InternalSock.g:1584:3: rule__Resource__Group_4__0
+                    // InternalSock.g:1665:3: rule__Resource__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Resource__Group_4__0();
@@ -4767,14 +5019,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__5"
-    // InternalSock.g:1592:1: rule__Resource__Group__5 : rule__Resource__Group__5__Impl ;
+    // InternalSock.g:1673:1: rule__Resource__Group__5 : rule__Resource__Group__5__Impl ;
     public final void rule__Resource__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1596:1: ( rule__Resource__Group__5__Impl )
-            // InternalSock.g:1597:2: rule__Resource__Group__5__Impl
+            // InternalSock.g:1677:1: ( rule__Resource__Group__5__Impl )
+            // InternalSock.g:1678:2: rule__Resource__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Resource__Group__5__Impl();
@@ -4800,17 +5052,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group__5__Impl"
-    // InternalSock.g:1603:1: rule__Resource__Group__5__Impl : ( '}' ) ;
+    // InternalSock.g:1684:1: rule__Resource__Group__5__Impl : ( '}' ) ;
     public final void rule__Resource__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1607:1: ( ( '}' ) )
-            // InternalSock.g:1608:1: ( '}' )
+            // InternalSock.g:1688:1: ( ( '}' ) )
+            // InternalSock.g:1689:1: ( '}' )
             {
-            // InternalSock.g:1608:1: ( '}' )
-            // InternalSock.g:1609:2: '}'
+            // InternalSock.g:1689:1: ( '}' )
+            // InternalSock.g:1690:2: '}'
             {
              before(grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_5()); 
             match(input,13,FOLLOW_2); 
@@ -4837,14 +5089,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__0"
-    // InternalSock.g:1619:1: rule__Resource__Group_4__0 : rule__Resource__Group_4__0__Impl rule__Resource__Group_4__1 ;
+    // InternalSock.g:1700:1: rule__Resource__Group_4__0 : rule__Resource__Group_4__0__Impl rule__Resource__Group_4__1 ;
     public final void rule__Resource__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1623:1: ( rule__Resource__Group_4__0__Impl rule__Resource__Group_4__1 )
-            // InternalSock.g:1624:2: rule__Resource__Group_4__0__Impl rule__Resource__Group_4__1
+            // InternalSock.g:1704:1: ( rule__Resource__Group_4__0__Impl rule__Resource__Group_4__1 )
+            // InternalSock.g:1705:2: rule__Resource__Group_4__0__Impl rule__Resource__Group_4__1
             {
             pushFollow(FOLLOW_15);
             rule__Resource__Group_4__0__Impl();
@@ -4875,20 +5127,20 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__0__Impl"
-    // InternalSock.g:1631:1: rule__Resource__Group_4__0__Impl : ( 'actor' ) ;
+    // InternalSock.g:1712:1: rule__Resource__Group_4__0__Impl : ( 'actor' ) ;
     public final void rule__Resource__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1635:1: ( ( 'actor' ) )
-            // InternalSock.g:1636:1: ( 'actor' )
+            // InternalSock.g:1716:1: ( ( 'actor' ) )
+            // InternalSock.g:1717:1: ( 'actor' )
             {
-            // InternalSock.g:1636:1: ( 'actor' )
-            // InternalSock.g:1637:2: 'actor'
+            // InternalSock.g:1717:1: ( 'actor' )
+            // InternalSock.g:1718:2: 'actor'
             {
              before(grammarAccess.getResourceAccess().getActorKeyword_4_0()); 
-            match(input,25,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getResourceAccess().getActorKeyword_4_0()); 
 
             }
@@ -4912,14 +5164,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__1"
-    // InternalSock.g:1646:1: rule__Resource__Group_4__1 : rule__Resource__Group_4__1__Impl rule__Resource__Group_4__2 ;
+    // InternalSock.g:1727:1: rule__Resource__Group_4__1 : rule__Resource__Group_4__1__Impl rule__Resource__Group_4__2 ;
     public final void rule__Resource__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1650:1: ( rule__Resource__Group_4__1__Impl rule__Resource__Group_4__2 )
-            // InternalSock.g:1651:2: rule__Resource__Group_4__1__Impl rule__Resource__Group_4__2
+            // InternalSock.g:1731:1: ( rule__Resource__Group_4__1__Impl rule__Resource__Group_4__2 )
+            // InternalSock.g:1732:2: rule__Resource__Group_4__1__Impl rule__Resource__Group_4__2
             {
             pushFollow(FOLLOW_4);
             rule__Resource__Group_4__1__Impl();
@@ -4950,20 +5202,20 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__1__Impl"
-    // InternalSock.g:1658:1: rule__Resource__Group_4__1__Impl : ( '(' ) ;
+    // InternalSock.g:1739:1: rule__Resource__Group_4__1__Impl : ( '(' ) ;
     public final void rule__Resource__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1662:1: ( ( '(' ) )
-            // InternalSock.g:1663:1: ( '(' )
+            // InternalSock.g:1743:1: ( ( '(' ) )
+            // InternalSock.g:1744:1: ( '(' )
             {
-            // InternalSock.g:1663:1: ( '(' )
-            // InternalSock.g:1664:2: '('
+            // InternalSock.g:1744:1: ( '(' )
+            // InternalSock.g:1745:2: '('
             {
              before(grammarAccess.getResourceAccess().getLeftParenthesisKeyword_4_1()); 
-            match(input,26,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getResourceAccess().getLeftParenthesisKeyword_4_1()); 
 
             }
@@ -4987,14 +5239,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__2"
-    // InternalSock.g:1673:1: rule__Resource__Group_4__2 : rule__Resource__Group_4__2__Impl rule__Resource__Group_4__3 ;
+    // InternalSock.g:1754:1: rule__Resource__Group_4__2 : rule__Resource__Group_4__2__Impl rule__Resource__Group_4__3 ;
     public final void rule__Resource__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1677:1: ( rule__Resource__Group_4__2__Impl rule__Resource__Group_4__3 )
-            // InternalSock.g:1678:2: rule__Resource__Group_4__2__Impl rule__Resource__Group_4__3
+            // InternalSock.g:1758:1: ( rule__Resource__Group_4__2__Impl rule__Resource__Group_4__3 )
+            // InternalSock.g:1759:2: rule__Resource__Group_4__2__Impl rule__Resource__Group_4__3
             {
             pushFollow(FOLLOW_16);
             rule__Resource__Group_4__2__Impl();
@@ -5025,21 +5277,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__2__Impl"
-    // InternalSock.g:1685:1: rule__Resource__Group_4__2__Impl : ( ( rule__Resource__ActorAssignment_4_2 ) ) ;
+    // InternalSock.g:1766:1: rule__Resource__Group_4__2__Impl : ( ( rule__Resource__ActorAssignment_4_2 ) ) ;
     public final void rule__Resource__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1689:1: ( ( ( rule__Resource__ActorAssignment_4_2 ) ) )
-            // InternalSock.g:1690:1: ( ( rule__Resource__ActorAssignment_4_2 ) )
+            // InternalSock.g:1770:1: ( ( ( rule__Resource__ActorAssignment_4_2 ) ) )
+            // InternalSock.g:1771:1: ( ( rule__Resource__ActorAssignment_4_2 ) )
             {
-            // InternalSock.g:1690:1: ( ( rule__Resource__ActorAssignment_4_2 ) )
-            // InternalSock.g:1691:2: ( rule__Resource__ActorAssignment_4_2 )
+            // InternalSock.g:1771:1: ( ( rule__Resource__ActorAssignment_4_2 ) )
+            // InternalSock.g:1772:2: ( rule__Resource__ActorAssignment_4_2 )
             {
              before(grammarAccess.getResourceAccess().getActorAssignment_4_2()); 
-            // InternalSock.g:1692:2: ( rule__Resource__ActorAssignment_4_2 )
-            // InternalSock.g:1692:3: rule__Resource__ActorAssignment_4_2
+            // InternalSock.g:1773:2: ( rule__Resource__ActorAssignment_4_2 )
+            // InternalSock.g:1773:3: rule__Resource__ActorAssignment_4_2
             {
             pushFollow(FOLLOW_2);
             rule__Resource__ActorAssignment_4_2();
@@ -5072,14 +5324,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__3"
-    // InternalSock.g:1700:1: rule__Resource__Group_4__3 : rule__Resource__Group_4__3__Impl rule__Resource__Group_4__4 ;
+    // InternalSock.g:1781:1: rule__Resource__Group_4__3 : rule__Resource__Group_4__3__Impl rule__Resource__Group_4__4 ;
     public final void rule__Resource__Group_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1704:1: ( rule__Resource__Group_4__3__Impl rule__Resource__Group_4__4 )
-            // InternalSock.g:1705:2: rule__Resource__Group_4__3__Impl rule__Resource__Group_4__4
+            // InternalSock.g:1785:1: ( rule__Resource__Group_4__3__Impl rule__Resource__Group_4__4 )
+            // InternalSock.g:1786:2: rule__Resource__Group_4__3__Impl rule__Resource__Group_4__4
             {
             pushFollow(FOLLOW_16);
             rule__Resource__Group_4__3__Impl();
@@ -5110,33 +5362,33 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__3__Impl"
-    // InternalSock.g:1712:1: rule__Resource__Group_4__3__Impl : ( ( rule__Resource__Group_4_3__0 )* ) ;
+    // InternalSock.g:1793:1: rule__Resource__Group_4__3__Impl : ( ( rule__Resource__Group_4_3__0 )* ) ;
     public final void rule__Resource__Group_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1716:1: ( ( ( rule__Resource__Group_4_3__0 )* ) )
-            // InternalSock.g:1717:1: ( ( rule__Resource__Group_4_3__0 )* )
+            // InternalSock.g:1797:1: ( ( ( rule__Resource__Group_4_3__0 )* ) )
+            // InternalSock.g:1798:1: ( ( rule__Resource__Group_4_3__0 )* )
             {
-            // InternalSock.g:1717:1: ( ( rule__Resource__Group_4_3__0 )* )
-            // InternalSock.g:1718:2: ( rule__Resource__Group_4_3__0 )*
+            // InternalSock.g:1798:1: ( ( rule__Resource__Group_4_3__0 )* )
+            // InternalSock.g:1799:2: ( rule__Resource__Group_4_3__0 )*
             {
              before(grammarAccess.getResourceAccess().getGroup_4_3()); 
-            // InternalSock.g:1719:2: ( rule__Resource__Group_4_3__0 )*
-            loop14:
+            // InternalSock.g:1800:2: ( rule__Resource__Group_4_3__0 )*
+            loop15:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA14_0==16) ) {
-                    alt14=1;
+                if ( (LA15_0==16) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt15) {
             	case 1 :
-            	    // InternalSock.g:1719:3: rule__Resource__Group_4_3__0
+            	    // InternalSock.g:1800:3: rule__Resource__Group_4_3__0
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__Resource__Group_4_3__0();
@@ -5148,7 +5400,7 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop15;
                 }
             } while (true);
 
@@ -5175,14 +5427,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__4"
-    // InternalSock.g:1727:1: rule__Resource__Group_4__4 : rule__Resource__Group_4__4__Impl ;
+    // InternalSock.g:1808:1: rule__Resource__Group_4__4 : rule__Resource__Group_4__4__Impl ;
     public final void rule__Resource__Group_4__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1731:1: ( rule__Resource__Group_4__4__Impl )
-            // InternalSock.g:1732:2: rule__Resource__Group_4__4__Impl
+            // InternalSock.g:1812:1: ( rule__Resource__Group_4__4__Impl )
+            // InternalSock.g:1813:2: rule__Resource__Group_4__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Resource__Group_4__4__Impl();
@@ -5208,20 +5460,20 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4__4__Impl"
-    // InternalSock.g:1738:1: rule__Resource__Group_4__4__Impl : ( ')' ) ;
+    // InternalSock.g:1819:1: rule__Resource__Group_4__4__Impl : ( ')' ) ;
     public final void rule__Resource__Group_4__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1742:1: ( ( ')' ) )
-            // InternalSock.g:1743:1: ( ')' )
+            // InternalSock.g:1823:1: ( ( ')' ) )
+            // InternalSock.g:1824:1: ( ')' )
             {
-            // InternalSock.g:1743:1: ( ')' )
-            // InternalSock.g:1744:2: ')'
+            // InternalSock.g:1824:1: ( ')' )
+            // InternalSock.g:1825:2: ')'
             {
              before(grammarAccess.getResourceAccess().getRightParenthesisKeyword_4_4()); 
-            match(input,27,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getResourceAccess().getRightParenthesisKeyword_4_4()); 
 
             }
@@ -5245,14 +5497,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4_3__0"
-    // InternalSock.g:1754:1: rule__Resource__Group_4_3__0 : rule__Resource__Group_4_3__0__Impl rule__Resource__Group_4_3__1 ;
+    // InternalSock.g:1835:1: rule__Resource__Group_4_3__0 : rule__Resource__Group_4_3__0__Impl rule__Resource__Group_4_3__1 ;
     public final void rule__Resource__Group_4_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1758:1: ( rule__Resource__Group_4_3__0__Impl rule__Resource__Group_4_3__1 )
-            // InternalSock.g:1759:2: rule__Resource__Group_4_3__0__Impl rule__Resource__Group_4_3__1
+            // InternalSock.g:1839:1: ( rule__Resource__Group_4_3__0__Impl rule__Resource__Group_4_3__1 )
+            // InternalSock.g:1840:2: rule__Resource__Group_4_3__0__Impl rule__Resource__Group_4_3__1
             {
             pushFollow(FOLLOW_4);
             rule__Resource__Group_4_3__0__Impl();
@@ -5283,17 +5535,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4_3__0__Impl"
-    // InternalSock.g:1766:1: rule__Resource__Group_4_3__0__Impl : ( ',' ) ;
+    // InternalSock.g:1847:1: rule__Resource__Group_4_3__0__Impl : ( ',' ) ;
     public final void rule__Resource__Group_4_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1770:1: ( ( ',' ) )
-            // InternalSock.g:1771:1: ( ',' )
+            // InternalSock.g:1851:1: ( ( ',' ) )
+            // InternalSock.g:1852:1: ( ',' )
             {
-            // InternalSock.g:1771:1: ( ',' )
-            // InternalSock.g:1772:2: ','
+            // InternalSock.g:1852:1: ( ',' )
+            // InternalSock.g:1853:2: ','
             {
              before(grammarAccess.getResourceAccess().getCommaKeyword_4_3_0()); 
             match(input,16,FOLLOW_2); 
@@ -5320,14 +5572,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4_3__1"
-    // InternalSock.g:1781:1: rule__Resource__Group_4_3__1 : rule__Resource__Group_4_3__1__Impl ;
+    // InternalSock.g:1862:1: rule__Resource__Group_4_3__1 : rule__Resource__Group_4_3__1__Impl ;
     public final void rule__Resource__Group_4_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1785:1: ( rule__Resource__Group_4_3__1__Impl )
-            // InternalSock.g:1786:2: rule__Resource__Group_4_3__1__Impl
+            // InternalSock.g:1866:1: ( rule__Resource__Group_4_3__1__Impl )
+            // InternalSock.g:1867:2: rule__Resource__Group_4_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Resource__Group_4_3__1__Impl();
@@ -5353,21 +5605,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__Group_4_3__1__Impl"
-    // InternalSock.g:1792:1: rule__Resource__Group_4_3__1__Impl : ( ( rule__Resource__ActorAssignment_4_3_1 ) ) ;
+    // InternalSock.g:1873:1: rule__Resource__Group_4_3__1__Impl : ( ( rule__Resource__ActorAssignment_4_3_1 ) ) ;
     public final void rule__Resource__Group_4_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1796:1: ( ( ( rule__Resource__ActorAssignment_4_3_1 ) ) )
-            // InternalSock.g:1797:1: ( ( rule__Resource__ActorAssignment_4_3_1 ) )
+            // InternalSock.g:1877:1: ( ( ( rule__Resource__ActorAssignment_4_3_1 ) ) )
+            // InternalSock.g:1878:1: ( ( rule__Resource__ActorAssignment_4_3_1 ) )
             {
-            // InternalSock.g:1797:1: ( ( rule__Resource__ActorAssignment_4_3_1 ) )
-            // InternalSock.g:1798:2: ( rule__Resource__ActorAssignment_4_3_1 )
+            // InternalSock.g:1878:1: ( ( rule__Resource__ActorAssignment_4_3_1 ) )
+            // InternalSock.g:1879:2: ( rule__Resource__ActorAssignment_4_3_1 )
             {
              before(grammarAccess.getResourceAccess().getActorAssignment_4_3_1()); 
-            // InternalSock.g:1799:2: ( rule__Resource__ActorAssignment_4_3_1 )
-            // InternalSock.g:1799:3: rule__Resource__ActorAssignment_4_3_1
+            // InternalSock.g:1880:2: ( rule__Resource__ActorAssignment_4_3_1 )
+            // InternalSock.g:1880:3: rule__Resource__ActorAssignment_4_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Resource__ActorAssignment_4_3_1();
@@ -5400,14 +5652,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalSock.g:1808:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalSock.g:1889:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1812:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalSock.g:1813:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalSock.g:1893:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalSock.g:1894:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__EInt__Group__0__Impl();
@@ -5438,31 +5690,31 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalSock.g:1820:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalSock.g:1901:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1824:1: ( ( ( '-' )? ) )
-            // InternalSock.g:1825:1: ( ( '-' )? )
+            // InternalSock.g:1905:1: ( ( ( '-' )? ) )
+            // InternalSock.g:1906:1: ( ( '-' )? )
             {
-            // InternalSock.g:1825:1: ( ( '-' )? )
-            // InternalSock.g:1826:2: ( '-' )?
+            // InternalSock.g:1906:1: ( ( '-' )? )
+            // InternalSock.g:1907:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalSock.g:1827:2: ( '-' )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // InternalSock.g:1908:2: ( '-' )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA15_0==28) ) {
-                alt15=1;
+            if ( (LA16_0==29) ) {
+                alt16=1;
             }
-            switch (alt15) {
+            switch (alt16) {
                 case 1 :
-                    // InternalSock.g:1827:3: '-'
+                    // InternalSock.g:1908:3: '-'
                     {
-                    match(input,28,FOLLOW_2); 
+                    match(input,29,FOLLOW_2); 
 
                     }
                     break;
@@ -5492,14 +5744,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalSock.g:1835:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalSock.g:1916:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1839:1: ( rule__EInt__Group__1__Impl )
-            // InternalSock.g:1840:2: rule__EInt__Group__1__Impl
+            // InternalSock.g:1920:1: ( rule__EInt__Group__1__Impl )
+            // InternalSock.g:1921:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -5525,17 +5777,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalSock.g:1846:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalSock.g:1927:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1850:1: ( ( RULE_INT ) )
-            // InternalSock.g:1851:1: ( RULE_INT )
+            // InternalSock.g:1931:1: ( ( RULE_INT ) )
+            // InternalSock.g:1932:1: ( RULE_INT )
             {
-            // InternalSock.g:1851:1: ( RULE_INT )
-            // InternalSock.g:1852:2: RULE_INT
+            // InternalSock.g:1932:1: ( RULE_INT )
+            // InternalSock.g:1933:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -5562,14 +5814,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__0"
-    // InternalSock.g:1862:1: rule__MaliciousActor__Group__0 : rule__MaliciousActor__Group__0__Impl rule__MaliciousActor__Group__1 ;
+    // InternalSock.g:1943:1: rule__MaliciousActor__Group__0 : rule__MaliciousActor__Group__0__Impl rule__MaliciousActor__Group__1 ;
     public final void rule__MaliciousActor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1866:1: ( rule__MaliciousActor__Group__0__Impl rule__MaliciousActor__Group__1 )
-            // InternalSock.g:1867:2: rule__MaliciousActor__Group__0__Impl rule__MaliciousActor__Group__1
+            // InternalSock.g:1947:1: ( rule__MaliciousActor__Group__0__Impl rule__MaliciousActor__Group__1 )
+            // InternalSock.g:1948:2: rule__MaliciousActor__Group__0__Impl rule__MaliciousActor__Group__1
             {
             pushFollow(FOLLOW_8);
             rule__MaliciousActor__Group__0__Impl();
@@ -5600,21 +5852,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__0__Impl"
-    // InternalSock.g:1874:1: rule__MaliciousActor__Group__0__Impl : ( () ) ;
+    // InternalSock.g:1955:1: rule__MaliciousActor__Group__0__Impl : ( () ) ;
     public final void rule__MaliciousActor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1878:1: ( ( () ) )
-            // InternalSock.g:1879:1: ( () )
+            // InternalSock.g:1959:1: ( ( () ) )
+            // InternalSock.g:1960:1: ( () )
             {
-            // InternalSock.g:1879:1: ( () )
-            // InternalSock.g:1880:2: ()
+            // InternalSock.g:1960:1: ( () )
+            // InternalSock.g:1961:2: ()
             {
              before(grammarAccess.getMaliciousActorAccess().getMaliciousActorAction_0()); 
-            // InternalSock.g:1881:2: ()
-            // InternalSock.g:1881:3: 
+            // InternalSock.g:1962:2: ()
+            // InternalSock.g:1962:3: 
             {
             }
 
@@ -5637,14 +5889,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__1"
-    // InternalSock.g:1889:1: rule__MaliciousActor__Group__1 : rule__MaliciousActor__Group__1__Impl rule__MaliciousActor__Group__2 ;
+    // InternalSock.g:1970:1: rule__MaliciousActor__Group__1 : rule__MaliciousActor__Group__1__Impl rule__MaliciousActor__Group__2 ;
     public final void rule__MaliciousActor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1893:1: ( rule__MaliciousActor__Group__1__Impl rule__MaliciousActor__Group__2 )
-            // InternalSock.g:1894:2: rule__MaliciousActor__Group__1__Impl rule__MaliciousActor__Group__2
+            // InternalSock.g:1974:1: ( rule__MaliciousActor__Group__1__Impl rule__MaliciousActor__Group__2 )
+            // InternalSock.g:1975:2: rule__MaliciousActor__Group__1__Impl rule__MaliciousActor__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__MaliciousActor__Group__1__Impl();
@@ -5675,20 +5927,20 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__1__Impl"
-    // InternalSock.g:1901:1: rule__MaliciousActor__Group__1__Impl : ( 'MaliciousActor' ) ;
+    // InternalSock.g:1982:1: rule__MaliciousActor__Group__1__Impl : ( 'MaliciousActor' ) ;
     public final void rule__MaliciousActor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1905:1: ( ( 'MaliciousActor' ) )
-            // InternalSock.g:1906:1: ( 'MaliciousActor' )
+            // InternalSock.g:1986:1: ( ( 'MaliciousActor' ) )
+            // InternalSock.g:1987:1: ( 'MaliciousActor' )
             {
-            // InternalSock.g:1906:1: ( 'MaliciousActor' )
-            // InternalSock.g:1907:2: 'MaliciousActor'
+            // InternalSock.g:1987:1: ( 'MaliciousActor' )
+            // InternalSock.g:1988:2: 'MaliciousActor'
             {
              before(grammarAccess.getMaliciousActorAccess().getMaliciousActorKeyword_1()); 
-            match(input,29,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getMaliciousActorAccess().getMaliciousActorKeyword_1()); 
 
             }
@@ -5712,14 +5964,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__2"
-    // InternalSock.g:1916:1: rule__MaliciousActor__Group__2 : rule__MaliciousActor__Group__2__Impl rule__MaliciousActor__Group__3 ;
+    // InternalSock.g:1997:1: rule__MaliciousActor__Group__2 : rule__MaliciousActor__Group__2__Impl rule__MaliciousActor__Group__3 ;
     public final void rule__MaliciousActor__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1920:1: ( rule__MaliciousActor__Group__2__Impl rule__MaliciousActor__Group__3 )
-            // InternalSock.g:1921:2: rule__MaliciousActor__Group__2__Impl rule__MaliciousActor__Group__3
+            // InternalSock.g:2001:1: ( rule__MaliciousActor__Group__2__Impl rule__MaliciousActor__Group__3 )
+            // InternalSock.g:2002:2: rule__MaliciousActor__Group__2__Impl rule__MaliciousActor__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__MaliciousActor__Group__2__Impl();
@@ -5750,21 +6002,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__2__Impl"
-    // InternalSock.g:1928:1: rule__MaliciousActor__Group__2__Impl : ( ( rule__MaliciousActor__NameAssignment_2 ) ) ;
+    // InternalSock.g:2009:1: rule__MaliciousActor__Group__2__Impl : ( ( rule__MaliciousActor__NameAssignment_2 ) ) ;
     public final void rule__MaliciousActor__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1932:1: ( ( ( rule__MaliciousActor__NameAssignment_2 ) ) )
-            // InternalSock.g:1933:1: ( ( rule__MaliciousActor__NameAssignment_2 ) )
+            // InternalSock.g:2013:1: ( ( ( rule__MaliciousActor__NameAssignment_2 ) ) )
+            // InternalSock.g:2014:1: ( ( rule__MaliciousActor__NameAssignment_2 ) )
             {
-            // InternalSock.g:1933:1: ( ( rule__MaliciousActor__NameAssignment_2 ) )
-            // InternalSock.g:1934:2: ( rule__MaliciousActor__NameAssignment_2 )
+            // InternalSock.g:2014:1: ( ( rule__MaliciousActor__NameAssignment_2 ) )
+            // InternalSock.g:2015:2: ( rule__MaliciousActor__NameAssignment_2 )
             {
              before(grammarAccess.getMaliciousActorAccess().getNameAssignment_2()); 
-            // InternalSock.g:1935:2: ( rule__MaliciousActor__NameAssignment_2 )
-            // InternalSock.g:1935:3: rule__MaliciousActor__NameAssignment_2
+            // InternalSock.g:2016:2: ( rule__MaliciousActor__NameAssignment_2 )
+            // InternalSock.g:2016:3: rule__MaliciousActor__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__NameAssignment_2();
@@ -5797,16 +6049,16 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__3"
-    // InternalSock.g:1943:1: rule__MaliciousActor__Group__3 : rule__MaliciousActor__Group__3__Impl rule__MaliciousActor__Group__4 ;
+    // InternalSock.g:2024:1: rule__MaliciousActor__Group__3 : rule__MaliciousActor__Group__3__Impl rule__MaliciousActor__Group__4 ;
     public final void rule__MaliciousActor__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1947:1: ( rule__MaliciousActor__Group__3__Impl rule__MaliciousActor__Group__4 )
-            // InternalSock.g:1948:2: rule__MaliciousActor__Group__3__Impl rule__MaliciousActor__Group__4
+            // InternalSock.g:2028:1: ( rule__MaliciousActor__Group__3__Impl rule__MaliciousActor__Group__4 )
+            // InternalSock.g:2029:2: rule__MaliciousActor__Group__3__Impl rule__MaliciousActor__Group__4
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_17);
             rule__MaliciousActor__Group__3__Impl();
 
             state._fsp--;
@@ -5835,17 +6087,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__3__Impl"
-    // InternalSock.g:1955:1: rule__MaliciousActor__Group__3__Impl : ( '{' ) ;
+    // InternalSock.g:2036:1: rule__MaliciousActor__Group__3__Impl : ( '{' ) ;
     public final void rule__MaliciousActor__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1959:1: ( ( '{' ) )
-            // InternalSock.g:1960:1: ( '{' )
+            // InternalSock.g:2040:1: ( ( '{' ) )
+            // InternalSock.g:2041:1: ( '{' )
             {
-            // InternalSock.g:1960:1: ( '{' )
-            // InternalSock.g:1961:2: '{'
+            // InternalSock.g:2041:1: ( '{' )
+            // InternalSock.g:2042:2: '{'
             {
              before(grammarAccess.getMaliciousActorAccess().getLeftCurlyBracketKeyword_3()); 
             match(input,12,FOLLOW_2); 
@@ -5872,16 +6124,16 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__4"
-    // InternalSock.g:1970:1: rule__MaliciousActor__Group__4 : rule__MaliciousActor__Group__4__Impl rule__MaliciousActor__Group__5 ;
+    // InternalSock.g:2051:1: rule__MaliciousActor__Group__4 : rule__MaliciousActor__Group__4__Impl rule__MaliciousActor__Group__5 ;
     public final void rule__MaliciousActor__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1974:1: ( rule__MaliciousActor__Group__4__Impl rule__MaliciousActor__Group__5 )
-            // InternalSock.g:1975:2: rule__MaliciousActor__Group__4__Impl rule__MaliciousActor__Group__5
+            // InternalSock.g:2055:1: ( rule__MaliciousActor__Group__4__Impl rule__MaliciousActor__Group__5 )
+            // InternalSock.g:2056:2: rule__MaliciousActor__Group__4__Impl rule__MaliciousActor__Group__5
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_17);
             rule__MaliciousActor__Group__4__Impl();
 
             state._fsp--;
@@ -5910,29 +6162,29 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__4__Impl"
-    // InternalSock.g:1982:1: rule__MaliciousActor__Group__4__Impl : ( ( rule__MaliciousActor__Group_4__0 )? ) ;
+    // InternalSock.g:2063:1: rule__MaliciousActor__Group__4__Impl : ( ( rule__MaliciousActor__Group_4__0 )? ) ;
     public final void rule__MaliciousActor__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:1986:1: ( ( ( rule__MaliciousActor__Group_4__0 )? ) )
-            // InternalSock.g:1987:1: ( ( rule__MaliciousActor__Group_4__0 )? )
+            // InternalSock.g:2067:1: ( ( ( rule__MaliciousActor__Group_4__0 )? ) )
+            // InternalSock.g:2068:1: ( ( rule__MaliciousActor__Group_4__0 )? )
             {
-            // InternalSock.g:1987:1: ( ( rule__MaliciousActor__Group_4__0 )? )
-            // InternalSock.g:1988:2: ( rule__MaliciousActor__Group_4__0 )?
+            // InternalSock.g:2068:1: ( ( rule__MaliciousActor__Group_4__0 )? )
+            // InternalSock.g:2069:2: ( rule__MaliciousActor__Group_4__0 )?
             {
              before(grammarAccess.getMaliciousActorAccess().getGroup_4()); 
-            // InternalSock.g:1989:2: ( rule__MaliciousActor__Group_4__0 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalSock.g:2070:2: ( rule__MaliciousActor__Group_4__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==19) ) {
-                alt16=1;
+            if ( (LA17_0==19) ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // InternalSock.g:1989:3: rule__MaliciousActor__Group_4__0
+                    // InternalSock.g:2070:3: rule__MaliciousActor__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__MaliciousActor__Group_4__0();
@@ -5968,16 +6220,16 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__5"
-    // InternalSock.g:1997:1: rule__MaliciousActor__Group__5 : rule__MaliciousActor__Group__5__Impl rule__MaliciousActor__Group__6 ;
+    // InternalSock.g:2078:1: rule__MaliciousActor__Group__5 : rule__MaliciousActor__Group__5__Impl rule__MaliciousActor__Group__6 ;
     public final void rule__MaliciousActor__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2001:1: ( rule__MaliciousActor__Group__5__Impl rule__MaliciousActor__Group__6 )
-            // InternalSock.g:2002:2: rule__MaliciousActor__Group__5__Impl rule__MaliciousActor__Group__6
+            // InternalSock.g:2082:1: ( rule__MaliciousActor__Group__5__Impl rule__MaliciousActor__Group__6 )
+            // InternalSock.g:2083:2: rule__MaliciousActor__Group__5__Impl rule__MaliciousActor__Group__6
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_17);
             rule__MaliciousActor__Group__5__Impl();
 
             state._fsp--;
@@ -6006,29 +6258,29 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__5__Impl"
-    // InternalSock.g:2009:1: rule__MaliciousActor__Group__5__Impl : ( ( rule__MaliciousActor__Group_5__0 )? ) ;
+    // InternalSock.g:2090:1: rule__MaliciousActor__Group__5__Impl : ( ( rule__MaliciousActor__Group_5__0 )? ) ;
     public final void rule__MaliciousActor__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2013:1: ( ( ( rule__MaliciousActor__Group_5__0 )? ) )
-            // InternalSock.g:2014:1: ( ( rule__MaliciousActor__Group_5__0 )? )
+            // InternalSock.g:2094:1: ( ( ( rule__MaliciousActor__Group_5__0 )? ) )
+            // InternalSock.g:2095:1: ( ( rule__MaliciousActor__Group_5__0 )? )
             {
-            // InternalSock.g:2014:1: ( ( rule__MaliciousActor__Group_5__0 )? )
-            // InternalSock.g:2015:2: ( rule__MaliciousActor__Group_5__0 )?
+            // InternalSock.g:2095:1: ( ( rule__MaliciousActor__Group_5__0 )? )
+            // InternalSock.g:2096:2: ( rule__MaliciousActor__Group_5__0 )?
             {
              before(grammarAccess.getMaliciousActorAccess().getGroup_5()); 
-            // InternalSock.g:2016:2: ( rule__MaliciousActor__Group_5__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalSock.g:2097:2: ( rule__MaliciousActor__Group_5__0 )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==20) ) {
-                alt17=1;
+            if ( (LA18_0==20) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalSock.g:2016:3: rule__MaliciousActor__Group_5__0
+                    // InternalSock.g:2097:3: rule__MaliciousActor__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__MaliciousActor__Group_5__0();
@@ -6064,16 +6316,16 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__6"
-    // InternalSock.g:2024:1: rule__MaliciousActor__Group__6 : rule__MaliciousActor__Group__6__Impl rule__MaliciousActor__Group__7 ;
+    // InternalSock.g:2105:1: rule__MaliciousActor__Group__6 : rule__MaliciousActor__Group__6__Impl rule__MaliciousActor__Group__7 ;
     public final void rule__MaliciousActor__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2028:1: ( rule__MaliciousActor__Group__6__Impl rule__MaliciousActor__Group__7 )
-            // InternalSock.g:2029:2: rule__MaliciousActor__Group__6__Impl rule__MaliciousActor__Group__7
+            // InternalSock.g:2109:1: ( rule__MaliciousActor__Group__6__Impl rule__MaliciousActor__Group__7 )
+            // InternalSock.g:2110:2: rule__MaliciousActor__Group__6__Impl rule__MaliciousActor__Group__7
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_17);
             rule__MaliciousActor__Group__6__Impl();
 
             state._fsp--;
@@ -6102,29 +6354,29 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__6__Impl"
-    // InternalSock.g:2036:1: rule__MaliciousActor__Group__6__Impl : ( ( rule__MaliciousActor__Group_6__0 )? ) ;
+    // InternalSock.g:2117:1: rule__MaliciousActor__Group__6__Impl : ( ( rule__MaliciousActor__Group_6__0 )? ) ;
     public final void rule__MaliciousActor__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2040:1: ( ( ( rule__MaliciousActor__Group_6__0 )? ) )
-            // InternalSock.g:2041:1: ( ( rule__MaliciousActor__Group_6__0 )? )
+            // InternalSock.g:2121:1: ( ( ( rule__MaliciousActor__Group_6__0 )? ) )
+            // InternalSock.g:2122:1: ( ( rule__MaliciousActor__Group_6__0 )? )
             {
-            // InternalSock.g:2041:1: ( ( rule__MaliciousActor__Group_6__0 )? )
-            // InternalSock.g:2042:2: ( rule__MaliciousActor__Group_6__0 )?
+            // InternalSock.g:2122:1: ( ( rule__MaliciousActor__Group_6__0 )? )
+            // InternalSock.g:2123:2: ( rule__MaliciousActor__Group_6__0 )?
             {
              before(grammarAccess.getMaliciousActorAccess().getGroup_6()); 
-            // InternalSock.g:2043:2: ( rule__MaliciousActor__Group_6__0 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalSock.g:2124:2: ( rule__MaliciousActor__Group_6__0 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==21) ) {
-                alt18=1;
+            if ( (LA19_0==21) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
-                    // InternalSock.g:2043:3: rule__MaliciousActor__Group_6__0
+                    // InternalSock.g:2124:3: rule__MaliciousActor__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__MaliciousActor__Group_6__0();
@@ -6160,16 +6412,16 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__7"
-    // InternalSock.g:2051:1: rule__MaliciousActor__Group__7 : rule__MaliciousActor__Group__7__Impl rule__MaliciousActor__Group__8 ;
+    // InternalSock.g:2132:1: rule__MaliciousActor__Group__7 : rule__MaliciousActor__Group__7__Impl rule__MaliciousActor__Group__8 ;
     public final void rule__MaliciousActor__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2055:1: ( rule__MaliciousActor__Group__7__Impl rule__MaliciousActor__Group__8 )
-            // InternalSock.g:2056:2: rule__MaliciousActor__Group__7__Impl rule__MaliciousActor__Group__8
+            // InternalSock.g:2136:1: ( rule__MaliciousActor__Group__7__Impl rule__MaliciousActor__Group__8 )
+            // InternalSock.g:2137:2: rule__MaliciousActor__Group__7__Impl rule__MaliciousActor__Group__8
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_17);
             rule__MaliciousActor__Group__7__Impl();
 
             state._fsp--;
@@ -6198,29 +6450,29 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__7__Impl"
-    // InternalSock.g:2063:1: rule__MaliciousActor__Group__7__Impl : ( ( rule__MaliciousActor__Group_7__0 )? ) ;
+    // InternalSock.g:2144:1: rule__MaliciousActor__Group__7__Impl : ( ( rule__MaliciousActor__Group_7__0 )? ) ;
     public final void rule__MaliciousActor__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2067:1: ( ( ( rule__MaliciousActor__Group_7__0 )? ) )
-            // InternalSock.g:2068:1: ( ( rule__MaliciousActor__Group_7__0 )? )
+            // InternalSock.g:2148:1: ( ( ( rule__MaliciousActor__Group_7__0 )? ) )
+            // InternalSock.g:2149:1: ( ( rule__MaliciousActor__Group_7__0 )? )
             {
-            // InternalSock.g:2068:1: ( ( rule__MaliciousActor__Group_7__0 )? )
-            // InternalSock.g:2069:2: ( rule__MaliciousActor__Group_7__0 )?
+            // InternalSock.g:2149:1: ( ( rule__MaliciousActor__Group_7__0 )? )
+            // InternalSock.g:2150:2: ( rule__MaliciousActor__Group_7__0 )?
             {
              before(grammarAccess.getMaliciousActorAccess().getGroup_7()); 
-            // InternalSock.g:2070:2: ( rule__MaliciousActor__Group_7__0 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalSock.g:2151:2: ( rule__MaliciousActor__Group_7__0 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0==22) ) {
-                alt19=1;
+            if ( (LA20_0==22) ) {
+                alt20=1;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
-                    // InternalSock.g:2070:3: rule__MaliciousActor__Group_7__0
+                    // InternalSock.g:2151:3: rule__MaliciousActor__Group_7__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__MaliciousActor__Group_7__0();
@@ -6256,16 +6508,16 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__8"
-    // InternalSock.g:2078:1: rule__MaliciousActor__Group__8 : rule__MaliciousActor__Group__8__Impl rule__MaliciousActor__Group__9 ;
+    // InternalSock.g:2159:1: rule__MaliciousActor__Group__8 : rule__MaliciousActor__Group__8__Impl rule__MaliciousActor__Group__9 ;
     public final void rule__MaliciousActor__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2082:1: ( rule__MaliciousActor__Group__8__Impl rule__MaliciousActor__Group__9 )
-            // InternalSock.g:2083:2: rule__MaliciousActor__Group__8__Impl rule__MaliciousActor__Group__9
+            // InternalSock.g:2163:1: ( rule__MaliciousActor__Group__8__Impl rule__MaliciousActor__Group__9 )
+            // InternalSock.g:2164:2: rule__MaliciousActor__Group__8__Impl rule__MaliciousActor__Group__9
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_17);
             rule__MaliciousActor__Group__8__Impl();
 
             state._fsp--;
@@ -6294,29 +6546,29 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__8__Impl"
-    // InternalSock.g:2090:1: rule__MaliciousActor__Group__8__Impl : ( ( rule__MaliciousActor__Group_8__0 )? ) ;
+    // InternalSock.g:2171:1: rule__MaliciousActor__Group__8__Impl : ( ( rule__MaliciousActor__Group_8__0 )? ) ;
     public final void rule__MaliciousActor__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2094:1: ( ( ( rule__MaliciousActor__Group_8__0 )? ) )
-            // InternalSock.g:2095:1: ( ( rule__MaliciousActor__Group_8__0 )? )
+            // InternalSock.g:2175:1: ( ( ( rule__MaliciousActor__Group_8__0 )? ) )
+            // InternalSock.g:2176:1: ( ( rule__MaliciousActor__Group_8__0 )? )
             {
-            // InternalSock.g:2095:1: ( ( rule__MaliciousActor__Group_8__0 )? )
-            // InternalSock.g:2096:2: ( rule__MaliciousActor__Group_8__0 )?
+            // InternalSock.g:2176:1: ( ( rule__MaliciousActor__Group_8__0 )? )
+            // InternalSock.g:2177:2: ( rule__MaliciousActor__Group_8__0 )?
             {
              before(grammarAccess.getMaliciousActorAccess().getGroup_8()); 
-            // InternalSock.g:2097:2: ( rule__MaliciousActor__Group_8__0 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalSock.g:2178:2: ( rule__MaliciousActor__Group_8__0 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA20_0==23) ) {
-                alt20=1;
+            if ( (LA21_0==23) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // InternalSock.g:2097:3: rule__MaliciousActor__Group_8__0
+                    // InternalSock.g:2178:3: rule__MaliciousActor__Group_8__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__MaliciousActor__Group_8__0();
@@ -6352,14 +6604,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__9"
-    // InternalSock.g:2105:1: rule__MaliciousActor__Group__9 : rule__MaliciousActor__Group__9__Impl ;
+    // InternalSock.g:2186:1: rule__MaliciousActor__Group__9 : rule__MaliciousActor__Group__9__Impl ;
     public final void rule__MaliciousActor__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2109:1: ( rule__MaliciousActor__Group__9__Impl )
-            // InternalSock.g:2110:2: rule__MaliciousActor__Group__9__Impl
+            // InternalSock.g:2190:1: ( rule__MaliciousActor__Group__9__Impl )
+            // InternalSock.g:2191:2: rule__MaliciousActor__Group__9__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__Group__9__Impl();
@@ -6385,17 +6637,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group__9__Impl"
-    // InternalSock.g:2116:1: rule__MaliciousActor__Group__9__Impl : ( '}' ) ;
+    // InternalSock.g:2197:1: rule__MaliciousActor__Group__9__Impl : ( '}' ) ;
     public final void rule__MaliciousActor__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2120:1: ( ( '}' ) )
-            // InternalSock.g:2121:1: ( '}' )
+            // InternalSock.g:2201:1: ( ( '}' ) )
+            // InternalSock.g:2202:1: ( '}' )
             {
-            // InternalSock.g:2121:1: ( '}' )
-            // InternalSock.g:2122:2: '}'
+            // InternalSock.g:2202:1: ( '}' )
+            // InternalSock.g:2203:2: '}'
             {
              before(grammarAccess.getMaliciousActorAccess().getRightCurlyBracketKeyword_9()); 
             match(input,13,FOLLOW_2); 
@@ -6422,14 +6674,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_4__0"
-    // InternalSock.g:2132:1: rule__MaliciousActor__Group_4__0 : rule__MaliciousActor__Group_4__0__Impl rule__MaliciousActor__Group_4__1 ;
+    // InternalSock.g:2213:1: rule__MaliciousActor__Group_4__0 : rule__MaliciousActor__Group_4__0__Impl rule__MaliciousActor__Group_4__1 ;
     public final void rule__MaliciousActor__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2136:1: ( rule__MaliciousActor__Group_4__0__Impl rule__MaliciousActor__Group_4__1 )
-            // InternalSock.g:2137:2: rule__MaliciousActor__Group_4__0__Impl rule__MaliciousActor__Group_4__1
+            // InternalSock.g:2217:1: ( rule__MaliciousActor__Group_4__0__Impl rule__MaliciousActor__Group_4__1 )
+            // InternalSock.g:2218:2: rule__MaliciousActor__Group_4__0__Impl rule__MaliciousActor__Group_4__1
             {
             pushFollow(FOLLOW_7);
             rule__MaliciousActor__Group_4__0__Impl();
@@ -6460,17 +6712,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_4__0__Impl"
-    // InternalSock.g:2144:1: rule__MaliciousActor__Group_4__0__Impl : ( 'isSensible' ) ;
+    // InternalSock.g:2225:1: rule__MaliciousActor__Group_4__0__Impl : ( 'isSensible' ) ;
     public final void rule__MaliciousActor__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2148:1: ( ( 'isSensible' ) )
-            // InternalSock.g:2149:1: ( 'isSensible' )
+            // InternalSock.g:2229:1: ( ( 'isSensible' ) )
+            // InternalSock.g:2230:1: ( 'isSensible' )
             {
-            // InternalSock.g:2149:1: ( 'isSensible' )
-            // InternalSock.g:2150:2: 'isSensible'
+            // InternalSock.g:2230:1: ( 'isSensible' )
+            // InternalSock.g:2231:2: 'isSensible'
             {
              before(grammarAccess.getMaliciousActorAccess().getIsSensibleKeyword_4_0()); 
             match(input,19,FOLLOW_2); 
@@ -6497,14 +6749,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_4__1"
-    // InternalSock.g:2159:1: rule__MaliciousActor__Group_4__1 : rule__MaliciousActor__Group_4__1__Impl ;
+    // InternalSock.g:2240:1: rule__MaliciousActor__Group_4__1 : rule__MaliciousActor__Group_4__1__Impl ;
     public final void rule__MaliciousActor__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2163:1: ( rule__MaliciousActor__Group_4__1__Impl )
-            // InternalSock.g:2164:2: rule__MaliciousActor__Group_4__1__Impl
+            // InternalSock.g:2244:1: ( rule__MaliciousActor__Group_4__1__Impl )
+            // InternalSock.g:2245:2: rule__MaliciousActor__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__Group_4__1__Impl();
@@ -6530,21 +6782,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_4__1__Impl"
-    // InternalSock.g:2170:1: rule__MaliciousActor__Group_4__1__Impl : ( ( rule__MaliciousActor__IsSensibleAssignment_4_1 ) ) ;
+    // InternalSock.g:2251:1: rule__MaliciousActor__Group_4__1__Impl : ( ( rule__MaliciousActor__IsSensibleAssignment_4_1 ) ) ;
     public final void rule__MaliciousActor__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2174:1: ( ( ( rule__MaliciousActor__IsSensibleAssignment_4_1 ) ) )
-            // InternalSock.g:2175:1: ( ( rule__MaliciousActor__IsSensibleAssignment_4_1 ) )
+            // InternalSock.g:2255:1: ( ( ( rule__MaliciousActor__IsSensibleAssignment_4_1 ) ) )
+            // InternalSock.g:2256:1: ( ( rule__MaliciousActor__IsSensibleAssignment_4_1 ) )
             {
-            // InternalSock.g:2175:1: ( ( rule__MaliciousActor__IsSensibleAssignment_4_1 ) )
-            // InternalSock.g:2176:2: ( rule__MaliciousActor__IsSensibleAssignment_4_1 )
+            // InternalSock.g:2256:1: ( ( rule__MaliciousActor__IsSensibleAssignment_4_1 ) )
+            // InternalSock.g:2257:2: ( rule__MaliciousActor__IsSensibleAssignment_4_1 )
             {
              before(grammarAccess.getMaliciousActorAccess().getIsSensibleAssignment_4_1()); 
-            // InternalSock.g:2177:2: ( rule__MaliciousActor__IsSensibleAssignment_4_1 )
-            // InternalSock.g:2177:3: rule__MaliciousActor__IsSensibleAssignment_4_1
+            // InternalSock.g:2258:2: ( rule__MaliciousActor__IsSensibleAssignment_4_1 )
+            // InternalSock.g:2258:3: rule__MaliciousActor__IsSensibleAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__IsSensibleAssignment_4_1();
@@ -6577,14 +6829,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_5__0"
-    // InternalSock.g:2186:1: rule__MaliciousActor__Group_5__0 : rule__MaliciousActor__Group_5__0__Impl rule__MaliciousActor__Group_5__1 ;
+    // InternalSock.g:2267:1: rule__MaliciousActor__Group_5__0 : rule__MaliciousActor__Group_5__0__Impl rule__MaliciousActor__Group_5__1 ;
     public final void rule__MaliciousActor__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2190:1: ( rule__MaliciousActor__Group_5__0__Impl rule__MaliciousActor__Group_5__1 )
-            // InternalSock.g:2191:2: rule__MaliciousActor__Group_5__0__Impl rule__MaliciousActor__Group_5__1
+            // InternalSock.g:2271:1: ( rule__MaliciousActor__Group_5__0__Impl rule__MaliciousActor__Group_5__1 )
+            // InternalSock.g:2272:2: rule__MaliciousActor__Group_5__0__Impl rule__MaliciousActor__Group_5__1
             {
             pushFollow(FOLLOW_7);
             rule__MaliciousActor__Group_5__0__Impl();
@@ -6615,17 +6867,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_5__0__Impl"
-    // InternalSock.g:2198:1: rule__MaliciousActor__Group_5__0__Impl : ( 'processTime' ) ;
+    // InternalSock.g:2279:1: rule__MaliciousActor__Group_5__0__Impl : ( 'processTime' ) ;
     public final void rule__MaliciousActor__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2202:1: ( ( 'processTime' ) )
-            // InternalSock.g:2203:1: ( 'processTime' )
+            // InternalSock.g:2283:1: ( ( 'processTime' ) )
+            // InternalSock.g:2284:1: ( 'processTime' )
             {
-            // InternalSock.g:2203:1: ( 'processTime' )
-            // InternalSock.g:2204:2: 'processTime'
+            // InternalSock.g:2284:1: ( 'processTime' )
+            // InternalSock.g:2285:2: 'processTime'
             {
              before(grammarAccess.getMaliciousActorAccess().getProcessTimeKeyword_5_0()); 
             match(input,20,FOLLOW_2); 
@@ -6652,14 +6904,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_5__1"
-    // InternalSock.g:2213:1: rule__MaliciousActor__Group_5__1 : rule__MaliciousActor__Group_5__1__Impl ;
+    // InternalSock.g:2294:1: rule__MaliciousActor__Group_5__1 : rule__MaliciousActor__Group_5__1__Impl ;
     public final void rule__MaliciousActor__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2217:1: ( rule__MaliciousActor__Group_5__1__Impl )
-            // InternalSock.g:2218:2: rule__MaliciousActor__Group_5__1__Impl
+            // InternalSock.g:2298:1: ( rule__MaliciousActor__Group_5__1__Impl )
+            // InternalSock.g:2299:2: rule__MaliciousActor__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__Group_5__1__Impl();
@@ -6685,21 +6937,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_5__1__Impl"
-    // InternalSock.g:2224:1: rule__MaliciousActor__Group_5__1__Impl : ( ( rule__MaliciousActor__ProcessTimeAssignment_5_1 ) ) ;
+    // InternalSock.g:2305:1: rule__MaliciousActor__Group_5__1__Impl : ( ( rule__MaliciousActor__ProcessTimeAssignment_5_1 ) ) ;
     public final void rule__MaliciousActor__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2228:1: ( ( ( rule__MaliciousActor__ProcessTimeAssignment_5_1 ) ) )
-            // InternalSock.g:2229:1: ( ( rule__MaliciousActor__ProcessTimeAssignment_5_1 ) )
+            // InternalSock.g:2309:1: ( ( ( rule__MaliciousActor__ProcessTimeAssignment_5_1 ) ) )
+            // InternalSock.g:2310:1: ( ( rule__MaliciousActor__ProcessTimeAssignment_5_1 ) )
             {
-            // InternalSock.g:2229:1: ( ( rule__MaliciousActor__ProcessTimeAssignment_5_1 ) )
-            // InternalSock.g:2230:2: ( rule__MaliciousActor__ProcessTimeAssignment_5_1 )
+            // InternalSock.g:2310:1: ( ( rule__MaliciousActor__ProcessTimeAssignment_5_1 ) )
+            // InternalSock.g:2311:2: ( rule__MaliciousActor__ProcessTimeAssignment_5_1 )
             {
              before(grammarAccess.getMaliciousActorAccess().getProcessTimeAssignment_5_1()); 
-            // InternalSock.g:2231:2: ( rule__MaliciousActor__ProcessTimeAssignment_5_1 )
-            // InternalSock.g:2231:3: rule__MaliciousActor__ProcessTimeAssignment_5_1
+            // InternalSock.g:2312:2: ( rule__MaliciousActor__ProcessTimeAssignment_5_1 )
+            // InternalSock.g:2312:3: rule__MaliciousActor__ProcessTimeAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__ProcessTimeAssignment_5_1();
@@ -6732,14 +6984,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_6__0"
-    // InternalSock.g:2240:1: rule__MaliciousActor__Group_6__0 : rule__MaliciousActor__Group_6__0__Impl rule__MaliciousActor__Group_6__1 ;
+    // InternalSock.g:2321:1: rule__MaliciousActor__Group_6__0 : rule__MaliciousActor__Group_6__0__Impl rule__MaliciousActor__Group_6__1 ;
     public final void rule__MaliciousActor__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2244:1: ( rule__MaliciousActor__Group_6__0__Impl rule__MaliciousActor__Group_6__1 )
-            // InternalSock.g:2245:2: rule__MaliciousActor__Group_6__0__Impl rule__MaliciousActor__Group_6__1
+            // InternalSock.g:2325:1: ( rule__MaliciousActor__Group_6__0__Impl rule__MaliciousActor__Group_6__1 )
+            // InternalSock.g:2326:2: rule__MaliciousActor__Group_6__0__Impl rule__MaliciousActor__Group_6__1
             {
             pushFollow(FOLLOW_7);
             rule__MaliciousActor__Group_6__0__Impl();
@@ -6770,17 +7022,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_6__0__Impl"
-    // InternalSock.g:2252:1: rule__MaliciousActor__Group_6__0__Impl : ( 'periodTime' ) ;
+    // InternalSock.g:2333:1: rule__MaliciousActor__Group_6__0__Impl : ( 'periodTime' ) ;
     public final void rule__MaliciousActor__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2256:1: ( ( 'periodTime' ) )
-            // InternalSock.g:2257:1: ( 'periodTime' )
+            // InternalSock.g:2337:1: ( ( 'periodTime' ) )
+            // InternalSock.g:2338:1: ( 'periodTime' )
             {
-            // InternalSock.g:2257:1: ( 'periodTime' )
-            // InternalSock.g:2258:2: 'periodTime'
+            // InternalSock.g:2338:1: ( 'periodTime' )
+            // InternalSock.g:2339:2: 'periodTime'
             {
              before(grammarAccess.getMaliciousActorAccess().getPeriodTimeKeyword_6_0()); 
             match(input,21,FOLLOW_2); 
@@ -6807,14 +7059,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_6__1"
-    // InternalSock.g:2267:1: rule__MaliciousActor__Group_6__1 : rule__MaliciousActor__Group_6__1__Impl ;
+    // InternalSock.g:2348:1: rule__MaliciousActor__Group_6__1 : rule__MaliciousActor__Group_6__1__Impl ;
     public final void rule__MaliciousActor__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2271:1: ( rule__MaliciousActor__Group_6__1__Impl )
-            // InternalSock.g:2272:2: rule__MaliciousActor__Group_6__1__Impl
+            // InternalSock.g:2352:1: ( rule__MaliciousActor__Group_6__1__Impl )
+            // InternalSock.g:2353:2: rule__MaliciousActor__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__Group_6__1__Impl();
@@ -6840,21 +7092,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_6__1__Impl"
-    // InternalSock.g:2278:1: rule__MaliciousActor__Group_6__1__Impl : ( ( rule__MaliciousActor__PeriodTimeAssignment_6_1 ) ) ;
+    // InternalSock.g:2359:1: rule__MaliciousActor__Group_6__1__Impl : ( ( rule__MaliciousActor__PeriodTimeAssignment_6_1 ) ) ;
     public final void rule__MaliciousActor__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2282:1: ( ( ( rule__MaliciousActor__PeriodTimeAssignment_6_1 ) ) )
-            // InternalSock.g:2283:1: ( ( rule__MaliciousActor__PeriodTimeAssignment_6_1 ) )
+            // InternalSock.g:2363:1: ( ( ( rule__MaliciousActor__PeriodTimeAssignment_6_1 ) ) )
+            // InternalSock.g:2364:1: ( ( rule__MaliciousActor__PeriodTimeAssignment_6_1 ) )
             {
-            // InternalSock.g:2283:1: ( ( rule__MaliciousActor__PeriodTimeAssignment_6_1 ) )
-            // InternalSock.g:2284:2: ( rule__MaliciousActor__PeriodTimeAssignment_6_1 )
+            // InternalSock.g:2364:1: ( ( rule__MaliciousActor__PeriodTimeAssignment_6_1 ) )
+            // InternalSock.g:2365:2: ( rule__MaliciousActor__PeriodTimeAssignment_6_1 )
             {
              before(grammarAccess.getMaliciousActorAccess().getPeriodTimeAssignment_6_1()); 
-            // InternalSock.g:2285:2: ( rule__MaliciousActor__PeriodTimeAssignment_6_1 )
-            // InternalSock.g:2285:3: rule__MaliciousActor__PeriodTimeAssignment_6_1
+            // InternalSock.g:2366:2: ( rule__MaliciousActor__PeriodTimeAssignment_6_1 )
+            // InternalSock.g:2366:3: rule__MaliciousActor__PeriodTimeAssignment_6_1
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__PeriodTimeAssignment_6_1();
@@ -6887,14 +7139,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_7__0"
-    // InternalSock.g:2294:1: rule__MaliciousActor__Group_7__0 : rule__MaliciousActor__Group_7__0__Impl rule__MaliciousActor__Group_7__1 ;
+    // InternalSock.g:2375:1: rule__MaliciousActor__Group_7__0 : rule__MaliciousActor__Group_7__0__Impl rule__MaliciousActor__Group_7__1 ;
     public final void rule__MaliciousActor__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2298:1: ( rule__MaliciousActor__Group_7__0__Impl rule__MaliciousActor__Group_7__1 )
-            // InternalSock.g:2299:2: rule__MaliciousActor__Group_7__0__Impl rule__MaliciousActor__Group_7__1
+            // InternalSock.g:2379:1: ( rule__MaliciousActor__Group_7__0__Impl rule__MaliciousActor__Group_7__1 )
+            // InternalSock.g:2380:2: rule__MaliciousActor__Group_7__0__Impl rule__MaliciousActor__Group_7__1
             {
             pushFollow(FOLLOW_7);
             rule__MaliciousActor__Group_7__0__Impl();
@@ -6925,17 +7177,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_7__0__Impl"
-    // InternalSock.g:2306:1: rule__MaliciousActor__Group_7__0__Impl : ( 'currentProcessTime' ) ;
+    // InternalSock.g:2387:1: rule__MaliciousActor__Group_7__0__Impl : ( 'currentProcessTime' ) ;
     public final void rule__MaliciousActor__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2310:1: ( ( 'currentProcessTime' ) )
-            // InternalSock.g:2311:1: ( 'currentProcessTime' )
+            // InternalSock.g:2391:1: ( ( 'currentProcessTime' ) )
+            // InternalSock.g:2392:1: ( 'currentProcessTime' )
             {
-            // InternalSock.g:2311:1: ( 'currentProcessTime' )
-            // InternalSock.g:2312:2: 'currentProcessTime'
+            // InternalSock.g:2392:1: ( 'currentProcessTime' )
+            // InternalSock.g:2393:2: 'currentProcessTime'
             {
              before(grammarAccess.getMaliciousActorAccess().getCurrentProcessTimeKeyword_7_0()); 
             match(input,22,FOLLOW_2); 
@@ -6962,14 +7214,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_7__1"
-    // InternalSock.g:2321:1: rule__MaliciousActor__Group_7__1 : rule__MaliciousActor__Group_7__1__Impl ;
+    // InternalSock.g:2402:1: rule__MaliciousActor__Group_7__1 : rule__MaliciousActor__Group_7__1__Impl ;
     public final void rule__MaliciousActor__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2325:1: ( rule__MaliciousActor__Group_7__1__Impl )
-            // InternalSock.g:2326:2: rule__MaliciousActor__Group_7__1__Impl
+            // InternalSock.g:2406:1: ( rule__MaliciousActor__Group_7__1__Impl )
+            // InternalSock.g:2407:2: rule__MaliciousActor__Group_7__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__Group_7__1__Impl();
@@ -6995,21 +7247,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_7__1__Impl"
-    // InternalSock.g:2332:1: rule__MaliciousActor__Group_7__1__Impl : ( ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 ) ) ;
+    // InternalSock.g:2413:1: rule__MaliciousActor__Group_7__1__Impl : ( ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 ) ) ;
     public final void rule__MaliciousActor__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2336:1: ( ( ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 ) ) )
-            // InternalSock.g:2337:1: ( ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 ) )
+            // InternalSock.g:2417:1: ( ( ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 ) ) )
+            // InternalSock.g:2418:1: ( ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 ) )
             {
-            // InternalSock.g:2337:1: ( ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 ) )
-            // InternalSock.g:2338:2: ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 )
+            // InternalSock.g:2418:1: ( ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 ) )
+            // InternalSock.g:2419:2: ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 )
             {
              before(grammarAccess.getMaliciousActorAccess().getCurrentProcessTimeAssignment_7_1()); 
-            // InternalSock.g:2339:2: ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 )
-            // InternalSock.g:2339:3: rule__MaliciousActor__CurrentProcessTimeAssignment_7_1
+            // InternalSock.g:2420:2: ( rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 )
+            // InternalSock.g:2420:3: rule__MaliciousActor__CurrentProcessTimeAssignment_7_1
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__CurrentProcessTimeAssignment_7_1();
@@ -7042,14 +7294,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_8__0"
-    // InternalSock.g:2348:1: rule__MaliciousActor__Group_8__0 : rule__MaliciousActor__Group_8__0__Impl rule__MaliciousActor__Group_8__1 ;
+    // InternalSock.g:2429:1: rule__MaliciousActor__Group_8__0 : rule__MaliciousActor__Group_8__0__Impl rule__MaliciousActor__Group_8__1 ;
     public final void rule__MaliciousActor__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2352:1: ( rule__MaliciousActor__Group_8__0__Impl rule__MaliciousActor__Group_8__1 )
-            // InternalSock.g:2353:2: rule__MaliciousActor__Group_8__0__Impl rule__MaliciousActor__Group_8__1
+            // InternalSock.g:2433:1: ( rule__MaliciousActor__Group_8__0__Impl rule__MaliciousActor__Group_8__1 )
+            // InternalSock.g:2434:2: rule__MaliciousActor__Group_8__0__Impl rule__MaliciousActor__Group_8__1
             {
             pushFollow(FOLLOW_4);
             rule__MaliciousActor__Group_8__0__Impl();
@@ -7080,17 +7332,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_8__0__Impl"
-    // InternalSock.g:2360:1: rule__MaliciousActor__Group_8__0__Impl : ( 'resource' ) ;
+    // InternalSock.g:2441:1: rule__MaliciousActor__Group_8__0__Impl : ( 'resource' ) ;
     public final void rule__MaliciousActor__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2364:1: ( ( 'resource' ) )
-            // InternalSock.g:2365:1: ( 'resource' )
+            // InternalSock.g:2445:1: ( ( 'resource' ) )
+            // InternalSock.g:2446:1: ( 'resource' )
             {
-            // InternalSock.g:2365:1: ( 'resource' )
-            // InternalSock.g:2366:2: 'resource'
+            // InternalSock.g:2446:1: ( 'resource' )
+            // InternalSock.g:2447:2: 'resource'
             {
              before(grammarAccess.getMaliciousActorAccess().getResourceKeyword_8_0()); 
             match(input,23,FOLLOW_2); 
@@ -7117,14 +7369,14 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_8__1"
-    // InternalSock.g:2375:1: rule__MaliciousActor__Group_8__1 : rule__MaliciousActor__Group_8__1__Impl ;
+    // InternalSock.g:2456:1: rule__MaliciousActor__Group_8__1 : rule__MaliciousActor__Group_8__1__Impl ;
     public final void rule__MaliciousActor__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2379:1: ( rule__MaliciousActor__Group_8__1__Impl )
-            // InternalSock.g:2380:2: rule__MaliciousActor__Group_8__1__Impl
+            // InternalSock.g:2460:1: ( rule__MaliciousActor__Group_8__1__Impl )
+            // InternalSock.g:2461:2: rule__MaliciousActor__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__Group_8__1__Impl();
@@ -7150,21 +7402,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__Group_8__1__Impl"
-    // InternalSock.g:2386:1: rule__MaliciousActor__Group_8__1__Impl : ( ( rule__MaliciousActor__ResourceAssignment_8_1 ) ) ;
+    // InternalSock.g:2467:1: rule__MaliciousActor__Group_8__1__Impl : ( ( rule__MaliciousActor__ResourceAssignment_8_1 ) ) ;
     public final void rule__MaliciousActor__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2390:1: ( ( ( rule__MaliciousActor__ResourceAssignment_8_1 ) ) )
-            // InternalSock.g:2391:1: ( ( rule__MaliciousActor__ResourceAssignment_8_1 ) )
+            // InternalSock.g:2471:1: ( ( ( rule__MaliciousActor__ResourceAssignment_8_1 ) ) )
+            // InternalSock.g:2472:1: ( ( rule__MaliciousActor__ResourceAssignment_8_1 ) )
             {
-            // InternalSock.g:2391:1: ( ( rule__MaliciousActor__ResourceAssignment_8_1 ) )
-            // InternalSock.g:2392:2: ( rule__MaliciousActor__ResourceAssignment_8_1 )
+            // InternalSock.g:2472:1: ( ( rule__MaliciousActor__ResourceAssignment_8_1 ) )
+            // InternalSock.g:2473:2: ( rule__MaliciousActor__ResourceAssignment_8_1 )
             {
              before(grammarAccess.getMaliciousActorAccess().getResourceAssignment_8_1()); 
-            // InternalSock.g:2393:2: ( rule__MaliciousActor__ResourceAssignment_8_1 )
-            // InternalSock.g:2393:3: rule__MaliciousActor__ResourceAssignment_8_1
+            // InternalSock.g:2474:2: ( rule__MaliciousActor__ResourceAssignment_8_1 )
+            // InternalSock.g:2474:3: rule__MaliciousActor__ResourceAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__MaliciousActor__ResourceAssignment_8_1();
@@ -7197,17 +7449,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IotSystem__NameAssignment_2"
-    // InternalSock.g:2402:1: rule__IotSystem__NameAssignment_2 : ( ruleEString ) ;
+    // InternalSock.g:2483:1: rule__IotSystem__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__IotSystem__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2406:1: ( ( ruleEString ) )
-            // InternalSock.g:2407:2: ( ruleEString )
+            // InternalSock.g:2487:1: ( ( ruleEString ) )
+            // InternalSock.g:2488:2: ( ruleEString )
             {
-            // InternalSock.g:2407:2: ( ruleEString )
-            // InternalSock.g:2408:3: ruleEString
+            // InternalSock.g:2488:2: ( ruleEString )
+            // InternalSock.g:2489:3: ruleEString
             {
              before(grammarAccess.getIotSystemAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7238,17 +7490,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IotSystem__CurrentTimeAssignment_4_1"
-    // InternalSock.g:2417:1: rule__IotSystem__CurrentTimeAssignment_4_1 : ( ruleEInt ) ;
+    // InternalSock.g:2498:1: rule__IotSystem__CurrentTimeAssignment_4_1 : ( ruleEInt ) ;
     public final void rule__IotSystem__CurrentTimeAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2421:1: ( ( ruleEInt ) )
-            // InternalSock.g:2422:2: ( ruleEInt )
+            // InternalSock.g:2502:1: ( ( ruleEInt ) )
+            // InternalSock.g:2503:2: ( ruleEInt )
             {
-            // InternalSock.g:2422:2: ( ruleEInt )
-            // InternalSock.g:2423:3: ruleEInt
+            // InternalSock.g:2503:2: ( ruleEInt )
+            // InternalSock.g:2504:3: ruleEInt
             {
              before(grammarAccess.getIotSystemAccess().getCurrentTimeEIntParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7279,17 +7531,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IotSystem__OwnedActorAssignment_5_2"
-    // InternalSock.g:2432:1: rule__IotSystem__OwnedActorAssignment_5_2 : ( ruleActor ) ;
+    // InternalSock.g:2513:1: rule__IotSystem__OwnedActorAssignment_5_2 : ( ruleActor ) ;
     public final void rule__IotSystem__OwnedActorAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2436:1: ( ( ruleActor ) )
-            // InternalSock.g:2437:2: ( ruleActor )
+            // InternalSock.g:2517:1: ( ( ruleActor ) )
+            // InternalSock.g:2518:2: ( ruleActor )
             {
-            // InternalSock.g:2437:2: ( ruleActor )
-            // InternalSock.g:2438:3: ruleActor
+            // InternalSock.g:2518:2: ( ruleActor )
+            // InternalSock.g:2519:3: ruleActor
             {
              before(grammarAccess.getIotSystemAccess().getOwnedActorActorParserRuleCall_5_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7320,17 +7572,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IotSystem__OwnedActorAssignment_5_3_1"
-    // InternalSock.g:2447:1: rule__IotSystem__OwnedActorAssignment_5_3_1 : ( ruleActor ) ;
+    // InternalSock.g:2528:1: rule__IotSystem__OwnedActorAssignment_5_3_1 : ( ruleActor ) ;
     public final void rule__IotSystem__OwnedActorAssignment_5_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2451:1: ( ( ruleActor ) )
-            // InternalSock.g:2452:2: ( ruleActor )
+            // InternalSock.g:2532:1: ( ( ruleActor ) )
+            // InternalSock.g:2533:2: ( ruleActor )
             {
-            // InternalSock.g:2452:2: ( ruleActor )
-            // InternalSock.g:2453:3: ruleActor
+            // InternalSock.g:2533:2: ( ruleActor )
+            // InternalSock.g:2534:3: ruleActor
             {
              before(grammarAccess.getIotSystemAccess().getOwnedActorActorParserRuleCall_5_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7361,17 +7613,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IotSystem__OwnedResourceAssignment_6_2"
-    // InternalSock.g:2462:1: rule__IotSystem__OwnedResourceAssignment_6_2 : ( ruleResource ) ;
+    // InternalSock.g:2543:1: rule__IotSystem__OwnedResourceAssignment_6_2 : ( ruleResource ) ;
     public final void rule__IotSystem__OwnedResourceAssignment_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2466:1: ( ( ruleResource ) )
-            // InternalSock.g:2467:2: ( ruleResource )
+            // InternalSock.g:2547:1: ( ( ruleResource ) )
+            // InternalSock.g:2548:2: ( ruleResource )
             {
-            // InternalSock.g:2467:2: ( ruleResource )
-            // InternalSock.g:2468:3: ruleResource
+            // InternalSock.g:2548:2: ( ruleResource )
+            // InternalSock.g:2549:3: ruleResource
             {
              before(grammarAccess.getIotSystemAccess().getOwnedResourceResourceParserRuleCall_6_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7402,17 +7654,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IotSystem__OwnedResourceAssignment_6_3_1"
-    // InternalSock.g:2477:1: rule__IotSystem__OwnedResourceAssignment_6_3_1 : ( ruleResource ) ;
+    // InternalSock.g:2558:1: rule__IotSystem__OwnedResourceAssignment_6_3_1 : ( ruleResource ) ;
     public final void rule__IotSystem__OwnedResourceAssignment_6_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2481:1: ( ( ruleResource ) )
-            // InternalSock.g:2482:2: ( ruleResource )
+            // InternalSock.g:2562:1: ( ( ruleResource ) )
+            // InternalSock.g:2563:2: ( ruleResource )
             {
-            // InternalSock.g:2482:2: ( ruleResource )
-            // InternalSock.g:2483:3: ruleResource
+            // InternalSock.g:2563:2: ( ruleResource )
+            // InternalSock.g:2564:3: ruleResource
             {
              before(grammarAccess.getIotSystemAccess().getOwnedResourceResourceParserRuleCall_6_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7443,17 +7695,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__NameAssignment_2"
-    // InternalSock.g:2492:1: rule__Actor_Impl__NameAssignment_2 : ( ruleEString ) ;
+    // InternalSock.g:2573:1: rule__Actor_Impl__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__Actor_Impl__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2496:1: ( ( ruleEString ) )
-            // InternalSock.g:2497:2: ( ruleEString )
+            // InternalSock.g:2577:1: ( ( ruleEString ) )
+            // InternalSock.g:2578:2: ( ruleEString )
             {
-            // InternalSock.g:2497:2: ( ruleEString )
-            // InternalSock.g:2498:3: ruleEString
+            // InternalSock.g:2578:2: ( ruleEString )
+            // InternalSock.g:2579:3: ruleEString
             {
              before(grammarAccess.getActor_ImplAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7484,17 +7736,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__IsSensibleAssignment_4_1"
-    // InternalSock.g:2507:1: rule__Actor_Impl__IsSensibleAssignment_4_1 : ( ruleEInt ) ;
+    // InternalSock.g:2588:1: rule__Actor_Impl__IsSensibleAssignment_4_1 : ( ruleEInt ) ;
     public final void rule__Actor_Impl__IsSensibleAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2511:1: ( ( ruleEInt ) )
-            // InternalSock.g:2512:2: ( ruleEInt )
+            // InternalSock.g:2592:1: ( ( ruleEInt ) )
+            // InternalSock.g:2593:2: ( ruleEInt )
             {
-            // InternalSock.g:2512:2: ( ruleEInt )
-            // InternalSock.g:2513:3: ruleEInt
+            // InternalSock.g:2593:2: ( ruleEInt )
+            // InternalSock.g:2594:3: ruleEInt
             {
              before(grammarAccess.getActor_ImplAccess().getIsSensibleEIntParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7525,17 +7777,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__ProcessTimeAssignment_5_1"
-    // InternalSock.g:2522:1: rule__Actor_Impl__ProcessTimeAssignment_5_1 : ( ruleEInt ) ;
+    // InternalSock.g:2603:1: rule__Actor_Impl__ProcessTimeAssignment_5_1 : ( ruleEInt ) ;
     public final void rule__Actor_Impl__ProcessTimeAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2526:1: ( ( ruleEInt ) )
-            // InternalSock.g:2527:2: ( ruleEInt )
+            // InternalSock.g:2607:1: ( ( ruleEInt ) )
+            // InternalSock.g:2608:2: ( ruleEInt )
             {
-            // InternalSock.g:2527:2: ( ruleEInt )
-            // InternalSock.g:2528:3: ruleEInt
+            // InternalSock.g:2608:2: ( ruleEInt )
+            // InternalSock.g:2609:3: ruleEInt
             {
              before(grammarAccess.getActor_ImplAccess().getProcessTimeEIntParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7566,17 +7818,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__PeriodTimeAssignment_6_1"
-    // InternalSock.g:2537:1: rule__Actor_Impl__PeriodTimeAssignment_6_1 : ( ruleEInt ) ;
+    // InternalSock.g:2618:1: rule__Actor_Impl__PeriodTimeAssignment_6_1 : ( ruleEInt ) ;
     public final void rule__Actor_Impl__PeriodTimeAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2541:1: ( ( ruleEInt ) )
-            // InternalSock.g:2542:2: ( ruleEInt )
+            // InternalSock.g:2622:1: ( ( ruleEInt ) )
+            // InternalSock.g:2623:2: ( ruleEInt )
             {
-            // InternalSock.g:2542:2: ( ruleEInt )
-            // InternalSock.g:2543:3: ruleEInt
+            // InternalSock.g:2623:2: ( ruleEInt )
+            // InternalSock.g:2624:3: ruleEInt
             {
              before(grammarAccess.getActor_ImplAccess().getPeriodTimeEIntParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7607,17 +7859,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__CurrentProcessTimeAssignment_7_1"
-    // InternalSock.g:2552:1: rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 : ( ruleEInt ) ;
+    // InternalSock.g:2633:1: rule__Actor_Impl__CurrentProcessTimeAssignment_7_1 : ( ruleEInt ) ;
     public final void rule__Actor_Impl__CurrentProcessTimeAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2556:1: ( ( ruleEInt ) )
-            // InternalSock.g:2557:2: ( ruleEInt )
+            // InternalSock.g:2637:1: ( ( ruleEInt ) )
+            // InternalSock.g:2638:2: ( ruleEInt )
             {
-            // InternalSock.g:2557:2: ( ruleEInt )
-            // InternalSock.g:2558:3: ruleEInt
+            // InternalSock.g:2638:2: ( ruleEInt )
+            // InternalSock.g:2639:3: ruleEInt
             {
              before(grammarAccess.getActor_ImplAccess().getCurrentProcessTimeEIntParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7648,21 +7900,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor_Impl__ResourceAssignment_8_1"
-    // InternalSock.g:2567:1: rule__Actor_Impl__ResourceAssignment_8_1 : ( ( ruleEString ) ) ;
+    // InternalSock.g:2648:1: rule__Actor_Impl__ResourceAssignment_8_1 : ( ( ruleEString ) ) ;
     public final void rule__Actor_Impl__ResourceAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2571:1: ( ( ( ruleEString ) ) )
-            // InternalSock.g:2572:2: ( ( ruleEString ) )
+            // InternalSock.g:2652:1: ( ( ( ruleEString ) ) )
+            // InternalSock.g:2653:2: ( ( ruleEString ) )
             {
-            // InternalSock.g:2572:2: ( ( ruleEString ) )
-            // InternalSock.g:2573:3: ( ruleEString )
+            // InternalSock.g:2653:2: ( ( ruleEString ) )
+            // InternalSock.g:2654:3: ( ruleEString )
             {
              before(grammarAccess.getActor_ImplAccess().getResourceResourceCrossReference_8_1_0()); 
-            // InternalSock.g:2574:3: ( ruleEString )
-            // InternalSock.g:2575:4: ruleEString
+            // InternalSock.g:2655:3: ( ruleEString )
+            // InternalSock.g:2656:4: ruleEString
             {
              before(grammarAccess.getActor_ImplAccess().getResourceResourceEStringParserRuleCall_8_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -7696,18 +7948,59 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Actor_Impl__ResourceAssignment_8_1"
 
 
+    // $ANTLR start "rule__Actor_Impl__CodeAssignment_9_1"
+    // InternalSock.g:2667:1: rule__Actor_Impl__CodeAssignment_9_1 : ( ruleEString ) ;
+    public final void rule__Actor_Impl__CodeAssignment_9_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSock.g:2671:1: ( ( ruleEString ) )
+            // InternalSock.g:2672:2: ( ruleEString )
+            {
+            // InternalSock.g:2672:2: ( ruleEString )
+            // InternalSock.g:2673:3: ruleEString
+            {
+             before(grammarAccess.getActor_ImplAccess().getCodeEStringParserRuleCall_9_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getActor_ImplAccess().getCodeEStringParserRuleCall_9_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Actor_Impl__CodeAssignment_9_1"
+
+
     // $ANTLR start "rule__Resource__NameAssignment_2"
-    // InternalSock.g:2586:1: rule__Resource__NameAssignment_2 : ( ruleEString ) ;
+    // InternalSock.g:2682:1: rule__Resource__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__Resource__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2590:1: ( ( ruleEString ) )
-            // InternalSock.g:2591:2: ( ruleEString )
+            // InternalSock.g:2686:1: ( ( ruleEString ) )
+            // InternalSock.g:2687:2: ( ruleEString )
             {
-            // InternalSock.g:2591:2: ( ruleEString )
-            // InternalSock.g:2592:3: ruleEString
+            // InternalSock.g:2687:2: ( ruleEString )
+            // InternalSock.g:2688:3: ruleEString
             {
              before(grammarAccess.getResourceAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7738,21 +8031,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__ActorAssignment_4_2"
-    // InternalSock.g:2601:1: rule__Resource__ActorAssignment_4_2 : ( ( ruleEString ) ) ;
+    // InternalSock.g:2697:1: rule__Resource__ActorAssignment_4_2 : ( ( ruleEString ) ) ;
     public final void rule__Resource__ActorAssignment_4_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2605:1: ( ( ( ruleEString ) ) )
-            // InternalSock.g:2606:2: ( ( ruleEString ) )
+            // InternalSock.g:2701:1: ( ( ( ruleEString ) ) )
+            // InternalSock.g:2702:2: ( ( ruleEString ) )
             {
-            // InternalSock.g:2606:2: ( ( ruleEString ) )
-            // InternalSock.g:2607:3: ( ruleEString )
+            // InternalSock.g:2702:2: ( ( ruleEString ) )
+            // InternalSock.g:2703:3: ( ruleEString )
             {
              before(grammarAccess.getResourceAccess().getActorActorCrossReference_4_2_0()); 
-            // InternalSock.g:2608:3: ( ruleEString )
-            // InternalSock.g:2609:4: ruleEString
+            // InternalSock.g:2704:3: ( ruleEString )
+            // InternalSock.g:2705:4: ruleEString
             {
              before(grammarAccess.getResourceAccess().getActorActorEStringParserRuleCall_4_2_0_1()); 
             pushFollow(FOLLOW_2);
@@ -7787,21 +8080,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Resource__ActorAssignment_4_3_1"
-    // InternalSock.g:2620:1: rule__Resource__ActorAssignment_4_3_1 : ( ( ruleEString ) ) ;
+    // InternalSock.g:2716:1: rule__Resource__ActorAssignment_4_3_1 : ( ( ruleEString ) ) ;
     public final void rule__Resource__ActorAssignment_4_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2624:1: ( ( ( ruleEString ) ) )
-            // InternalSock.g:2625:2: ( ( ruleEString ) )
+            // InternalSock.g:2720:1: ( ( ( ruleEString ) ) )
+            // InternalSock.g:2721:2: ( ( ruleEString ) )
             {
-            // InternalSock.g:2625:2: ( ( ruleEString ) )
-            // InternalSock.g:2626:3: ( ruleEString )
+            // InternalSock.g:2721:2: ( ( ruleEString ) )
+            // InternalSock.g:2722:3: ( ruleEString )
             {
              before(grammarAccess.getResourceAccess().getActorActorCrossReference_4_3_1_0()); 
-            // InternalSock.g:2627:3: ( ruleEString )
-            // InternalSock.g:2628:4: ruleEString
+            // InternalSock.g:2723:3: ( ruleEString )
+            // InternalSock.g:2724:4: ruleEString
             {
              before(grammarAccess.getResourceAccess().getActorActorEStringParserRuleCall_4_3_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -7836,17 +8129,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__NameAssignment_2"
-    // InternalSock.g:2639:1: rule__MaliciousActor__NameAssignment_2 : ( ruleEString ) ;
+    // InternalSock.g:2735:1: rule__MaliciousActor__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__MaliciousActor__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2643:1: ( ( ruleEString ) )
-            // InternalSock.g:2644:2: ( ruleEString )
+            // InternalSock.g:2739:1: ( ( ruleEString ) )
+            // InternalSock.g:2740:2: ( ruleEString )
             {
-            // InternalSock.g:2644:2: ( ruleEString )
-            // InternalSock.g:2645:3: ruleEString
+            // InternalSock.g:2740:2: ( ruleEString )
+            // InternalSock.g:2741:3: ruleEString
             {
              before(grammarAccess.getMaliciousActorAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7877,17 +8170,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__IsSensibleAssignment_4_1"
-    // InternalSock.g:2654:1: rule__MaliciousActor__IsSensibleAssignment_4_1 : ( ruleEInt ) ;
+    // InternalSock.g:2750:1: rule__MaliciousActor__IsSensibleAssignment_4_1 : ( ruleEInt ) ;
     public final void rule__MaliciousActor__IsSensibleAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2658:1: ( ( ruleEInt ) )
-            // InternalSock.g:2659:2: ( ruleEInt )
+            // InternalSock.g:2754:1: ( ( ruleEInt ) )
+            // InternalSock.g:2755:2: ( ruleEInt )
             {
-            // InternalSock.g:2659:2: ( ruleEInt )
-            // InternalSock.g:2660:3: ruleEInt
+            // InternalSock.g:2755:2: ( ruleEInt )
+            // InternalSock.g:2756:3: ruleEInt
             {
              before(grammarAccess.getMaliciousActorAccess().getIsSensibleEIntParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7918,17 +8211,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__ProcessTimeAssignment_5_1"
-    // InternalSock.g:2669:1: rule__MaliciousActor__ProcessTimeAssignment_5_1 : ( ruleEInt ) ;
+    // InternalSock.g:2765:1: rule__MaliciousActor__ProcessTimeAssignment_5_1 : ( ruleEInt ) ;
     public final void rule__MaliciousActor__ProcessTimeAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2673:1: ( ( ruleEInt ) )
-            // InternalSock.g:2674:2: ( ruleEInt )
+            // InternalSock.g:2769:1: ( ( ruleEInt ) )
+            // InternalSock.g:2770:2: ( ruleEInt )
             {
-            // InternalSock.g:2674:2: ( ruleEInt )
-            // InternalSock.g:2675:3: ruleEInt
+            // InternalSock.g:2770:2: ( ruleEInt )
+            // InternalSock.g:2771:3: ruleEInt
             {
              before(grammarAccess.getMaliciousActorAccess().getProcessTimeEIntParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7959,17 +8252,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__PeriodTimeAssignment_6_1"
-    // InternalSock.g:2684:1: rule__MaliciousActor__PeriodTimeAssignment_6_1 : ( ruleEInt ) ;
+    // InternalSock.g:2780:1: rule__MaliciousActor__PeriodTimeAssignment_6_1 : ( ruleEInt ) ;
     public final void rule__MaliciousActor__PeriodTimeAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2688:1: ( ( ruleEInt ) )
-            // InternalSock.g:2689:2: ( ruleEInt )
+            // InternalSock.g:2784:1: ( ( ruleEInt ) )
+            // InternalSock.g:2785:2: ( ruleEInt )
             {
-            // InternalSock.g:2689:2: ( ruleEInt )
-            // InternalSock.g:2690:3: ruleEInt
+            // InternalSock.g:2785:2: ( ruleEInt )
+            // InternalSock.g:2786:3: ruleEInt
             {
              before(grammarAccess.getMaliciousActorAccess().getPeriodTimeEIntParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8000,17 +8293,17 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__CurrentProcessTimeAssignment_7_1"
-    // InternalSock.g:2699:1: rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 : ( ruleEInt ) ;
+    // InternalSock.g:2795:1: rule__MaliciousActor__CurrentProcessTimeAssignment_7_1 : ( ruleEInt ) ;
     public final void rule__MaliciousActor__CurrentProcessTimeAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2703:1: ( ( ruleEInt ) )
-            // InternalSock.g:2704:2: ( ruleEInt )
+            // InternalSock.g:2799:1: ( ( ruleEInt ) )
+            // InternalSock.g:2800:2: ( ruleEInt )
             {
-            // InternalSock.g:2704:2: ( ruleEInt )
-            // InternalSock.g:2705:3: ruleEInt
+            // InternalSock.g:2800:2: ( ruleEInt )
+            // InternalSock.g:2801:3: ruleEInt
             {
              before(grammarAccess.getMaliciousActorAccess().getCurrentProcessTimeEIntParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8041,21 +8334,21 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MaliciousActor__ResourceAssignment_8_1"
-    // InternalSock.g:2714:1: rule__MaliciousActor__ResourceAssignment_8_1 : ( ( ruleEString ) ) ;
+    // InternalSock.g:2810:1: rule__MaliciousActor__ResourceAssignment_8_1 : ( ( ruleEString ) ) ;
     public final void rule__MaliciousActor__ResourceAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSock.g:2718:1: ( ( ( ruleEString ) ) )
-            // InternalSock.g:2719:2: ( ( ruleEString ) )
+            // InternalSock.g:2814:1: ( ( ( ruleEString ) ) )
+            // InternalSock.g:2815:2: ( ( ruleEString ) )
             {
-            // InternalSock.g:2719:2: ( ( ruleEString ) )
-            // InternalSock.g:2720:3: ( ruleEString )
+            // InternalSock.g:2815:2: ( ( ruleEString ) )
+            // InternalSock.g:2816:3: ( ruleEString )
             {
              before(grammarAccess.getMaliciousActorAccess().getResourceResourceCrossReference_8_1_0()); 
-            // InternalSock.g:2721:3: ( ruleEString )
-            // InternalSock.g:2722:4: ruleEString
+            // InternalSock.g:2817:3: ( ruleEString )
+            // InternalSock.g:2818:4: ruleEString
             {
              before(grammarAccess.getMaliciousActorAccess().getResourceResourceEStringParserRuleCall_8_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -8099,15 +8392,16 @@ public class InternalSockParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000002E000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000010000040L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000020040000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000020000040L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000040040000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000012000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000F82000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000002002000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000008010000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000001F82000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004002000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000010010000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000F82000L});
 
 }

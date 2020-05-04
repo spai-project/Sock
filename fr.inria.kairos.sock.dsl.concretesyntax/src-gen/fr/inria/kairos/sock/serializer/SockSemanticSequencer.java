@@ -62,7 +62,8 @@ public class SockSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         processTime=EInt? 
 	 *         periodTime=EInt? 
 	 *         currentProcessTime=EInt? 
-	 *         resource=[Resource|EString]?
+	 *         resource=[Resource|EString]? 
+	 *         code=EString?
 	 *     )
 	 */
 	protected void sequence_Actor_Impl(ISerializationContext context, Actor semanticObject) {

@@ -282,8 +282,8 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getActor__EnterIn() {
-		return actorEClass.getEOperations().get(0);
+	public EAttribute getActor_Code() {
+		return (EAttribute) actorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -291,7 +291,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getActor__ExitOf() {
+	public EOperation getActor__EnterIn() {
 		return actorEClass.getEOperations().get(1);
 	}
 
@@ -300,16 +300,7 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getActor__Idle() {
-		return actorEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getActor__Process() {
+	public EOperation getActor__ExitOf() {
 		return actorEClass.getEOperations().get(3);
 	}
 
@@ -318,8 +309,26 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getActor__Ready() {
+	public EOperation getActor__Idle() {
 		return actorEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActor__Process() {
+		return actorEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActor__Ready() {
+		return actorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -380,11 +389,12 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		createEAttribute(actorEClass, ACTOR__PROCESS_TIME);
 		createEAttribute(actorEClass, ACTOR__PERIOD_TIME);
 		createEAttribute(actorEClass, ACTOR__CURRENT_PROCESS_TIME);
+		createEAttribute(actorEClass, ACTOR__CODE);
+		createEOperation(actorEClass, ACTOR___READY);
 		createEOperation(actorEClass, ACTOR___ENTER_IN);
+		createEOperation(actorEClass, ACTOR___PROCESS);
 		createEOperation(actorEClass, ACTOR___EXIT_OF);
 		createEOperation(actorEClass, ACTOR___IDLE);
-		createEOperation(actorEClass, ACTOR___PROCESS);
-		createEOperation(actorEClass, ACTOR___READY);
 
 		maliciousActorEClass = createEClass(MALICIOUS_ACTOR);
 	}
@@ -465,16 +475,18 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 		initEAttribute(getActor_CurrentProcessTime(), ecorePackage.getEInt(), "currentProcessTime", null, 0, 1,
 				Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getActor_Code(), ecorePackage.getEString(), "code", null, 0, 1, Actor.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getActor__Ready(), null, "ready", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getActor__EnterIn(), null, "enterIn", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getActor__Process(), null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getActor__ExitOf(), null, "exitOf", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getActor__Idle(), null, "idle", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getActor__Process(), null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getActor__Ready(), null, "ready", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(maliciousActorEClass, MaliciousActor.class, "MaliciousActor", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

@@ -50,20 +50,8 @@ public class Scheduler implements Comparator<String>{
 		return this.system.getOwnedActor().stream().sorted(new Comparator<Actor>() {
 			@Override
 			public int compare(Actor a, Actor b) {
-				final double scoreA = getScore(a);
-				final double scoreB = getScore(b);
-				int comparison = -Double.compare(scoreA, scoreB);
-				return comparison;
+				return a.getPeriodTime() - b.getPeriodTime();
 			}
 		}).map(Actor::getName).collect(Collectors.toList());
-	}
-
-	// TODO we should maybe use the formulas in fr.inria.kairos.sock.generator...
-	private double getScore(Actor actor) {
-		return this.computeProccessTime(actor) / ((double) actor.getPeriodTime());
-	}
-
-	private double computeProccessTime(Actor actor) {
-		return actor.getProcessTime() + 2.0D + (actor.getIsSensible() == 1 ? 1 : 0);
 	}
 }
