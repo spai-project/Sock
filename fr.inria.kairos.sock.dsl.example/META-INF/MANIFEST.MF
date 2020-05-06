@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Example
+Bundle-SymbolicName: fr.inria.kairos.sock.dsl.example
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: fr.inria.kairos.sock.dsl.example
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: fr.inria.kairos.sock.dsl.example.butterfly,
+ fr.inria.kairos.sock.dsl.example.butterfly.utils

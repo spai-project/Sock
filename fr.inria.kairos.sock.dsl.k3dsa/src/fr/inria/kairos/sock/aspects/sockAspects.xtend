@@ -135,6 +135,7 @@ class ActorAspect extends NamedElementAspect {
 			try{
 				val binding = new Binding
 				binding.setVariable("time", _self.actorTimeIndex)
+				binding.setVariable("outputFolder", _self.folder + "/" + _self.subFolder + "/")
 				val ucl = ActorAspect.classLoader
 				val shell = new GroovyShell(ucl, binding)
 				val res = shell.evaluate(_self.code) as Map<String, Object>

@@ -14,6 +14,7 @@ Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version
  fr.inria.kairos.sock.dsl.model;bundle-version="0.0.0";visibility:=private,
  fr.inria.diverse.melange.lib;bundle-version="0.0.0";visibility:=private,
  org.aspectj.runtime;bundle-version="0.0.0";visibility:=reexport,
- org.eclipse.gemoc.groovy;bundle-version="2.4.9"
+ org.eclipse.gemoc.groovy;bundle-version="2.4.9",
+ fr.inria.kairos.sock.dsl.example;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

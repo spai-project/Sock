@@ -362,6 +362,12 @@ public class ActorAspect extends NamedElementAspect {
       try {
         final Binding binding = new Binding();
         binding.setVariable("time", ActorAspect.actorTimeIndex(_self));
+        String _folder = ActorAspect.folder(_self);
+        String _plus_2 = (_folder + "/");
+        String _subFolder = ActorAspect.subFolder(_self);
+        String _plus_3 = (_plus_2 + _subFolder);
+        String _plus_4 = (_plus_3 + "/");
+        binding.setVariable("outputFolder", _plus_4);
         final ClassLoader ucl = ActorAspect.class.getClassLoader();
         final GroovyShell shell = new GroovyShell(ucl, binding);
         Object _evaluate = shell.evaluate(_self.getCode());
@@ -370,8 +376,8 @@ public class ActorAspect extends NamedElementAspect {
         if (_t instanceof Exception) {
           final Exception cnfe = (Exception)_t;
           String _code = _self.getCode();
-          String _plus_2 = ("Failed to call Groovy script " + _code);
-          InputOutput.<String>println(_plus_2);
+          String _plus_5 = ("Failed to call Groovy script " + _code);
+          InputOutput.<String>println(_plus_5);
           cnfe.printStackTrace();
         } else {
           throw Exceptions.sneakyThrow(_t);
