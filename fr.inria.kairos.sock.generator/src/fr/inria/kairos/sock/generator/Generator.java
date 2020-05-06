@@ -106,7 +106,12 @@ public class Generator {
 	public Actor getNextActor(final Resource resource, String suffix) {
 		final int periodTime = this.minPeriodTime + (this.stepPeriodTime *  this.random.nextInt( (this.maxPeriodTime - this.minPeriodTime) / this.stepPeriodTime));
 		final int processTime  = this.minProcessTime + this.random.nextInt(this.maxProcessTime - this.minProcessTime);
-		final int isPriority = this.random.nextInt(2);
+		final int isPriority;
+		if (this.random.nextFloat() > 0.33) {
+			isPriority = 0;
+		} else {
+			isPriority = 1;
+		}
 		return new Actor("a" + suffix, isPriority, processTime, periodTime, resource);
 	}
 }

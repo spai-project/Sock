@@ -18,13 +18,20 @@ public class Actor extends NamedElement {
 
 	private final int periodTime;
 	
+	private final String code;
+	
 	public Actor(String name, int isSensible, int processTime, int periodTime, Resource resource) {
+		this(name, isSensible, processTime, periodTime, resource, "");
+	}
+	
+	public Actor(String name, int isSensible, int processTime, int periodTime, Resource resource, String code) {
 		super(name);
 		this.isSensible = isSensible;
 		this.processTime = processTime;
 		this.periodTime = periodTime;
 		this.resource = resource;
 		this.resource.addActor(this);
+		this.code = code;
 	}
 
 	public Resource getResource() {
@@ -58,11 +65,17 @@ public class Actor extends NamedElement {
 	
 	public String toTSock() {
 		return "\t\tActor " + this.getName() + " {" + NEW_LINE +
-					"\t\t\tisPriority " + this.getIsSensible() + NEW_LINE +
+					"\t\t\tisSensible " + this.getIsSensible() + NEW_LINE +
 					"\t\t\tprocessTime " + this.getProcessTime() + NEW_LINE +
 					"\t\t\tperiodTime " + this.getPeriodTime() + NEW_LINE +
+					"\t\t\tcurrentProcessTime 0" + NEW_LINE +
 					"\t\t\tresource \"" + this.resource.getName() + "\"" + NEW_LINE +
+					(this.code.isEmpty() ? "" : "\t\t\tcode \"" + this.formatCode() + "\"" + NEW_LINE) +
 				"\t\t}";
+	}
+	
+	private String formatCode() {
+		return this.code.replaceAll("\"", "\\\"");
 	}
 
 	@Override

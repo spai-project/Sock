@@ -12,15 +12,15 @@ import java.util.Random;
 
 public class Main {
 	
-	private static int minNbActor = 2;
+	private static int minNbActor = 3;
 	
-	private static int maxNbActor = 15;
+	private static int maxNbActor = 4;
 	
 	private static int minPeriodTime = 10;
 	
-	private static int maxPeriodTime = 100;
+	private static int maxPeriodTime = 50;
 	
-	private static int stepPeriodTime = 10;
+	private static int stepPeriodTime = 2;
 	
 	private static int minProcessTime = 3;
 	
@@ -48,9 +48,15 @@ public class Main {
 		for (Interval interval : intervals) {
 			final IotSystem system = new IotSystem("s" + interval.format());
 			generator.initSystemWithGivenBoundForResource(interval, system, true);
+			
 			writer.write(system.getName(), system);
+			system.getOwnedActor().stream()
+				.forEach(actor -> System.out.println(actor.getName() + " " + actor.getScore(true)));
+			System.out.println(system.getOwnedResource().get(0).getBound());
+			System.out.println(system.getOwnedActor().stream().map(actor -> actor.getScore(true)).reduce((acc, actor) -> acc + actor));
 		}
 		System.out.println("Generation of " + intervals.size() + " tsock model successful");
+		
 	}
 
 }

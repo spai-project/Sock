@@ -42,6 +42,7 @@ public class IotSystem extends NamedElement {
 	
 	public String toTSock() {
 		return "IotSystem " + this.name + " {" + NEW_LINE + 
+					"\tcurrentTime 0" + NEW_LINE + 
 					"\townedActor {" + NEW_LINE + 
 						this.ownedActor.stream()
 							.map(a -> a.toTSock())
