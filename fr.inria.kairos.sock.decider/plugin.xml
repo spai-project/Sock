@@ -13,11 +13,11 @@
  -->
 
 <plugin>
-   <!-- <extension-point id="fr.inria.kairos.sock.decider" name="Sock decider" schema="schema/fr.inria.kairos.sock.decider.exsd"/> -->
    <extension point="org.eclipse.gemoc.gemoc_language_workbench.deciders">
       <DeciderSpecification
             Class="org.eclipse.gemoc.gemoc_language_workbench.deciders.SockDecider"
+            Icon="icons/user-shield-black-16.png"
             Name="Sock decider">
       </DeciderSpecification>
-   </extension>
+	</extension>
 </plugin>

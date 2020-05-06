@@ -11,7 +11,6 @@ Require-Bundle: org.eclipse.gemoc.xdsmlframework.api;bundle-version="3.0.0",
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;bundle-version="2.3.0",
  fr.inria.kairos.sock.dsl.model
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.gemoc.gemoc_language_workbench.deciders
 Bundle-Vendor: Inria
 Automatic-Module-Name: fr.inria.kairos.sock.decider
