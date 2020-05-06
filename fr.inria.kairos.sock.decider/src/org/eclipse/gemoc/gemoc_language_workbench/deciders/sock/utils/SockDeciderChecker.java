@@ -46,6 +46,10 @@ public class SockDeciderChecker {
 	
 	private static final String ENTER_IN_EVENT_ACTOR_EVENT = "_enterActorEvent";
 	
+	private static final String BUTTERFLY_ATTACK_ACTOR_EVENT = "_butterflyAttackActorEvent";
+	
+	public static final Predicate<String> butterflyAttack = name -> name.endsWith(BUTTERFLY_ATTACK_ACTOR_EVENT);
+	
 	public static final Predicate<String> enter = name -> name.endsWith(ENTER_IN_EVENT_ACTOR_EVENT);
 	
 	public static final Predicate<String> request = name -> name.endsWith(REQUEST_EVENT_ACTOR_EVENT);

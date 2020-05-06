@@ -20,6 +20,29 @@ package sock
 	context IotSystem
 		def : timeEvent : Event = self.time()
 		def : zeroValue : Integer = 0
+		
+		
+	-- ========================================================================================================
+	--						BEGIN BUTTERFLY ATTACK
+	-- ========================================================================================================
+	
+	-- Mapping event and methods
+	
+	context Actor
+		def : butterflyAttackActorEvent : Event = self
+		def : taskCompletedActorEvent : Event = self
+		def : exitActorEvent : Event = self.exitOf()
+		
+	-- Constraints
+	
+	context Actor
+		inv butterflyAttackAndExitIsTaskCompletedActorEvent:
+			let unionButterflyAttackAndExit : Event = Expression Union(
+				self.butterflyAttackActorEvent,
+				self.exitActorEvent
+			) in
+			Relation Coincides(self.taskCompletedActorEvent, unionButterflyAttackAndExit)
+		
 
 	-- ========================================================================================================
 	--						BEGIN RESOURCE USAGE CYCLE 
@@ -41,7 +64,6 @@ package sock
 	
 	context  Actor
 		def : enterActorEvent : Event = self.enterIn()
-		def : exitActorEvent : Event = self.exitOf()
 		def : processActorEvent : Event = self.process()
 		def : idleActorEvent : Event = self.idle()
 		def : processTimeActorValue : Integer = self.processTime
@@ -106,7 +128,8 @@ package sock
 				self.idleActorEvent,
 				self.isTakenOverActorEvent,
 				self.takesOverActorEvent,
-				self.periodStartActorEvent
+				self.periodStartActorEvent,
+				self.butterflyAttackActorEvent
 			)
 		inv ActorCannotBeTakenOverAndTakesOverInTheSameTime:
 			Relation Exclusion(
@@ -141,7 +164,7 @@ package sock
 				self.periodStartActorEvent,
 				periodStartFirstTickEvent
 			) in
-			Relation Alternates(self.exitActorEvent, periodStartEvent)
+			Relation Alternates(self.taskCompletedActorEvent, periodStartEvent)
 	
 	-- ========================================================================================================
 	--						BEGIN RESOURCE CLEANING AFTER HIGH Sensible
@@ -229,8 +252,12 @@ package sock
 				unionEnterProcessExitIdleIsTakenOverTakesOver,
 				self.periodStartActorEvent
 			) in
-			Relation Coincides(
+			let unionEnterProcessExitIdleIsTakenOverTakesOverPeriodStartTaskCompleted : Event = Expression Union(
 				unionEnterProcessExitIdleIsTakenOverTakesOverPeriodStart,
+				self.taskCompletedActorEvent
+			) in
+			Relation Coincides(
+				unionEnterProcessExitIdleIsTakenOverTakesOverPeriodStartTaskCompleted,
 				self.oclAsType(ecore::EObject).eContainer().oclAsType(IotSystem).timeEvent
 			)
 

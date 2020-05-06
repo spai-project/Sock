@@ -2,6 +2,7 @@ package org.eclipse.gemoc.gemoc_language_workbench.deciders;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.AbstractConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
@@ -60,7 +61,12 @@ public class SockDecider implements ILogicalStepDecider {
 				return stepWithTakesOver;
 			}
 		}
-		return SockDeciderHelper.returnRandomOne(possibleLogicalSteps);
+		return SockDeciderHelper.returnRandomOne(
+				possibleLogicalSteps.stream()
+					.filter(possibleLogicalStep -> ! 
+							SockDeciderChecker.hasClockPredicate(possibleLogicalStep, SockDeciderChecker.butterflyAttack))
+					.collect(Collectors.toList())
+				);
 	}
 
 	@Override

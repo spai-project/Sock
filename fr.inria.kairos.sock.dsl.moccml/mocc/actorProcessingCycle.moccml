@@ -28,7 +28,10 @@ AutomataConstraintLibrary actorProcessingCycle {
 			
 			from Ready to Ready : idleReady
 			-> (when ActorProcessingCycleIdleEvent)
-
+			
+			from Ready to Exited : butterflyAttack
+			-> (when ActorProcessingCycleButterflyAttackEvent) 
+			
 			from Entered to Entered : process
 			-> (when ActorProcessingCycleProcessEvent if (currentProcessTimeValue < (ActorProcessingCycleProcessTimeValue.value - one)) do currentProcessTimeValue = (currentProcessTimeValue + one))
 			
@@ -57,7 +60,7 @@ AutomataConstraintLibrary actorProcessingCycle {
 			
 			State Ready (
 				in: starting, ready, idleReady
-				out: enter, idleReady, takesOver
+				out: enter, idleReady, takesOver, butterflyAttack
 			)
 			
 			State Entered (
@@ -71,7 +74,7 @@ AutomataConstraintLibrary actorProcessingCycle {
 			)
 			
 			State Exited (
-				in: exit, idleExited
+				in: exit, idleExited, butterflyAttack
 				out: idleExited, ready
 			)
 		
@@ -85,7 +88,8 @@ AutomataConstraintLibrary actorProcessingCycle {
 			ActorProcessingCycleIdleEvent: clock,
 			ActorProcessingCycleIsTakenOverEvent: clock,
 			ActorProcessingCycleTakesOverEvent: clock,
-			ActorProcessingCyclePeriodStartEvent: clock
+			ActorProcessingCyclePeriodStartEvent: clock,
+			ActorProcessingCycleButterflyAttackEvent: clock
 		)
 	}
 
