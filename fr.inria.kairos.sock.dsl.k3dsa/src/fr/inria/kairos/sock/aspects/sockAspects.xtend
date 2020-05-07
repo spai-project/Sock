@@ -54,6 +54,8 @@ class ResourceAspect extends NamedElementAspect {
 	
 	public var Integer lastActorSensibility = 0
 	
+	private var Integer idleTime;
+	
 	@ReplaceAspectMethod
 	def public void isEntered(Actor actor, String secret) {
 		_self.currentData = secret
@@ -73,6 +75,12 @@ class ResourceAspect extends NamedElementAspect {
 	@ReplaceAspectMethod
 	def public void clean() {
 		_self.currentData = ""
+	}
+	
+	@ReplaceAspectMethod
+	def public void idle() {
+//		println("last idle time" + _self.idleTime)
+		_self.idleTime = (_self.eContainer() as IotSystem).currentTime
 	}
 	
 }
@@ -138,7 +146,11 @@ class ActorAspect extends NamedElementAspect {
 				binding.setVariable("outputFolder", _self.folder + "/" + _self.subFolder + "/")
 				val ucl = ActorAspect.classLoader
 				val shell = new GroovyShell(ucl, binding)
-				val res = shell.evaluate(_self.code) as Map<String, Object>
+				val energyCost = shell.evaluate(_self.code) as Integer
+				_self.write(energyCost + "", _self.name + "_energy")	
+//				if (energyCost > 0 && _self.actorTimeIndex > 300) {
+//					throw new RuntimeException("WARNING: Something is wrong and " + _self.name + " is consuming to much energy!")
+//				}		
 			} catch (Exception cnfe){
 				println("Failed to call Groovy script " + _self.code)
 				cnfe.printStackTrace

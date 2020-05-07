@@ -13,7 +13,6 @@ import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import java.io.File;
 import java.io.FileWriter;
-import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -371,13 +370,17 @@ public class ActorAspect extends NamedElementAspect {
         final ClassLoader ucl = ActorAspect.class.getClassLoader();
         final GroovyShell shell = new GroovyShell(ucl, binding);
         Object _evaluate = shell.evaluate(_self.getCode());
-        final Map<String, Object> res = ((Map<String, Object>) _evaluate);
+        final Integer energyCost = ((Integer) _evaluate);
+        String _plus_5 = (energyCost + "");
+        String _name_2 = _self.getName();
+        String _plus_6 = (_name_2 + "_energy");
+        ActorAspect.write(_self, _plus_5, _plus_6);
       } catch (final Throwable _t) {
         if (_t instanceof Exception) {
           final Exception cnfe = (Exception)_t;
           String _code = _self.getCode();
-          String _plus_5 = ("Failed to call Groovy script " + _code);
-          InputOutput.<String>println(_plus_5);
+          String _plus_7 = ("Failed to call Groovy script " + _code);
+          InputOutput.<String>println(_plus_7);
           cnfe.printStackTrace();
         } else {
           throw Exceptions.sneakyThrow(_t);

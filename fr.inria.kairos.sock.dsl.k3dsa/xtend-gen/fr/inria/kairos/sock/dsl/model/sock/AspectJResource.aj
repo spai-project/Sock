@@ -5,5 +5,6 @@ void around (fr.inria.kairos.sock.dsl.model.sock.Resource self)  :target (self) 
 void around (fr.inria.kairos.sock.dsl.model.sock.Resource self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Resource.isProcessed(  ) ) ) { fr.inria.kairos.sock.aspects.ResourceAspect.isProcessed(self );}
 void around (fr.inria.kairos.sock.dsl.model.sock.Resource self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Resource.isExited(  ) ) ) { fr.inria.kairos.sock.aspects.ResourceAspect.isExited(self );}
 void around (fr.inria.kairos.sock.dsl.model.sock.Resource self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Resource.clean(  ) ) ) { fr.inria.kairos.sock.aspects.ResourceAspect.clean(self );}
+void around (fr.inria.kairos.sock.dsl.model.sock.Resource self)  :target (self) && (call ( void fr.inria.kairos.sock.dsl.model.sock.Resource.idle(  ) ) ) { fr.inria.kairos.sock.aspects.ResourceAspect.idle(self );}
 
 }

@@ -5,7 +5,9 @@ import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
 import fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
+import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
+import org.eclipse.emf.ecore.EObject;
 
 @Aspect(className = Resource.class)
 @SuppressWarnings("all")
@@ -46,6 +48,15 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
+  @ReplaceAspectMethod
+  public static void idle(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void idle()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_idle(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+  }
+  
   public static String currentData(final Resource _self) {
     final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
     Object result = null;
@@ -82,6 +93,24 @@ public class ResourceAspect extends NamedElementAspect {
     };
   }
   
+  private static Integer idleTime(final Resource _self) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    Object result = null;
+    // #DispatchPointCut_before# Integer idleTime()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	result = fr.inria.kairos.sock.aspects.ResourceAspect._privk3_idleTime(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self);
+    };
+    return (java.lang.Integer)result;
+  }
+  
+  private static void idleTime(final Resource _self, final Integer idleTime) {
+    final fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties _self_ = fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void idleTime(Integer)
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Resource){
+    	fr.inria.kairos.sock.aspects.ResourceAspect._privk3_idleTime(_self_, (fr.inria.kairos.sock.dsl.model.sock.Resource)_self,idleTime);
+    };
+  }
+  
   protected static void _privk3_isEntered(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Actor actor, final String secret) {
     ResourceAspect.currentData(_self, secret);
     ResourceAspect.lastActorSensibility(_self, Integer.valueOf(actor.getIsSensible()));
@@ -95,6 +124,11 @@ public class ResourceAspect extends NamedElementAspect {
   
   protected static void _privk3_clean(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
     ResourceAspect.currentData(_self, "");
+  }
+  
+  protected static void _privk3_idle(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    EObject _eContainer = _self.eContainer();
+    ResourceAspect.idleTime(_self, Integer.valueOf(((IotSystem) _eContainer).getCurrentTime()));
   }
   
   protected static String _privk3_currentData(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
@@ -168,6 +202,43 @@ public class ResourceAspect extends NamedElementAspect {
     }
     if (!setterCalled) {
     	_self_.lastActorSensibility = lastActorSensibility;
+    }
+  }
+  
+  protected static Integer _privk3_idleTime(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getIdleTime") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (java.lang.Integer) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.idleTime;
+  }
+  
+  protected static void _privk3_idleTime(final ResourceAspectResourceAspectProperties _self_, final Resource _self, final Integer idleTime) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setIdleTime")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, idleTime);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.idleTime = idleTime;
     }
   }
 }

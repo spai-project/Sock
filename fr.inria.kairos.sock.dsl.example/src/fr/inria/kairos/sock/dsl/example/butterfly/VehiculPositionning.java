@@ -22,8 +22,20 @@ public class VehiculPositionning {
 		this.timeToIncreaseSpeed = timeToIncreaseSpeed;
 		this.targetSpeed = targetSpeed;
 	}
+	
+	public int new_order(int time) {
+		final List<String> speeds = IOUtils.readFile("speed");
+		final int currentSpeed = IOUtils.get(speeds, 1, 1);
+		int targetSpeed = 0;
+		if ( time >= timeToIncreaseSpeed ) {
+			targetSpeed = this.targetSpeed;
+		}
+		int diffSpeed = targetSpeed - currentSpeed;
+		IOUtils.write(time, diffSpeed + " ", "order");
+		return 1;
+	}
 
-	public void order(int time) {
+	public int order(int time) {
 		final List<String> speeds = IOUtils.readFile("speed");
 		final int currentSpeed = IOUtils.get(speeds, 1, 1);
 		int targetSpeed = 0;
@@ -33,12 +45,20 @@ public class VehiculPositionning {
 		int diffSpeed = Math.abs(targetSpeed - currentSpeed);
 		int signDiffSpeed = (targetSpeed - currentSpeed) / (diffSpeed > 0 ? diffSpeed : 1);
 		int order = this.computeOrder(diffSpeed, currentSpeed);
-		IOUtils.write(time, (signDiffSpeed * order) + " ", "order");
+		if (order == Integer.MIN_VALUE) {
+			// here we are a bit hacking the system
+			IOUtils.write(time, targetSpeed - currentSpeed + ">", "order");	
+		} else {
+			IOUtils.write(time, (signDiffSpeed * order) + " ", "order");	
+		}
+		return 1;
 	}
 	
 	private int computeOrder(int diffSpeed, int currentSpeed) {
 		if (diffSpeed == 0) {
 			return 0;
+		} else if (diffSpeed < 5) {
+			return Integer.MIN_VALUE;
 		} else {
 			for (int i = 0 ; i < NB_RATES ; i++) {
 //				final int rate = (int)((i * (1.0D / (float)ACCELERATION.size())) * this.targetSpeed);

@@ -18,7 +18,7 @@ public class ButterFlyMain {
 		final IotSystem[] butterflySystems = new IotSystem[] {
 			createDisabledButterfly(),
 			createEnabledButterfly(),
-			createCounteredEnabledButterfly()
+//			createCounteredEnabledButterfly()
 		};
 		for (IotSystem system : butterflySystems) {
 			System.out.println(system.isSchedulable(true));

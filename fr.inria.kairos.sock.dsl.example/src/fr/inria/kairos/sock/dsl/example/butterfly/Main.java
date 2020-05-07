@@ -16,11 +16,11 @@ public class Main {
 	public static void run(int periodVehiculPositionning) {
 		new File(IOUtils.PATH_OUTPUT + "/order").delete();
 		new File(IOUtils.PATH_OUTPUT + "/speed").delete();
-		final int timeToSpeedUp = 1000;
+		final int timeToSpeedUp = 120;
 		final int targetSpeed = 1000;
 		final DCMotor m = new DCMotor();
 		final VehiculPositionning v = new VehiculPositionning(timeToSpeedUp, targetSpeed);
-		final int maxTime = 3000;
+		final int maxTime = 600;
 		for (int i = 0 ; i < maxTime ; i++) {
 			if (i % periodVehiculPositionning == 0) {
 				v.order(i);
