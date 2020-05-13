@@ -6,7 +6,28 @@ import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
 import org.eclipse.gemoc.trace.commons.model.generictrace.GenericStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
+import fr.inria.kairos.sock.dsl.model.sock.Actor;
+import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
+import fr.inria.kairos.sock.dsl.model.sock.Resource;
+
 public class SockDeciderChecker {
+	
+	public static boolean isSchedulable(IotSystem system) {
+		for (Resource resource : system.getOwnedResource()) {
+			if (!isSchedulable(resource)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private static boolean isSchedulable(Resource resource) {
+		double acc = 0.0D;
+		for (Actor actor : resource.getActor()) {
+			acc += SockDeciderHelper.computeRealProcessTime(actor);
+		}
+		return acc < SockDeciderHelper.getBound(resource);
+	}
 	
 	public static boolean hasAnotherClockThanOnlyPredicate(Step<?> possibleLogicalStep, Predicate<String> predicate) {
 		return hasAnotherClockThanOnlyPredicate((GenericParallelStep) possibleLogicalStep, predicate);

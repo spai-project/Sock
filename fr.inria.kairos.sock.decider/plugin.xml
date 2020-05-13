@@ -19,5 +19,10 @@
             Icon="icons/user-shield-black-16.png"
             Name="Sock decider">
       </DeciderSpecification>
+      <DeciderSpecification
+            Class="org.eclipse.gemoc.gemoc_language_workbench.deciders.RandomSockDecider"
+            Icon="icons/user-shield-black-16.png"
+            Name="Random Sock decider">
+      </DeciderSpecification>
 	</extension>
 </plugin>

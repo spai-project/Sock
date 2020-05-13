@@ -10,21 +10,24 @@ import java.util.stream.Collectors;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.AbstractConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.eclipse.gemoc.gemoc_language_workbench.deciders.sock.Scheduler;
+import org.eclipse.gemoc.gemoc_language_workbench.deciders.sock.Shifter;
 import org.eclipse.gemoc.gemoc_language_workbench.deciders.sock.utils.SockDeciderChecker;
 import org.eclipse.gemoc.gemoc_language_workbench.deciders.sock.utils.SockDeciderHelper;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 
-public class SockDecider implements ILogicalStepDecider {
+public class RandomSockDecider implements ILogicalStepDecider {
 
 	private Scheduler scheduler;
 
 	private int nbDecide;
 
 	private List<ArrivalTime> schedule;
+	
+	private Shifter shifter;
 
-	public SockDecider() {
+	public RandomSockDecider() {
 		super();
 		this.nbDecide = 0;
 		this.schedule = new ArrayList<>();
@@ -67,6 +70,7 @@ public class SockDecider implements ILogicalStepDecider {
 		}
 		if (this.scheduler == null) {
 			this.scheduler = new Scheduler(system);
+			this.shifter = new Shifter(system);
 		}
 		Optional<Step<?>> choosenOneOptional = possibleLogicalSteps.stream()
 				.filter(possibleLogicalStep -> SockDeciderChecker.hasClockPredicate(possibleLogicalStep,
@@ -76,9 +80,14 @@ public class SockDecider implements ILogicalStepDecider {
 			final Step<?> choosenStep = choosenOneOptional.get();
 			final String enteringActorName = SockDeciderHelper
 					.getAllSubStepsNameMatchingPredicate(choosenStep, SockDeciderChecker.enter).get(0).split("_")[1];
-			this.schedule.add(new ArrivalTime(enteringActorName, this.nbDecide));
-			this.nbDecide++;
-			return choosenStep;
+			if (this.shifter.shiftEnter(choosenStep)) {
+				this.nbDecide++;
+				return SockDeciderHelper.getLogicalStepThatHaveOnlyGivenPredicate(possibleLogicalSteps, SockDeciderChecker.isIdle);
+			} else {
+				this.schedule.add(new ArrivalTime(enteringActorName, this.nbDecide));
+				this.nbDecide++;
+				return choosenStep;
+			}
 		}
 		choosenOneOptional = possibleLogicalSteps.stream().filter(possibleLogicalStep -> SockDeciderChecker
 				.hasClockPredicate(possibleLogicalStep, SockDeciderChecker.takesOver))
