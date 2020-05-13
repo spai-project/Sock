@@ -2,7 +2,7 @@ package fr.inria.kairos.sock.dsl.example.butterfly;
 
 import java.io.File;
 
-import fr.inria.kairos.sock.dsl.example.butterfly.utils.IOUtils;
+import fr.inria.kairos.sock.example.utils.IOUtils;
 
 public class Main {
 	

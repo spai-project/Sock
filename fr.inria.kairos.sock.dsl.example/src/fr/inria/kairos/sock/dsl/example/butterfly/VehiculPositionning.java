@@ -3,7 +3,7 @@ package fr.inria.kairos.sock.dsl.example.butterfly;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.inria.kairos.sock.dsl.example.butterfly.utils.IOUtils;
+import fr.inria.kairos.sock.example.utils.IOUtils;
 
 public class VehiculPositionning {
 	

@@ -1,4 +1,4 @@
-package fr.inria.kairos.sock.dsl.example.butterfly.utils;
+package fr.inria.kairos.sock.example.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -37,8 +37,12 @@ public class IOUtils {
 	}
 	
 	public static void write(int time, String toBeWritten, String path) {
-		try (FileWriter writer = new FileWriter(new File(PATH_OUTPUT + path), true)) {
-			writer.write(time + " " + toBeWritten + NEW_LINE);
+		writeRaw(time + " " + toBeWritten, path);
+	}
+	
+	public static void writeRaw(String toBeWritten, String path) {
+		try (FileWriter writer = new FileWriter(new File(BASE_PATH_OUTPUT + path), true)) {
+			writer.write(toBeWritten + NEW_LINE);
 		} catch (Exception ignored) {
 		}
 	}
