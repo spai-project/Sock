@@ -6,5 +6,7 @@ public class ResourceAspectResourceAspectProperties {
   
   public Integer lastActorSensibility = Integer.valueOf(0);
   
-  public Integer idleTime;
+  public Integer startingIdleIntervalTime = Integer.valueOf((-1));
+  
+  public Integer resourceTimeIndex = Integer.valueOf(0);
 }

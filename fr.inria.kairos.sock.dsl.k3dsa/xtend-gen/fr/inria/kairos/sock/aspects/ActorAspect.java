@@ -6,6 +6,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.SynchroField;
 import fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
 import fr.inria.kairos.sock.aspects.ResourceAspect;
+import fr.inria.kairos.sock.dsl.example.sidechannel.ScheduLeak;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
@@ -28,6 +29,20 @@ public class ActorAspect extends NamedElementAspect {
     	fr.inria.kairos.sock.aspects.ActorAspect._privk3_ready(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
     };
   }
+  
+  public static void handleTakesOver(final Actor _self) {
+    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void handleTakesOver()
+    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
+    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_handleTakesOver(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
+    };
+  }
+  
+  private static Actor lastExitedActor = null;
+  
+  private static Integer anActorEntered = Integer.valueOf((-1));
+  
+  private static Integer anActorExited = Integer.valueOf((-2));
   
   @ReplaceAspectMethod
   public static void enterIn(final Actor _self) {
@@ -302,8 +317,19 @@ public class ActorAspect extends NamedElementAspect {
     ActorAspect.write(_self, "+");
   }
   
+  protected static void _privk3_handleTakesOver(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    if (((ActorAspect.anActorEntered == ActorAspect.anActorExited) && (ActorAspect.lastExitedActor != null))) {
+      EObject _eContainer = _self.eContainer();
+      ScheduLeak.takesOver(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue(), ActorAspect.lastExitedActor);
+    }
+  }
+  
   protected static void _privk3_enterIn(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     ActorAspect.initFolder(_self);
+    EObject _eContainer = _self.eContainer();
+    ScheduLeak.busy(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue());
+    ActorAspect.anActorEntered = ActorAspect.actorTimeIndex(_self);
+    ActorAspect.handleTakesOver(_self);
     String _name = _self.getName();
     String _plus = (_name + " enters in ");
     String _name_1 = _self.getResource().getName();
@@ -328,6 +354,8 @@ public class ActorAspect extends NamedElementAspect {
     int _currentProcessTime = _self.getCurrentProcessTime();
     int _plus = (_currentProcessTime + 1);
     _self.setCurrentProcessTime(_plus);
+    EObject _eContainer = _self.eContainer();
+    ScheduLeak.busy(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue());
     String _name = _self.getName();
     String _plus_1 = (_name + " processes (");
     int _currentProcessTime_1 = _self.getCurrentProcessTime();
@@ -344,6 +372,11 @@ public class ActorAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_exitOf(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    EObject _eContainer = _self.eContainer();
+    ScheduLeak.busy(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue());
+    ActorAspect.anActorExited = ActorAspect.actorTimeIndex(_self);
+    ActorAspect.lastExitedActor = _self;
+    ActorAspect.handleTakesOver(_self);
     String _name = _self.getName();
     String _plus = (_name + " exits of ");
     String _name_1 = _self.getResource().getName();
@@ -355,6 +388,8 @@ public class ActorAspect extends NamedElementAspect {
     if (_checkSensible) {
       ActorAspect.time(_self);
       ActorAspect.write(_self, "-");
+      EObject _eContainer_1 = _self.eContainer();
+      ScheduLeak.busy(((IotSystem) _eContainer_1), (ActorAspect.actorTimeIndex(_self)).intValue());
       ActorAspect.untime(_self);
     }
     if (((_self.getCode() != null) && (_self.getCode() != ""))) {

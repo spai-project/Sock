@@ -59,7 +59,7 @@ package sock
 		def : isEnteredResourceEvent : Event = self
 		def : isProcessedResourceEvent : Event = self
 		def : isExitedResourceEvent : Event = self
-		def : idleResourceEvent : Event = self
+		def : idleResourceEvent : Event = self.idle()
 		def : anActorIsTakenOverByAnotherOneResourceEvent : Event = self
 	
 	context  Actor

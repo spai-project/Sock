@@ -1669,6 +1669,8 @@ main() {
 			name:= getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "idle")->first().oclAsType(EObject);
 			
 				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent';
 			kind :=TimeModel::EventKind::undefined;
@@ -2407,6 +2409,8 @@ mapping inMM1::IotSystem::sock2FeedBack() : FeedBack::ActionModel {
 		{
 			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent';
 
+				caller := self.oclAsType(EObject);
+				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "idle")->first();
 				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_idleResourceEvent')->first().oclAsType(EObject);
 				
 			end{

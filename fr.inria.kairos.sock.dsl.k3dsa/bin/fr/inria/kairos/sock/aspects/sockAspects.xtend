@@ -26,6 +26,8 @@ import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor
 import java.util.Map
 
+import fr.inria.kairos.sock.dsl.example.sidechannel.*;
+
 import groovy.lang.Binding
 import groovy.lang.GroovyShell
 
@@ -54,33 +56,53 @@ class ResourceAspect extends NamedElementAspect {
 	
 	public var Integer lastActorSensibility = 0
 	
-	private var Integer idleTime;
+	var Integer startingIdleIntervalTime = -1
 	
 	@ReplaceAspectMethod
 	def public void isEntered(Actor actor, String secret) {
 		_self.currentData = secret
 		_self.lastActorSensibility = actor.isSensible
+		_self.run(_self.name + " is entered")
 	}
 	
 	@ReplaceAspectMethod
 	def public void isProcessed() {
-		
+		_self.run(_self.name + " is busy")
 	}
 	
 	@ReplaceAspectMethod
 	def public void isExited() {
-
+		_self.run(_self.name + " is exited")
 	}
 	
 	@ReplaceAspectMethod
 	def public void clean() {
+		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.resourceTimeIndex)
+		_self.run(_self.name + " clean")
 		_self.currentData = ""
 	}
 	
 	@ReplaceAspectMethod
 	def public void idle() {
-//		println("last idle time" + _self.idleTime)
-		_self.idleTime = (_self.eContainer() as IotSystem).currentTime
+		ScheduLeak.idle(_self.eContainer() as IotSystem, _self.resourceTimeIndex)
+		_self.run(_self.name + " idle")
+	}
+	
+	// UTILS AROUND TIME AND EXECUTION TRACES 
+	
+	public var Integer resourceTimeIndex = 0
+	
+	def public void run(String message) {
+//		println("[" + _self.resourceTimeIndex + "] " + message)
+		time(_self)
+	}
+	
+	def public void time() {
+		_self.resourceTimeIndex = _self.resourceTimeIndex + 1
+	}
+	
+	def public void untime() {
+		_self.resourceTimeIndex = _self.resourceTimeIndex - 1
 	}
 	
 }
@@ -111,9 +133,22 @@ class ActorAspect extends NamedElementAspect {
 		_self.write("+")
 	}
 	
+	def public void handleTakesOver() {
+		if (ActorAspect.anActorEntered === ActorAspect.anActorExited && lastExitedActor !== null) {
+			ScheduLeak.takesOver(_self.eContainer() as IotSystem, _self.actorTimeIndex, lastExitedActor)
+		}
+	}
+	
+	private static var Actor lastExitedActor = null
+	private static var Integer anActorEntered = -1
+	private static var Integer anActorExited = -2
+	
 	@ReplaceAspectMethod
 	def public void enterIn() {
 		_self.initFolder();
+		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
+		ActorAspect.anActorEntered = _self.actorTimeIndex
+		_self.handleTakesOver()
 		run(_self, _self.name + " enters in " + _self.resource.name)
 		if (_self.currentProcessTime  == _self.processTime) {
 			_self.currentProcessTime = 0
@@ -125,18 +160,24 @@ class ActorAspect extends NamedElementAspect {
 	@ReplaceAspectMethod
 	def public void process() {
 		_self.currentProcessTime = _self.currentProcessTime + 1
+		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
 		run(_self, _self.name + " processes ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
 		_self.resource.isProcessed()
 	}
 	
 	@ReplaceAspectMethod
 	def public void exitOf() {
+		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
+		ActorAspect.anActorExited = _self.actorTimeIndex
+		ActorAspect.lastExitedActor = _self
+		_self.handleTakesOver()
 		run(_self, _self.name + " exits of " + _self.resource.name)
 		_self.resource.isExited()
 		_self.write("0")
 		if (_self.checkSensible()) {
 			_self.time()
 			_self.write("-")
+			ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
 			_self.untime()
 		}
 		if (_self.code !== null && _self.code !== ""){
