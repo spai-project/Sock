@@ -73,13 +73,14 @@ public class SockDeciderHelper {
 						.allMatch(subStep -> predicate.test(subStep.getMseoccurrence().getMse().getName())))
 				.findFirst().get();
 	}
-
-	private static int hyperPeriod = -1;
+	
+	public static int hyperPeriod = -1;
 
 	public static int getHyperPeriod(IotSystem system) {
 		if (hyperPeriod == -1) {
 			hyperPeriod = lcm(
 					system.getOwnedActor().stream().map(actor -> actor.getPeriodTime()).collect(Collectors.toList()));
+			System.out.println("Hyper-period: " + hyperPeriod);
 		}
 		return hyperPeriod;
 	}
@@ -109,7 +110,11 @@ public class SockDeciderHelper {
 
 	private static final int flushTaskCost = 1;
 
-	public static int computeRealProcessTime(Actor actor) {
+	public static double getScore(Actor actor) {
+		return  (double)((double)computeRealProcessTime(actor) / ((double)actor.getPeriodTime()));
+	}
+	
+	public static double computeRealProcessTime(Actor actor) {
 		return actor.getProcessTime() + enterTaskCost + exitTaskCost + (actor.getIsSensible() == 1 ? flushTaskCost : 0);
 	}
 

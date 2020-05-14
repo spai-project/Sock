@@ -37,11 +37,22 @@ public class SockDeciderChecker {
 		return hasClockPredicate((GenericParallelStep) possibleLogicalStep, predicate);
 	}
 	
+	public static boolean hasNoClockPredicate(Step<?> possibleLogicalStep, Predicate<String> predicate) {
+		return hasNoClockPredicate((GenericParallelStep) possibleLogicalStep, predicate);
+	}
+	
+	public static boolean hasNoClockPredicate(GenericParallelStep possibleLogicalStep, Predicate<String> predicate) {
+		return possibleLogicalStep.getSubSteps()
+			.stream()
+			.map(substep -> substep.getMseoccurrence().getMse().getName())
+			.noneMatch(substepName -> predicate.test(substepName));
+}
+	
 	public static boolean hasAnotherClockThanOnlyPredicate(GenericParallelStep possibleLogicalStep, Predicate<String> predicate) {
 		return possibleLogicalStep.getSubSteps()
 			.stream()
 			.map(substep -> substep.getMseoccurrence().getMse().getName())
-			.anyMatch(substepName -> ! predicate.test(substepName));
+			.anyMatch(substepName -> !predicate.test(substepName));
 	}
 	
 	public static boolean hasClockPredicate(GenericParallelStep possibleLogicalStep, Predicate<String> predicate) {
@@ -68,6 +79,10 @@ public class SockDeciderChecker {
 	private static final String ENTER_IN_EVENT_ACTOR_EVENT = "_enterActorEvent";
 	
 	private static final String BUTTERFLY_ATTACK_ACTOR_EVENT = "_butterflyAttackActorEvent";
+	
+	private static final String PERIOD_START_ACTOR_EVENT = "_periodStartActorEvent";
+	
+	public static final Predicate<String> periodStart = name -> name.endsWith(PERIOD_START_ACTOR_EVENT);
 	
 	public static final Predicate<String> butterflyAttack = name -> name.endsWith(BUTTERFLY_ATTACK_ACTOR_EVENT);
 	

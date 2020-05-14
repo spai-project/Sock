@@ -39,14 +39,13 @@ public class SockDecider implements ILogicalStepDecider {
 			this.arrivalTime = arrivalTime;
 		}
 	}
-	
-	public static String BASE_PATH_OUTPUT = "/Users/stephaniechallita/Desktop/runtime-EclipseApplication/";
-	
+
+	public static final String BASE_PATH_OUTPUT = "/Users/stephaniechallita/Desktop/runtime-EclipseApplication/";
+
 	public static final String NEW_LINE = System.lineSeparator();
-	
+
 	public String toString(List<ArrivalTime> schedule) {
-		return schedule.stream()
-				.map(arrivalTime -> arrivalTime.actor + " " + arrivalTime.arrivalTime)
+		return schedule.stream().map(arrivalTime -> arrivalTime.actor + " " + arrivalTime.arrivalTime)
 				.collect(Collectors.joining(NEW_LINE));
 	}
 
@@ -55,10 +54,15 @@ public class SockDecider implements ILogicalStepDecider {
 		final int hyperPeriod = SockDeciderHelper.getHyperPeriod(system);
 		if (this.nbDecide != 0 && this.nbDecide % (hyperPeriod + 2) == 0) {
 			System.out.println("Reach hyperperiod {" + hyperPeriod + "}. Stopping... in 3s");
-			try (FileWriter writer = new FileWriter(new File(BASE_PATH_OUTPUT + system.getName() + "/schedule"), true)) {
+			try (FileWriter writer = new FileWriter(new File(BASE_PATH_OUTPUT + system.getName() + "/schedule"),
+					true)) {
 				writer.write(this.toString(this.schedule) + NEW_LINE);
 			} catch (Exception ignored) {
 			}
+			this.schedule.clear();
+			this.scheduler = null;
+			this.nbDecide = 0;
+			SockDeciderHelper.hyperPeriod = -1;
 			engine.stop();
 		}
 		if (possibleLogicalSteps.size() == 1) {
@@ -71,6 +75,8 @@ public class SockDecider implements ILogicalStepDecider {
 		Optional<Step<?>> choosenOneOptional = possibleLogicalSteps.stream()
 				.filter(possibleLogicalStep -> SockDeciderChecker.hasClockPredicate(possibleLogicalStep,
 						SockDeciderChecker.enter))
+				.filter(possibleLogicalStep -> SockDeciderChecker.hasNoClockPredicate(possibleLogicalStep,
+						SockDeciderChecker.butterflyAttack))
 				.sorted(this.scheduler.getComparator()).findFirst();
 		if (choosenOneOptional.isPresent()) {
 			final Step<?> choosenStep = choosenOneOptional.get();
@@ -78,15 +84,21 @@ public class SockDecider implements ILogicalStepDecider {
 					.getAllSubStepsNameMatchingPredicate(choosenStep, SockDeciderChecker.enter).get(0).split("_")[1];
 			this.schedule.add(new ArrivalTime(enteringActorName, this.nbDecide));
 			this.nbDecide++;
+//			System.out.println(">>>\n" + SockDeciderHelper.concatAllSubStepsName(choosenStep) + "\n<<<<<");
 			return choosenStep;
 		}
-		choosenOneOptional = possibleLogicalSteps.stream().filter(possibleLogicalStep -> SockDeciderChecker
-				.hasClockPredicate(possibleLogicalStep, SockDeciderChecker.takesOver))
+		choosenOneOptional = possibleLogicalSteps.stream()
+				.filter(possibleLogicalStep -> SockDeciderChecker.hasClockPredicate(possibleLogicalStep,
+						SockDeciderChecker.takesOver))
+				.filter(possibleLogicalStep -> SockDeciderChecker.hasNoClockPredicate(possibleLogicalStep,
+						SockDeciderChecker.butterflyAttack))
 				.sorted(this.scheduler.getComparator()).findFirst();
 		if (choosenOneOptional.isPresent()) {
 			final Step<?> stepWithProcess = possibleLogicalSteps.stream()
 					.filter(possibleLogicalStep -> SockDeciderChecker.hasClockPredicate(possibleLogicalStep,
 							SockDeciderChecker.process))
+					.filter(possibleLogicalStep -> SockDeciderChecker.hasNoClockPredicate(possibleLogicalStep,
+							SockDeciderChecker.butterflyAttack))
 					.findFirst().orElseThrow(() -> new RuntimeException(""));
 			final String actorNameProcessing = SockDeciderHelper.getEntityNameFromClockName(SockDeciderHelper
 					.getAllSubStepsNameMatchingPredicate(stepWithProcess, SockDeciderChecker.process).get(0));
@@ -95,22 +107,27 @@ public class SockDecider implements ILogicalStepDecider {
 					.getAllSubStepsNameMatchingPredicate(stepWithTakesOver, SockDeciderChecker.takesOver).get(0));
 			if (this.scheduler.compare(actorNameProcessing, actorNameTakingOver) <= 0) {
 				this.nbDecide++;
+//				System.out.println(">>>\n" + SockDeciderHelper.concatAllSubStepsName(stepWithProcess) + "\n<<<<<");
 				return stepWithProcess;
 			} else {
 				final String enteringActorName = SockDeciderHelper
-						.getAllSubStepsNameMatchingPredicate(stepWithTakesOver, SockDeciderChecker.takesOver).get(0).split("_")[1];
+						.getAllSubStepsNameMatchingPredicate(stepWithTakesOver, SockDeciderChecker.takesOver).get(0)
+						.split("_")[1];
 				this.schedule.add(new ArrivalTime(enteringActorName, this.nbDecide));
 				this.nbDecide++;
+//				System.out.println(">>>\n" + SockDeciderHelper.concatAllSubStepsName(stepWithTakesOver) + "\n<<<<<");
 				return stepWithTakesOver;
 			}
 		}
 		List<Step<?>> logicalStepsWithoutButterflyAttack = possibleLogicalSteps.stream()
-				.filter(possibleLogicalStep -> !SockDeciderChecker.hasClockPredicate(possibleLogicalStep,
+				.filter(possibleLogicalStep -> SockDeciderChecker.hasNoClockPredicate(possibleLogicalStep,
 						SockDeciderChecker.butterflyAttack))
 				.collect(Collectors.toList());
 
 		this.nbDecide++;
-		return SockDeciderHelper.returnRandomOne(logicalStepsWithoutButterflyAttack);
+		final Step<?> choosenOne = SockDeciderHelper.returnRandomOne(logicalStepsWithoutButterflyAttack);
+//		System.out.println(">>>\n" + SockDeciderHelper.concatAllSubStepsName(choosenOne) + "\n<<<<<");
+		return choosenOne;
 	}
 
 	@Override

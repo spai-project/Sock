@@ -44,15 +44,18 @@ public class Shifter {
 		final Actor enteringActor = this.system.getOwnedActor().stream()
 				.filter(actor -> actor.getName().equals(enteringActorName)).findFirst().get();
 		int shift = 0;
-		while (this.isSchedulable(enteringActor.getResource(), enteringActor, shift++));
-		return --shift;
+		while (this.isSchedulable(enteringActor.getResource(), enteringActor, shift++))
+			;
+		return SockDeciderHelper.RAND.nextInt(shift - 1);
 	}
-	
+
 	private boolean isSchedulable(Resource resource, Actor shiftedActor, int shift) {
 		double acc = 0.0D;
 		for (Actor actor : resource.getActor()) {
-			acc += SockDeciderHelper.computeRealProcessTime(actor) + (actor.equals(shiftedActor) ? shift : 0);
+			acc += (double) (((double) SockDeciderHelper.computeRealProcessTime(actor)
+					+ (actor.equals(shiftedActor) ? shift : 0)) / (double) actor.getPeriodTime());
 		}
+//		System.out.println(acc + "<" + SockDeciderHelper.getBound(resource) + " {" + shift + "}");
 		return acc < SockDeciderHelper.getBound(resource);
 	}
 
