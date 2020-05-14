@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import static fr.inria.kairos.sock.generator.GeneratorHelper.NEW_LINE;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Resource extends NamedElement {
 
@@ -39,6 +40,22 @@ public class Resource extends NamedElement {
 	public double getBound() {
 		final double n = this.actors.size();
 		return n * (Math.pow(2.0d, 1 / n) - 1);
+	}
+	
+	public int getHyperPeriod() {
+		return lcm(this.actors.stream().map(actor -> actor.getPeriodTime()).collect(Collectors.toList()));
+	}
+
+	public static int lcm(List<Integer> integers) {
+		Collections.sort(integers);
+		final int[] lcm = new int[] { integers.get(integers.size() - 1) };
+		while (true) {
+			if (integers.stream().allMatch(integer -> lcm[0] % integer == 0)) {
+				return lcm[0];
+			} else {
+				lcm[0]++;
+			}
+		}
 	}
 	
 	public String toTSock() {
