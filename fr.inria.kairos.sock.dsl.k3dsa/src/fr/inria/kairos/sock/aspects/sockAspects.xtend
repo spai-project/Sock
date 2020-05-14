@@ -77,7 +77,8 @@ class ResourceAspect extends NamedElementAspect {
 	
 	@ReplaceAspectMethod
 	def public void clean() {
-		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.resourceTimeIndex)
+//		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.resourceTimeIndex)
+		println("[" + _self.resourceTimeIndex + "] " + _self.name + " clean")
 		_self.run(_self.name + " clean")
 		_self.currentData = ""
 	}
@@ -94,7 +95,7 @@ class ResourceAspect extends NamedElementAspect {
 	
 	def public void run(String message) {
 //		println("[" + _self.resourceTimeIndex + "] " + message)
-		time(_self)
+		_self.time()
 	}
 	
 	def public void time() {
@@ -129,8 +130,8 @@ class ActorAspect extends NamedElementAspect {
 
 	@ReplaceAspectMethod
 	def public void ready() {
-		run(_self,  _self.name + " is ready")
 		_self.write("+")
+		run(_self,  _self.name + " is ready")
 	}
 	
 	def public void handleTakesOver() {
@@ -149,20 +150,20 @@ class ActorAspect extends NamedElementAspect {
 		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
 		ActorAspect.anActorEntered = _self.actorTimeIndex
 		_self.handleTakesOver()
-		run(_self, _self.name + " enters in " + _self.resource.name)
+		_self.write("1")
 		if (_self.currentProcessTime  == _self.processTime) {
 			_self.currentProcessTime = 0
 		}
 		_self.resource.isEntered(_self, _self.name + " " + _self.secret)
-		_self.write("1")
+		_self.run(_self.name + " enters in " + _self.resource.name)
 	}
 			
 	@ReplaceAspectMethod
 	def public void process() {
 		_self.currentProcessTime = _self.currentProcessTime + 1
 		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
-		run(_self, _self.name + " processes ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
 		_self.resource.isProcessed()
+		_self.run(_self.name + " processes ("+ _self.currentProcessTime + "/" + _self.processTime +") {"+ _self.resource.name +"}")
 	}
 	
 	@ReplaceAspectMethod
@@ -171,9 +172,8 @@ class ActorAspect extends NamedElementAspect {
 		ActorAspect.anActorExited = _self.actorTimeIndex
 		ActorAspect.lastExitedActor = _self
 		_self.handleTakesOver()
-		run(_self, _self.name + " exits of " + _self.resource.name)
-		_self.resource.isExited()
 		_self.write("0")
+		_self.resource.isExited()
 		if (_self.checkSensible()) {
 			_self.time()
 			_self.write("-")
@@ -197,11 +197,12 @@ class ActorAspect extends NamedElementAspect {
 				cnfe.printStackTrace
 			}			
 		}
+		_self.run(_self.name + " exits of " + _self.resource.name)
 	}
 	
 	@ReplaceAspectMethod
 	def public void idle() {
-		time(_self)
+		_self.time()
 	}
 
 	// MANAGEMENT OF FILE OUTPUT TO BUILD BINARY SIGNAL GRAPH
@@ -248,7 +249,7 @@ class ActorAspect extends NamedElementAspect {
 	
 	def public void run(String message) {
 		println("[" + _self.actorTimeIndex + "] " + message)
-		time(_self)
+		_self.time()
 	}
 	
 	def public void time() {

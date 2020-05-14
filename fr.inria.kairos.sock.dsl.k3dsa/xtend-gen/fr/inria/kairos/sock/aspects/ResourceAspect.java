@@ -9,6 +9,7 @@ import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = Resource.class)
 @SuppressWarnings("all")
@@ -175,11 +176,16 @@ public class ResourceAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_clean(final ResourceAspectResourceAspectProperties _self_, final Resource _self) {
-    EObject _eContainer = _self.eContainer();
-    ScheduLeak.busy(((IotSystem) _eContainer), (ResourceAspect.resourceTimeIndex(_self)).intValue());
+    Integer _resourceTimeIndex = ResourceAspect.resourceTimeIndex(_self);
+    String _plus = ("[" + _resourceTimeIndex);
+    String _plus_1 = (_plus + "] ");
     String _name = _self.getName();
-    String _plus = (_name + " clean");
-    ResourceAspect.run(_self, _plus);
+    String _plus_2 = (_plus_1 + _name);
+    String _plus_3 = (_plus_2 + " clean");
+    InputOutput.<String>println(_plus_3);
+    String _name_1 = _self.getName();
+    String _plus_4 = (_name_1 + " clean");
+    ResourceAspect.run(_self, _plus_4);
     ResourceAspect.currentData(_self, "");
   }
   

@@ -311,10 +311,10 @@ public class ActorAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_ready(final ActorAspectActorAspectProperties _self_, final Actor _self) {
+    ActorAspect.write(_self, "+");
     String _name = _self.getName();
     String _plus = (_name + " is ready");
     ActorAspect.run(_self, _plus);
-    ActorAspect.write(_self, "+");
   }
   
   protected static void _privk3_handleTakesOver(final ActorAspectActorAspectProperties _self_, final Actor _self) {
@@ -330,11 +330,7 @@ public class ActorAspect extends NamedElementAspect {
     ScheduLeak.busy(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue());
     ActorAspect.anActorEntered = ActorAspect.actorTimeIndex(_self);
     ActorAspect.handleTakesOver(_self);
-    String _name = _self.getName();
-    String _plus = (_name + " enters in ");
-    String _name_1 = _self.getResource().getName();
-    String _plus_1 = (_plus + _name_1);
-    ActorAspect.run(_self, _plus_1);
+    ActorAspect.write(_self, "1");
     int _currentProcessTime = _self.getCurrentProcessTime();
     int _processTime = _self.getProcessTime();
     boolean _equals = (_currentProcessTime == _processTime);
@@ -342,12 +338,16 @@ public class ActorAspect extends NamedElementAspect {
       _self.setCurrentProcessTime(0);
     }
     Resource _resource = _self.getResource();
-    String _name_2 = _self.getName();
-    String _plus_2 = (_name_2 + " ");
+    String _name = _self.getName();
+    String _plus = (_name + " ");
     String _secret = ActorAspect.secret(_self);
-    String _plus_3 = (_plus_2 + _secret);
-    ResourceAspect.isEntered(_resource, _self, _plus_3);
-    ActorAspect.write(_self, "1");
+    String _plus_1 = (_plus + _secret);
+    ResourceAspect.isEntered(_resource, _self, _plus_1);
+    String _name_1 = _self.getName();
+    String _plus_2 = (_name_1 + " enters in ");
+    String _name_2 = _self.getResource().getName();
+    String _plus_3 = (_plus_2 + _name_2);
+    ActorAspect.run(_self, _plus_3);
   }
   
   protected static void _privk3_process(final ActorAspectActorAspectProperties _self_, final Actor _self) {
@@ -356,6 +356,7 @@ public class ActorAspect extends NamedElementAspect {
     _self.setCurrentProcessTime(_plus);
     EObject _eContainer = _self.eContainer();
     ScheduLeak.busy(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue());
+    ResourceAspect.isProcessed(_self.getResource());
     String _name = _self.getName();
     String _plus_1 = (_name + " processes (");
     int _currentProcessTime_1 = _self.getCurrentProcessTime();
@@ -368,7 +369,6 @@ public class ActorAspect extends NamedElementAspect {
     String _plus_6 = (_plus_5 + _name_1);
     String _plus_7 = (_plus_6 + "}");
     ActorAspect.run(_self, _plus_7);
-    ResourceAspect.isProcessed(_self.getResource());
   }
   
   protected static void _privk3_exitOf(final ActorAspectActorAspectProperties _self_, final Actor _self) {
@@ -377,13 +377,8 @@ public class ActorAspect extends NamedElementAspect {
     ActorAspect.anActorExited = ActorAspect.actorTimeIndex(_self);
     ActorAspect.lastExitedActor = _self;
     ActorAspect.handleTakesOver(_self);
-    String _name = _self.getName();
-    String _plus = (_name + " exits of ");
-    String _name_1 = _self.getResource().getName();
-    String _plus_1 = (_plus + _name_1);
-    ActorAspect.run(_self, _plus_1);
-    ResourceAspect.isExited(_self.getResource());
     ActorAspect.write(_self, "0");
+    ResourceAspect.isExited(_self.getResource());
     boolean _checkSensible = ActorAspect.checkSensible(_self);
     if (_checkSensible) {
       ActorAspect.time(_self);
@@ -397,31 +392,36 @@ public class ActorAspect extends NamedElementAspect {
         final Binding binding = new Binding();
         binding.setVariable("time", ActorAspect.actorTimeIndex(_self));
         String _folder = ActorAspect.folder(_self);
-        String _plus_2 = (_folder + "/");
+        String _plus = (_folder + "/");
         String _subFolder = ActorAspect.subFolder(_self);
-        String _plus_3 = (_plus_2 + _subFolder);
-        String _plus_4 = (_plus_3 + "/");
-        binding.setVariable("outputFolder", _plus_4);
+        String _plus_1 = (_plus + _subFolder);
+        String _plus_2 = (_plus_1 + "/");
+        binding.setVariable("outputFolder", _plus_2);
         final ClassLoader ucl = ActorAspect.class.getClassLoader();
         final GroovyShell shell = new GroovyShell(ucl, binding);
         Object _evaluate = shell.evaluate(_self.getCode());
         final Integer energyCost = ((Integer) _evaluate);
-        String _plus_5 = (energyCost + "");
-        String _name_2 = _self.getName();
-        String _plus_6 = (_name_2 + "_energy");
-        ActorAspect.write(_self, _plus_5, _plus_6);
+        String _plus_3 = (energyCost + "");
+        String _name = _self.getName();
+        String _plus_4 = (_name + "_energy");
+        ActorAspect.write(_self, _plus_3, _plus_4);
       } catch (final Throwable _t) {
         if (_t instanceof Exception) {
           final Exception cnfe = (Exception)_t;
           String _code = _self.getCode();
-          String _plus_7 = ("Failed to call Groovy script " + _code);
-          InputOutput.<String>println(_plus_7);
+          String _plus_5 = ("Failed to call Groovy script " + _code);
+          InputOutput.<String>println(_plus_5);
           cnfe.printStackTrace();
         } else {
           throw Exceptions.sneakyThrow(_t);
         }
       }
     }
+    String _name_1 = _self.getName();
+    String _plus_6 = (_name_1 + " exits of ");
+    String _name_2 = _self.getResource().getName();
+    String _plus_7 = (_plus_6 + _name_2);
+    ActorAspect.run(_self, _plus_7);
   }
   
   protected static void _privk3_idle(final ActorAspectActorAspectProperties _self_, final Actor _self) {
