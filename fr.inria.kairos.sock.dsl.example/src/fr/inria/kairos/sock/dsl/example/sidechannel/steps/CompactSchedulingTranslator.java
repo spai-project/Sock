@@ -59,7 +59,7 @@ public class CompactSchedulingTranslator {
 				}
 			}
 		}).forEach(aQueue::add);
-//		System.out.println(aQueue);
+//		System.out.println("aQueue> " + aQueue);
 		Record current = aQueue.poll();
 		startTimeForEachTaskWithinBusyInterval.add(current);
 		while (! (aQueue.isEmpty() && sQueue.isEmpty())) {
@@ -68,7 +68,8 @@ public class CompactSchedulingTranslator {
 					(!nextIsPriorOverCurrent(current, next) && next.arrivalTime < current.arrivalTime + current.timeProcess)) { // could have start in the same, but no
 				next.arrivalTime = current.arrivalTime + current.timeProcess;
 			} else if (nextIsPriorOverCurrent(current, next) && 
-					current.arrivalTime + current.timeProcess > next.arrivalTime) { // has been taken over
+					current.arrivalTime + current.timeProcess > next.arrivalTime &&
+					!isExiting(current, next)) { // has been taken over
 //				System.out.println("1>" + current);
 //				System.out.println("2>" + next);
 				current = new Record(current);
@@ -76,7 +77,11 @@ public class CompactSchedulingTranslator {
 				current.timeProcess -= current.arrivalTime - next.arrivalTime;
 //				System.out.println("3>" + current);
 				sQueue.add(current);
-			} 
+			}  else if (nextIsPriorOverCurrent(current, next) && 
+					current.arrivalTime + current.timeProcess > next.arrivalTime &&
+					isExiting(current, next)) {
+				next.arrivalTime = current.arrivalTime + current.timeProcess;
+			}
 			startTimeForEachTaskWithinBusyInterval.add(new Record(next));
 //			System.out.println("aQ > " + aQueue);
 //			System.out.println("sQ > " + sQueue);
@@ -84,6 +89,12 @@ public class CompactSchedulingTranslator {
 //			System.out.println("current > " + current);
 		}
 		return startTimeForEachTaskWithinBusyInterval;
+	}
+	
+	private boolean isExiting(Record current, Record next) {
+//		System.out.println((current.arrivalTime + current.timeProcess) - next.arrivalTime);
+		return (current.arrivalTime + current.timeProcess) - next.arrivalTime ==
+				(this.system.getOwnedActor().get(current.indexActor).getIsSensible() == 1 ? 2 : 1);
 	}
 	
 	private boolean nextIsPriorOverCurrent(Record current, Record next) {

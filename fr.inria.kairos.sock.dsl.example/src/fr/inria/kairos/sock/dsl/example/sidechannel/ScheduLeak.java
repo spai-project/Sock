@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import fr.inria.kairos.sock.dsl.example.sidechannel.steps.Estimation;
@@ -60,49 +62,76 @@ public class ScheduLeak {
 	 * USABLE API FROM KERMETA
 	 */
 	public static void idle(IotSystem system, int time) {
-		if (_instance == null) {
+		if (_instance == null && !systemsDone.contains(system)) {
 			_instance = new ScheduLeak(system);
 		}
-		_instance._idle(time);
+		if (_instance != null && _instance._idle(time)) {
+			System.out.println("End one hyper period. Cleaning state:");
+			_instance = null;
+			systemsDone.add(system);
+			Utils.indicesOfTakesOver.clear();
+			System.out.println(_instance);
+			System.out.println(systemsDone);
+			System.out.println(Utils.indicesOfTakesOver);
+		}
 	}
 
 	public static void busy(IotSystem system, int time) {
-		if (_instance == null) {
+		if (_instance == null && !systemsDone.contains(system)) {
 			_instance = new ScheduLeak(system);
 		}
-		_instance._busy(time);
+		if (_instance != null && _instance._busy(time)) {
+			System.out.println("End one hyper period. Cleaning state:");
+			_instance = null;
+			systemsDone.add(system);
+			Utils.indicesOfTakesOver.clear();
+			System.out.println(_instance);
+			System.out.println(systemsDone);
+			System.out.println(Utils.indicesOfTakesOver);
+		}
 	}
+	
+	private static List<IotSystem> systemsDone = new ArrayList<>();
 
 	public static void takesOver(IotSystem system, int time, Actor takenOver) {
-		if (_instance == null) {
+		if (_instance == null && !systemsDone.contains(system)) {
 			_instance = new ScheduLeak(system);
 		}
 		_instance._takesOver(time, takenOver);
 	}
 
-	private void _idle(int time) {
+	private boolean _idle(int time) {
 		if (this.startingBusyTime != -1) {
 			this.busyIntervals.add(new Interval(this.startingBusyTime, this.currentBusyTime));
 			this.startingBusyTime = -1;
 		}
+		if (this.hyperPeriod < time) {
+			try {
+				run();	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return true;	
+ 		}
+		return false;
 	}
 
-	private void _busy(int time) {
+	private boolean _busy(int time) {
 		if (this.startingBusyTime == -1) {
 			this.startingBusyTime = time;
 		}
 		this.currentBusyTime = time;
-		if (!hasRun && this.hyperPeriod < time) {
-			run();
-			this.hasRun = true;
-			_instance = new ScheduLeak(system);
-			Utils.indicesOfTakesOver.clear();
-//			throw new RuntimeException();
-		}
+		if (this.hyperPeriod < time) {
+			try {
+				run();	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return true;	
+ 		}
+		return false;
 	}
 	
-	private boolean hasRun = false;
-
 	private void _takesOver(int time, Actor takenOver) {
 		if (!Utils.indicesOfTakesOver.containsKey(takenOver)) {
 			Utils.indicesOfTakesOver.put(takenOver, new ArrayList<>());
@@ -125,6 +154,9 @@ public class ScheduLeak {
 		List<List<int[]>> estimationsNPerBusyInterval = new ArrayList<>();
 		for (Interval busyInterval : busyIntervals) {
 			int[][] candidatesActor = estimation.findCandidateForActor(busyInterval);
+			for(int[] candidate : candidatesActor) {
+				System.out.println(Arrays.toString(candidate));
+			}
 			List<int[]> estimationsN = estimation.estimateNbTaskForGivenInterval(busyInterval, candidatesActor);
 			if (estimationsN.isEmpty()) {
 				throw new RuntimeException();
@@ -176,19 +208,22 @@ public class ScheduLeak {
 		}
 		CompactSchedulingTranslator algorithm = new CompactSchedulingTranslator(this.system);
 		for (int i = 0; i < busyIntervals.size() ; i++) {
+//		for (int i = 2 ; i < 4 ; i++) {
 			final Interval busyInterval = busyIntervals.get(i);
 			List<int[]> estimationForBusyInterval = estimationsNPerBusyInterval.get(i);
 			List<Record> arrivalTimesForCurrentBusyInterval = new ArrayList<>();
 			final List<Integer> arrivalTimeForEachTask = buildArrivalWindows(arrivalWindows);
 			for (int j = 0; j < estimationForBusyInterval.get(0).length; j++) {
+//			for (int j = 0; j < 1 ; j++) {
 				for (int nbActor = 0; nbActor < estimationForBusyInterval.get(0)[j]; nbActor++) {
 					final Actor actor = this.system.getOwnedActor().get(j);
 					final int periodActor = actor.getPeriodTime();
-					int firstPeriodStart = (busyInterval.time1 / periodActor) * periodActor;
-					firstPeriodStart = this.getNextPeriodStart(busyInterval, actor);
-					final int arrivalTime = firstPeriodStart + (nbActor * periodActor) + arrivalTimeForEachTask.get(j);
+					final int firstPeriodStart = this.getNextPeriodStart(busyInterval, actor);
+					final int arrivalTime = firstPeriodStart + ((nbActor * periodActor) + (nbActor > 0 ? 1 : 0)) + arrivalTimeForEachTask.get(j);
+//					System.out.println(nbActor + " " + firstPeriodStart + " " + arrivalTime + " " + arrivalTimeForEachTask.get(j));
 					arrivalTimesForCurrentBusyInterval.add(new Record(j,
-							arrivalTime,
+//							arrivalTime,
+							firstPeriodStart,
 							Utils.computeRealProcessTime(this.system.getOwnedActor().get(j), busyInterval)));
 				}
 			}
@@ -204,16 +239,25 @@ public class ScheduLeak {
 				.map(record -> this.system.getOwnedActor().get(record.indexActor).getName() + " " + record.arrivalTime)
 				.collect(Collectors.joining(IOUtils.NEW_LINE));
 	}
-
+	
+	private Map<Actor, List<Interval>> completedPeriodsForEachActor = new HashMap<>();
+  
 	public int getNextPeriodStart(Interval busyInterval, Actor actor) {
 		final int periodActor = actor.getPeriodTime();
-		final int atTimeCompleteTaskFromStart = busyInterval.time1 + Utils.computeRealProcessTime(actor, busyInterval);
-		final int nextDeadline = ((busyInterval.time1 / periodActor) + 1) * periodActor;
-		if (atTimeCompleteTaskFromStart > nextDeadline) {
-			return nextDeadline + 1;
-		} else {
-			return busyInterval.time1;
+		int nextStart = (busyInterval.time1 / periodActor) * periodActor;
+		Interval completedPeriod = new Interval(nextStart, nextStart + actor.getPeriodTime());
+		if (completedPeriodsForEachActor.containsKey(actor) && 
+				completedPeriodsForEachActor.get(actor).contains(completedPeriod)) {
+			nextStart = ((busyInterval.time1 / periodActor) + 1) * periodActor;
+			completedPeriod = new Interval(nextStart, nextStart + actor.getPeriodTime());
+			return nextStart + 1;
 		}
+//		System.out.println(busyInterval.toString() + " " + actor.getName() + " " + completedPeriod);
+		if (!completedPeriodsForEachActor.containsKey(actor)) {
+			completedPeriodsForEachActor.put(actor, new ArrayList<>());
+		}
+		completedPeriodsForEachActor.get(actor).add(completedPeriod);
+		return Math.max(nextStart, busyInterval.time1);
 	}
 
 	public List<Integer> buildArrivalWindows(List<List<Interval>> arrivalWindows) {

@@ -13,7 +13,6 @@ public class ArrivalWindows {
 		final List<Interval> arrivalWindows = new ArrayList<>();
 		final List<List<Interval>> convertedPartitionnedIntervals = new ArrayList<>();
 		Interval forNext = null;
-//		System.out.println(partitionnedInterval);
 		for (Interval interval : partitionnedInterval) {
 			List<Interval> convertedInterval = interval.convert(actor.getPeriodTime());
 			if (convertedInterval.size() > 1) {
@@ -43,7 +42,11 @@ public class ArrivalWindows {
 		for (int i = 0 ; i < possibilities.size() ; i++) {
 			Interval intersection = computeIntersection(possibilities.get(i), convertedPartitionnedIntervals);
 			if (intersection != Interval.EMPTY && !arrivalWindows.contains(intersection)) {
-				arrivalWindows.add(intersection);
+				if (intersection.time1 > intersection.time2) {
+					arrivalWindows.add(new Interval(intersection.time2, intersection.time1));
+				} else {
+					arrivalWindows.add(intersection);
+				}
 			}
 		}
 		return arrivalWindows;

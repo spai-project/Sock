@@ -32,7 +32,7 @@ public class TheoremTwo {
 					busyInterval.time1 + (j * actor.getPeriodTime()) - Utils.computeRealProcessTime(actor, busyInterval));
 //			System.out.println(j + " 1 " + new Interval(AkActorJ_left, AkActorJ_right));
 			if (AkActorJ_left > AkActorJ_right) {
-				intervals.add(new Interval(AkActorJ_right, AkActorJ_left, Interval.Category.Interval_1));
+				intervals.add(new Interval(AkActorJ_left, AkActorJ_left, Interval.Category.Interval_1));
 			} else {
 				intervals.add(new Interval(AkActorJ_left, AkActorJ_right, Interval.Category.Interval_1));
 			}
