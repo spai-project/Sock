@@ -77,6 +77,10 @@ public class Actor extends NamedElement {
 	private String formatCode() {
 		return this.code.replaceAll("\"", "\\\"");
 	}
+	
+	public String toLatex() {
+		return String.format("(%d, %d, %s)" , this.getPeriodTime(), this.processTime, this.getIsSensible() == 1? "\\cmark" : "\\xmark");
+	}
 
 	@Override
 	public String toString() {
