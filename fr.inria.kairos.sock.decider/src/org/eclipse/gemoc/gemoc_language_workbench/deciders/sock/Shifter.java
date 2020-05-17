@@ -13,14 +13,23 @@ public class Shifter {
 	private IotSystem system;
 
 	private int shiftBeforeEnter;
+	
+	private String shiftedEnteringActorName;
 
 	public Shifter(IotSystem system) {
 		this.system = system;
 	}
 
 	public boolean shiftEnter(Step<?> choosenStep) {
+		 final String choosenEnteringActorName = SockDeciderHelper
+			.getAllSubStepsNameMatchingPredicate(choosenStep, SockDeciderChecker.enter).get(0).split("_")[1];
+		if (this.shiftedEnteringActorName != null && !shiftedEnteringActorName.equals(choosenEnteringActorName)) {
+			this.shiftBeforeEnter = -1;
+			return false;
+		}
 		if (this.shiftBeforeEnter == -1) {
 			this.shiftBeforeEnter = this.computePossibleShift(choosenStep);
+			this.shiftedEnteringActorName = choosenEnteringActorName;
 			if (this.shiftBeforeEnter <= 0) {
 				this.shiftBeforeEnter = -1;
 				return false;
@@ -32,9 +41,7 @@ public class Shifter {
 				return false;
 			}
 		}
-		System.out.println("Shifting enter of " + SockDeciderHelper
-				.getAllSubStepsNameMatchingPredicate(choosenStep, SockDeciderChecker.enter).get(0).split("_")[1] + "("
-				+ this.shiftBeforeEnter + ")");
+		System.out.println("Shifting enter of " + this.shiftedEnteringActorName + "(" + this.shiftBeforeEnter + ")");
 		return true;
 	}
 

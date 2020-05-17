@@ -81,22 +81,20 @@ public class RandomSockDecider implements ILogicalStepDecider {
 		Optional<Step<?>> choosenOneOptional = this.findEnter(system, possibleLogicalSteps);
 		if (choosenOneOptional.isPresent()) {
 			Step<?> choosenStep = choosenOneOptional.get();
-			if (this.shifter.shiftEnter(choosenStep)) {
-				try {
-					choosenStep = SockDeciderHelper.getLogicalStepThatHaveOnlyGivenPredicate(possibleLogicalSteps,
-							SockDeciderChecker.butterflyAttack.negate()
-									.and(SockDeciderChecker.isIdle.or(SockDeciderChecker.periodStart)));
-				} catch (Exception e) {
-					possibleLogicalSteps.stream().map(
-							logicalStep -> ">>>\n" + SockDeciderHelper.concatAllSubStepsName(logicalStep) + "\n<<<<<\n")
-							.forEach(System.err::println);
-					e.printStackTrace();
-				}
-				System.out.println(SockDeciderHelper.concatAllSubStepsName(choosenStep));
-				this.nbDecide++;
-				return choosenStep;
-			}
-			System.out.println(SockDeciderHelper.concatAllSubStepsName(choosenStep));
+//			if (this.shifter.shiftEnter(choosenStep)) {
+//				try {
+//					choosenStep = SockDeciderHelper.getLogicalStepThatHaveOnlyGivenPredicate(possibleLogicalSteps,
+//							SockDeciderChecker.butterflyAttack.negate()
+//									.and(SockDeciderChecker.isIdle.or(SockDeciderChecker.periodStart)));
+//				} catch (Exception e) {
+//					possibleLogicalSteps.stream().map(
+//							logicalStep -> ">>>\n" + SockDeciderHelper.concatAllSubStepsName(logicalStep) + "\n<<<<<\n")
+//							.forEach(System.err::println);
+//					e.printStackTrace();
+//				}
+//				this.nbDecide++;
+//				return choosenStep;
+//			}
 			final String enteringActorName = SockDeciderHelper
 					.getAllSubStepsNameMatchingPredicate(choosenStep, SockDeciderChecker.enter).get(0).split("_")[1];
 			this.schedule.add(new ArrivalTime(enteringActorName, this.nbDecide));
@@ -121,7 +119,12 @@ public class RandomSockDecider implements ILogicalStepDecider {
 			final Step<?> stepWithTakesOver = choosenOneOptional.get();
 			final String actorNameTakingOver = SockDeciderHelper.getEntityNameFromClockName(SockDeciderHelper
 					.getAllSubStepsNameMatchingPredicate(stepWithTakesOver, SockDeciderChecker.takesOver).get(0));
-			if (this.scheduler.compare(actorNameProcessing, actorNameTakingOver) <= 0) {
+			if (this.replacement != null && !this.replacement.getName().equals(actorNameProcessing)) {
+				// the replacement is no more inside the ressource
+				this.replacement = null;
+			}
+			if (this.replacement != null && this.replacement.getName().equals(actorNameProcessing) || 
+					this.scheduler.compare(actorNameProcessing, actorNameTakingOver) <= 0) {
 				this.nbDecide++;
 				return stepWithProcess;
 			} else {
@@ -140,6 +143,8 @@ public class RandomSockDecider implements ILogicalStepDecider {
 		this.nbDecide++;
 		return SockDeciderHelper.returnRandomOne(logicalStepsWithoutButterflyAttack);
 	}
+	
+	private Actor replacement;
 
 	public Optional<Step<?>> findEnter(IotSystem system, final List<Step<?>> possibleLogicalSteps) {
 		List<Step<?>> stepsWithEnter = possibleLogicalSteps.stream()
@@ -154,24 +159,34 @@ public class RandomSockDecider implements ILogicalStepDecider {
 		if (stepsWithEnter.size() <= 1) {
 			return Optional.of(stepsWithEnter.get(0));
 		}
-		final String secondEnteringActorName = SockDeciderHelper
-				.getAllSubStepsNameMatchingPredicate(stepsWithEnter.get(1), SockDeciderChecker.enter).get(0)
-				.split("_")[1];
-		final Actor secondEnteringActor = system.getOwnedActor().stream()
-				.filter(actor -> actor.getName().equals(secondEnteringActorName)).findFirst().get();
 		final String enteringActorName = SockDeciderHelper
 				.getAllSubStepsNameMatchingPredicate(stepsWithEnter.get(0), SockDeciderChecker.enter).get(0)
 				.split("_")[1];
 		final Actor enteringActor = system.getOwnedActor().stream()
 				.filter(actor -> actor.getName().equals(enteringActorName)).findFirst().get();
-		if (SockDeciderHelper.computeRealProcessTime(secondEnteringActor)
-				+ SockDeciderHelper.computeRealProcessTime(enteringActor) < enteringActor.getPeriodTime()) {
-			return Optional.of(stepsWithEnter.get(1));
-		} else {
+		final List<Step<?>> randomEnteringLogicalStep = stepsWithEnter.stream()
+			.filter( logicalStep -> {
+				final String secondEnteringActorName = SockDeciderHelper
+						.getAllSubStepsNameMatchingPredicate(logicalStep, SockDeciderChecker.enter).get(0)
+						.split("_")[1];
+				final Actor secondEnteringActor = system.getOwnedActor().stream()
+						.filter(actor -> actor.getName().equals(secondEnteringActorName)).findFirst().get();
+				return SockDeciderHelper.computeRealProcessTime(secondEnteringActor)
+						+ SockDeciderHelper.computeRealProcessTime(enteringActor) < enteringActor.getPeriodTime();
+			}).collect(Collectors.toList());
+		if (randomEnteringLogicalStep.isEmpty()) {
 			return Optional.of(stepsWithEnter.get(0));
+		} else {
+			final Step<?> choosenStep = SockDeciderHelper.returnRandomOne(randomEnteringLogicalStep);
+			final String choosenActor = SockDeciderHelper
+					.getAllSubStepsNameMatchingPredicate(choosenStep, SockDeciderChecker.enter).get(0)
+					.split("_")[1];
+			this.replacement = system.getOwnedActor().stream()
+					.filter(actor -> actor.getName().equals(choosenActor)).findFirst().get();
+			return Optional.of(choosenStep);
 		}
 	}
-
+	
 	@Override
 	public void dispose() {
 		// nothing to do
