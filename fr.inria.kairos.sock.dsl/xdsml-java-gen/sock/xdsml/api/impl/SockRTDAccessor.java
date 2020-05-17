@@ -27,6 +27,18 @@ public class SockRTDAccessor {
 	public static boolean setlastActorSensibility(EObject eObject, java.lang.Integer newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "lastActorSensibility", newValue);
 	}
+  public static java.lang.Integer getstartingIdleIntervalTime(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "startingIdleIntervalTime");
+	}
+	public static boolean setstartingIdleIntervalTime(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "startingIdleIntervalTime", newValue);
+	}
+  public static java.lang.Integer getresourceTimeIndex(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "resourceTimeIndex");
+	}
+	public static boolean setresourceTimeIndex(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ResourceAspect", "resourceTimeIndex", newValue);
+	}
   public static java.lang.Integer getisSensible(EObject eObject) {
 		return (java.lang.Integer)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "isSensible");
 	}
@@ -56,6 +68,12 @@ public class SockRTDAccessor {
 	}
 	public static boolean setcurrentProcessTime(EObject eObject, java.lang.Integer newValue) {
 		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "currentProcessTime", newValue);
+	}
+  public static java.lang.String getcode(EObject eObject) {
+		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "code");
+	}
+	public static boolean setcode(EObject eObject, java.lang.String newValue) {
+		return setAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "code", newValue);
 	}
   public static java.lang.String getfolder(EObject eObject) {
 		return (java.lang.String)  getAspectProperty(eObject, "fr.inria.kairos.sock.Sock", "fr.inria.kairos.sock.aspects.ActorAspect", "folder");

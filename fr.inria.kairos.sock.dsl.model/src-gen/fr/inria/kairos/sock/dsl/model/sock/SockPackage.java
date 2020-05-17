@@ -695,6 +695,16 @@ public interface SockPackage extends EPackage {
 	EAttribute getActor_Code();
 
 	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#ready() <em>Ready</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Ready</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#ready()
+	 * @generated
+	 */
+	EOperation getActor__Ready();
+
+	/**
 	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#enterIn() <em>Enter In</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -703,6 +713,16 @@ public interface SockPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getActor__EnterIn();
+
+	/**
+	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#process() <em>Process</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Process</em>' operation.
+	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#process()
+	 * @generated
+	 */
+	EOperation getActor__Process();
 
 	/**
 	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#exitOf() <em>Exit Of</em>}' operation.
@@ -723,26 +743,6 @@ public interface SockPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getActor__Idle();
-
-	/**
-	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#process() <em>Process</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Process</em>' operation.
-	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#process()
-	 * @generated
-	 */
-	EOperation getActor__Process();
-
-	/**
-	 * Returns the meta object for the '{@link fr.inria.kairos.sock.dsl.model.sock.Actor#ready() <em>Ready</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Ready</em>' operation.
-	 * @see fr.inria.kairos.sock.dsl.model.sock.Actor#ready()
-	 * @generated
-	 */
-	EOperation getActor__Ready();
 
 	/**
 	 * Returns the meta object for class '{@link fr.inria.kairos.sock.dsl.model.sock.MaliciousActor <em>Malicious Actor</em>}'.
@@ -930,12 +930,28 @@ public interface SockPackage extends EPackage {
 		EAttribute ACTOR__CODE = eINSTANCE.getActor_Code();
 
 		/**
+		 * The meta object literal for the '<em><b>Ready</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___READY = eINSTANCE.getActor__Ready();
+
+		/**
 		 * The meta object literal for the '<em><b>Enter In</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation ACTOR___ENTER_IN = eINSTANCE.getActor__EnterIn();
+
+		/**
+		 * The meta object literal for the '<em><b>Process</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___PROCESS = eINSTANCE.getActor__Process();
 
 		/**
 		 * The meta object literal for the '<em><b>Exit Of</b></em>' operation.
@@ -952,22 +968,6 @@ public interface SockPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ACTOR___IDLE = eINSTANCE.getActor__Idle();
-
-		/**
-		 * The meta object literal for the '<em><b>Process</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ACTOR___PROCESS = eINSTANCE.getActor__Process();
-
-		/**
-		 * The meta object literal for the '<em><b>Ready</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ACTOR___READY = eINSTANCE.getActor__Ready();
 
 		/**
 		 * The meta object literal for the '{@link fr.inria.kairos.sock.dsl.model.sock.impl.MaliciousActorImpl <em>Malicious Actor</em>}' class.

@@ -291,8 +291,26 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getActor__Ready() {
+		return actorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getActor__EnterIn() {
 		return actorEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActor__Process() {
+		return actorEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -311,24 +329,6 @@ public class SockPackageImpl extends EPackageImpl implements SockPackage {
 	 */
 	public EOperation getActor__Idle() {
 		return actorEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getActor__Process() {
-		return actorEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getActor__Ready() {
-		return actorEClass.getEOperations().get(0);
 	}
 
 	/**

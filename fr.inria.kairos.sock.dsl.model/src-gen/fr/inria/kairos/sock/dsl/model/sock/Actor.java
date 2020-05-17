@@ -191,7 +191,23 @@ public interface Actor extends NamedElement {
 	 * @model
 	 * @generated
 	 */
+	void ready();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void enterIn();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void process();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,21 +224,5 @@ public interface Actor extends NamedElement {
 	 * @generated
 	 */
 	void idle();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void process();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void ready();
 
 } // Actor

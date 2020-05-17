@@ -66,6 +66,10 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 				elemState.getSavedRTDs().add(n2v0);
 				AttributeNameToValue n2v1 = new AttributeNameToValue("lastActorSensibility", SockRTDAccessor.getlastActorSensibility(elem));
 				elemState.getSavedRTDs().add(n2v1);
+				AttributeNameToValue n2v2 = new AttributeNameToValue("startingIdleIntervalTime", SockRTDAccessor.getstartingIdleIntervalTime(elem));
+				elemState.getSavedRTDs().add(n2v2);
+				AttributeNameToValue n2v3 = new AttributeNameToValue("resourceTimeIndex", SockRTDAccessor.getresourceTimeIndex(elem));
+				elemState.getSavedRTDs().add(n2v3);
 			}
 			clazz = K3DslHelper.getTarget(fr.inria.kairos.sock.aspects.ActorAspect.class);
 			if (clazz.isInstance(elem)) {
@@ -82,12 +86,14 @@ public class SockModelStateHelper implements IK3ModelStateHelper{
 				elemState.getSavedRTDs().add(n2v3);
 				AttributeNameToValue n2v4 = new AttributeNameToValue("currentProcessTime", SockRTDAccessor.getcurrentProcessTime(elem));
 				elemState.getSavedRTDs().add(n2v4);
-				AttributeNameToValue n2v5 = new AttributeNameToValue("folder", SockRTDAccessor.getfolder(elem));
+				AttributeNameToValue n2v5 = new AttributeNameToValue("code", SockRTDAccessor.getcode(elem));
 				elemState.getSavedRTDs().add(n2v5);
-				AttributeNameToValue n2v6 = new AttributeNameToValue("subFolder", SockRTDAccessor.getsubFolder(elem));
+				AttributeNameToValue n2v6 = new AttributeNameToValue("folder", SockRTDAccessor.getfolder(elem));
 				elemState.getSavedRTDs().add(n2v6);
-				AttributeNameToValue n2v7 = new AttributeNameToValue("actorTimeIndex", SockRTDAccessor.getactorTimeIndex(elem));
+				AttributeNameToValue n2v7 = new AttributeNameToValue("subFolder", SockRTDAccessor.getsubFolder(elem));
 				elemState.getSavedRTDs().add(n2v7);
+				AttributeNameToValue n2v8 = new AttributeNameToValue("actorTimeIndex", SockRTDAccessor.getactorTimeIndex(elem));
+				elemState.getSavedRTDs().add(n2v8);
 			}
 		}
 		return res;
