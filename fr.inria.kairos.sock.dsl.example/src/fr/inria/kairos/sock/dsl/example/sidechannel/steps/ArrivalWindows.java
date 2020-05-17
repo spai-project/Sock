@@ -1,6 +1,7 @@
 package fr.inria.kairos.sock.dsl.example.sidechannel.steps;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,7 @@ public class ArrivalWindows {
 		}
 		List<int[]> possibilities = Estimation.findPossibilites(indicesCandidates);
 		for (int i = 0 ; i < possibilities.size() ; i++) {
+//			System.out.println(convertedPartitionnedIntervals + " " + Arrays.toString(possibilities.get(i)));
 			Interval intersection = computeIntersection(possibilities.get(i), convertedPartitionnedIntervals);
 			if (intersection != Interval.EMPTY && !arrivalWindows.contains(intersection)) {
 				if (intersection.time1 > intersection.time2) {
@@ -55,9 +57,9 @@ public class ArrivalWindows {
 	public static Interval computeIntersection(int[] indices, final List<List<Interval>> convertedPartiotionnedIntervals) {
 		Interval intersection = convertedPartiotionnedIntervals.get(0).get(indices[0]);
 		for (int i = 1 ; i < convertedPartiotionnedIntervals.size() ; i++) {
-			intersection = intersection.intersection(convertedPartiotionnedIntervals.get(i).get(indices[i]));
-			if (intersection.getDuration() < 0) {
-				return Interval.EMPTY;
+			Interval tmpIntersection = intersection.intersection(convertedPartiotionnedIntervals.get(i).get(indices[i]));
+			if (intersection.getDuration() > 0) {
+				intersection = tmpIntersection;
 			}
 		}
 		return intersection;

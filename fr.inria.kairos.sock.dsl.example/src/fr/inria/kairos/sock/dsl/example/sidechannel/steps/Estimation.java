@@ -72,7 +72,7 @@ public class Estimation {
 	private int computeTotalComputationTime(List<Actor> actors, int[] numberOfEach, Interval interval) {
 		int acc = 0;
 		for (int i = 0; i < actors.size(); i++) {
-			System.out.println(i + " " + Utils.computeRealProcessTime(actors.get(i), interval));
+//			System.out.println(i + " " + Utils.computeRealProcessTime(actors.get(i), interval));
 			acc += numberOfEach[i] * Utils.computeRealProcessTime(actors.get(i), interval);
 		}
 		return acc;

@@ -145,8 +145,8 @@ public class ScheduLeak {
 	public void run() {
 		final Estimation estimation = new Estimation(this.system);
 		List<Interval> busyIntervals = this.getBusyInterval();
-		System.out.println(busyIntervals);
-		System.out.println(Utils.indicesOfTakesOver);
+//		System.out.println(busyIntervals);
+//		System.out.println(Utils.indicesOfTakesOver);
 		List<List<Interval>> partitionnedIntervalPerActor = new ArrayList<>();
 		for (int i = 0; i < this.system.getOwnedActor().size(); i++) {
 			partitionnedIntervalPerActor.add(new ArrayList<>());
@@ -154,9 +154,9 @@ public class ScheduLeak {
 		List<List<int[]>> estimationsNPerBusyInterval = new ArrayList<>();
 		for (Interval busyInterval : busyIntervals) {
 			int[][] candidatesActor = estimation.findCandidateForActor(busyInterval);
-			for(int[] candidate : candidatesActor) {
-				System.out.println(Arrays.toString(candidate));
-			}
+//			for(int[] candidate : candidatesActor) {
+//				System.out.println(Arrays.toString(candidate));
+//			}
 			List<int[]> estimationsN = estimation.estimateNbTaskForGivenInterval(busyInterval, candidatesActor);
 			if (estimationsN.isEmpty()) {
 				throw new RuntimeException();
@@ -180,6 +180,7 @@ public class ScheduLeak {
 			}
 			arrivalWindows.clear();
 			for (int i = 0; i < this.system.getOwnedActor().size(); i++) {
+//			for (int i = 0; i < 1 ; i++) {
 				List<Interval> arrivalWindow = ArrivalWindows.findArrivalWindows(partitionnedIntervalPerActor.get(i),
 						this.system.getOwnedActor().get(i));
 				arrivalWindows.add(arrivalWindow);
@@ -228,8 +229,8 @@ public class ScheduLeak {
 				}
 			}
 			List<Record> schedule = algorithm.run(busyInterval, arrivalTimesForCurrentBusyInterval);
-			System.out.println(i + " " + busyInterval + " " + schedule.toString()
-					+ Arrays.toString(estimationForBusyInterval.get(0)));
+//			System.out.println(i + " " + busyInterval + " " + schedule.toString()
+//					+ Arrays.toString(estimationForBusyInterval.get(0)));
 			IOUtils.writeRaw(toString(schedule), this.system.getName() + "/attack_schedule");
 		}
 	}

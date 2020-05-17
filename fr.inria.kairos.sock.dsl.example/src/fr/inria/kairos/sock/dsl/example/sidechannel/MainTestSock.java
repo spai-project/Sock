@@ -34,19 +34,19 @@ public class MainTestSock {
 		
 		// S 4
 		
-//		final Actor a1 = SockFactory.eINSTANCE.createActor();
-//		a1.setName("a");
-//		a1.setPeriodTime(10);
-//		a1.setProcessTime(2);
-//		a1.setResource(r); 
-//		a1.setIsSensible(0);
-//		
-//		final Actor a2 = SockFactory.eINSTANCE.createActor();
-//		a2.setName("b");
-//		a2.setPeriodTime(35);
-//		a2.setProcessTime(4);
-//		a2.setResource(r);
-//		a2.setIsSensible(1);
+		final Actor a1 = SockFactory.eINSTANCE.createActor();
+		a1.setName("a");
+		a1.setPeriodTime(10);
+		a1.setProcessTime(2);
+		a1.setResource(r); 
+		a1.setIsSensible(0);
+		
+		final Actor a2 = SockFactory.eINSTANCE.createActor();
+		a2.setName("b");
+		a2.setPeriodTime(35);
+		a2.setProcessTime(4);
+		a2.setResource(r);
+		a2.setIsSensible(1);
 		
 		
 		// S 0
@@ -81,38 +81,38 @@ public class MainTestSock {
 		
 		// S 1
 		
-		final Actor a1 = SockFactory.eINSTANCE.createActor();
-		a1.setName("a");
-		a1.setPeriodTime(25);
-		a1.setProcessTime(1);
-		a1.setResource(r); 
-		a1.setIsSensible(0);
-		
-		final Actor a2 = SockFactory.eINSTANCE.createActor();
-		a2.setName("b");
-		a2.setPeriodTime(25);
-		a2.setProcessTime(1);
-		a2.setResource(r);
-		a2.setIsSensible(1);
-		
-		final Actor a3 = SockFactory.eINSTANCE.createActor();
-		a3.setName("c");
-		a3.setPeriodTime(20);
-		a3.setProcessTime(2);
-		a3.setResource(r);
-		a3.setIsSensible(0);
-		
-		final Actor a4 = SockFactory.eINSTANCE.createActor();
-		a4.setName("d");
-		a4.setPeriodTime(25);
-		a4.setProcessTime(2);
-		a4.setResource(r);
-		a4.setIsSensible(1);
+//		final Actor a1 = SockFactory.eINSTANCE.createActor();
+//		a1.setName("a");
+//		a1.setPeriodTime(25);
+//		a1.setProcessTime(1);
+//		a1.setResource(r); 
+//		a1.setIsSensible(0);
+//		
+//		final Actor a2 = SockFactory.eINSTANCE.createActor();
+//		a2.setName("b");
+//		a2.setPeriodTime(25);
+//		a2.setProcessTime(1);
+//		a2.setResource(r);
+//		a2.setIsSensible(1);
+//		
+//		final Actor a3 = SockFactory.eINSTANCE.createActor();
+//		a3.setName("c");
+//		a3.setPeriodTime(20);
+//		a3.setProcessTime(2);
+//		a3.setResource(r);
+//		a3.setIsSensible(0);
+//		
+//		final Actor a4 = SockFactory.eINSTANCE.createActor();
+//		a4.setName("d");
+//		a4.setPeriodTime(25);
+//		a4.setProcessTime(2);
+//		a4.setResource(r);
+//		a4.setIsSensible(1);
 		
 		s.getOwnedActor().add(a1);
 		s.getOwnedActor().add(a2);
-		s.getOwnedActor().add(a3);
-		s.getOwnedActor().add(a4);
+//		s.getOwnedActor().add(a3);
+//		s.getOwnedActor().add(a4);
 		s.getOwnedResource().add(r);
 		
 		final int lcm = Utils.lcm(s.getOwnedActor().stream().map(Actor::getPeriodTime).collect(Collectors.toList()));
@@ -149,12 +149,12 @@ public class MainTestSock {
 //		Utils.indicesOfTakesOver.get(a2).add(32);
 		// S4
 //		[[0 ; 14] {15}, [21 ; 24] {4}, [31 ; 34] {4}, [36 ; 46] {11}, [51 ; 54] {4}, [61 ; 64] {4}]
-//		ScheduLeak.initInstance(s).busyIntervals.add(new Interval(0, 14));
-//		ScheduLeak.getInstance().busyIntervals.add(new Interval(21, 24));
-//		ScheduLeak.getInstance().busyIntervals.add(new Interval(31, 34));
-//		ScheduLeak.getInstance().busyIntervals.add(new Interval(36, 46));
-//		ScheduLeak.getInstance().busyIntervals.add(new Interval(51, 54));
-//		ScheduLeak.getInstance().busyIntervals.add(new Interval(61, 64));
+		ScheduLeak.initInstance(s).busyIntervals.add(new Interval(0, 14));
+		ScheduLeak.getInstance().busyIntervals.add(new Interval(21, 24));
+		ScheduLeak.getInstance().busyIntervals.add(new Interval(31, 34));
+		ScheduLeak.getInstance().busyIntervals.add(new Interval(36, 46));
+		ScheduLeak.getInstance().busyIntervals.add(new Interval(51, 54));
+		ScheduLeak.getInstance().busyIntervals.add(new Interval(61, 64));
 		// S0
 //		[[0 ; 28] {29}, [41 ; 44] {4}, [46 ; 70] {25}, [81 ; 84] {4}, [91 ; 115] {25}, [121 ; 124] {4}, [136 ; 159] {24}, [161 ; 164] {4}]
 //		{fr.inria.kairos.sock.dsl.model.sock.impl.ActorImpl@6a14422 (name: a2060070) (isSensible: 0, processTime: 4, periodTime: 45, currentProcessTime: 4, code: null)=[101], 
@@ -174,12 +174,12 @@ public class MainTestSock {
 //		Utils.indicesOfTakesOver.get(a4).add(61);
 		// S1
 //		[[0 ; 15] {16}, [21 ; 24] {4}, [26 ; 37] {12}, [41 ; 44] {4}, [51 ; 66] {16}, [76 ; 91] {16}]
-		ScheduLeak.initInstance(s).busyIntervals.add(new Interval(0, 15));
-		ScheduLeak.getInstance().busyIntervals.add(new Interval(21, 24));
-		ScheduLeak.getInstance().busyIntervals.add(new Interval(26, 37));
-		ScheduLeak.getInstance().busyIntervals.add(new Interval(41, 44));
-		ScheduLeak.getInstance().busyIntervals.add(new Interval(51, 66));
-		ScheduLeak.getInstance().busyIntervals.add(new Interval(76, 91));
+//		ScheduLeak.initInstance(s).busyIntervals.add(new Interval(0, 15));
+//		ScheduLeak.getInstance().busyIntervals.add(new Interval(21, 24));
+//		ScheduLeak.getInstance().busyIntervals.add(new Interval(26, 37));
+//		ScheduLeak.getInstance().busyIntervals.add(new Interval(41, 44));
+//		ScheduLeak.getInstance().busyIntervals.add(new Interval(51, 66));
+//		ScheduLeak.getInstance().busyIntervals.add(new Interval(76, 91));
 		
 		ScheduLeak.getInstance().run();
 	}
