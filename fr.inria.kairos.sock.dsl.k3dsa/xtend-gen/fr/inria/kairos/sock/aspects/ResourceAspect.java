@@ -4,7 +4,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
 import fr.inria.kairos.sock.aspects.ResourceAspectResourceAspectProperties;
-import fr.inria.kairos.sock.dsl.example.sidechannel.ScheduLeak;
+import fr.inria.kairos.sock.dsl.attacks.sidechannel.ScheduLeak;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;

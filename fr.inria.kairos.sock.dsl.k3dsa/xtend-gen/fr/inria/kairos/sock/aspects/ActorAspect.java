@@ -6,7 +6,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.SynchroField;
 import fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties;
 import fr.inria.kairos.sock.aspects.NamedElementAspect;
 import fr.inria.kairos.sock.aspects.ResourceAspect;
-import fr.inria.kairos.sock.dsl.example.sidechannel.ScheduLeak;
+import fr.inria.kairos.sock.dsl.attacks.sidechannel.ScheduLeak;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;

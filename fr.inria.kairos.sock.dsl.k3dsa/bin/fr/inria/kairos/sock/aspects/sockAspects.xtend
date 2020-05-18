@@ -12,21 +12,11 @@ import static extension fr.inria.kairos.sock.aspects.ResourceAspect.*
 import static extension fr.inria.kairos.sock.aspects.ActorAspect.*
 import static extension fr.inria.kairos.sock.aspects.MaliciousActorAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.SynchroField
-import fr.inria.diverse.k3.al.annotationprocessor.Main
-import fr.inria.diverse.k3.al.annotationprocessor.Step
-import java.util.List
-import java.util.Collections
-import java.util.Comparator
-import java.util.ArrayList
-import java.io.FileWriter
 import java.io.File
-import java.util.Calendar
-import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 import fr.inria.kairos.sock.dsl.model.sock.MaliciousActor
-import java.util.Map
 
-import fr.inria.kairos.sock.dsl.example.sidechannel.*;
+import fr.inria.kairos.sock.dsl.attacks.sidechannel.ScheduLeak;
 
 import groovy.lang.Binding
 import groovy.lang.GroovyShell
