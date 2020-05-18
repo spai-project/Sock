@@ -1,7 +1,5 @@
 package org.eclipse.gemoc.gemoc_language_workbench.deciders;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +12,7 @@ import org.eclipse.gemoc.gemoc_language_workbench.deciders.sock.utils.SockDecide
 import org.eclipse.gemoc.gemoc_language_workbench.deciders.sock.utils.SockDeciderHelper;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
+import fr.inria.kairos.sock.utils.IOUtils;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 
 public class SockDecider implements ILogicalStepDecider {
@@ -40,25 +39,18 @@ public class SockDecider implements ILogicalStepDecider {
 		}
 	}
 
-	public static final String BASE_PATH_OUTPUT = "/Users/stephaniechallita/Desktop/runtime-EclipseApplication/";
-
-	public static final String NEW_LINE = System.lineSeparator();
-
 	public String toString(List<ArrivalTime> schedule) {
 		return schedule.stream().map(arrivalTime -> arrivalTime.actor + " " + arrivalTime.arrivalTime)
-				.collect(Collectors.joining(NEW_LINE));
+				.collect(Collectors.joining(IOUtils.NEW_LINE));
 	}
 
 	public Step<?> decide(AbstractConcurrentExecutionEngine engine, final List<Step<?>> possibleLogicalSteps) {
 		final IotSystem system = (IotSystem) engine.getExecutionContext().getResourceModel().getContents().get(0);
 		final int hyperPeriod = SockDeciderHelper.getHyperPeriod(system);
+	
 		if (this.nbDecide != 0 && this.nbDecide % (hyperPeriod + 2) == 0) {
 			System.out.println("Reach hyperperiod {" + hyperPeriod + "}. Stopping... in 3s");
-			try (FileWriter writer = new FileWriter(new File(BASE_PATH_OUTPUT + system.getName() + "/schedule"),
-					true)) {
-				writer.write(this.toString(this.schedule) + NEW_LINE);
-			} catch (Exception ignored) {
-			}
+			IOUtils.writeRaw(this.toString(this.schedule), system.getName() + "/schedule");
 			this.schedule.clear();
 			this.scheduler = null;
 			this.nbDecide = 0;
