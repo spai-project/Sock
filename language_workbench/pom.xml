@@ -29,21 +29,22 @@
         <module>concurrent_addons/plugins/org.eclipse.gemoc.addon.vcdgenerator</module>
         <module>concurrent_addons/plugins/org.eclipse.gemoc.addon.eventscheduling.timeline</module> -->
 
-        <module>fr.inria.kairos.sock.decider</module>
-        <module>fr.inria.kairos.sock.dsl</module>
+        <module>fr.inria.kairos.sock.dsl.model</module>
+        <module>fr.inria.kairos.sock.dsl.model.edit</module>
+        <module>fr.inria.kairos.sock.dsl.model.editor</module>
         <module>fr.inria.kairos.sock.dsl.attacks</module>
+        <module>fr.inria.kairos.sock.decider</module>
+        <module>fr.inria.kairos.sock.dsl.moccml</module>
+        <module>fr.inria.kairos.sock.dsl.dse</module>
+        <module>fr.inria.kairos.sock.dsl.k3dsa</module>
+        <module>fr.inria.kairos.sock.dsl</module>
         <module>fr.inria.kairos.sock.dsl.concretesyntax</module>
         <module>fr.inria.kairos.sock.dsl.concretesyntax.ide</module>
         <module>fr.inria.kairos.sock.dsl.concretesyntax.tests</module>
         <module>fr.inria.kairos.sock.dsl.concretesyntax.ui</module>
         <module>fr.inria.kairos.sock.dsl.concretesyntax.ui.tests</module>
         <module>fr.inria.kairos.sock.dsl.design</module>
-        <module>fr.inria.kairos.sock.dsl.dse</module>
-        <module>fr.inria.kairos.sock.dsl.k3dsa</module>
-        <module>fr.inria.kairos.sock.dsl.moccml</module>
-        <module>fr.inria.kairos.sock.dsl.model</module>
-        <module>fr.inria.kairos.sock.dsl.model.edit</module>
-        <module>fr.inria.kairos.sock.dsl.model.editor</module>
+
 
 
         <!-- feature and update site -->
