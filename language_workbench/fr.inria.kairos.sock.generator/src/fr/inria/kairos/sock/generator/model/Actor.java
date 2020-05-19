@@ -88,4 +88,9 @@ public class Actor extends NamedElement {
 				+ ", periodTime=" + periodTime + ", name=" + name + "]";
 	}
 	
+	@Override
+	public int hashCode() {
+		return this.getName().hashCode();
+	}
+	
 }

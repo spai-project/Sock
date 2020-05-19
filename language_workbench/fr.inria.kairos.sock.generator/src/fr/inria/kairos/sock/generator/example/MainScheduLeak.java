@@ -70,7 +70,7 @@ public class MainScheduLeak {
 		for (int i = 0; i < NB_CONFIGURATION; i++) {
 			final IotSystem system = new IotSystem("s" + i);
 			generator.initSystemWithGivenBoundForResource(interval, system, true);
-			if (system.getOwnedResource().get(0).getHyperPeriod() > maxHyperPeriod) {
+			if (new ArrayList<>(system.getOwnedResource()).get(0).getHyperPeriod() > maxHyperPeriod) {
 				--i;
 				continue;
 			}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <relativePath>..</relativePath>
+    <groupId>fr.inria.kairos</groupId>
+    <artifactId>sock.dsl.parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <groupId>fr.inria.kairos</groupId>
+  <artifactId>sock.dsl.concretesyntax</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+</project>

@@ -62,12 +62,12 @@ public class Generator {
 	}
 	
 	public IotSystem initSystemWithGivenBoundForResource(Interval targetedInterval, final IotSystem system, boolean withFlushTask) {
-		final Resource resource = new Resource("r" + targetedInterval.format());
+		final Resource resource = new Resource("r"  + system.getOwnedResource().size());
 		while (true) {
 			final int nbActor = this.minNbActor + this.random.nextInt(this.maxNbActor - this.minNbActor);
-			for (int i = 0 ; i < nbActor ; i++) {
-				final Actor actor = getNextActor(resource, system.getOwnedActor().size() + targetedInterval.format());
-				system.getOwnedActor().add(actor);
+			while (resource.getActors().size() < nbActor) {
+				final Actor actor = getNextActor(resource);
+//				resource.getActors().add(actor);
 			}
 			double score = resource.computeSchedulableScore(withFlushTask);
 			double bound = resource.getBound();
@@ -75,27 +75,26 @@ public class Generator {
 					&& score <= bound) {
 				break;
 			} else {
-				system.getOwnedActor().clear();
 				resource.getActors().clear();
 			}
 		}
 		system.getOwnedResource().add(resource);
+		system.getOwnedActor().addAll(resource.getActors());
 		return system;
 	}
 	
 	public IotSystem initSystemWithGivenBaseUtilization(Interval targetedInterval, final IotSystem system, boolean withFlushTask) {
-		final Resource resource = new Resource("r" + targetedInterval.format());
+		final Resource resource = new Resource("r" + system.getOwnedResource().size());
 		while (true) {
 			final int nbActor = 2 + this.random.nextInt(8);
 			for (int i = 0 ; i < nbActor ; i++) {
-				final Actor actor = getNextActor(resource, system.getOwnedActor().size() + targetedInterval.format());
-				system.getOwnedActor().add(actor);
+				final Actor actor = getNextActor(resource);
+				resource.getActors().add(actor);
 			}
 			double score = resource.computeSchedulableScore(withFlushTask);
 			if (targetedInterval.i <= score && score <= targetedInterval.j) {
 				break;
 			} else {
-				system.getOwnedActor().clear();
 				resource.getActors().clear();
 			}
 		}
@@ -103,7 +102,7 @@ public class Generator {
 		return system;
 	}
 		
-	public Actor getNextActor(final Resource resource, String suffix) {
+	public Actor getNextActor(final Resource resource) {
 		final int periodTime = this.minPeriodTime + (this.stepPeriodTime *  this.random.nextInt( (this.maxPeriodTime - this.minPeriodTime) / this.stepPeriodTime));
 		final int processTime  = this.minProcessTime + this.random.nextInt(this.maxProcessTime - this.minProcessTime);
 		final int isPriority;
@@ -112,6 +111,8 @@ public class Generator {
 		} else {
 			isPriority = 1;
 		}
-		return new Actor("a" + suffix, isPriority, processTime, periodTime, resource);
+		return new Actor("a" + 
+				resource.getName() + 
+				resource.getActors().size(), isPriority, processTime, periodTime, resource);
 	}
 }

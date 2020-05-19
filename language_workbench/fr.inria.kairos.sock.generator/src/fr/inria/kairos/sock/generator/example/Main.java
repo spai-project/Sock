@@ -6,6 +6,7 @@ import fr.inria.kairos.sock.generator.GeneratorHelper;
 import fr.inria.kairos.sock.generator.Interval;
 import fr.inria.kairos.sock.generator.io.SockWriter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -52,7 +53,7 @@ public class Main {
 			writer.write(system.getName(), system);
 			system.getOwnedActor().stream()
 				.forEach(actor -> System.out.println(actor.getName() + " " + actor.getScore(true)));
-			System.out.println(system.getOwnedResource().get(0).getBound());
+			System.out.println(new ArrayList<>(system.getOwnedResource()).get(0).getBound());
 			System.out.println(system.getOwnedActor().stream().map(actor -> actor.getScore(true)).reduce((acc, actor) -> acc + actor));
 		}
 		System.out.println("Generation of " + intervals.size() + " tsock model successful");

@@ -1,5 +1,7 @@
 package fr.inria.kairos.sock.generator.example;
 
+import java.util.ArrayList;
+
 import fr.inria.kairos.sock.generator.GeneratorHelper;
 import fr.inria.kairos.sock.generator.example.groovy.DCMotorGroovy;
 import fr.inria.kairos.sock.generator.example.groovy.VehiculePositionningGroovy;
@@ -22,7 +24,7 @@ public class ButterFlyMain {
 		};
 		for (IotSystem system : butterflySystems) {
 			System.out.println(system.isSchedulable(true));
-			System.out.println(system.getOwnedResource().get(0).getBound());
+			System.out.println(new ArrayList<>(system.getOwnedResource()).get(0).getBound());
 			system.getOwnedActor().stream()
 					.forEach(actor -> System.out.println(actor.getName() + " " + actor.getScore(true)));
 			System.out.println(
