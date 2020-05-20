@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Attacks
 Bundle-SymbolicName: fr.inria.kairos.sock.dsl.attacks
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.3.0.qualifier
 Automatic-Module-Name: fr.inria.kairos.sock.dsl.attacks
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: fr.inria.kairos.sock.dsl.attacks.butterfly,

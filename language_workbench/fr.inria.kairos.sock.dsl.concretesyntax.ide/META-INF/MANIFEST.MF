@@ -3,7 +3,7 @@ Automatic-Module-Name: fr.inria.kairos.sock.dsl.concretesyntax.ide
 Bundle-ManifestVersion: 2
 Bundle-Name: fr.inria.kairos.sock.dsl.concretesyntax.ide
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.3.0.qualifier
 Bundle-SymbolicName: fr.inria.kairos.sock.dsl.concretesyntax.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: fr.inria.kairos.sock.dsl.concretesyntax,
