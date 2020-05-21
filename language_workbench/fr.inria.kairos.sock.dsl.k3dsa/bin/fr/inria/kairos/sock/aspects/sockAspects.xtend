@@ -20,6 +20,7 @@ import fr.inria.kairos.sock.dsl.attacks.sidechannel.ScheduLeak;
 
 import groovy.lang.Binding
 import groovy.lang.GroovyShell
+import fr.inria.kairos.sock.utils.IOUtils
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
@@ -222,11 +223,12 @@ class ActorAspect extends NamedElementAspect {
 	}
 	
 	def public void write(String action, String filename) {
-		val java.io.FileWriter writer = new java.io.FileWriter(
-			_self.folder + _self.subFolder + "/" +  filename, true
-		);
-		writer.write(_self.actorTimeIndex + " " + action + "\n")
-		writer.close()
+		IOUtils.write(_self.actorTimeIndex, action, _self.subFolder + "/" +  filename)
+//		val java.io.FileWriter writer = new java.io.FileWriter(
+//			_self.folder + _self.subFolder + "/" +  filename, true
+//		);
+//		writer.write(_self.actorTimeIndex + " " + action + "\n")
+//		writer.close()
 	}
 	
 	def public boolean checkSensible() {

@@ -56,11 +56,25 @@ public class IOUtils {
 	}
 	
 	public static void writeRaw(String toBeWritten, String path) {
-		final String BASE_PATH_OUTPUT = System.getProperty(NAME_PROPERTY_BASE_PATH_OUTPUT);
 		try (FileWriter writer = new FileWriter(new File(BASE_PATH_OUTPUT + path), true)) {
 			writer.write(toBeWritten + NEW_LINE);
 		} catch (Exception ignored) {
 		}
+	}
+	
+	public static void initFolders(String outputFolderPath) {
+		final File baseFolder = new File(BASE_PATH_OUTPUT);
+		if (!baseFolder.exists()) {
+			baseFolder.mkdirs();
+		}
+		final File outputFolder = new File(BASE_PATH_OUTPUT + "/" + outputFolderPath);
+		if (outputFolder.exists()) {
+			for (File file : outputFolder.listFiles()) {
+				file.delete();
+			}
+			outputFolder.delete();
+		}
+		outputFolder.mkdirs();
 	}
 	
 }

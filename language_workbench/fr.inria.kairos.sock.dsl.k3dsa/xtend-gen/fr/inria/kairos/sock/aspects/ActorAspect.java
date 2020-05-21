@@ -10,10 +10,10 @@ import fr.inria.kairos.sock.dsl.attacks.sidechannel.ScheduLeak;
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
 import fr.inria.kairos.sock.dsl.model.sock.Resource;
+import fr.inria.kairos.sock.utils.IOUtils;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import java.io.File;
-import java.io.FileWriter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -458,22 +458,11 @@ public class ActorAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_write(final ActorAspectActorAspectProperties _self_, final Actor _self, final String action, final String filename) {
-    try {
-      String _folder = ActorAspect.folder(_self);
-      String _subFolder = ActorAspect.subFolder(_self);
-      String _plus = (_folder + _subFolder);
-      String _plus_1 = (_plus + "/");
-      String _plus_2 = (_plus_1 + filename);
-      final FileWriter writer = new FileWriter(_plus_2, true);
-      Integer _actorTimeIndex = ActorAspect.actorTimeIndex(_self);
-      String _plus_3 = (_actorTimeIndex + " ");
-      String _plus_4 = (_plus_3 + action);
-      String _plus_5 = (_plus_4 + "\n");
-      writer.write(_plus_5);
-      writer.close();
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    Integer _actorTimeIndex = ActorAspect.actorTimeIndex(_self);
+    String _subFolder = ActorAspect.subFolder(_self);
+    String _plus = (_subFolder + "/");
+    String _plus_1 = (_plus + filename);
+    IOUtils.write((_actorTimeIndex).intValue(), action, _plus_1);
   }
   
   protected static boolean _privk3_checkSensible(final ActorAspectActorAspectProperties _self_, final Actor _self) {

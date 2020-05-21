@@ -1,6 +1,7 @@
 package org.eclipse.gemoc.gemoc_language_workbench.deciders.sock.utils;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,8 +79,16 @@ public class SockDeciderHelper {
 
 	public static int getHyperPeriod(IotSystem system) {
 		if (hyperPeriod == -1) {
-			hyperPeriod = lcm(
-					system.getOwnedActor().stream().map(actor -> actor.getPeriodTime()).collect(Collectors.toList()));
+			hyperPeriod = system.getOwnedResource()
+				.stream()
+				.map(resource -> 
+					lcm(resource.getActor().stream().map(Actor::getPeriodTime).collect(Collectors.toList()))
+				).max(new Comparator<Integer>() {
+					@Override
+					public int compare(Integer a, Integer b) {
+						return a - b;
+					}
+				}).get();
 			System.out.println("Hyper-period: " + hyperPeriod);
 		}
 		return hyperPeriod;

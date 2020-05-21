@@ -11,10 +11,13 @@ import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 import fr.inria.kairos.sock.dsl.model.sock.IotSystem;
+import fr.inria.kairos.sock.dsl.model.sock.Resource;
 
 public class Scheduler implements Comparator<String>{
 
 	private IotSystem system;
+	
+	private Resource resource;
 
 	private List<String> scheduledActorNames;
 
@@ -25,7 +28,7 @@ public class Scheduler implements Comparator<String>{
 				SockDeciderHelper.getAllSubStepsNameMatchingPredicate(step, predicate).get(0)));
 	}
 
-	public Scheduler(IotSystem system) {
+	public Scheduler(IotSystem system, Resource resource) {
 		this.system = system;
 		this.scheduledActorNames = this.initScheduledActorNames();
 		this.priorityComparator = new Comparator<Step<?>>() {
@@ -35,6 +38,7 @@ public class Scheduler implements Comparator<String>{
 						- getIndexOfFromStep(b, SockDeciderChecker.enter.or(SockDeciderChecker.takesOver));
 			}
 		};
+		this.resource = resource;
 	}
 	
 	@Override

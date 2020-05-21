@@ -37,17 +37,19 @@ public abstract class AbstractSockDecider implements ILogicalStepDecider {
 
 	protected List<ArrivalTime> schedule;
 	
+	private IotSystem lastSystem;
+	
 	public AbstractSockDecider() {
 		super();
 		this.nbDecide = 0;
 		this.schedule = new ArrayList<>();
+	}
+	
+	private void init(IotSystem system) {
 		final Properties sockProperties = Utils.getSockProperties();
 		this.nbHyperPeriodToDo = Integer.parseInt(sockProperties.getProperty(NAME_PROPERTY_NB_HYPER_PERIOD, "-1"));
 		this.enableButterflyAttack = Boolean.parseBoolean(sockProperties.getProperty(NAME_PROPERTY_ENABLE_BUTTERFLY_ATTACK, "false"));
 		this.probabilityButterFlyAttack = Float.parseFloat(sockProperties.getProperty(NAME_PROPERTY_PROBA_BUTTERFLY_ATTACK, "0.0F"));
-	}
-	
-	private void init() {
 		this.schedule.clear();
 		this.scheduler = null;
 		this.nbDecide = 0;
@@ -62,7 +64,7 @@ public abstract class AbstractSockDecider implements ILogicalStepDecider {
 	protected void stop(final int hyperPeriod, final IotSystem system, AbstractConcurrentExecutionEngine engine) {
 		System.out.println(String.format("Reach nb hyper period %d/%d {%d}", this.nbDecide / hyperPeriod, this.nbHyperPeriodToDo, this.nbDecide));
 		IOUtils.writeRaw(this.toString(this.schedule), system.getName() + "/schedule");
-		this.init();
+		this.init(system);
 		engine.stop();
 	}
 	
@@ -76,9 +78,18 @@ public abstract class AbstractSockDecider implements ILogicalStepDecider {
 				Step<?> stepWithTakesOver,
 				String actorNameTakingOver
 			);
+	
+	private void initWhenNewSystem(IotSystem system) {
+		if (this.lastSystem == null || !this.lastSystem.equals(system)) {
+			this.lastSystem = system;
+			IOUtils.initFolders(system.getName());
+			this.init(system);
+		}
+	}
 
 	public Step<?> decide(AbstractConcurrentExecutionEngine engine, final List<Step<?>> possibleLogicalSteps) {
 		final IotSystem system = (IotSystem) engine.getExecutionContext().getResourceModel().getContents().get(0);
+		this.initWhenNewSystem(system);
 		final int hyperPeriod = SockDeciderHelper.getHyperPeriod(system);
 		if (shouldStop(hyperPeriod)) {
 			this.stop(hyperPeriod, system, engine);
@@ -93,9 +104,11 @@ public abstract class AbstractSockDecider implements ILogicalStepDecider {
 		Optional<Step<?>> choosenOneOptional = this.getNextEnter(system, possibleLogicalSteps);
 		if (choosenOneOptional.isPresent()) {
 			final Step<?> choosenStep = choosenOneOptional.get();
-			final String enteringActorName = SockDeciderHelper
-					.getAllSubStepsNameMatchingPredicate(choosenStep, SockDeciderChecker.enter).get(0).split("_")[1];
-			this.schedule.add(new ArrivalTime(enteringActorName, this.nbDecide));
+			SockDeciderHelper.getAllSubStepsNameMatchingPredicate(choosenStep, SockDeciderChecker.enter)
+						.stream()
+						.map(subStepName -> subStepName.split("_")[1])
+						.map(enteringActorName -> new ArrivalTime(enteringActorName, this.nbDecide))
+						.forEach(this.schedule::add);
 			this.nbDecide++;
 			return choosenStep;
 		}
