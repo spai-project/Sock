@@ -17,22 +17,13 @@ public class IOUtils {
 	
 	public static final String PATH_PROPERTIES = "sock.properties";
 	
-	public static final String NAME_PROPERY_BASE_PATH_OUTPUT = "path.output";
+	public static final String NAME_PROPERTY_BASE_PATH_OUTPUT = "path.output";
 	
 	public static final String BASE_PATH_OUTPUT;
 	
 	static {
-		final String relativePathToSockProperties = ResourcesPlugin.getWorkspace().getRoot().getProjects()[0]
-				.getFile(IOUtils.PATH_PROPERTIES).getFullPath().toFile().getAbsolutePath();
-		final String absolutePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
-		System.out.println(IOUtils.readFile(absolutePath + "/" + relativePathToSockProperties));
-		Properties sockProperties = new Properties();
-		try {
-			sockProperties.load(new FileReader(absolutePath + "/" + relativePathToSockProperties));
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-		BASE_PATH_OUTPUT = sockProperties.getProperty(NAME_PROPERY_BASE_PATH_OUTPUT);
+		final Properties sockProperties = Utils.getSockProperties();
+		BASE_PATH_OUTPUT = sockProperties.getProperty(NAME_PROPERTY_BASE_PATH_OUTPUT);
 	}
 	
 	public static String PATH_OUTPUT = "";
@@ -65,7 +56,7 @@ public class IOUtils {
 	}
 	
 	public static void writeRaw(String toBeWritten, String path) {
-		final String BASE_PATH_OUTPUT = System.getProperty(NAME_PROPERY_BASE_PATH_OUTPUT);
+		final String BASE_PATH_OUTPUT = System.getProperty(NAME_PROPERTY_BASE_PATH_OUTPUT);
 		try (FileWriter writer = new FileWriter(new File(BASE_PATH_OUTPUT + path), true)) {
 			writer.write(toBeWritten + NEW_LINE);
 		} catch (Exception ignored) {

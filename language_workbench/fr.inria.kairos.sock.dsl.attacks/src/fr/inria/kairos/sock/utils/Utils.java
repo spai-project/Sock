@@ -1,14 +1,32 @@
 package fr.inria.kairos.sock.utils;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+
+import org.eclipse.core.resources.ResourcesPlugin;
 
 import fr.inria.kairos.sock.dsl.model.sock.Actor;
 
 public class Utils {
+	
+	public static Properties getSockProperties() {
+		final String relativePathToSockProperties = ResourcesPlugin.getWorkspace().getRoot().getProjects()[0]
+				.getFile(IOUtils.PATH_PROPERTIES).getFullPath().toFile().getAbsolutePath();
+		final String absolutePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
+		System.out.println(IOUtils.readFile(absolutePath + "/" + relativePathToSockProperties));
+		Properties sockProperties = new Properties();
+		try {
+			sockProperties.load(new FileReader(absolutePath + "/" + relativePathToSockProperties));
+			return sockProperties;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 	public static int lcm(List<Integer> integers) {
 		Collections.sort(integers);
