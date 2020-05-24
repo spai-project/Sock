@@ -9,9 +9,11 @@ import fr.inria.kairos.sock.generator.model.IotSystem;
 
 public class SideChannelAttackReader {
 
-	private static final String ROOT_PATH = "/Users/stephaniechallita/Desktop/runtime-EclipseApplication/";
+	private static final String ROOT_PATH = "/Users/stephaniechallita/Desktop/workspace-models-2020/modeling_workbench/";
+	
+//	private static final String ROOT_PATH = "/Users/stephaniechallita/Desktop/workspace-models-2020/modeling_workbench";
 
-	private static final String NAME_SCHEDULE = "schedule";
+	private static final String NAME_SCHEDULE = "schedule_r0";
 
 	private static final String NAME_ATTACKED_SCHEDULE = "attack_schedule";
 
@@ -88,7 +90,7 @@ public class SideChannelAttackReader {
 		try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
 			reader.lines().forEach(line -> schedule.put(Integer.parseInt(line.split(" ")[1]), line.split(" ")[0]));
 		} catch (Exception ignored) {
-			ignored.printStackTrace();
+//			ignored.printStackTrace(); 
 		}
 		return schedule;
 	}

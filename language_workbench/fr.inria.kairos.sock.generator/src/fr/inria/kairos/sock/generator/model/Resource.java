@@ -67,5 +67,5 @@ public class Resource extends NamedElement {
 						")" + NEW_LINE +
 				"\t\t}";
 	}
-	
+
 }

@@ -21,10 +21,10 @@ public class DCMotor {
 	
 	public int accelerate(int time) {
 		int energyCost = 0;
-		final List<String> orders = IOUtils.readFile("order");
+		final List<String> orders = IOUtils.readFile(IOUtils.PATH_OUTPUT + "order");
 		final int consideredPeriod;
 		final int currentOrder;
-		final List<String> speeds = IOUtils.readFile("speed");
+		final List<String> speeds = IOUtils.readFile(IOUtils.PATH_OUTPUT + "speed");
 		final int lastSpeed = IOUtils.get(speeds, 1, 1);
 		int currentSpeed = lastSpeed;
 		int currentAcceleration = lastAcceleration; 
@@ -37,7 +37,7 @@ public class DCMotor {
 			for (int i = 0 ; i < consideredPeriod ; i++) {
 				energyCost += Math.abs(currentAcceleration);
 				currentSpeed = currentSpeed + currentOrder;
-				IOUtils.write(time + i, currentSpeed, "speed");
+				IOUtils.write(time + i, currentSpeed, IOUtils.PATH_OUTPUT + "speed");
 			}
 		} else {
 			consideredPeriod = this.period;
@@ -45,7 +45,7 @@ public class DCMotor {
 			for (int i = 0 ; i < consideredPeriod ; i++) {
 				energyCost += Math.abs(currentAcceleration);
 				currentSpeed = currentSpeed + currentAcceleration;
-				IOUtils.write(time + i, currentSpeed, "speed");
+				IOUtils.write(time + i, currentSpeed, IOUtils.PATH_OUTPUT +"speed");
 				if (currentAcceleration != currentOrder) {
 					currentAcceleration += (currentOrder < currentAcceleration ? -1 : +1);
 				}

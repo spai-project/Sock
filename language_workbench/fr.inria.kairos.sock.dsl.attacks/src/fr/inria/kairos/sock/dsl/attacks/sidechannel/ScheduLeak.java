@@ -67,6 +67,7 @@ public class ScheduLeak {
 		}
 		if (_instance != null && _instance._idle(time)) {
 			System.out.println("End one hyper period. Cleaning state:");
+			System.out.println(_instance.hyperPeriod);
 			_instance = null;
 			systemsDone.add(system);
 			Utils.indicesOfTakesOver.clear();
@@ -82,6 +83,7 @@ public class ScheduLeak {
 		}
 		if (_instance != null && _instance._busy(time)) {
 			System.out.println("End one hyper period. Cleaning state:");
+			System.out.println(_instance.hyperPeriod);
 			_instance = null;
 			systemsDone.add(system);
 			Utils.indicesOfTakesOver.clear();
@@ -89,6 +91,31 @@ public class ScheduLeak {
 			System.out.println(systemsDone);
 			System.out.println(Utils.indicesOfTakesOver);
 		}
+	}
+	
+	public static void ready(IotSystem system, int time) {
+		if (_instance != null && _instance.ready(time)) {
+			System.out.println("End one hyper period. Cleaning state:");
+			System.out.println(_instance.hyperPeriod);
+			_instance = null;
+			systemsDone.add(system);
+			Utils.indicesOfTakesOver.clear();
+			System.out.println(_instance);
+			System.out.println(systemsDone);
+			System.out.println(Utils.indicesOfTakesOver);
+		}
+	}
+	
+	private boolean ready(int time) {
+		if (this.hyperPeriod <= time) {
+			try {
+				run();	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return true;	
+ 		}
+		return false;
 	}
 	
 	private static List<IotSystem> systemsDone = new ArrayList<>();
@@ -105,14 +132,14 @@ public class ScheduLeak {
 			this.busyIntervals.add(new Interval(this.startingBusyTime, this.currentBusyTime));
 			this.startingBusyTime = -1;
 		}
-		if (this.hyperPeriod < time) {
-			try {
-				run();	
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return true;	
- 		}
+//		if (this.hyperPeriod < time) {
+//			try {
+//				run();	
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			return true;	
+// 		}
 		return false;
 	}
 
@@ -121,14 +148,14 @@ public class ScheduLeak {
 			this.startingBusyTime = time;
 		}
 		this.currentBusyTime = time;
-		if (this.hyperPeriod < time) {
-			try {
-				run();	
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return true;	
- 		}
+//		if (this.hyperPeriod < time) {
+//			try {
+//				run();	
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			return true;	
+// 		}
 		return false;
 	}
 	
@@ -145,8 +172,8 @@ public class ScheduLeak {
 	public void run() {
 		final Estimation estimation = new Estimation(this.system);
 		List<Interval> busyIntervals = this.getBusyInterval();
-//		System.out.println(busyIntervals);
-//		System.out.println(Utils.indicesOfTakesOver);
+		System.out.println(busyIntervals);
+		System.out.println(Utils.indicesOfTakesOver);
 		List<List<Interval>> partitionnedIntervalPerActor = new ArrayList<>();
 		for (int i = 0; i < this.system.getOwnedActor().size(); i++) {
 			partitionnedIntervalPerActor.add(new ArrayList<>());
@@ -191,10 +218,10 @@ public class ScheduLeak {
 					continue;
 				}
 				for (int i = 0; i < arrivalWindows.size(); i++) {
-					List<Interval> arrivalWindow = arrivalWindows.get(i);
 					if (this.allEquals(estimationsN, i)) {
 						continue;
 					}
+					List<Interval> arrivalWindow = arrivalWindows.get(i);
 					final int nbTimeTaskMustBeCompletedWithinBusyInterval = applyArrivalWindowsToBusyInterval(
 							busyInterval, arrivalWindow, this.system.getOwnedActor().get(i));
 					List<int[]> copyEstimationsN = new ArrayList<>(estimationsN);
@@ -213,14 +240,14 @@ public class ScheduLeak {
 			final Interval busyInterval = busyIntervals.get(i);
 			List<int[]> estimationForBusyInterval = estimationsNPerBusyInterval.get(i);
 			List<Record> arrivalTimesForCurrentBusyInterval = new ArrayList<>();
-			final List<Integer> arrivalTimeForEachTask = buildArrivalWindows(arrivalWindows);
+//			final List<Integer> arrivalTimeForEachTask = buildArrivalWindows(arrivalWindows);
 			for (int j = 0; j < estimationForBusyInterval.get(0).length; j++) {
 //			for (int j = 0; j < 1 ; j++) {
 				for (int nbActor = 0; nbActor < estimationForBusyInterval.get(0)[j]; nbActor++) {
 					final Actor actor = this.system.getOwnedActor().get(j);
-					final int periodActor = actor.getPeriodTime();
+//					final int periodActor = actor.getPeriodTime();
 					final int firstPeriodStart = this.getNextPeriodStart(busyInterval, actor);
-					final int arrivalTime = firstPeriodStart + ((nbActor * periodActor) + (nbActor > 0 ? 1 : 0)) + arrivalTimeForEachTask.get(j);
+//					final int arrivalTime = firstPeriodStart + ((nbActor * periodActor) + (nbActor > 0 ? 1 : 0)) + arrivalTimeForEachTask.get(j);
 //					System.out.println(nbActor + " " + firstPeriodStart + " " + arrivalTime + " " + arrivalTimeForEachTask.get(j));
 					arrivalTimesForCurrentBusyInterval.add(new Record(j,
 //							arrivalTime,
@@ -229,8 +256,8 @@ public class ScheduLeak {
 				}
 			}
 			List<Record> schedule = algorithm.run(busyInterval, arrivalTimesForCurrentBusyInterval);
-//			System.out.println(i + " " + busyInterval + " " + schedule.toString()
-//					+ Arrays.toString(estimationForBusyInterval.get(0)));
+			System.out.println(i + " " + busyInterval + " " + schedule.toString()
+					+ Arrays.toString(estimationForBusyInterval.get(0)));
 			IOUtils.writeRaw(toString(schedule), this.system.getName() + "/attack_schedule");
 		}
 	}

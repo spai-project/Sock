@@ -40,7 +40,7 @@ public class IOUtils {
 	}
 	
 	public static List<String> readFile(String path) {
-		try (BufferedReader reader = new BufferedReader(new FileReader(PATH_OUTPUT + path))) {
+		try (BufferedReader reader = new BufferedReader(new FileReader(BASE_PATH_OUTPUT + path))) {
 			return reader.lines().collect(Collectors.toList());
 		} catch (Exception ignored) {
 		}

@@ -24,19 +24,19 @@ public class VehiculPositionning {
 	}
 	
 	public int new_order(int time) {
-		final List<String> speeds = IOUtils.readFile("speed");
+		final List<String> speeds = IOUtils.readFile(IOUtils.PATH_OUTPUT + "speed");
 		final int currentSpeed = IOUtils.get(speeds, 1, 1);
 		int targetSpeed = 0;
 		if ( time >= timeToIncreaseSpeed ) {
 			targetSpeed = this.targetSpeed;
 		}
 		int diffSpeed = targetSpeed - currentSpeed;
-		IOUtils.write(time, diffSpeed + " ", "order");
+		IOUtils.write(time, diffSpeed + " ", IOUtils.PATH_OUTPUT + "order");
 		return 1;
 	}
 
 	public int order(int time) {
-		final List<String> speeds = IOUtils.readFile("speed");
+		final List<String> speeds = IOUtils.readFile(IOUtils.PATH_OUTPUT + "speed");
 		final int currentSpeed = IOUtils.get(speeds, 1, 1);
 		int targetSpeed = 0;
 		if ( time >= timeToIncreaseSpeed ) {
@@ -47,9 +47,9 @@ public class VehiculPositionning {
 		int order = this.computeOrder(diffSpeed, currentSpeed);
 		if (order == Integer.MIN_VALUE) {
 			// here we are a bit hacking the system
-			IOUtils.write(time, targetSpeed - currentSpeed + ">", "order");	
+			IOUtils.write(time, targetSpeed - currentSpeed + ">", IOUtils.PATH_OUTPUT + "order");	
 		} else {
-			IOUtils.write(time, (signDiffSpeed * order) + " ", "order");	
+			IOUtils.write(time, (signDiffSpeed * order) + " ", IOUtils.PATH_OUTPUT + "order");	
 		}
 		return 1;
 	}

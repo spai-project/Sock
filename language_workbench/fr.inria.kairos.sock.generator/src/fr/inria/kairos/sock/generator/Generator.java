@@ -1,8 +1,11 @@
 package fr.inria.kairos.sock.generator;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import fr.inria.kairos.sock.generator.model.Actor;
 import fr.inria.kairos.sock.generator.model.IotSystem;
@@ -67,7 +70,7 @@ public class Generator {
 			final int nbActor = this.minNbActor + this.random.nextInt(this.maxNbActor - this.minNbActor);
 			while (resource.getActors().size() < nbActor) {
 				final Actor actor = getNextActor(resource);
-//				resource.getActors().add(actor);
+				resource.getActors().add(actor);
 			}
 			double score = resource.computeSchedulableScore(withFlushTask);
 			double bound = resource.getBound();
@@ -79,6 +82,12 @@ public class Generator {
 			}
 		}
 		system.getOwnedResource().add(resource);
+		Collections.sort(resource.getActors(), new Comparator<Actor>() {
+			@Override
+			public int compare(Actor a, Actor b) {
+				return a.getName().compareTo(b.getName());
+			}
+		});
 		system.getOwnedActor().addAll(resource.getActors());
 		return system;
 	}
@@ -101,12 +110,36 @@ public class Generator {
 		system.getOwnedResource().add(resource);
 		return system;
 	}
+	
+	private int getNextPeriod(final Resource resource) {
+		int[] periodTime = new int[] {this.minPeriodTime + (this.stepPeriodTime *  this.random.nextInt( (this.maxPeriodTime - this.minPeriodTime) / this.stepPeriodTime))};
+		while ((!resource.getActors().isEmpty()) && resource.getActors().stream().anyMatch(actor -> actor.getPeriodTime() == periodTime[0])) {
+			periodTime[0] = this.minPeriodTime + (this.stepPeriodTime *  this.random.nextInt( (this.maxPeriodTime - this.minPeriodTime) / this.stepPeriodTime));
+			if (resource.getActors().stream().anyMatch(actor -> actor.getPeriodTime() == periodTime[0])) {
+				if (this.random.nextFloat() > 0.5) {
+					return periodTime[0];
+				}
+			}
+		}
+		return periodTime[0];
+	}
+	
+	private int getNextProcessTime(final Resource resource) {
+		int[] processTime = new int[] {this.minProcessTime + this.random.nextInt(this.maxProcessTime - this.minProcessTime)};
+		while ((!resource.getActors().isEmpty()) && resource.getActors().stream().anyMatch(actor -> actor.getProcessTime() == processTime[0])) {
+			processTime[0] = this.minProcessTime + this.random.nextInt(this.maxProcessTime - this.minProcessTime);
+			if (this.random.nextFloat() > 0.5) {
+				return processTime[0];
+			}
+		}
+		return processTime[0];
+	}
 		
 	public Actor getNextActor(final Resource resource) {
-		final int periodTime = this.minPeriodTime + (this.stepPeriodTime *  this.random.nextInt( (this.maxPeriodTime - this.minPeriodTime) / this.stepPeriodTime));
+		final int periodTime = this.minPeriodTime + (this.stepPeriodTime *  this.random.nextInt( (this.maxPeriodTime - this.minPeriodTime) / this.stepPeriodTime));//this.getNextPeriod(resource);
 		final int processTime  = this.minProcessTime + this.random.nextInt(this.maxProcessTime - this.minProcessTime);
 		final int isPriority;
-		if (this.random.nextFloat() > 0.33) {
+		if (this.random.nextFloat() >= 0.33) {
 			isPriority = 0;
 		} else {
 			isPriority = 1;

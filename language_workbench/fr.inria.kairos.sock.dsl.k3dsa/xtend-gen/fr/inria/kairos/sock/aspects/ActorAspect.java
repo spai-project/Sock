@@ -30,14 +30,6 @@ public class ActorAspect extends NamedElementAspect {
     };
   }
   
-  public static void handleTakesOver(final Actor _self) {
-    final fr.inria.kairos.sock.aspects.ActorAspectActorAspectProperties _self_ = fr.inria.kairos.sock.aspects.ActorAspectActorAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void handleTakesOver()
-    if (_self instanceof fr.inria.kairos.sock.dsl.model.sock.Actor){
-    	fr.inria.kairos.sock.aspects.ActorAspect._privk3_handleTakesOver(_self_, (fr.inria.kairos.sock.dsl.model.sock.Actor)_self);
-    };
-  }
-  
   private static Actor lastExitedActor = null;
   
   private static Integer anActorEntered = Integer.valueOf((-1));
@@ -312,16 +304,11 @@ public class ActorAspect extends NamedElementAspect {
   
   protected static void _privk3_ready(final ActorAspectActorAspectProperties _self_, final Actor _self) {
     ActorAspect.write(_self, "+");
+    EObject _eContainer = _self.eContainer();
+    ScheduLeak.ready(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue());
     String _name = _self.getName();
     String _plus = (_name + " is ready");
     ActorAspect.run(_self, _plus);
-  }
-  
-  protected static void _privk3_handleTakesOver(final ActorAspectActorAspectProperties _self_, final Actor _self) {
-    if (((ActorAspect.anActorEntered == ActorAspect.anActorExited) && (ActorAspect.lastExitedActor != null))) {
-      EObject _eContainer = _self.eContainer();
-      ScheduLeak.takesOver(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue(), ActorAspect.lastExitedActor);
-    }
   }
   
   protected static void _privk3_enterIn(final ActorAspectActorAspectProperties _self_, final Actor _self) {
@@ -329,7 +316,6 @@ public class ActorAspect extends NamedElementAspect {
     EObject _eContainer = _self.eContainer();
     ScheduLeak.busy(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue());
     ActorAspect.anActorEntered = ActorAspect.actorTimeIndex(_self);
-    ActorAspect.handleTakesOver(_self);
     ActorAspect.write(_self, "1");
     int _currentProcessTime = _self.getCurrentProcessTime();
     int _processTime = _self.getProcessTime();
@@ -376,7 +362,6 @@ public class ActorAspect extends NamedElementAspect {
     ScheduLeak.busy(((IotSystem) _eContainer), (ActorAspect.actorTimeIndex(_self)).intValue());
     ActorAspect.anActorExited = ActorAspect.actorTimeIndex(_self);
     ActorAspect.lastExitedActor = _self;
-    ActorAspect.handleTakesOver(_self);
     ActorAspect.write(_self, "0");
     ResourceAspect.isExited(_self.getResource());
     boolean _checkSensible = ActorAspect.checkSensible(_self);
@@ -387,41 +372,47 @@ public class ActorAspect extends NamedElementAspect {
       ScheduLeak.busy(((IotSystem) _eContainer_1), (ActorAspect.actorTimeIndex(_self)).intValue());
       ActorAspect.untime(_self);
     }
-    if (((_self.getCode() != null) && (_self.getCode() != ""))) {
-      try {
-        final Binding binding = new Binding();
-        binding.setVariable("time", ActorAspect.actorTimeIndex(_self));
-        String _folder = ActorAspect.folder(_self);
-        String _plus = (_folder + "/");
-        String _subFolder = ActorAspect.subFolder(_self);
-        String _plus_1 = (_plus + _subFolder);
-        String _plus_2 = (_plus_1 + "/");
-        binding.setVariable("outputFolder", _plus_2);
-        final ClassLoader ucl = ActorAspect.class.getClassLoader();
-        final GroovyShell shell = new GroovyShell(ucl, binding);
-        Object _evaluate = shell.evaluate(_self.getCode());
-        final Integer energyCost = ((Integer) _evaluate);
-        String _plus_3 = (energyCost + "");
-        String _name = _self.getName();
-        String _plus_4 = (_name + "_energy");
-        ActorAspect.write(_self, _plus_3, _plus_4);
-      } catch (final Throwable _t) {
-        if (_t instanceof Exception) {
-          final Exception cnfe = (Exception)_t;
-          String _code = _self.getCode();
-          String _plus_5 = ("Failed to call Groovy script " + _code);
-          InputOutput.<String>println(_plus_5);
-          cnfe.printStackTrace();
-        } else {
-          throw Exceptions.sneakyThrow(_t);
+    int _currentProcessTime = _self.getCurrentProcessTime();
+    int _processTime = _self.getProcessTime();
+    boolean _lessThan = (_currentProcessTime < _processTime);
+    if (_lessThan) {
+      EObject _eContainer_2 = _self.eContainer();
+      ScheduLeak.takesOver(((IotSystem) _eContainer_2), (ActorAspect.actorTimeIndex(_self)).intValue(), _self);
+    } else {
+      if (((_self.getCode() != null) && (_self.getCode() != ""))) {
+        try {
+          final Binding binding = new Binding();
+          binding.setVariable("time", ActorAspect.actorTimeIndex(_self));
+          EObject _eContainer_3 = _self.eContainer();
+          String _name = ((IotSystem) _eContainer_3).getName();
+          String _plus = (_name + "/");
+          binding.setVariable("outputFolder", _plus);
+          final ClassLoader ucl = ActorAspect.class.getClassLoader();
+          final GroovyShell shell = new GroovyShell(ucl, binding);
+          Object _evaluate = shell.evaluate(_self.getCode());
+          final Integer energyCost = ((Integer) _evaluate);
+          String _plus_1 = (energyCost + "");
+          String _name_1 = _self.getName();
+          String _plus_2 = (_name_1 + "_energy");
+          ActorAspect.write(_self, _plus_1, _plus_2);
+        } catch (final Throwable _t) {
+          if (_t instanceof Exception) {
+            final Exception cnfe = (Exception)_t;
+            String _code = _self.getCode();
+            String _plus_3 = ("Failed to call Groovy script " + _code);
+            InputOutput.<String>println(_plus_3);
+            cnfe.printStackTrace();
+          } else {
+            throw Exceptions.sneakyThrow(_t);
+          }
         }
       }
     }
-    String _name_1 = _self.getName();
-    String _plus_6 = (_name_1 + " exits of ");
-    String _name_2 = _self.getResource().getName();
-    String _plus_7 = (_plus_6 + _name_2);
-    ActorAspect.run(_self, _plus_7);
+    String _name_2 = _self.getName();
+    String _plus_4 = (_name_2 + " exits of ");
+    String _name_3 = _self.getResource().getName();
+    String _plus_5 = (_plus_4 + _name_3);
+    ActorAspect.run(_self, _plus_5);
   }
   
   protected static void _privk3_idle(final ActorAspectActorAspectProperties _self_, final Actor _self) {

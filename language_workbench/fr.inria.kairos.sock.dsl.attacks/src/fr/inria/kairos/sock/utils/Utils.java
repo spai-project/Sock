@@ -59,10 +59,12 @@ public class Utils {
 	private static final int flushTaskCost = 1;
 	
 	public static int computeRealProcessTime(Actor actor, Interval time) {
-		 return actor.getProcessTime() + enterTaskCost + exitTaskCost
+//		System.out.println(actor.getName() + " " + time + " " + (indicesOfTakesOver.containsKey(actor) ?
+//				indicesOfTakesOver.get(actor).stream().filter(time::isWithin).count() : 0));
+		 return (int) (actor.getProcessTime() + enterTaskCost + exitTaskCost
 			+ (actor.getIsSensible() == 1 ? flushTaskCost : 0) + 
-			(indicesOfTakesOver.containsKey(actor) && 
-					indicesOfTakesOver.get(actor).stream().anyMatch(time::isWithin) ? 1 : 0);
+			(indicesOfTakesOver.containsKey(actor) ?
+					indicesOfTakesOver.get(actor).stream().filter(time::isWithin).count() : 0));
 	}
 	
 //	public static int computeRealProcessTime(Actor actor, Interval time) {

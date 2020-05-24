@@ -122,14 +122,15 @@ class ActorAspect extends NamedElementAspect {
 	@ReplaceAspectMethod
 	def public void ready() {
 		_self.write("+")
-		run(_self,  _self.name + " is ready")
+		ScheduLeak.ready(_self.eContainer() as IotSystem, _self.actorTimeIndex)
+		_self.run(_self.name + " is ready")
 	}
 	
-	def public void handleTakesOver() {
-		if (ActorAspect.anActorEntered === ActorAspect.anActorExited && lastExitedActor !== null) {
-			ScheduLeak.takesOver(_self.eContainer() as IotSystem, _self.actorTimeIndex, lastExitedActor)
-		}
-	}
+//	def public void handleTakesOver() {
+//		if (ActorAspect.anActorEntered === ActorAspect.anActorExited && lastExitedActor !== null) {
+//			ScheduLeak.takesOver(_self.eContainer() as IotSystem, _self.actorTimeIndex, lastExitedActor)
+//		}
+//	}
 	
 	private static var Actor lastExitedActor = null
 	private static var Integer anActorEntered = -1
@@ -140,7 +141,7 @@ class ActorAspect extends NamedElementAspect {
 		_self.initFolder();
 		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
 		ActorAspect.anActorEntered = _self.actorTimeIndex
-		_self.handleTakesOver()
+//		_self.handleTakesOver()
 		_self.write("1")
 		if (_self.currentProcessTime  == _self.processTime) {
 			_self.currentProcessTime = 0
@@ -162,7 +163,7 @@ class ActorAspect extends NamedElementAspect {
 		ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
 		ActorAspect.anActorExited = _self.actorTimeIndex
 		ActorAspect.lastExitedActor = _self
-		_self.handleTakesOver()
+//		_self.handleTakesOver()
 		_self.write("0")
 		_self.resource.isExited()
 		if (_self.checkSensible()) {
@@ -171,22 +172,26 @@ class ActorAspect extends NamedElementAspect {
 			ScheduLeak.busy(_self.eContainer() as IotSystem, _self.actorTimeIndex)
 			_self.untime()
 		}
-		if (_self.code !== null && _self.code !== ""){
-			try{
-				val binding = new Binding
-				binding.setVariable("time", _self.actorTimeIndex)
-				binding.setVariable("outputFolder", _self.folder + "/" + _self.subFolder + "/")
-				val ucl = ActorAspect.classLoader
-				val shell = new GroovyShell(ucl, binding)
-				val energyCost = shell.evaluate(_self.code) as Integer
-				_self.write(energyCost + "", _self.name + "_energy")	
-//				if (energyCost > 0 && _self.actorTimeIndex > 300) {
-//					throw new RuntimeException("WARNING: Something is wrong and " + _self.name + " is consuming to much energy!")
-//				}		
-			} catch (Exception cnfe){
-				println("Failed to call Groovy script " + _self.code)
-				cnfe.printStackTrace
-			}			
+		if (_self.currentProcessTime  <  _self.processTime) {
+			ScheduLeak.takesOver(_self.eContainer() as IotSystem, _self.actorTimeIndex, _self)
+		} else {
+			if (_self.code !== null && _self.code !== ""){
+				try{
+					val binding = new Binding
+					binding.setVariable("time", _self.actorTimeIndex)
+					binding.setVariable("outputFolder", (_self.eContainer() as IotSystem).getName() + "/")
+					val ucl = ActorAspect.classLoader
+					val shell = new GroovyShell(ucl, binding)
+					val energyCost = shell.evaluate(_self.code) as Integer
+					_self.write(energyCost + "", _self.name + "_energy")	
+	//				if (energyCost > 0 && _self.actorTimeIndex > 300) {
+	//					throw new RuntimeException("WARNING: Something is wrong and " + _self.name + " is consuming to much energy!")
+	//				}		
+				} catch (Exception cnfe){
+					println("Failed to call Groovy script " + _self.code)
+					cnfe.printStackTrace
+				}			
+			}
 		}
 		_self.run(_self.name + " exits of " + _self.resource.name)
 	}
@@ -224,11 +229,6 @@ class ActorAspect extends NamedElementAspect {
 	
 	def public void write(String action, String filename) {
 		IOUtils.write(_self.actorTimeIndex, action, _self.subFolder + "/" +  filename)
-//		val java.io.FileWriter writer = new java.io.FileWriter(
-//			_self.folder + _self.subFolder + "/" +  filename, true
-//		);
-//		writer.write(_self.actorTimeIndex + " " + action + "\n")
-//		writer.close()
 	}
 	
 	def public boolean checkSensible() {

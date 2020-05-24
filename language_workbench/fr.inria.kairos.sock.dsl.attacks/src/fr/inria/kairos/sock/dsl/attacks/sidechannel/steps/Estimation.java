@@ -33,7 +33,7 @@ public class Estimation {
 		final List<int[]> matching = new ArrayList<>();
 		for (int[] possibility : possibilities) {
 			int totalComputationTime = computeTotalComputationTime(this.system.getOwnedActor(), possibility, interval);
-//			System.out.println(interval.toString() + " " + Arrays.toString(possibility) + " " + totalComputationTime + " vs " + duration);
+			System.out.println(interval.toString() + " " + Arrays.toString(possibility) + " " + totalComputationTime + " vs " + duration);
 			if (duration == totalComputationTime) {
 				matching.add(possibility);
 			}

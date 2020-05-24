@@ -3,8 +3,8 @@ package fr.inria.kairos.sock.generator.example.groovy;
 public class VehiculePositionningGroovy {
 	
 	public static final String VEHICULE_POSITIONING_GROOVY_SCRIPT = 
-			"import fr.inria.kairos.sock.dsl.example.butterfly.VehiculPositionning;\n" +
-			"import fr.inria.kairos.sock.dsl.example.butterfly.utils.IOUtils;\n" +
+			"import fr.inria.kairos.sock.dsl.attacks.butterfly.VehiculPositionning;\n" +
+			"import fr.inria.kairos.sock.utils.IOUtils;\n" +
 			"IOUtils.PATH_OUTPUT = outputFolder;\n" +
 			"VehiculPositionning.instance.order(time);\n";;
 	

@@ -30,7 +30,7 @@ public class Actor extends NamedElement {
 		this.processTime = processTime;
 		this.periodTime = periodTime;
 		this.resource = resource;
-		this.resource.addActor(this);
+//		this.resource.addActor(this);
 		this.code = code;
 	}
 

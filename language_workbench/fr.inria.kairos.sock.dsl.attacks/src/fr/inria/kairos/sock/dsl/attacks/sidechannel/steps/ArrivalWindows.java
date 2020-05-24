@@ -39,8 +39,10 @@ public class ArrivalWindows {
 				indicesCandidates[i][j] = j;	
 			}
 		}
+//		System.out.println(Arrays.toString(indicesCandidates));
 		List<int[]> possibilities = Estimation.findPossibilites(indicesCandidates);
 		for (int i = 0 ; i < possibilities.size() ; i++) {
+//			System.out.println(i + "/" + possibilities.size());
 //			System.out.println(convertedPartitionnedIntervals + " " + Arrays.toString(possibilities.get(i)));
 			Interval intersection = computeIntersection(possibilities.get(i), convertedPartitionnedIntervals);
 			if (intersection != Interval.EMPTY && !arrivalWindows.contains(intersection)) {

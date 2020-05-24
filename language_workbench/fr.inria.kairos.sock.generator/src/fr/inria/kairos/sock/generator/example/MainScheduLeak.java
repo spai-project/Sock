@@ -20,31 +20,13 @@ import java.util.stream.Collectors;
 
 public class MainScheduLeak {
 	
-//	private static int NB_CONFIGURATION = 5;
-//
-//	private static int minNbActor = 2;
-//
-//	private static int maxNbActor = 5;
-//
-//	private static int minPeriodTime = 10;
-//
-//	private static int maxPeriodTime = 50;
-//
-//	private static int stepPeriodTime = 5;
-//
-//	private static int minProcessTime = 1;
-//
-//	private static int maxProcessTime = 5;
-//	
-//	private static int maxHyperPeriod = 1000;
+	private static int NB_CONFIGURATION = 10;
 
-	private static int NB_CONFIGURATION = 5;
+	private static int minNbActor = 3;
 
-	private static int minNbActor = 2;
+	private static int maxNbActor = 6;
 
-	private static int maxNbActor = 5;
-
-	private static int minPeriodTime = 10;
+	private static int minPeriodTime = 5;
 
 	private static int maxPeriodTime = 50;
 
@@ -55,39 +37,25 @@ public class MainScheduLeak {
 	private static int maxProcessTime = 5;
 	
 	private static int maxHyperPeriod = 250;
-
-	public static void main(String[] args) {
+	
+	private static final Random random = new Random(32L);
+	
+	private static final Interval interval = new Interval(0.6d, 0.8d);
+	
+	private static SockWriter writer;
+	
+	static {
 		new File(GeneratorHelper.PATH_OUTPUT + "schedule_side_channel_attacks/").delete();
 		new File(GeneratorHelper.PATH_OUTPUT + "schedule_side_channel_attacks/").mkdirs();
 		new File(GeneratorHelper.PATH_OUTPUT + "schedule_side_channel_attacks/launch/").mkdirs();
-		final SockWriter writer = new SockWriter(GeneratorHelper.PATH_OUTPUT + "schedule_side_channel_attacks/");
-		final Random random = new Random(23L);
-		Generator generator = new Generator(random, minPeriodTime, maxPeriodTime, stepPeriodTime, minProcessTime,
-				maxProcessTime, minNbActor, maxNbActor);
-		final Interval interval = new Interval(0.60d, 0.70d);
-		final LaunchGenerator launchGenerator = new LaunchGenerator();
-		final List<Result[]> resultForEachSystem = new ArrayList<>();
-		for (int i = 0; i < NB_CONFIGURATION; i++) {
-			final IotSystem system = new IotSystem("s" + i);
-			generator.initSystemWithGivenBoundForResource(interval, system, true);
-			if (new ArrayList<>(system.getOwnedResource()).get(0).getHyperPeriod() > maxHyperPeriod) {
-				--i;
-				continue;
-			}
-			writer.write(system.getName(), system);
-			writer.write("launch/" + system.getName() + SockWriter.LAUNCH_EXTENSION,
-					launchGenerator.generateLaunchConfiguration(
-							"/test-project/schedule_side_channel_attacks/" + system.getName() + SockWriter.TSOCK_EXTENSION, false));
-			system.setName(system.getName() + "rnd");
-			writer.write("launch/" + system.getName() + SockWriter.LAUNCH_EXTENSION,
-					launchGenerator.generateLaunchConfiguration(
-							"/test-project/schedule_side_channel_attacks/" + system.getName() + SockWriter.TSOCK_EXTENSION, true));
-			writer.write(system.getName(), system);
-			system.setName("s" + i);
-//			System.out.println(system.getOwnedResource().get(0).getHyperPeriod());
-			System.out.println(system.toLatex());
-			resultForEachSystem.add(SideChannelAttackReader.readResultFor(system));
-		}
+	}
+	
+	private static final LaunchGenerator launchGenerator = new LaunchGenerator();
+	private static final List<Result[]> resultForEachSystem = new ArrayList<>();
+
+	public static void main(String[] args) {
+		writer = new SockWriter(GeneratorHelper.PATH_OUTPUT + "schedule_side_channel_attacks/");
+		generateForNbActor(1, 10);
 		Collections.sort(resultForEachSystem, new Comparator<Result[]>() {
 			@Override
 			public int compare(Result[] a, Result[] b) {
@@ -112,5 +80,35 @@ public class MainScheduLeak {
 		}).collect(Collectors.joining("\t&\t")));
 //		System.out.println("Generation of " + NB_CONFIGURATION + " tsock model successful");
 	}
+	
+	public static void generateForNbActor(int nbActor, int nbConfiguration) {
+		for (int i = 0; i < nbConfiguration; i++) {
+			final Generator generator = new Generator(random, minPeriodTime, maxPeriodTime, stepPeriodTime, minProcessTime,
+					maxProcessTime, minNbActor, maxNbActor);
+			final IotSystem system = new IotSystem("GenSystScheduLeak" + resultForEachSystem.size());
+			generator.initSystemWithGivenBoundForResource(interval, system, true);
+			if (new ArrayList<>(system.getOwnedResource()).get(0).getHyperPeriod() > maxHyperPeriod) {
+//				System.out.println(new ArrayList<>(system.getOwnedResource()).get(0).getHyperPeriod());
+				--i;
+				continue;
+			}
+			writer.write(system.getName(), system);
+			writer.write("launch/" + system.getName() + SockWriter.LAUNCH_EXTENSION,
+					launchGenerator.generateLaunchConfiguration(
+							"/test-project/schedule_side_channel_attacks/" + system.getName() + SockWriter.TSOCK_EXTENSION, false));
+			system.setName(system.getName() + "rnd");
+			writer.write(system.getName(), system);
+			writer.write("launch/" + system.getName() + SockWriter.LAUNCH_EXTENSION,
+					launchGenerator.generateLaunchConfiguration(
+							"/test-project/schedule_side_channel_attacks/" + system.getName() + SockWriter.TSOCK_EXTENSION, true));
+//			writer.write(system.getName(), system);
+			system.setName("GenSystScheduLeak" + i);
+//			System.out.println(system.getOwnedResource().get(0).getHyperPeriod());
+			System.out.println(system.toLatex());
+			resultForEachSystem.add(SideChannelAttackReader.readResultFor(system));
+//			system.setName("s" + i);
+		}
+	}
+	
 
 }

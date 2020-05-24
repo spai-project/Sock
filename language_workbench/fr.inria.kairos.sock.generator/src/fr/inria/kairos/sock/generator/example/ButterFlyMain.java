@@ -1,22 +1,27 @@
 package fr.inria.kairos.sock.generator.example;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import fr.inria.kairos.sock.generator.GeneratorHelper;
 import fr.inria.kairos.sock.generator.example.groovy.DCMotorGroovy;
 import fr.inria.kairos.sock.generator.example.groovy.VehiculePositionningGroovy;
 import fr.inria.kairos.sock.generator.io.SockWriter;
+import fr.inria.kairos.sock.generator.launch.LaunchGenerator;
 import fr.inria.kairos.sock.generator.model.Actor;
 import fr.inria.kairos.sock.generator.model.IotSystem;
 import fr.inria.kairos.sock.generator.model.Resource;
 
 public class ButterFlyMain {
 
-	// read the position in the DCMotor
-
+	private static final String folder = "butterfly";
+	
 	public static void main(String[] args) {
+		new File(GeneratorHelper.PATH_OUTPUT + folder + "/").delete();
+		new File(GeneratorHelper.PATH_OUTPUT + folder + "/").mkdirs();
+		new File(GeneratorHelper.PATH_OUTPUT + folder + "/launch/").mkdirs();
 		Actor.flushTaskCost = 1;
-		SockWriter writer = new SockWriter(GeneratorHelper.PATH_OUTPUT);
+		final SockWriter writer = new SockWriter(GeneratorHelper.PATH_OUTPUT +  folder + "/");
 		final IotSystem[] butterflySystems = new IotSystem[] {
 			createDisabledButterfly(),
 			createEnabledButterfly(),
@@ -30,6 +35,8 @@ public class ButterFlyMain {
 			System.out.println(
 					system.getOwnedActor().stream().map(actor -> actor.getScore(true)).reduce((acc, actor) -> acc + actor));
 			writer.write(system.getName(), system);
+			writer.write("/launch/"  + system.getName() + SockWriter.LAUNCH_EXTENSION, new LaunchGenerator().generateLaunchConfiguration(
+					"/test-project/" +  folder + "/" + system.getName() + SockWriter.TSOCK_EXTENSION, false));
 		}
 	}
 	
@@ -39,6 +46,7 @@ public class ButterFlyMain {
 		system.getOwnedResource().add(resource);
 		system.getOwnedActor().add(new Actor("ControllerVehiculePositionning", 0, 7, 15, resource, VehiculePositionningGroovy.getVehiculePositionningGroovyScript()));
 		system.getOwnedActor().add(new Actor("DCMotor", 0, 3, 30, resource, DCMotorGroovy.getDCMotorGroovyScript()));
+		resource.getActors().addAll(system.getOwnedActor());
 //		system.getOwnedActor().add(new Actor("Dummy", 0, 1, 15, resource));
 		return system;
 	}
@@ -49,6 +57,7 @@ public class ButterFlyMain {
 		system.getOwnedResource().add(resource);
 		system.getOwnedActor().add(new Actor("ControllerVehiculePositionning", 0, 7, 60, resource, VehiculePositionningGroovy.getVehiculePositionningGroovyScript()));
 		system.getOwnedActor().add(new Actor("DCMotor", 0, 3, 30, resource, DCMotorGroovy.getDCMotorGroovyScript()));
+		resource.getActors().addAll(system.getOwnedActor());
 		return system;
 	}
 	
@@ -59,6 +68,7 @@ public class ButterFlyMain {
 		system.getOwnedActor().add(new Actor("ControllerVehiculePositionning", 0, 7, 60, resource, VehiculePositionningGroovy.getVehiculePositionningGroovyScript()));
 		system.getOwnedActor().add(new Actor("DCMotor", 0, 3, 30, resource, DCMotorGroovy.getDCMotorGroovyScript()));
 		system.getOwnedActor().add(new Actor("Dummy", 0, 1, 15, resource));
+		resource.getActors().addAll(system.getOwnedActor());
 		return system;
 	}
 }

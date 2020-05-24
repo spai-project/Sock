@@ -11,7 +11,7 @@ import fr.inria.kairos.sock.utils.Utils;
 public class TheoremTwo {
 
 	public static List<Interval> classify(Actor actor, Interval busyInterval, boolean isSecondEquation, int n) {
-//		System.out.println(actor.getName() + " " + busyInterval.toString() + " " + isSecondEquation + " " + n);
+		System.out.println(actor.getName() + " " + busyInterval.toString() + " " + isSecondEquation + " " + n);
 		if (!isSecondEquation) {
 			return equationOne(actor, busyInterval, n);
 		} else {
