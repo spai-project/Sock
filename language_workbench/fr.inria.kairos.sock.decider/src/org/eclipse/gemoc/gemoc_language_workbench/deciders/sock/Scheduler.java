@@ -15,21 +15,19 @@ import fr.inria.kairos.sock.dsl.model.sock.Resource;
 
 public class Scheduler implements Comparator<String>{
 
-	private IotSystem system;
-	
 	private Resource resource;
 
 	private List<String> scheduledActorNames;
 
 	private Comparator<Step<?>> priorityComparator;
-
+	
 	private int getIndexOfFromStep(Step<?> step, Predicate<String> predicate) {
 		return scheduledActorNames.indexOf(SockDeciderHelper.getEntityNameFromClockName(
 				SockDeciderHelper.getAllSubStepsNameMatchingPredicate(step, predicate).get(0)));
 	}
 
-	public Scheduler(IotSystem system, Resource resource) {
-		this.system = system;
+	public Scheduler(Resource resource) {
+		this.resource = resource;
 		this.scheduledActorNames = this.initScheduledActorNames();
 		this.priorityComparator = new Comparator<Step<?>>() {
 			@Override
@@ -38,12 +36,20 @@ public class Scheduler implements Comparator<String>{
 						- getIndexOfFromStep(b, SockDeciderChecker.enter.or(SockDeciderChecker.takesOver));
 			}
 		};
-		this.resource = resource;
 	}
 	
 	@Override
 	public int compare(String a, String b) {
-		return this.scheduledActorNames.indexOf(a) - this.scheduledActorNames.indexOf(b);
+		if (this.scheduledActorNames.contains(a) &&
+			this.scheduledActorNames.contains(b)) {
+			return this.scheduledActorNames.indexOf(a) - this.scheduledActorNames.indexOf(b);
+		} else {
+			return this.scheduledActorNames.indexOf(
+						SockDeciderHelper.getEntityNameFromClockName(a)
+					) - this.scheduledActorNames.indexOf(
+							SockDeciderHelper.getEntityNameFromClockName(b)
+					);
+		}
 	}
 	
 	public Comparator<Step<?>> getComparator() {
@@ -51,7 +57,7 @@ public class Scheduler implements Comparator<String>{
 	}
 
 	private List<String> initScheduledActorNames() {
-		return this.system.getOwnedActor().stream().sorted(new Comparator<Actor>() {
+		return this.resource.getActor().stream().sorted(new Comparator<Actor>() {
 			@Override
 			public int compare(Actor a, Actor b) {
 				return a.getPeriodTime() - b.getPeriodTime();

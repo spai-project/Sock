@@ -72,29 +72,63 @@ public class SockDeciderChecker {
 	
 	private static final String TAKES_OVER_ACTOR_EVENT = "_takesOverActorEvent";
 	
+	private static final String AN_ACTOR_IS_TAKEN_OVER_RESOURCE_EVENT = "_anActorIsTakenOverByAnotherOneResourceEvent";
+	
 	private static final String PROCESS_ACTOR_EVENT = "_processActorEvent";
+	
+	private static final String IS_PROCESSED_RESOURCE_EVENT = "_isProcessedResourceEvent";
 	
 	private static final String REQUEST_EVENT_ACTOR_EVENT = "_requestActorEvent";
 	
-	private static final String ENTER_IN_EVENT_ACTOR_EVENT = "_enterActorEvent";
+	private static final String IS_ENTERED_RESOURCE_EVENT = "_isEnteredResourceEvent";
+	
+	private static final String ENTER_IN_ACTOR_EVENT = "_enterActorEvent";
 	
 	private static final String BUTTERFLY_ATTACK_ACTOR_EVENT = "_butterflyAttackActorEvent";
 	
 	private static final String PERIOD_START_ACTOR_EVENT = "_periodStartActorEvent";
 	
+	private static final String CLEAN_RESOURCE_EVENT = "_cleanResourceEvent";
+	
+	private static final String IS_EXITED_RESOURCE_EVENT = "_isExitedResourceEvent";
+	
+	private static final String EXIT_ACTOR_EVENT = "_exitActorEvent";
+	
+	private static final String TASK_COMPLETED_ACTOR_EVENT = "_taskCompletedActorEvent";
+	
+	private static final String SENSIBLE_ACTOR_EVENT = "SensibleActorEvent";
+	
+	public static final Predicate<String> sensible = name -> name.endsWith(SENSIBLE_ACTOR_EVENT);
+	
+	public static final Predicate<String> taskCompleted = name -> name.endsWith(TASK_COMPLETED_ACTOR_EVENT);
+	
 	public static final Predicate<String> periodStart = name -> name.endsWith(PERIOD_START_ACTOR_EVENT);
 	
 	public static final Predicate<String> butterflyAttack = name -> name.endsWith(BUTTERFLY_ATTACK_ACTOR_EVENT);
 	
-	public static final Predicate<String> enter = name -> name.endsWith(ENTER_IN_EVENT_ACTOR_EVENT);
+	public static final Predicate<String> enter = name -> name.endsWith(ENTER_IN_ACTOR_EVENT);
+	
+	public static final Predicate<String> isEntered = name -> name.endsWith(IS_ENTERED_RESOURCE_EVENT);
 	
 	public static final Predicate<String> request = name -> name.endsWith(REQUEST_EVENT_ACTOR_EVENT);
 	
 	public static final Predicate<String> process = name -> name.endsWith(PROCESS_ACTOR_EVENT);
 	
+	public static final Predicate<String> isProcessed = name -> name.endsWith(IS_PROCESSED_RESOURCE_EVENT);
+	
+	public static final Predicate<String> anActorIsTakenOver = name -> name.endsWith(AN_ACTOR_IS_TAKEN_OVER_RESOURCE_EVENT); 
+	
 	public static final Predicate<String> takesOver = name -> name.endsWith(TAKES_OVER_ACTOR_EVENT);
 	
-	public static final Predicate<String> isTakenOver= name -> name.endsWith(IS_TAKEN_OVER_ACTOR_EVENT);
+	public static final Predicate<String> isTakenOver = name -> name.endsWith(IS_TAKEN_OVER_ACTOR_EVENT);
+	
+	public static final Predicate<String> timeEvent = name -> name.endsWith(IDLE_TIME_EVENT);
+	
+	public static final Predicate<String> clean = name -> name.endsWith(CLEAN_RESOURCE_EVENT);
+	
+	public static final Predicate<String> isExited = name -> name.endsWith(IS_EXITED_RESOURCE_EVENT);
+	
+	public static final Predicate<String> exited = name -> name.endsWith(EXIT_ACTOR_EVENT);
 	
 	public static final Predicate<String> isIdle = name ->
 				name.endsWith(IDLE_ACTOR_EVENT) ||
